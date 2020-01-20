@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/jtucci1210/dungeons-and-management#readme",
   "dependencies": {
-<<<<<<< HEAD
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
@@ -33,9 +32,7 @@
     "validator": "^12.1.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
-=======
+    "nodemon": "^2.0.2",
     "concurrently": "^5.0.2"
->>>>>>> frontendAuth
   }
 }
