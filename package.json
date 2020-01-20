@@ -4,6 +4,9 @@
   "description": "D&M ReadMe",
   "main": "app.js",
   "scripts": {
+    "frontend-install": "npm install --prefix frontend",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/jtucci1210/dungeons-and-management/issues"
   },
-  "homepage": "https://github.com/jtucci1210/dungeons-and-management#readme"
+  "homepage": "https://github.com/jtucci1210/dungeons-and-management#readme",
+  "dependencies": {
+    "concurrently": "^5.0.2"
+  }
 }
