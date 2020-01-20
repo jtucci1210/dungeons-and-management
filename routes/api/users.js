@@ -11,10 +11,6 @@ const validateLoginInput = require('../../validation/login');
 const User = require('../../models/User');
 const keys = require('../../config/keys');
 
-router.get("/test", (req, res) => {
-    res.json({ msg: "This is the users route" })
-});
-
 //Passport Authentication
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.json({
