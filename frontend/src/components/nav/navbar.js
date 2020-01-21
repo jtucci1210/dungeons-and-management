@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import '../../stylesheet/nav_bar.css'
+import '../../stylesheet/css_reset.css'
+import SignUpFormContainer from '../session/signup_form_container';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -19,14 +21,15 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div>
-                    <p>Welcome to Dungeons and Management</p>
+                    <p className="nav-bar-greeting message">Welcome to Dungeons and Management</p>
                     <button onClick={this.logoutUser}>Logout</button>
                 </div>
             );
         } else {
             return (
                 <div className="nav-bar-login-signup">
-                    <Link to={'/signup'} className="nav-bar-signup">Signup</Link>
+                    {/* <Link to={'/signup'} className="nav-bar-signup">Signup</Link> */}
+                    <button onClick={()=>(<SignUpFormContainer/>)}>Signup</button>
                     <Link to={'/login'} className='nav-bar-login'>Login</Link>
                 </div>
             );
@@ -36,7 +39,9 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className="nav-bar">
-                <h1>Dungeons and Management</h1>
+                <Link className="nav-bar-title" to='/'>
+                    <h1 className='nav-bar-page-title'>Dungeons and Management</h1>
+                </Link>
                 {this.getLinks()}
             </div>
         );

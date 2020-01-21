@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import '../../stylesheet/modal.css'
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -40,7 +41,8 @@ class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         };
-        this.props.login(user);
+        // this.props.login(user);
+        this.props.processForm(user).then(this.props.closeModal);
     }
 
     // Render the session errors if there are any

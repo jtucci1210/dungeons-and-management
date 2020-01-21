@@ -1,15 +1,41 @@
 .nav-bar {
+    background-color: #173514;
     display: flex;
-    background-color: red;
     justify-content: space-between;
     width: 100%;
+    color: #A6C8BC;
+    padding: 5px;
+
+}
+
+
+.nav-bar-page-title {
+    font-size: 50px;
+    padding: 10px;
 }
 
 .nav-bar-login-signup{
-    background-color: green;
     align-content: center;
-    width: 100px;
+    width: 200px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    color: #A6C8BC;
+    text-decoration: none;
+}
+
+    .nav-bar-signup,
+    .nav-bar-login {
+        font-size: 22px;
+        color: #A6C8BC;
+        text-decoration: none;
+    }
+
+.nav-bar-title{
+    text-decoration: none;
+    color: #A6C8BC;
+}
+    
+.modal-background {
+    
 }
