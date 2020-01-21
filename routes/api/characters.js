@@ -5,6 +5,7 @@ const router = express.Router();
 //Files
 const Character = require("../../models/Character")
 const validCreateCharInput = require('../../validation/create-character')
+const User = require('../../models/User');
 
 
 
@@ -15,24 +16,27 @@ router.post("/create", (req, res) => {
         return res.status(400).json(errors);
     }
 
-    const newChar = new Character({
-        name: req.body.name,
-        race: req.body.race,
-        charClass: req.body.charClass,
-        armorType: req.body.armorType,
+    User.findOne({ email: 'superman@gmail.com' }).then(user => {
+        const newChar = new Character({
+            userId: user.id,
+            name: req.body.name,
+            race: req.body.race,
+            charClass: req.body.charClass,
+            armorType: req.body.armorType,
+    
+            level: req.body.level,
+            maxHp: req.body.maxHp,
+            currentHp: req.body.currentHp,
+    
+            abilities: req.body.abilities,
+            skills: req.body.skills
+        })
+        newChar.save()
 
-        level: req.body.level,
-        maxHp: req.body.maxHp,
-        currentHp: req.body.currentHp,
+        res.json({
+            char: newChar
+        })
 
-        abilities: req.body.abilities,
-        skills: req.body.skills
-    })
-
-    newChar.save()
-
-    res.json({
-        char: newChar
     })
 });
 

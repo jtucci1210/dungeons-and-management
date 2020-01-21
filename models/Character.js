@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const CharacterSchema = new Schema({
     //User Info
     userId: {
-        type: Schema.ObjectId
-        // required: true
+        type: Schema.ObjectId,
+        required: true
     },
 
     //Character Info
