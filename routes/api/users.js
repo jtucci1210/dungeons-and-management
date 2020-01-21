@@ -15,7 +15,7 @@ const keys = require('../../config/keys');
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.json({
         id: req.user.id,
-        handle: req.user.handle,
+        username: req.user.username,
         email: req.user.email
     });
 })
@@ -33,7 +33,7 @@ router.post("/register", (req, res) => {
             return res.status(400).json(errors);
         } else {
             const newUser = new User({
-                handle: req.body.handle,
+                username: req.body.username,
                 email: req.body.email,
                 password: req.body.password
             });
