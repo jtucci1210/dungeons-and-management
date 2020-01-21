@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-// import './navbar.css'
+import '../../stylesheet/nav_bar.css'
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -35,7 +35,7 @@ class NavBar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="nav-bar">
                 <h1>Dungeons and Management</h1>
                 {this.getLinks()}
             </div>
