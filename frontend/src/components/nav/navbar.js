@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import '../../stylesheet/nav_bar.css'
 import '../../stylesheet/css_reset.css'
 import SignUpFormContainer from '../session/signup_form_container';
+import { openModal } from '../../actions/modal_actions';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -29,8 +30,9 @@ class NavBar extends React.Component {
             return (
                 <div className="nav-bar-login-signup">
                     {/* <Link to={'/signup'} className="nav-bar-signup">Signup</Link> */}
-                    <button onClick={()=>(<SignUpFormContainer/>)}>Signup</button>
-                    <Link to={'/login'} className='nav-bar-login'>Login</Link>
+                    <button onClick={()=>this.props.openModal('signup')}>Signup</button>
+                    <button onClick={()=>this.props.openModal('login')}>Login</button>
+                    {/* <Link to={'/login'} className='nav-bar-login'>Login</Link> */}
                 </div>
             );
         }

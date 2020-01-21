@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
 import SignUpFormContainer from '../session/signup_form_container';
 import { closeModal } from '../../actions/modal_actions';
+import '../../stylesheet/modal.css'
 
 
 
@@ -13,7 +14,7 @@ function Modal({modal, closeModal}) {
     }
     let component;
     switch(modal) {
-        case 'logout':
+        case 'login':
             component = <LoginFormContainer />;
             break;
         case 'signup':
