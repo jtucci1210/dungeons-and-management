@@ -41,8 +41,8 @@ class SignupForm extends React.Component {
             password: this.state.password,
             password2: this.state.password2
         };
-        this.props.action(user).then(this.props.closeModal)
-        this.props.signup(user, this.props.history);
+        this.props.signup(user).then(this.props.closeModal)
+        this.props.login(user, this.props.history);
     }
 
     renderErrors() {
@@ -64,15 +64,15 @@ class SignupForm extends React.Component {
                     <div className="signup-form">
                         <br />
                         <input type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"
-                        />
-                        <br />
-                        <input type="text"
                             value={this.state.handle}
                             onChange={this.update('handle')}
                             placeholder="Username"
+                        />
+                        <br />
+                        <input type="text"
+                            value={this.state.email}
+                            onChange={this.update('email')}
+                            placeholder="Email"
                         />
                         <br />
                         <input type="password"
