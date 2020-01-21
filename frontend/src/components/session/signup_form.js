@@ -6,7 +6,7 @@ class SignupForm extends React.Component {
         super(props);
         this.state = {
             email: '',
-            username: '',
+            handle: '',
             password: '',
             password2: '',
             errors: {}
@@ -34,8 +34,11 @@ class SignupForm extends React.Component {
             password2: this.state.password2
         };
         this.props.signup(user)
+        
         if (this.props.errors.length > 0) {
             this.props.closeModal()
+        } else {
+            this.renderErrors()
         }
             // .then(this.props.closeModal)
     }

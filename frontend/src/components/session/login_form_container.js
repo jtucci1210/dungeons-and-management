@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 import LoginForm from './login_form';
-import React from 'react'
 import {openModal, closeModal} from '../../actions/modal_actions'
 
 const mapStateToProps = (state) => {
@@ -16,13 +15,6 @@ const mapDispatchToProps = (dispatch) => {
         login: (user) => dispatch(login(user)),
         openModal: modal => dispatch(openModal(modal)),
         closeModal: () => dispatch(closeModal())
-        // otherForm: (
-        //     <button className='modal-background' onClick={() => dispatch(openModal('signup'))}>
-        //         Signup
-        //     </button>
-        // ),
-        // closeModal: () => dispatch(closeModal())
-        // login: user => dispatch(login(user))
     }
 }
 
