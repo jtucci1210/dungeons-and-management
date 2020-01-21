@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const CharacterSchema = new Schema({
     //User Info
     userId: {
-        type: Schema.ObjectId,
-        required: true
+        type: Schema.ObjectId
+        // required: true
     },
 
     //Character Info
@@ -17,18 +17,14 @@ const CharacterSchema = new Schema({
         type: String,
         required: true
     },
-    subrace: {
-        type: String
-    },
-    class: {
+    charClass: {
         type: String,
         required: true
     },
     subclass: {
-        type: String,
-        required: true
+        type: String
     },
-    armortype: {
+    armorType: {
         type: String,
         required: true
     },
