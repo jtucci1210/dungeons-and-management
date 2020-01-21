@@ -37,6 +37,7 @@ export const signup = user => dispatch => (
         .catch(err => {
             dispatch(receiveErrors(err.response.data));
         })
+    
 )
 
 
