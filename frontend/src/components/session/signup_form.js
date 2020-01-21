@@ -6,10 +6,10 @@ class SignupForm extends React.Component {
         super(props);
         this.state = {
             email: '',
-            username: '',
+            handle: '',
             password: '',
             password2: '',
-            errors: {}
+            errors: []
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,10 +34,10 @@ class SignupForm extends React.Component {
             password2: this.state.password2
         };
         this.props.signup(user)
-        if (this.props.errors.length > 0) {
-            this.props.closeModal()
-        }
-            // .then(this.props.closeModal)
+            .then( res => {
+                if (!res.errors) {
+                    this.props.closeModal()
+            }})
     }
 
 
@@ -53,17 +53,6 @@ class SignupForm extends React.Component {
             </ul>
         );
     }
-    // renderErrors() {
-    //     return (
-    //         <ul>
-    //             {Object.keys(this.state.errors).map((error, i) => (
-    //                 <li key={`error-${i}`}>
-    //                     {this.state.errors[error]}
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     );
-    // }
 
     render() {
         return (
