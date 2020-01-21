@@ -16,15 +16,15 @@ class SignupForm extends React.Component {
         this.clearedErrors = false;
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.signedIn === true) {
-            this.props.history.push('/');
-            // this.props.login();
-            // this.props.history.push('/');
-        }
+    // componentWillReceiveProps(nextProps) {
+    //     if (nextProps.signedIn === true) {
+    //         this.props.history.push('/');
+    //         // this.props.login();
+    //         // this.props.history.push('/');
+    //     }
 
-        this.setState({ errors: nextProps.errors })
-    }
+    //     this.setState({ errors: nextProps.errors })
+    // }
     
 
     update(field) {
@@ -33,6 +33,12 @@ class SignupForm extends React.Component {
         });
     }
 
+    // handleSubmit(e) {
+    //     e.preventDefault();
+    //     let user = Object.assign({}, this.state)
+    //     this.props.signup(user).then(this.props.closeModal)
+    //     this.props.login(user, this.props.history);
+    // }
     handleSubmit(e) {
         e.preventDefault();
         let user = {
@@ -41,21 +47,33 @@ class SignupForm extends React.Component {
             password: this.state.password,
             password2: this.state.password2
         };
-        this.props.signup(user).then(this.props.closeModal)
-        this.props.login(user, this.props.history);
+        this.props.signup(user)
+            .then(this.props.closeModal)
+            .then(this.props.login(user, this.props.history));
     }
 
     renderErrors() {
         return (
             <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
+               {this.props.errors.map((error,idx) => (
+                   <li key={`error-${idx}`}>
+                       {error}
+                   </li>
+               ))}
             </ul>
         );
     }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {Object.keys(this.state.errors).map((error, i) => (
+    //                 <li key={`error-${i}`}>
+    //                     {this.state.errors[error]}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     );
+    // }
 
     render() {
         return (

@@ -16,15 +16,15 @@ class LoginForm extends React.Component {
         this.renderErrors = this.renderErrors.bind(this);
     }
 
-    // Once the user has been authenticated, redirect to the home page
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.currentUser === true) {
-            this.props.history.push('/home');
-        }
+    // // Once the user has been authenticated, redirect to the home page
+    // componentWillReceiveProps(nextProps) {
+    //     if (nextProps.currentUser === true) {
+    //         this.props.history.push('/home');
+    //     }
 
-        // Set or clear errors
-        this.setState({ errors: nextProps.errors })
-    }
+    //     // Set or clear errors
+    //     this.setState({ errors: nextProps.errors })
+    // }
 
    
     update(field) {
@@ -37,11 +37,13 @@ class LoginForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        let user = {
+        const user = {
             email: this.state.email,
             password: this.state.password
         };
-        this.props.login(user).then(this.props.closeModal);
+        this.props.login(user)
+            // .then(this.props.closeModal)
+            .then(() => this.props.history.push('/'))
     }
 
     // Render the session errors if there are any
@@ -61,6 +63,9 @@ class LoginForm extends React.Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
+                    <div className="login-errors">
+                        {this.renderErrors()}
+                    </div>
                     <div>
                         <input type="text"
                             value={this.state.email}
