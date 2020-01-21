@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import '../../stylesheet/nav_bar.css'
 import '../../stylesheet/css_reset.css'
-import SignUpFormContainer from '../session/signup_form_container';
-import { openModal } from '../../actions/modal_actions';
 
 class NavBar extends React.Component {
     constructor(props) {

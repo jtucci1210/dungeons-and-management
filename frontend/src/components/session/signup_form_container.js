@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
-import { signup } from '../../actions/session_actions';
+import { signup, login } from '../../actions/session_actions';
 import SignupForm from './signup_form';
-import { openModal, closeModal } from '../../actions/modal_actions';
-import React from 'react'
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ errors }) => {
     return {
@@ -14,12 +13,14 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => {
     return {
         action: (user) => dispatch(signup(user)),
-        otherForm: (
-            <button onClick={() => dispatch(openModal('login'))}>
-                Log In
-             </button>
-        ),
-        closeModal: () => dispatch(closeModal())
+        processForm: (user) => dispatch(login(user)),
+        openModal: modal => dispatch(openModal(modal)),
+        // otherForm: (
+        //     <button onClick={() => dispatch(openModal('login'))}>
+        //         Log In
+        //      </button>
+        // ),
+        // closeModal: () => dispatch(closeModal())
     };
 };
 

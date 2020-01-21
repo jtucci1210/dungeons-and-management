@@ -26,7 +26,7 @@ class LoginForm extends React.Component {
         this.setState({ errors: nextProps.errors })
     }
 
-    // Handle field updates (called in the render method)
+   
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -41,7 +41,6 @@ class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         };
-        // this.props.login(user);
         this.props.processForm(user).then(this.props.closeModal);
     }
 
