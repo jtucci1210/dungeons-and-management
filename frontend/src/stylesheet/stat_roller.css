@@ -41,4 +41,43 @@
     margin-bottom: 10px;
     cursor: pointer;
     text-transform: uppercase;
+    outline: none;
+}
+
+.dd-wrapper {
+    height: auto;
+    width: auto;
+    background-color: white;
+    border: 1px solid lightgray;
+    display: block;
+    z-index: 1;
+}
+
+.dd-header {
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+.dd-header:hover {
+    cursor: pointer;
+}
+
+.dd-header-title {
+
+}
+
+.dd-list {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+}
+
+.dd-list-item {
+    text-transform: capitalize;
+    margin: 5px;
+}
+
+.dd-list-item:Hover {
+    background-color: green;
+    cursor: pointer;
 }
