@@ -1,6 +1,7 @@
 import React from 'react';
 import * as diceUtil from '../../../util/dice_util';
 import { abilityScores } from '../../../util/skill_util';
+import '../../../stylesheet/stat_roller.css';
 
 class StatRoller extends React.Component {
     constructor(props) {
@@ -25,21 +26,23 @@ class StatRoller extends React.Component {
     render() {
 
         return (
-            <div>
-                {
-                    abilityScores.map( (ability, idx) => (
-                        <div key={idx}>
-                            <h1>{ability}</h1>
-                            <div>
-                                <i className="fas fa-dice-six"></i>
+            <div className="stat-roller-container">
+                <div className="stat-roller-boxes">
+                    {
+                        abilityScores.map( (ability, idx) => (
+                            <div className="ability-box" key={idx}>
+                                <h1 className="ability-name">{ability}</h1>
+                                <div>
+                                    <i className="fas fa-dice-six"></i>
+                                </div>
+                                <div>
+                                    {this.state[ability]}
+                                </div>
                             </div>
-                            <div>
-                                {this.state[ability]}
-                            </div>
-                        </div>
-                    ))
-                }
-                <button onClick={this.rollStats}>Generate</button>
+                        ))
+                    }
+                </div>
+                <button className="generate-button" onClick={this.rollStats}>Generate</button>
             </div>
         )
 
