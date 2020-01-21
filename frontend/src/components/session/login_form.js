@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import '../../stylesheet/modal.css'
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -16,16 +17,16 @@ class LoginForm extends React.Component {
     }
 
     // Once the user has been authenticated, redirect to the home page
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.currentUser === true) {
-            this.props.history.push('/home');
-        }
+    // componentWillReceiveProps(nextProps) {
+    //     if (nextProps.currentUser === true) {
+    //         this.props.history.push('/home');
+    //     }
 
-        // Set or clear errors
-        this.setState({ errors: nextProps.errors })
-    }
+    //     // Set or clear errors
+    //     this.setState({ errors: nextProps.errors })
+    // }
 
-    // Handle field updates (called in the render method)
+   
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -36,20 +37,23 @@ class LoginForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        let user = {
+        const user = {
             email: this.state.email,
             password: this.state.password
         };
-        this.props.login(user);
+        this.props.login(user)
+        if (this.props.errors.length > 0) {
+            this.props.closeModal()
+        }
+           
     }
 
-    // Render the session errors if there are any
     renderErrors() {
         return (
             <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {this.state.errors[error]}
+                {this.props.errors.map((error, idx) => (
+                    <li key={`error-${idx}`}>
+                        {error}
                     </li>
                 ))}
             </ul>
@@ -74,7 +78,9 @@ class LoginForm extends React.Component {
                         />
                         <br />
                         <input type="submit" value="Submit" />
-                        {this.renderErrors()}
+                        <div className="login-errors">
+                            {this.renderErrors()}
+                        </div>
                     </div>
                 </form>
             </div>

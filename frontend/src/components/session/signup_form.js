@@ -6,7 +6,7 @@ class SignupForm extends React.Component {
         super(props);
         this.state = {
             email: '',
-            handle: '',
+            username: '',
             password: '',
             password2: '',
             errors: {}
@@ -16,15 +16,6 @@ class SignupForm extends React.Component {
         this.clearedErrors = false;
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.signedIn === true) {
-            this.props.history.push('/');
-            // this.props.login();
-            // this.props.history.push('/');
-        }
-
-        this.setState({ errors: nextProps.errors })
-    }
     
 
     update(field) {
@@ -33,6 +24,7 @@ class SignupForm extends React.Component {
         });
     }
 
+   
     handleSubmit(e) {
         e.preventDefault();
         let user = {
@@ -41,21 +33,37 @@ class SignupForm extends React.Component {
             password: this.state.password,
             password2: this.state.password2
         };
-
-        this.props.signup(user, this.props.history);
+        this.props.signup(user)
+        if (this.props.errors.length > 0) {
+            this.props.closeModal()
+        }
+            // .then(this.props.closeModal)
     }
+
+
 
     renderErrors() {
         return (
             <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
+               {this.props.errors.map((error,idx) => (
+                   <li key={`error-${idx}`}>
+                       {error}
+                   </li>
+               ))}
             </ul>
         );
     }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {Object.keys(this.state.errors).map((error, i) => (
+    //                 <li key={`error-${i}`}>
+    //                     {this.state.errors[error]}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     );
+    // }
 
     render() {
         return (
@@ -64,15 +72,15 @@ class SignupForm extends React.Component {
                     <div className="signup-form">
                         <br />
                         <input type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"
+                            value={this.state.handle}
+                            onChange={this.update('handle')}
+                            placeholder="Username"
                         />
                         <br />
                         <input type="text"
-                            value={this.state.handle}
-                            onChange={this.update('handle')}
-                            placeholder="Handle"
+                            value={this.state.email}
+                            onChange={this.update('email')}
+                            placeholder="Email"
                         />
                         <br />
                         <input type="password"
