@@ -98,7 +98,7 @@ class RaceAndClass extends React.Component {
                                        ?
                                         Object.keys(raceObject.abilityScores).map ( (ability,idx) =>
                                             <div key={idx} className="race-abilities">
-                                                <div>{ability}</div>
+                                                <div className="race-ability-name">{ability}</div>
                                                 <div>{raceObject.abilityScores[ability]}</div>
                                             </div>
                                         )

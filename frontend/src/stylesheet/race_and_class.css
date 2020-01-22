@@ -208,7 +208,7 @@
 
 .racial-modifiers {
     border: solid black 1px;
-    width: 420px;
+    width: 450px;
     height: 100px;
     margin: 10px;
     position: absolute;
@@ -216,12 +216,20 @@
     justify-self: center;
     align-self: center;
     display: flex;
+    left: 225px
 }
 
 .race-abilities {
     display: flex;
-    width: 50px;
+    width: 75px;
     height: 50px;
     border: 1px solid black;
     flex-direction: column;
+    font-size: 14px;
+}
+
+.race-ability-name {
+    text-align: center;
+    padding: 2px;
+    font-weight: bold;
 }
