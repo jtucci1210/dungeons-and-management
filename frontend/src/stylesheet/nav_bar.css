@@ -5,13 +5,24 @@
     width: 100%;
     color: #A6C8BC;
     padding: 5px;
+    align-items: center;
+}
+
+.nav-bar-logo {
+    background-color: hotpink;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
 
 }
 
-
+.nav-bar-signed-in{
+    display: contents;
+}
 .nav-bar-page-title {
     font-size: 50px;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 .nav-bar-login-signup{
