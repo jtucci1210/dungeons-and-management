@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    
+    // retrieveCharacters: () => dispatch(retrieveCharacters())
 })
 
 export default connect(

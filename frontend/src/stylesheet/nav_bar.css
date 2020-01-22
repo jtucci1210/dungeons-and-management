@@ -19,7 +19,7 @@
 }
 
 .nav-bar-signed-in{
-    display: contents;
+    display: inline-flex;
 }
 .nav-bar-page-title {
     font-size: 50px;
@@ -65,4 +65,28 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.nav-bar-greeting-message {
+    font-size: 20px;
+}
+
+.nav-bar-tutorial-button {
+    /* background-color: #5aa1a3; */
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 140px;
+    font-size: 20px;
+    vertical-align: center;
+}
+
+.nav-bar-tutorial-button:hover {
+    background-color: rgb(183, 245, 90);
+    color:black;
+}
+
+.nav-bar-logout-button {
+    height: fit-content;
+    padding: 0px 5px
 }

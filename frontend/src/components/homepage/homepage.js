@@ -7,29 +7,50 @@ class HomePage extends React.Component {
         super(props);
     }
 
+    characterInfo() {
+        const characters = [
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' }, { name: 'character2', race: 'Elf', health: 40, class: 'rogue' }, { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' }
+        ];
+
+        return (
+            <div className="index-characters">
+                {characters.map((character, i) => (
+                    <div key={`character-${i}`} className="index-characters-character-info">
+                        <div className='character-box'>
+                            <div className="character-name-index">
+                                <h3> Character Name: </h3> {character.name}
+                            </div>
+                            <div className="character-image-index">
+                                <div className='character-image'>Img placeholder</div>
+                                <div className="character-image-health-index">
+                                    Health: {character.health}
+                                </div>
+                            </div>
+                            <div className="character-race-index">
+                                <h3>Race: </h3>  {character.race}
+                            </div>
+                            <div className="character-class-index">
+                                <h3>Class: </h3> {character.class}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+                <div>
+                    <Link to={`/`} className="home-page-create-character">
+                        <div className="home-page-create-character-text"> + </div>
+                    </Link>
+                </div>    
+            </div>
+        )
+    }
     
 
     render() {
-        const characters = [
-            "character1", 
-            "character2", 
-            "character3", 
-            "character4", 
-            "character5", 
-            "character6" ];
+        
         return (
             <div className="home-page-main-box">
                     <div className="home-page-characters">
-                        {characters.map((character, i) => (
-                            <ul className="login-characters" key={`character-${i}`}>
-                                {character}
-                            </ul>
-                        ))}
-                        <div>
-                            <Link to={`/`} className="home-page-create-character">
-                                <div className="home-page-create-character"> + </div>
-                            </Link>
-                        </div>    
+                        {this.characterInfo()}
                     </div>
                     <div className="home-page-campaign-box">
                         <div className="home-page-campaign-title">
