@@ -10,15 +10,14 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-   
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return {
                 ...state,
                 isAuthenticated: !!action.currentUser,
                 // handle: action.handle,
-                // email: action.email,
-                // username: action.username
+                email: action.email,
+                username: action.username
             };
         case RECEIVE_USER_LOGOUT:
             return {

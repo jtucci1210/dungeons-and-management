@@ -18,7 +18,7 @@
   height: 350px;
   display: flex;
   justify-content: center;
-  background-color: #ddd;
+  background-color: #173514;
   border-radius: 10px;
   max-width: 100%;
   max-height: 100%;
@@ -27,3 +27,4 @@
   height: auto;
   width: auto;
 }
+
