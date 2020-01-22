@@ -58,7 +58,7 @@ class StatRoller extends React.Component {
                                 <h1 className="ability-name">{ele}</h1>
 
                                 <div className="dice">
-                                    <i className="fas fa-dice-six"></i>
+                                    <i className={this.state.statsRolled ? "fas fa-dice-six" : "fas fa-dice-six fa-spin"}></i> 
                                 </div>
                                 <div className="stat-roll">
                                     {this.state.rolls[idx]}
