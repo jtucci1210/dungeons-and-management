@@ -7,6 +7,7 @@ const passport = require('passport');
 //File Imports
 const users = require("./routes/api/users");
 const characters = require("./routes/api/characters")
+const campaigns = require("./routes/api/campaigns")
 
 //Setup
 const app = express();
@@ -25,3 +26,4 @@ require('./config/passport')(passport);
 //Routes
 app.use("/api/users", users);
 app.use("/api/characters", characters);
+app.use("/api/campaigns", campaigns);
