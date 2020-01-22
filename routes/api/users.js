@@ -19,6 +19,7 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
         email: req.user.email
     });
 })
+
 //Register New Users
 router.post("/register", (req, res) => {
     debugger;
