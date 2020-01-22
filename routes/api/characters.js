@@ -5,14 +5,13 @@ const router = express.Router();
 //Files
 const Character = require("../../models/Character")
 const validCreateCharInput = require('../../validation/create-character')
-// const User = require('../../models/User');
 
-//Return list of all characters
-router.get("/", (req, res) => {
-    User.findOne({ email: 'superman@gmail.com' }).then(user => {
+//Return list of all characters for a user
+// router.get("/", (req, res) => {
+//     User.findOne({ email: 'superman@gmail.com' }).then(user => {
         
-    })
-}) 
+//     })
+// }) 
 
 //Create New Character
 router.post("/create", (req, res) => {
