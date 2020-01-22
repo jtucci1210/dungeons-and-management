@@ -25,6 +25,7 @@
         position: fixed;
         right: 0px;
         top: 100px;
+        margin: 20px;
     }
 
         .home-page-campaign-links {
@@ -46,6 +47,7 @@
     /* max-height: -webkit-fill-available; */
     top:100px;
     overflow: visible;
+    margin: 20px;
 }
 
 .home-page-create-character {
