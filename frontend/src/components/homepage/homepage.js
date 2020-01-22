@@ -26,7 +26,7 @@ class HomePage extends React.Component {
                             </ul>
                         ))}
                         <div>
-                        <Link to={`/`} className="home-page-create-character">
+                            <Link to={`/`} className="home-page-create-character">
                                 <div className="home-page-create-character"> + </div>
                             </Link>
                         </div>    
@@ -36,12 +36,21 @@ class HomePage extends React.Component {
                             Campaign Menu
                         </div>
                         <div className="home-page-campaign-links">
+                            <div className='home-page-campaign-start'>
+                                <button className='home-page-campaign-start'>
+                                    Start
+                                </button>
+                                <form className>
+                                    <label>
+                                        <input type="text"
+                                        placeholder="Lobby Number"
+                                        />
+                                    </label>
+                                </form>
                             <button className='home-page-campaign-join'>
                                 Join
                             </button>
-                            <button className='home-page-campaign-start'>
-                                Start
-                            </button>
+                            </div>
                         </div>
                     </div>
             </div>

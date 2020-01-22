@@ -60,7 +60,7 @@
 
 .home-page-campaign-join,
 .home-page-campaign-start{
-    display: block;
+    display: flex;
     margin: auto;
 }
 
