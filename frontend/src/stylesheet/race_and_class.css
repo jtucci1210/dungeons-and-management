@@ -1,0 +1,8 @@
+.race-and-class-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.race-and-class {
+    display: flex;
+}
