@@ -11,7 +11,7 @@ const App = () => (
         <Modal/>
         <NavBarContainer />
         <Switch>
-            <AuthRoute exact path="/login" component={SplashPage} />
+            <AuthRoute exact path="/" component={SplashPage} />
             <ProtectedRoute exact path='/home' component={HomePage} />
             {/* <AuthRoute exact path="/login" component={LoginFormContainer} /> */}
             {/* <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
