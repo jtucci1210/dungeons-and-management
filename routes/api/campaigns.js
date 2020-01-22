@@ -41,4 +41,22 @@ router.patch("/:id/join", (req, res) => {
     })
 });
 
+//Remove a character from a campaign
+router.patch("/:id/leave", (req, res) => {
+    Campaign.findById(req.params.id).then(camp => {
+        charIdx = camp.characters.indexOf('req.body.character.id')
+        camp.characters.splice(charIdx, 1);
+        camp.save();
+        res.json(camp);
+    })
+});
+
+//Delete a campaign
+router.delete('/:id', (req, res) => {
+    Campaign.findById(req.params.id).then(camp => {
+        camp.delete();
+        res.json("Success")
+    })
+});
+
 module.exports = router;
