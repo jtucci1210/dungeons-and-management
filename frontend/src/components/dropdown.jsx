@@ -21,6 +21,13 @@ class DropDown extends React.Component {
         }))
     }
 
+    // window.onclick = function (event) {
+    //     if (!event.target.matches('.dd-list') && this.state.listOpen === true) {
+    //         this.toggleList
+    //     }
+    // }
+
+
     render() {
         const { list } = this.props
         const { listOpen, headerTitle } = this.state

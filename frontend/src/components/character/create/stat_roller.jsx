@@ -24,7 +24,6 @@ class StatRoller extends React.Component {
                 rolls: rolls
             }
         )
-        // debugger
     }
 
     handleClick(id, ability) {
@@ -42,7 +41,6 @@ class StatRoller extends React.Component {
             abilities: temp,
             roll: temp2
         })
-        // debugger
     }
 
     render() {
