@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import '../../stylesheet/homepage.css'
+import splashImg from './splash_image.jpg'
+
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -76,6 +78,9 @@ class HomePage extends React.Component {
                             </div>
                         </div>
                     </div>
+                <div className='main-page-background-img'>
+                    <img src={splashImg} alt="background" className="splash-image" />
+                </div>  
             </div>
         );
     }

@@ -3,8 +3,8 @@
     display: flex;
 }
 
-    .home-page-characters {
-            
+    .main-page-background-img {
+        z-index: -2;
     }
 
     .home-page-campaign-box {
@@ -12,7 +12,7 @@
         display: block;
         width: 25%;
         margin-left: auto;
-        opacity: .8;
+        opacity: .9;
         justify-content: center;
         height: 100px;
         position: fixed;
@@ -24,7 +24,8 @@
         }
 
 .home-page-characters {
-  grid-gap: 10px;
+    position: absolute;
+    grid-gap: 10px;
     padding: 10px;
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
     font-size: 14px;
@@ -33,7 +34,7 @@
     justify-content: space-between;
     background-color:  #66995B;
     /* width: 50%; */
-    opacity: .8;
+    opacity: .9;
 }
 
 .home-page-create-character {
