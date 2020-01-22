@@ -22,12 +22,12 @@ class NavBar extends React.Component {
             const currentUsername = this.props.currentUser.user.username
             return (
                 <div className="nav-bar-signed-in">
-                    <div className='nav-bar-tutorial-button'>
-                        Tutorial Button
-                    </div>
                     <div className="nav-bar-greeting-message">
                         <div className="nav-bar-greeting-message">Welcome {currentUsername}!</div>
                     </div>
+                    <button className='nav-bar-tutorial-button'>
+                        Tutorial
+                    </button>
                     <button onClick={this.logoutUser} className='nav-bar-logout-button'>
                         Logout
                     </button>

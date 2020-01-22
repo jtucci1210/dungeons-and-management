@@ -25,6 +25,7 @@
     justify-content: center;
     /* border: 2px solid brown; */
     align-items: center;
+    padding-right: 30px;
 }
 .nav-bar-page-title {
     font-size: 50px;
@@ -79,31 +80,20 @@
     padding-right: 4px;
 }
 
-.nav-bar-tutorial-button {
-    /* background-color: #5aa1a3; */
-    display: flex;
-    align-items: center;
-    height: 40px;
-    width: 140px;
-    font-size: 20px;
-    vertical-align: center;
+
+.login-signup-button, .nav-bar-logout-button, .nav-bar-tutorial-button {
+    width: 100px;
+    height: 35px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    font-family: Special Elite;
+    font-weight: bolder;
+    box-shadow: 3px 3px 10px black;
+    background-color: #A6C8BC;
 }
 
-.nav-bar-tutorial-button:hover {
+.login-signup-button:hover, .nav-bar-logout-button:hover, .nav-bar-tutorial-button:hover {
     background-color: rgb(183, 245, 90);
     color:black;
-}
-
-.nav-bar-logout-button {
-    height: fit-content;
-    padding: 0px 5px
-}
-.login-signup-button {
-    width: 100px;
-    height: 30px;
-    padding: 10px;
-    border-radius: 5px;
-    font-family: sans-serif;
-    font-weight: bold;
-    box-shadow: 3px 3px 10px black;
 }
