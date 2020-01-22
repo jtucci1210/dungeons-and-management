@@ -44,7 +44,7 @@ class NavBar extends React.Component {
         return (
             <div className="nav-bar">
                 <div className="nav-bar-logo"> Logo </div>
-                <Link className="nav-bar-title" to='/'>
+                <Link className="nav-bar-title" to='/home'>
                     <h1 className='nav-bar-page-title'>Dungeons and Management</h1>
                 </Link>
                 {this.getLinks()}

@@ -38,18 +38,20 @@ class HomePage extends React.Component {
                         <div className="home-page-campaign-links">
                             <div className='home-page-campaign-start'>
                                 <button className='home-page-campaign-start'>
-                                    Start
+                                    Create a Campaign
                                 </button>
-                                <form className>
-                                    <label>
-                                        <input type="text"
-                                        placeholder="Lobby Number"
-                                        />
-                                    </label>
-                                </form>
-                            <button className='home-page-campaign-join'>
-                                Join
-                            </button>
+                                <div className="home-page-lobby-join">
+                                    <form className="home-page-lobby-form">
+                                        <label>
+                                            <input type="text"
+                                            placeholder="Lobby Number"
+                                            />
+                                        </label>
+                                    </form>
+                                    <button className='home-page-campaign-join'>
+                                        Join
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

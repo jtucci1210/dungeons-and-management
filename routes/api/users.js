@@ -21,7 +21,6 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 })
 //Register New Users
 router.post("/register", (req, res) => {
-    debugger;
     const { errors, isValid } = validateRegisterInput(req.body);
 
     if (!isValid) {
@@ -81,8 +80,7 @@ router.post("/login", (req, res) => {
 
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
-                const payload = { id: user.id, email: user.email };
-
+                const payload = { id: user.id, email: user.email, username: user.username };
                 jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                     res.json({
                         success: true,
