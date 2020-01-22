@@ -21,12 +21,10 @@ class DropDown extends React.Component {
         }))
     }
 
-    // window.onclick = function (event) {
-    //     if (!event.target.matches('.dd-list') && this.state.listOpen === true) {
-    //         this.toggleList
-    //     }
-    // }
-
+    clicked(id, ability) {
+        this.props.handleClick(id, ability);
+        this.toggleList();
+    }
 
     render() {
         const { list } = this.props
@@ -42,7 +40,7 @@ class DropDown extends React.Component {
                 </div>
                 {listOpen && <ul className="dd-list">
                     {list.map((item, idx) => (
-                        <li className={`dd-list-item-${item.selected}`} key={idx} onClick={() => this.props.handleClick(item.id, this.props.ability)}>{item.title}</li>
+                        <li className={`dd-list-item-${item.selected}`} key={idx} onClick={() => this.clicked(item.id, this.props.ability)}>{item.title}</li>
                     ))}
                 </ul>}
             </div>
