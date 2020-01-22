@@ -7,11 +7,10 @@ const Character = require("../../models/Character")
 const validCreateCharInput = require('../../validation/create-character')
 
 //Return list of all characters for a user
-// router.get("/", (req, res) => {
-//     User.findOne({ email: 'superman@gmail.com' }).then(user => {
-        
-//     })
-// }) 
+router.get("/user/:user_id", (req, res) => {
+        Character.find({ userId: req.params.user_id })
+            .then(characters => res.json(characters))
+}) 
 
 //Create New Character
 router.post("/create", (req, res) => {
@@ -46,6 +45,11 @@ router.post("/create", (req, res) => {
     })
 });
 
+//Get a single character
+router.get('/:id', (req, res) => {
+    Character.findById(req.params.id)
+        .then(character => res.json(character))
+});
 
 
 module.exports = router;
