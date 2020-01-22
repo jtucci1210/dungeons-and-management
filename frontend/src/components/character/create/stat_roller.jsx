@@ -55,7 +55,7 @@ class StatRoller extends React.Component {
                             <div className="ability-box" key={idx}>
                                 <h1 className="ability-name">{ele}</h1>
 
-                                <div>
+                                <div className="dice">
                                     <i className="fas fa-dice-six"></i>
                                 </div>
                                 <div className="stat-roll">

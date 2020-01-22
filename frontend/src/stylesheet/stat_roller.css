@@ -2,10 +2,11 @@
     border: solid 1px black;
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding: 20px;
     width: 90%;
     height: 250px;
     align-items: center;
+    min-width: 925px;
 }
 
 .stat-roller-boxes {
@@ -24,15 +25,21 @@
     border: solid 1px black;
     padding: 3px;
     width: 120px;
-    height: 150px;
+    height: 180px;
     text-align: center;
     align-items: center;
+    min-width: 140px;
 }
 
 .ability-name {
     text-transform: capitalize;
     font-size: 20px;
-    height: 30px;
+    height: 20px;
+}
+
+.dice {
+    font-size: 45px;
+
 }
 
 .stat-roll {
@@ -65,15 +72,21 @@
     background-color: white;
     border: 1px solid lightgray;
     display: block;
-    position: fixed;
-    top: 280px;
+    position: absolute;
+    top: 320px;
     z-index: 1;
+    min-width: 120px;
 }
 
 .dd-header {
     background-color: white;
     border: 1px solid lightgray;
     padding: 3px 8px;
+    display: flex;
+}
+
+.dd-header i {
+    margin-left: 3px;
 }
 
 .dd-header:hover {
