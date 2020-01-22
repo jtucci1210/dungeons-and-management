@@ -7,9 +7,10 @@
 }
 
     .main-page-background-img {
-        z-index: -2;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+        /* z-index: -2; */
+        /* background-repeat: no-repeat; */
+        /* background-attachment: fixed; */
+        /* width: 100%; */
     }
 
     .home-page-campaign-box {
