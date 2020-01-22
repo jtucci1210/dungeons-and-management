@@ -2,10 +2,11 @@
     background-color: #173514;
     display: flex;
     justify-content: space-between;
-    /* width: 100%; */
+    width: 100%;
     color: #A6C8BC;
     padding: 5px;
     align-items: center;
+    position: fixed;
 }
 
 .nav-bar-logo {
