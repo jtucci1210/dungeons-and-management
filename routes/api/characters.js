@@ -51,5 +51,37 @@ router.get('/:id', (req, res) => {
         .then(character => res.json(character))
 });
 
+//Edit a character
+router.patch('/:id/edit', (req, res) => {
+    Character.findById(req.params.id).then(char => {
+        const { errors, isValid } = validCreateCharInput(req.body);
+
+        if (!isValid) {
+            return res.status(400).json(errors);
+        }
+
+        char.name = req.body.name
+        char.charClass = req.body.charClass
+        char.armorType = req.body.armorType
+
+        char.level = req.body.level
+        char.maxHp = req.body.maxHp
+        char.currentHp = req.body.currentHp
+
+        char.abilities = req.body.abilities
+        char.skills = req.body.skills
+
+        char.save();
+        res.json(char)
+    })
+});
+
+//Delete a character
+router.delete('/:id', (req, res) => {
+    Character.findById(req.params.id).then(char => {
+       char.delete();
+       res.json("Success")
+    })
+});
 
 module.exports = router;

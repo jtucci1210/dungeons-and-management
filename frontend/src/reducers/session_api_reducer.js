@@ -16,7 +16,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 isAuthenticated: !!action.currentUser,
-                handle: action.handle,
+                username: action.username,
                 email: action.email
             };
         case RECEIVE_USER_LOGOUT:
