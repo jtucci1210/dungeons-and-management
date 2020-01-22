@@ -7,7 +7,7 @@ class Splash extends React.Component {
         return (
             <div >
                <div className='main-page-background-img'>
-                    <p>asdfasdf</p>
+                    <p>Splash Page</p>
                </div>
             </div>
         );

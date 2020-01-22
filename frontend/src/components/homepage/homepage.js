@@ -10,20 +10,36 @@ class HomePage extends React.Component {
     
 
     render() {
+        const characters = [
+            "character1", 
+            "character2", 
+            "character3", 
+            "character4", 
+            "character5", 
+            "character6" ];
         return (
             <div className="home-page-main-box">
                     <div className="home-page-characters">
-                        <ul> Character 1</ul>
-                        <ul> Character 2</ul>
-                        <ul> Character 3</ul>
+                        {characters.map((character, i) => (
+                            <ul className="login-characters" key={`character-${i}`}>
+                                {character}
+                            </ul>
+                        ))}
+                        <div>
+                        <Link to={`/`} className="home-page-create-character">
+                                <div className="home-page-create-character"> + </div>
+                            </Link>
+                        </div>    
                     </div>
                     <div className="home-page-campaign-box">
+                        <div className="home-page-campaign-title">
+                            Campaign Menu
+                        </div>
                         <div className="home-page-campaign-links">
-                            <p>Campaign Menu</p>
-                            <button>
+                            <button className='home-page-campaign-join'>
                                 Join
                             </button>
-                            <button>
+                            <button className='home-page-campaign-start'>
                                 Start
                             </button>
                         </div>

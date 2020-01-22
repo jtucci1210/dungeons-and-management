@@ -1,23 +1,66 @@
 
 .home-page-main-box {
-    background-color: indigo;
     display: flex;
 }
 
     .home-page-characters {
-            background-color: bisque;
+            background-color:  #66995B;
             display: flex;
             overflow-wrap: break-word;
             width: 50%;
+            opacity: .8;
     }
 
     .home-page-campaign-box {
-        background-color: lightcoral;
-        display: flex;
+        background-color: #66995B;
+        display: block;
         width: 25%;
         margin-left: auto;
+        opacity: .8;
+        justify-content: center;
     }
 
         .home-page-campaign-links {
             
         }
+
+.home-page-characters {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    min-width: 200px;
+    height: auto;
+    justify-content: space-between;
+}
+
+.home-page-create-character {
+    text-decoration: none;
+    font-size: 40px;
+    color: #C6C8BC;
+    display: flex;
+    justify-content: center;
+    /* min-height: 200px; */
+}
+
+.login-characters{
+    color: rgb(225, 232, 190);
+}
+
+
+.home-page-campaign-title{
+    color: rgb(225, 232, 190);
+    padding: 10px;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+.home-page-campaign-join,
+.home-page-campaign-start{
+    display: block;
+    margin: auto;
+}
+
