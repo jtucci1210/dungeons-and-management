@@ -24,9 +24,9 @@
     border: 1px solid black;
     width: 90%;
     margin: 10px;
-    height: 400px;
+    height: 450px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 
 .race-drop-down {
@@ -90,4 +90,109 @@
 .dd-list-item-Race:Hover {
     background-color: green;
     cursor: pointer;
+}
+
+.race-selector {
+    display: flex;
+    width: 420px;
+    margin: 15px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+}
+
+.race-selector h3 {
+    width: 50px;
+    text-transform: capitalize;
+    margin-right: 20px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.race-blurb {
+    width: 420px;
+    padding: 10px;
+    text-align: justify;
+    min-height: 200px;
+}
+
+.subrace-drop-down {
+    align-self: flex-end;
+}
+.dd-wrapper-Subrace {
+    height: auto;
+    width: auto;
+    background-color: white;
+    border: 1px solid lightgray;
+    display: block;
+    position: absolute;
+    top: 880px;
+    z-index: 1;
+    min-width: 135px;
+}
+
+.dd-header-Subrace {
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 3px 8px;
+    display: flex;
+}
+
+.dd-header-Subrace i {
+    margin-left: 10px;
+}
+
+.dd-header-Subrace:hover {
+    cursor: pointer;
+}
+
+.dd-list-Subrace {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+    background-color: white;
+    border: 1px solid lightgray;
+    position: absolute;
+    min-width: 135px;
+}
+
+.dd-list-item-Subrace {
+    margin: 5px;
+}
+
+.dd-list-item-Subrace.false {
+    text-transform: capitalize;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.dd-list-item-Subrace.true {
+    text-transform: capitalize;
+    margin: 5px;
+    text-decoration: line-through;
+    cursor: pointer;
+    color: grey;
+}
+
+.dd-list-item-Subrace:Hover {
+    background-color: green;
+    cursor: pointer;
+}
+
+.subrace-selector {
+    display: flex;
+    width: 420px;
+    margin: 0 15px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.subrace-selector h3 {
+    width: 50px;
+    text-transform: capitalize;
+    margin-right: 20px;
+    padding: 0 10px;
+    font-weight: bold;
 }
