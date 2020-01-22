@@ -5,6 +5,7 @@ const CharacterSchema = new Schema({
     //User Info
     userId: {
         type: Schema.ObjectId,
+        ref: 'User',
         required: true
     },
 
