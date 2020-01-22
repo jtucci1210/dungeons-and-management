@@ -104,4 +104,6 @@
     padding: 10px;
     border-radius: 5px;
     font-family: sans-serif;
+    font-weight: bold;
+    box-shadow: 3px 3px 10px black;
 }
