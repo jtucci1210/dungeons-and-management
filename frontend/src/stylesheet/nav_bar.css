@@ -5,13 +5,26 @@
     width: 100%;
     color: #A6C8BC;
     padding: 5px;
+    align-items: center;
+}
+
+.nav-bar-logo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    padding: 20px;
 
 }
 
-
+.nav-bar-signed-in{
+    display: contents;
+}
 .nav-bar-page-title {
     font-size: 50px;
-    padding: 10px;
+    font-family: Birmingham;
+    /* padding: 10px; */
 }
 
 .nav-bar-login-signup{

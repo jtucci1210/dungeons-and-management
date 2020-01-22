@@ -1,0 +1,23 @@
+
+.home-page-main-box {
+    background-color: indigo;
+    display: flex;
+}
+
+    .home-page-characters {
+            background-color: bisque;
+            display: flex;
+            overflow-wrap: break-word;
+            width: 50%;
+    }
+
+    .home-page-campaign-box {
+        background-color: lightcoral;
+        display: flex;
+        width: 25%;
+        margin-left: auto;
+    }
+
+        .home-page-campaign-links {
+            
+        }
