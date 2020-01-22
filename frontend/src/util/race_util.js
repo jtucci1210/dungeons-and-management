@@ -26,7 +26,7 @@ export const moutainDwarf = {
         strength: 2
     },
     speed: 25,
-    skillProficiencies = []
+    skillProficiencies: []
 };
 
 export const highElf = {

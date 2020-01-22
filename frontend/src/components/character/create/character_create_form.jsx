@@ -27,6 +27,9 @@ class CharacterCreateForm extends React.Component {
                     <RaceAndClass 
                         raceSelected={this.props.raceSelected}
                         classSelected={this.props.classSelected}
+                        races={this.props.races}
+                        race={this.props.race}
+                        class={this.props.class}
                     />
                 </div>
             </div>

@@ -35,20 +35,23 @@
     text-transform: capitalize;
     font-size: 20px;
     height: 20px;
+    margin: 10px;
+    font-weight: bold;
 }
 
 .dice {
     font-size: 45px;
-
 }
 
 .stat-roll {
-    height: 20px;
-    width: 20px;
-    font-size: 16px;
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     margin: 10px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .generate-button {
@@ -90,50 +93,61 @@
     border-radius: 5px;
 }
 
-.drop-down {
+.skill-blurb-box span b {
+    font-weight: bold;
+}
+
+.stat-drop-down {
     align-self: flex-end;
 }
 
-.dd-wrapper {
+.dd-wrapper-select-Ability {
     height: auto;
-    width: auto;
     background-color: white;
     border: 1px solid lightgray;
     display: block;
     position: absolute;
-    top: 390px;
+    top: 350px;
     z-index: 1;
     min-width: 120px;
 }
 
-.dd-header {
+.dd-header-Ability {
     background-color: white;
     border: 1px solid lightgray;
     padding: 3px 8px;
     display: flex;
 }
 
-.dd-header i {
+.dd-header-Ability i {
     margin-left: 3px;
 }
 
-.dd-header:hover {
+.dd-header-Ability:hover {
     cursor: pointer;
 }
 
-.dd-list {
+.dd-list-Ability {
     list-style-type: none;
     text-align: left;
     padding: 0;
+    background-color: white;
+    border: 1px solid lightgray;
+    position: absolute;
+    min-width: 120px;
 }
 
-.dd-list-item-false {
+.dd-list-item-Ability {
+    margin: 5px;
+}
+
+.dd-list-item-Ability.false {
     text-transform: capitalize;
     margin: 5px;
     cursor: pointer;
 }
 
-.dd-list-item-true {
+.dd-list-item-Ability.true {
     text-transform: capitalize;
     margin: 5px;
     text-decoration: line-through;
@@ -141,7 +155,7 @@
     color: grey;
 }
 
-.dd-list-item:Hover {
+.dd-list-item-Ability:Hover {
     background-color: green;
     cursor: pointer;
 }

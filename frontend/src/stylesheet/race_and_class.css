@@ -1,8 +1,93 @@
 .race-and-class-container {
     display: flex;
     flex-direction: column;
+    margin: 20px;
+    width: 90%;
+    min-width: 925px;
 }
 
 .race-and-class {
     display: flex;
+    width: 100%;
+}
+
+.race-and-class h1 {
+    text-transform: uppercase;
+    font-size: 40px;
+    height: 20px;
+    margin: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.race-container, .class-container {
+    border: 1px solid black;
+    width: 90%;
+    margin: 10px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.race-drop-down {
+    align-self: flex-end;
+}
+.dd-wrapper-Race {
+    height: auto;
+    width: auto;
+    background-color: white;
+    border: 1px solid lightgray;
+    display: block;
+    position: absolute;
+    top: 630px;
+    z-index: 1;
+    min-width: 120px;
+}
+
+.dd-header-Race {
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 3px 8px;
+    display: flex;
+}
+
+.dd-header-Race i {
+    margin-left: 10px;
+}
+
+.dd-header-Race:hover {
+    cursor: pointer;
+}
+
+.dd-list-Race {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+    background-color: white;
+    border: 1px solid lightgray;
+    position: absolute;
+    min-width: 120px;
+}
+
+.dd-list-item-Race {
+    margin: 5px;
+}
+
+.dd-list-item-Race.false {
+    text-transform: capitalize;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.dd-list-item-Race.true {
+    text-transform: capitalize;
+    margin: 5px;
+    text-decoration: line-through;
+    cursor: pointer;
+    color: grey;
+}
+
+.dd-list-item-Race:Hover {
+    background-color: green;
+    cursor: pointer;
 }

@@ -77,7 +77,7 @@ class StatRoller extends React.Component {
                                 {this.state.statsRolled
                                     ?
                                     <DropDown
-                                        className="drop-down"
+                                        className="stat-drop-down"
                                         title="Select Ability"
                                         list={list}
                                         handleClick={this.handleClick}
