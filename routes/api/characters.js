@@ -20,7 +20,8 @@ router.post("/create", (req, res) => {
         return res.status(400).json(errors);
     }
 
-    User.findOne({ email: 'safar@gmail.com' }).then(user => {
+    //Possibly bugs once used on front end
+    User.findOne({ id: req.user.id }).then(user => {
         const newChar = new Character({
             userId: user.id,
             name: req.body.name,
