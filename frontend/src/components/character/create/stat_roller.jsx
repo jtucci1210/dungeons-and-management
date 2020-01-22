@@ -9,7 +9,8 @@ class StatRoller extends React.Component {
         super(props)
         this.state = {
             abilities: this.props.abilities,
-            rolls: this.props.rolls
+            rolls: this.props.rolls,
+            order: this.props.order
         }
         this.rollStats = this.rollStats.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -30,8 +31,16 @@ class StatRoller extends React.Component {
         let temp = this.state.abilities
         temp[id].selected = !temp[id].selected
         temp[id].value = this.state.rolls[ability]
+        let temp2 = this.state.order
+        let jdx = this.state.order.indexOf(temp[id].title)
+        if ( jdx !== -1 ) {
+            temp2[jdx] = ""
+            temp[id].selected = !temp[id].selected
+        }
+        temp2[ability] = temp[id].title
         this.setState({
-            abilities: temp
+            abilities: temp,
+            roll: temp2
         })
         // debugger
     }
@@ -39,25 +48,23 @@ class StatRoller extends React.Component {
     render() {
 
         let list = Object.values(this.state.abilities)
-        //     .filter( (ability) => 
-        //     ability.selected === false
-        // )
-
+       
         return (
             <div className="stat-roller-container">
                 <div className="stat-roller-boxes">
                     {
-                        [1,2,3,4,5,6].map( (ele, idx) => (
+                        this.state.order.map( (ele, idx) => (
                             <div className="ability-box" key={idx}>
-                                <h1 className="ability-name">Ability {idx+1}</h1>
+                                <h1 className="ability-name">{ele}</h1>
 
                                 <div>
                                     <i className="fas fa-dice-six"></i>
                                 </div>
-                                <div>
+                                <div className="stat-roll">
                                     {this.state.rolls[idx]}
                                 </div>
                                 <DropDown 
+                                    className="drop-down"
                                     title="Select Ability"
                                     list={list}
                                     handleClick={this.handleClick}

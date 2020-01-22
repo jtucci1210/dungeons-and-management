@@ -19,7 +19,6 @@ class DropDown extends React.Component {
         this.setState(prevState => ({
             listOpen: !prevState.listOpen
         }))
-
     }
 
     render() {
@@ -36,7 +35,7 @@ class DropDown extends React.Component {
                 </div>
                 {listOpen && <ul className="dd-list">
                     {list.map((item, idx) => (
-                        <li className="dd-list-item" key={idx} onClick={() => this.props.handleClick(item.id, this.props.ability)}>{item.title}</li>
+                        <li className={`dd-list-item-${item.selected}`} key={idx} onClick={() => this.props.handleClick(item.id, this.props.ability)}>{item.title}</li>
                     ))}
                 </ul>}
             </div>

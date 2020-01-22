@@ -19,7 +19,8 @@ const mapStateToProps = state => ({
         { id: 4, title: "wisdom", value: "", selected: false},
         { id: 5, title: "charisma", value: "", selected: false},
     ],
-    rolls: ["","","","","",""]
+    rolls: ["","","","","",""],
+    order: ["", "", "", "", "", ""]
 });
 
 const mapDispatchToProps = dispatch => ({
