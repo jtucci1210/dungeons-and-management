@@ -2,8 +2,7 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 
-import NavBar from './navbar';
-import { openModal, closeModal } from '../../actions/modal_actions';
+import HomePage from './homepage.js';
 
 const mapStateToProps = state => ({
     loggedIn: state.session.isAuthenticated,
@@ -11,12 +10,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    logout: () => dispatch(logout()),
-    openModal: modal => dispatch(openModal(modal)),
-    closeModal: modal => dispatch(closeModal(modal)),
+    
 })
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(NavBar);
+)(HomePage);

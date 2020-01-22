@@ -1,4 +1,5 @@
-
+import "./fonts/BirminghamBold.ttf";
+import "./index.css";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';

@@ -1,22 +1,22 @@
 import { connect } from 'react-redux';
-import { signup } from '../../actions/session_actions';
+import { signup, login } from '../../actions/session_actions';
 import SignupForm from './signup_form';
-import { login } from '../../actions/session_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ errors }) => {
     return {
-        signedIn: state.session.isSignedIn,
-        errors: state.errors.session
+        errors: Object.values(errors.session),
+        formType: 'signup'
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
-        signup: user => dispatch(signup(user))
-    }
-}
+        signup: (user) => dispatch(signup(user)),
+        login: (user) => dispatch(login(user)),
+        openModal: modal => dispatch(openModal(modal)),
+        closeModal: () => dispatch(closeModal())
+    };
+};
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(SignupForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
