@@ -2,8 +2,9 @@
 
 .home-page-main-box {
     display: flex;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
 }
 
     .main-page-background-img {
@@ -11,18 +12,19 @@
         /* background-repeat: no-repeat; */
         /* background-attachment: fixed; */
         /* width: 100%; */
+        top: 100px;
     }
 
     .home-page-campaign-box {
         background-color: #66995B;
         display: block;
         width: 25%;
-        margin-left: auto;
         opacity: .9;
         justify-content: center;
         height: 100px;
         position: fixed;
         right: 0px;
+        top: 100px;
     }
 
         .home-page-campaign-links {
@@ -41,8 +43,9 @@
     background-color:  #66995B;
     /* width: 50%; */
     opacity: .9;
-    max-height: -webkit-fill-available;
-    overflow: scroll;
+    /* max-height: -webkit-fill-available; */
+    top:100px;
+    overflow: visible;
 }
 
 .home-page-create-character {

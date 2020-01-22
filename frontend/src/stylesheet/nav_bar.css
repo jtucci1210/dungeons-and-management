@@ -7,6 +7,7 @@
     padding: 5px;
     align-items: center;
     position: fixed;
+    z-index: 20;
 }
 
 .nav-bar-logo {
