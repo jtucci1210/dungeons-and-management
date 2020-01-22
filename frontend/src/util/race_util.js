@@ -1,17 +1,17 @@
-const allRaces = [ "dwarf", "elf", "halfing", "human", "dragonborn", "gnome", "halfelf", "halforc", "tiefling"];
+export const allRaces = [ "dwarf", "elf", "halfing", "human", "dragonborn", "gnome", "halfelf", "halforc", "tiefling"];
 
-const dwarfSubraces = ["hill", "mountain"];
-const elfSubraces = ["high", "wood", "dark"];
-const halfingSubraces = ["lightfoot", "stout"];
-const humanSubraces = [];
-const dragonbornSubraces = [];
-const gnomeSubraces = ["forest", "rock"];
-const halfelfSubraces = [];
-const halforcSubraces = [];
-const tieflingSubraces = [];
+export const dwarfSubraces = ["hill", "mountain"];
+export const elfSubraces = ["high", "wood", "dark"];
+export const halfingSubraces = ["lightfoot", "stout"];
+export const humanSubraces = [];
+export const dragonbornSubraces = [];
+export const gnomeSubraces = ["forest", "rock"];
+export const halfelfSubraces = [];
+export const halforcSubraces = [];
+export const tieflingSubraces = [];
 
 
-const hillDwarf = {
+export const hillDwarf = {
     abilityScores: {
         constitution: 2,
         wisdom: 1
@@ -20,7 +20,7 @@ const hillDwarf = {
     skillProficiencies: []
 };
 
-const moutainDwarf = {
+export const moutainDwarf = {
     abilityScores: {
         constitution: 2,
         strength: 2
@@ -29,7 +29,7 @@ const moutainDwarf = {
     skillProficiencies = []
 };
 
-const highElf = {
+export const highElf = {
     abilityScores: {
         dexterity: 2,
         intelligence: 1
@@ -38,7 +38,7 @@ const highElf = {
     skillProficiencies: ["perception"]
 };
 
-const woodElf = {
+export const woodElf = {
     abilityScores: {
         dexterity: 2,
         wisdom: 1
@@ -47,7 +47,7 @@ const woodElf = {
     skillProficiencies: ["perception"]
 };
 
-const darkElf = {
+export const darkElf = {
     abilityScores: {
         dexterity: 2,
         charisma: 1
@@ -56,7 +56,7 @@ const darkElf = {
     skillProficiencies: ["perception"]
 };
 
-const lightfootHalfling = {
+export const lightfootHalfling = {
     abilityScores: {
         dexterity: 2,
         charisma: 1
@@ -65,7 +65,7 @@ const lightfootHalfling = {
     skillProficiencies: []
 };
 
-const stoutHalfling = {
+export const stoutHalfling = {
     abilityScores: {
         dexterity: 2,
         constitution: 1
@@ -74,7 +74,7 @@ const stoutHalfling = {
     skillProficiencies: []
 };
 
-const human = {
+export const human = {
     abilityScores: {
         strength: 1,
         dexterity: 1,
@@ -87,7 +87,7 @@ const human = {
     skillProficiencies: []
 };
 
-const dragonborn = {
+export const dragonborn = {
    abilityScores: {
        strength: 2,
        charisma: 1
@@ -96,8 +96,8 @@ const dragonborn = {
    skillProficiencies: [] 
 };
 
-const forestGnome = {
-    abilityScores: {
+export const forestGnome = {
+        abilityScores: {
         intelligence: 2,
         dexterity: 1
     },
@@ -105,7 +105,7 @@ const forestGnome = {
     skillProficiencies: []
 };
 
-const rockGnome = {
+export const rockGnome = {
     abilityScores: {
         intelligence: 2,
         constitution: 1
@@ -114,7 +114,7 @@ const rockGnome = {
     skillProficiencies: []
 };
 
-const halfelf = {
+export const halfelf = {
     abilityScores: {
         charisma: 2
     },
@@ -122,7 +122,7 @@ const halfelf = {
     skillProficiencies: []
 };
 
-const halforc = {
+export const halforc = {
     abilityScores: {
         strength: 2,
         constitution: 1
@@ -131,7 +131,7 @@ const halforc = {
     skillProficiencies: ["intimidation"]
 };
 
-const tiefling = {
+export const tiefling = {
     abilityScores: {
         intelligence: 1,
         charisma: 2

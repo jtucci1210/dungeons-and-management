@@ -13,7 +13,11 @@ const mapStateToProps = state => ({
     ],
     rolls: ["", "", "", "", "", ""],
     order: ["", "", "", "", "", ""],
-    statsRolled: false
+    statsRolled: false,
+    race: "",
+    class: "",
+    raceSelected: false,
+    classSelected: false
 });
 
 const mapDispatchToProps = dispatch => ({

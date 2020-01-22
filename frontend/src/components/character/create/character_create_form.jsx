@@ -1,5 +1,6 @@
 import React from 'react';
 import StatRoller from './stat_roller';
+import RaceAndClass from './race_and_class';
 import '../../../stylesheet/character_create_form.css';
 
 
@@ -23,7 +24,10 @@ class CharacterCreateForm extends React.Component {
                     />
                 </div>
                 <div className="race-and-class-component">
-
+                    <RaceAndClass 
+                        raceSelected={this.props.raceSelected}
+                        classSelected={this.props.classSelected}
+                    />
                 </div>
             </div>
         )

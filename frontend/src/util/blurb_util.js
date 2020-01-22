@@ -1,5 +1,5 @@
 
-const abilityBlurb = {
+export const abilityBlurb = {
     strength: "Measures bodily power, athletic training, and the extent to which you can exert raw physical force.",
     dexterity: "Measures agility, reflexes, and balance.",
     constitution: "Measures health, stamina, and vital force.",
@@ -8,7 +8,7 @@ const abilityBlurb = {
     charisma: "Measures your ability to interact effectively with others."
 };
 
-const classBlurb = {
+export const classBlurb = {
     barbarian: "A fierce warrior of primitive background who can enter a battle rage",
     bard: "An inspiring magician whose power echoes the music of creation",
     cleric: "A priestly champion who wields divine magic in service of a higher power",
@@ -23,7 +23,7 @@ const classBlurb = {
     wizard: "A scholarly magic-user capable of manipulating the structures of reality"
 };
 
-const raceBlurb = {
+export const raceBlurb = {
     dwarf: "Kingdoms rich in ancient grandeur, halls carved into the roots of mountains, the echoing of picks and hammers in deep mines and blazing forges, a commitment to clan and tradition, and a burning hatred of goblins and orcs - these common threads unit all dwarves",
     elf: "Elves are a magical people of otherworldly grace, living in the world but not entirely part of it. They live in places of ethereal beauty, in the midst of ancient forests or in silvery spires glittering with faerie light, where soft music drifts through the air and gentle fragrances waft on the breeze. Elves love nature and magic, art and artistry, music and poetry, and the good things of the world",
     halfling: "The comforts of home are the goals of most halfings' lives: a place to settle in peace and quiet, far from marauding monsters and clashing armies; a blazing fire and a generous meal; fine drink and fine conversation. Though some halfings live out their days in remote agricultural communities, others form nomadic bands that travel constantly, lured by the open road and the wide horizon to discover the wonders of new lands and peoples. But even these wanderers love peace, food, hearth, and home, though home might be a wagon jostling along a dirt road or a raft floating downriver.",
@@ -35,7 +35,7 @@ const raceBlurb = {
     tiefling: "To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling. And to twist the knife, tieflings know that this is because a pact struck generations ago infused the essence of Asmodeus - overlord of the Nine Hells - into their bloodline. Their appearance and their nature are not their fault but the result of an ancient sin, for which they and their children and their children's children will always be held accountable."
 };
 
-const skillBlurb = {
+export const skillBlurb = {
     athletics: "Covers difficult situations you encounter while climbing, jumping, or swimming.",
     acrobatics: "Covers your attempt to stay on your feet in a tricky situation.",
     slightOfHand: "Covers your attempt to make an act of legerdemain or manual trickery.",
@@ -56,7 +56,7 @@ const skillBlurb = {
     persuasion: "Measures your ability to influence someone or a group of people with tact, social graces, or good nature."
 };
 
-const armorBlurb = {
+export const armorBlurb = {
     padded: "Padded armor consists of quilted layers of cloth and batting.",
     leather: "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
     studdedLeather: "Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes.",
