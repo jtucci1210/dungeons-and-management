@@ -11,13 +11,58 @@ class HomePage extends React.Component {
 
     characterInfo() {
         const characters = [
-            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' }, { name: 'character2', race: 'Elf', health: 40, class: 'rogue' }, { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' }
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
+            { name: 'character2', race: 'Elf', health: 40, class: 'rogue' },
+            { name: 'character1', race: 'woodElf', health: 20, class: 'rogue' },
         ];
 
         return (
             <div className="index-characters">
+                    <Link to={`/`} className="home-page-create-character">
+                        <div className="home-page-create-character-text"> + </div>
+                    </Link>
                 {characters.map((character, i) => (
                     <div key={`character-${i}`} className="index-characters-character-info">
+                        <Link to={`/characters/${i + 1}`} className='home-characters-link'>
                         <div className='character-box'>
                             <div className="character-name-index">
                                 <h3> Character Name: </h3> {character.name}
@@ -35,13 +80,10 @@ class HomePage extends React.Component {
                                 <h3>Class: </h3> {character.class}
                             </div>
                         </div>
+                        </Link>
                     </div>
                 ))}
-                <div>
-                    <Link to={`/`} className="home-page-create-character">
-                        <div className="home-page-create-character-text"> + </div>
-                    </Link>
-                </div>    
+                  
             </div>
         )
     }

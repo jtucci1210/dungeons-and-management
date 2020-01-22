@@ -1,10 +1,15 @@
 
+
 .home-page-main-box {
     display: flex;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
     .main-page-background-img {
         z-index: -2;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
 
     .home-page-campaign-box {
@@ -35,6 +40,8 @@
     background-color:  #66995B;
     /* width: 50%; */
     opacity: .9;
+    max-height: -webkit-fill-available;
+    overflow: scroll;
 }
 
 .home-page-create-character {
@@ -43,7 +50,8 @@
     color: #C6C8BC;
     display: flex;
     justify-content: center;
-    /* min-height: 200px; */
+    display: flex;
+    align-items: center;
 }
 
 .index-characters{
@@ -109,7 +117,10 @@
 .home-page-create-character:hover {
     background-color: #3a6839;
 }
-
+.home-characters-link {
+    text-decoration: none;
+    color: rgb(225, 232, 190);
+}
 
 
 

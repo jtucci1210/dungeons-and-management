@@ -24,8 +24,8 @@ class NavBar extends React.Component {
                     <div className='nav-bar-tutorial-button'>
                         Tutorial Button
                     </div>
-                    <div>
-                    <p className="nav-bar-greeting-message">Good day {currentUsername}!</p>
+                    <div className="nav-bar-greeting-message">
+                        <div className="nav-bar-greeting-message">Good Day {currentUsername}!</div>
                     </div>
                     <button onClick={this.logoutUser} className='nav-bar-logout-button'>
                         Logout
