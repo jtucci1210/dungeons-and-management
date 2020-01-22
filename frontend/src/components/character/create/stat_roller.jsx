@@ -10,7 +10,8 @@ class StatRoller extends React.Component {
         this.state = {
             abilities: this.props.abilities,
             rolls: this.props.rolls,
-            order: this.props.order
+            order: this.props.order,
+            statsRolled: false
         }
         this.rollStats = this.rollStats.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -21,7 +22,8 @@ class StatRoller extends React.Component {
         
         this.setState(
             {
-                rolls: rolls
+                rolls: rolls,
+                statsRolled: true
             }
         )
     }
@@ -61,19 +63,30 @@ class StatRoller extends React.Component {
                                 <div className="stat-roll">
                                     {this.state.rolls[idx]}
                                 </div>
-                                <DropDown 
-                                    className="drop-down"
-                                    title="Select Ability"
-                                    list={list}
-                                    handleClick={this.handleClick}
-                                    ability={idx}
-                                />
+                                {this.state.statsRolled
+                                    ?
+                                    <DropDown
+                                        className="drop-down"
+                                        title="Select Ability"
+                                        list={list}
+                                        handleClick={this.handleClick}
+                                        ability={idx}
+                                    />
+                                    :
+                                    <div></div>   
+                            }
                             </div>
                         ))
                     }
                
                 </div>
+            {this.state.statsRolled
+                ?
+                <div></div>
+                :
                 <button className="generate-button" onClick={this.rollStats}>Generate</button>
+            }
+            
             </div>
         )
 
