@@ -2,6 +2,7 @@ import React from 'react';
 import * as diceUtil from '../../../util/dice_util';
 import '../../../stylesheet/stat_roller.css';
 import DropDown from '../../dropdown';
+import {abilityBlurb} from '../../../util/blurb_util';
 
 class StatRoller extends React.Component {
     constructor(props) {
@@ -45,6 +46,17 @@ class StatRoller extends React.Component {
     }
 
     render() {
+        
+        let blurb = (
+            <div className="skill-blurb-box">
+                <span><b>Strength:</b> {abilityBlurb.strength}</span>
+                <span><b>Dexterity:</b> {abilityBlurb.dexterity}</span>
+                <span><b>Constitution:</b> {abilityBlurb.constitution}</span>
+                <span><b>Intelligence:</b> {abilityBlurb.intelligence}</span>
+                <span><b>Wisdom: </b> {abilityBlurb.wisdom}</span>
+                <span><b>Charisma:</b> {abilityBlurb.charisma}</span>
+            </div>
+        )
 
         let list = Object.values(this.state.abilities)
        
@@ -81,7 +93,10 @@ class StatRoller extends React.Component {
                 </div>
             {this.state.statsRolled
                 ?
-                <div></div>
+                <div>
+                    <i className="fas fa-question-circle info"></i>
+                    <div className="skill-blurb">{blurb}</div>
+                </div>
                 :
                 <button className="generate-button" onClick={this.rollStats}>Generate</button>
             }
