@@ -1,6 +1,5 @@
 import React from 'react';
 import * as diceUtil from '../../../util/dice_util';
-import { abilityScores } from '../../../util/skill_util';
 import '../../../stylesheet/stat_roller.css';
 import DropDown from '../../dropdown';
 
@@ -11,7 +10,7 @@ class StatRoller extends React.Component {
             abilities: this.props.abilities,
             rolls: this.props.rolls,
             order: this.props.order,
-            statsRolled: false
+            statsRolled: this.props.statsRolled
         }
         this.rollStats = this.rollStats.bind(this)
         this.handleClick = this.handleClick.bind(this)

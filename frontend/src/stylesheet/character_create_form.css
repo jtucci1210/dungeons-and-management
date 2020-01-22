@@ -1,0 +1,23 @@
+.character-create-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.character-name {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.character-name input[type=text] {
+    height: 30px;
+    border-radius: 3px;
+    padding: 5px;
+    width: 500px;
+    font-size: 30px;
+    text-align: center;
+}
