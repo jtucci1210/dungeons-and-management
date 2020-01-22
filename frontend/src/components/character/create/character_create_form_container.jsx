@@ -18,6 +18,8 @@ const mapStateToProps = state => ({
     class: "",
     subrace: "",
     raceSelected: false,
+    subraceSelected: false,
+    finalRace: "",
     races: [
         { id: 0, title: "dwarf", selected: false},
         { id: 1, title: "elf", selected: false},
@@ -31,7 +33,7 @@ const mapStateToProps = state => ({
     ],
     subraces: {
         dwarf: [{ id: 0, title: "hill", selected: false }, { id: 1, title: "mountain", selected: false }],
-        elf: [{ id: 0, title: "high", selected: false }, { id: 1, title: "wood", selected: false }, { id: 1, title: "dark", selected: false }], 
+        elf: [{ id: 0, title: "high", selected: false }, { id: 1, title: "wood", selected: false }, { id: 2, title: "dark", selected: false }], 
         halfling: [{ id: 0, title: "lightfoot", selected: false }, { id: 1, title: "stout", selected: false }],
         gnome: [{ id: 0, title: "forest", selected: false }, { id: 1, title: "rock", slected: false }] 
     },

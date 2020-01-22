@@ -1,6 +1,7 @@
 .race-and-class-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 20px;
     width: 90%;
     min-width: 925px;
@@ -8,7 +9,7 @@
 
 .race-and-class {
     display: flex;
-    width: 100%;
+    max-width: 990px;
 }
 
 .race-and-class h1 {
@@ -22,11 +23,12 @@
 
 .race-container, .class-container {
     border: 1px solid black;
-    width: 90%;
+    width: 600px;
     margin: 10px;
-    height: 450px;
+    height: 700px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .race-drop-down {
@@ -98,7 +100,7 @@
     margin: 15px;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     height: 30px;
 }
 
@@ -106,7 +108,7 @@
     width: 50px;
     text-transform: capitalize;
     margin-right: 20px;
-    padding: 10px;
+    padding: 20px 10px;
     font-weight: bold;
 }
 
@@ -195,4 +197,31 @@
     margin-right: 20px;
     padding: 0 10px;
     font-weight: bold;
+}
+
+.subrace-blurb {
+    width: 420px;
+    margin: 20px 10px;
+    text-align: justify;
+    height: 200px;
+}
+
+.racial-modifiers {
+    border: solid black 1px;
+    width: 420px;
+    height: 100px;
+    margin: 10px;
+    position: absolute;
+    top: 1120px;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+}
+
+.race-abilities {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    flex-direction: column;
 }

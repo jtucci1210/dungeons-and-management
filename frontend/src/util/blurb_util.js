@@ -35,6 +35,18 @@ export const raceBlurb = {
     tiefling: "To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling. And to twist the knife, tieflings know that this is because a pact struck generations ago infused the essence of Asmodeus - overlord of the Nine Hells - into their bloodline. Their appearance and their nature are not their fault but the result of an ancient sin, for which they and their children and their children's children will always be held accountable."
 };
 
+export const subraceBlurb = {
+    hill: "As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.",
+    mountain: "As a mountain dwarf, you're strong and hardy, accustomed to a difficult life in rugged terrain. You're probably on the tall side (for a dwarf), and tend toward lighter coloration.",
+    high: "As a high elf, you have a keen mind and a mastery of at least basic magical theory.",
+    wood: "As a wood elf, you have keen senses and intuition, and your fleet feet carry you quickly and stealthily through your native forests.",
+    dark: "Descendants of an earlier, dark-skinned race of elf, the dark elves, known as Drow, were banished from the surface for following the goddess Lolth down her path of evil and corruption.",
+    lightfoot: "As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You're inclined to be affable and get along well with others. In the Forgotten Realms, lightfoot halflings have spread the farthest and thus are the most common variety. Lightfoots are more prone to wanderlust than other halflings, and often dwell alongside other races or take up a nomadic life.",
+    stout: "As a stout halfling, you're hardier than average and have some resistance to poison. Some say that stouts have dwarven blood.",
+    forest: "Forest gnomes have a knack for stealth and illusion, and are generally rather secretive. They gather in hidden forest communities, befriending the local fey and animals.",
+    rock: "Rock gnomes are naturally inventive and quite hardy for such a small creature. Also known as tinker gnomes, they are well known for their contraptions, ranging from revolutionary to eccentric."
+}
+
 export const skillBlurb = {
     athletics: "Covers difficult situations you encounter while climbing, jumping, or swimming.",
     acrobatics: "Covers your attempt to stay on your feet in a tricky situation.",
