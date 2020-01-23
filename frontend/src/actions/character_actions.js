@@ -6,10 +6,12 @@ export const RECEIVE_CHARACTER_ERRORS = "RECEIVE_CHARACTER_ERRORS";
 export const RECEIVE_ALL_CHARACTERS = "RECEIVE_ALL_CHARACTERS";
 
 //
-export const receiveCharacter = character => ({
+export const receiveCharacter = character => {
+    return {
     type: RECEIVE_CHARACTER,
     character
-})
+    }
+}
 export const receiveCharacterErrors = errors => ({
     type: RECEIVE_CHARACTER_ERRORS,
     errors
@@ -23,7 +25,7 @@ export const receiveAllCharacters = () => ({
 export const getCharacter = characterId => dispatch => {
    return ( 
        CHARACTERAPIUTIL.getCharacter(characterId)
-        .then(character => dispatch(receiveCharacter(character)))
+        .then(character => dispatch(receiveCharacter(character.data)))
    )
 }
 export const getCharacters = () => dispatch => (

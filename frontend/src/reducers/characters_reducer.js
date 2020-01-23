@@ -7,10 +7,9 @@ import {
 
 export default function (state = {}, action) {
     Object.freeze(state);
-    // debugger
     switch (action.type) {
         case RECEIVE_CHARACTER:
-            return  action.character.data
+            return  action.character
         case RECEIVE_ALL_CHARACTERS:
             return {}
         default:

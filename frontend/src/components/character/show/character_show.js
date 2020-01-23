@@ -8,14 +8,14 @@ class CharacterShowPage extends React.Component {
     }
 
     componentDidMount() {
-        const character = this.props.getCharacter(this.props.match.params.characterId)
+        this.props.getCharacter(this.props.match.params.characterId)
     }
 
     render() {
-        console.log(this.props);
-        console.log(this.state)
+        console.log(this.props.character)
+        // console.log(this.props.match.params.characterId)
         return (
-            <div className="test">HasdfasdfasdfasdfI</div>
+            <div className="test">{this.props.character.name}</div>
         )
     }
 

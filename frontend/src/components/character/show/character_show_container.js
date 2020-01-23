@@ -6,10 +6,8 @@ import { withRouter } from 'react-router-dom';
 
 
 const mapStateToProps = state => {
-    console.log(state)
-    // debugger
     return ({
-    character: state.session.character
+    character: state.characters
     })
 };
 
