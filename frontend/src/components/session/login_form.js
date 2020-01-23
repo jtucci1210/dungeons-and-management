@@ -30,12 +30,14 @@ class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         };
+        debugger
         this.props.login(user).then(res => {
           if (!res.errors) {
+            // this.props.history.push(`/home`)
             this.props.closeModal();
           }
         });
-           
+        
     }
 
     renderErrors() {
@@ -55,7 +57,7 @@ class LoginForm extends React.Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <input type="text"
+                        <input type="email"
                             value={this.state.email}
                             onChange={this.update('email')}
                             placeholder="Email"

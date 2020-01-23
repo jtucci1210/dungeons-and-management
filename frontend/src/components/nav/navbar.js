@@ -6,20 +6,31 @@ import '../../stylesheet/css_reset.css'
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            loaded: false
+        }
         this.logoutUser = this.logoutUser.bind(this);
         this.getLinks = this.getLinks.bind(this);
     }
+
 
     logoutUser(e) {
         e.preventDefault();
         this.props.logout();
     }
 
+    // componentDidMount() {
+    //    const user = this.props.fetchCurrentUser();
+    //     Promise.all([user]).then(() => this.setState({ loaded: true }))
+    // }
+
+
     // Selectively render links dependent on whether the user is logged in
     getLinks() {
-       
         if (this.props.loggedIn) {
-            const currentUsername = this.props.currentUser.user.username
+        // if (this.state.loaded) {
+            // debugger
+            const currentUsername = this.props.currentUser.username
             return (
                 <div className="nav-bar-signed-in">
                     <div className='nav-bar-tutorial-button'>

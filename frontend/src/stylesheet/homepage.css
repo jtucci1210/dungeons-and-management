@@ -15,6 +15,9 @@
         top: 100px;
     }
 
+    .home-page-create-character-text{
+        font-size: 60px;
+    }
     .home-page-campaign-box {
         background-color: #66995B;
         display: block;
@@ -26,6 +29,7 @@
         right: 0px;
         top: 100px;
         margin: 20px;
+        min-width: 250px;
     }
 
         .home-page-campaign-links {

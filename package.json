@@ -30,6 +30,7 @@
     "node-sass": "^4.13.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "redux-devtools-extension": "^2.13.8",
     "validator": "^12.1.0"
   },
   "devDependencies": {
