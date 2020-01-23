@@ -86,6 +86,7 @@
     font-weight: bolder;
     box-shadow: 3px 3px 10px black;
     background-color: #A6C8BC;
+    outline: none;
 }
 
 .login-signup-button:hover, .nav-bar-logout-button:hover, .nav-bar-tutorial-button:hover {
