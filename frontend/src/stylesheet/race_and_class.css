@@ -211,12 +211,12 @@
     width: 450px;
     height: 100px;
     margin: 10px;
-    position: absolute;
-    top: 1120px;
+    /* position: absolute; */
+    /* top: 1120px; */
     justify-self: center;
     align-self: center;
     display: flex;
-    left: 225px
+    /* left: 225px */
 }
 
 .race-abilities {
