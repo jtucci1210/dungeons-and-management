@@ -6,7 +6,9 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 
+
 // We'll dispatch this when our user signs in
+<<<<<<< HEAD
 export const receiveCurrentUser = currentUser => {
     debugger
     return {
@@ -14,6 +16,12 @@ export const receiveCurrentUser = currentUser => {
         currentUser
     }
 };
+=======
+export const receiveCurrentUser = currentUser => ({
+        type: RECEIVE_CURRENT_USER,
+        currentUser
+});
+>>>>>>> dev_branch
 
 // This will be used to redirect the user to the login page upon signup
 export const receiveUserSignIn = () => ({
@@ -28,6 +36,13 @@ export const receiveErrors = errors => ({
 export const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT
 });
+
+export const fetchCurrentUser = user => dispatch => (
+    APIUtil.getCurrentUser()
+        .then(res =>  dispatch(receiveCurrentUser(res))
+));
+
+
 
 export const signup = user => dispatch => (
     APIUtil.signup(user).then(res => {
@@ -44,19 +59,17 @@ export const signup = user => dispatch => (
 )
 
 
-export const login = user => dispatch => (
-    APIUtil.login(user).then(res => {
+export const login = user => dispatch => {
+    return (APIUtil.login(user).then(res => {
         const { token } = res.data;
-        console.log(res.data)
         localStorage.setItem('jwtToken', token);
         APIUtil.setAuthToken(token);
         const decoded = jwt_decode(token);
         return dispatch(receiveCurrentUser(decoded))
-    })
-        .catch(err => (
-            dispatch(receiveErrors(err.response.data))
-        ))
-)
+    }).catch(err => {
+            return dispatch(receiveErrors(err.response.data))
+    }))
+}
 
 export const logout = () => dispatch => {
     localStorage.removeItem('jwtToken')
