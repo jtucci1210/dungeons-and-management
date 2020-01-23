@@ -1,18 +1,17 @@
 
 import { connect } from 'react-redux';
-import HomePage from './homepage.js';
+import CharacterShowPage from './character_show';
 
 const mapStateToProps = state => ({
     loggedIn: state.session.isAuthenticated,
-    currentUser: state.session,
-    currentUserID: state.session.user.id
+    currentUser: state.session
 });
 
 const mapDispatchToProps = dispatch => ({
-    
+
 })
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(HomePage);
+)(CharacterShowPage);
