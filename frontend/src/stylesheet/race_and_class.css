@@ -81,13 +81,13 @@
     cursor: pointer;
 }
 
-.dd-list-item-Race.true {
+/* .dd-list-item-Race.true {
     text-transform: capitalize;
     margin: 5px;
     text-decoration: line-through;
     cursor: pointer;
     color: grey;
-}
+} */
 
 .dd-list-item-Race:Hover {
     background-color: green;
@@ -169,13 +169,13 @@
     cursor: pointer;
 }
 
-.dd-list-item-Subrace.true {
+/* .dd-list-item-Subrace.true {
     text-transform: capitalize;
     margin: 5px;
     text-decoration: line-through;
     cursor: pointer;
     color: grey;
-}
+} */
 
 .dd-list-item-Subrace:Hover {
     background-color: green;
@@ -263,3 +263,61 @@
     margin-left: 5px;
     font-weight: normal;
 }
+
+.class-drop-down {
+    align-self: flex-end;
+}
+.dd-wrapper-Class {
+    height: auto;
+    width: auto;
+    background-color: white;
+    border: 1px solid lightgray;
+    display: block;
+    position: absolute;
+    top: 880px;
+    z-index: 1;
+    min-width: 135px;
+}
+
+.dd-header-Class {
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 3px 8px;
+    display: flex;
+}
+
+.dd-header-Class i {
+    margin-left: 10px;
+}
+
+.dd-header-Class:hover {
+    cursor: pointer;
+}
+
+.dd-list-Class {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+    background-color: white;
+    border: 1px solid lightgray;
+    position: absolute;
+    min-width: 135px;
+}
+
+.dd-list-item-Class {
+    margin: 5px;
+}
+
+.dd-list-item-Class.false {
+    text-transform: capitalize;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* .dd-list-item-Class.true {
+    text-transform: capitalize;
+    margin: 5px;
+    text-decoration: line-through;
+    cursor: pointer;
+    color: grey;
+} */

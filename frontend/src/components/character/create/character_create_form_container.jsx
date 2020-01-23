@@ -37,7 +37,21 @@ const mapStateToProps = state => ({
         halfling: [{ id: 0, title: "lightfoot", selected: false }, { id: 1, title: "stout", selected: false }],
         gnome: [{ id: 0, title: "forest", selected: false }, { id: 1, title: "rock", selected: false }] 
     },
-    classSelected: false
+    classSelected: false,
+    classes: [
+        { id: 0, selected: false, title: "barbarian"},
+        { id: 1, selected: false, title: "bard"},
+        { id: 2, selected: false, title: "cleric"},
+        { id: 3, selected: false, title: "druid"},
+        { id: 4, selected: false, title: "fighter"},
+        { id: 5, selected: false, title: "monk"},
+        { id: 6, selected: false, title: "paladin"},
+        { id: 7, selected: false, title: "ranger"},
+        { id: 8, selected: false, title: "rogue"},
+        { id: 9, selected: false, title: "sorcerer"},
+        { id: 10, selected: false, title: "warlock"},
+        { id: 11, selected: false, title: "wizard"},
+    ]
 });
 
 const mapDispatchToProps = dispatch => ({

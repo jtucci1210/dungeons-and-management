@@ -16,10 +16,12 @@ class RaceAndClass extends React.Component {
             subraces: this.props.subraces,
             raceSelected: this.props.raceSelected,
             classSelected: this.props.classSelected,
-            finalRace: this.props.fullRace
+            finalRace: this.props.fullRace,
+            classes: this.props.classes
         }  
         this.handleRaceClick = this.handleRaceClick.bind(this) 
         this.handleSubRaceClick = this.handleSubRaceClick.bind(this) 
+        this.handleClassClick = this.handleClassClick.bind(this)
     }
 
     handleRaceClick(id) {
@@ -38,6 +40,15 @@ class RaceAndClass extends React.Component {
             {
                 subrace: this.state.subraces[this.state.race][id].title,
                 subraceSelected: true
+            }
+        )
+    }
+
+    handleClassClick(id) {
+        this.setState(
+            {
+                class: this.state.classes[id].title,
+                classSelected: true
             }
         )
     }
@@ -128,7 +139,15 @@ class RaceAndClass extends React.Component {
                     <div className="class-container">
                         <h1>Class</h1>
                         <div className="class-selector">
-                     
+                            <div>
+                                <DropDown
+                                    title="Select Class"
+                                    list={this.state.classes}
+                                    className="class-drop-down"
+                                    handleClick={this.handleClassClick}
+                                />
+                            </div>
+                            <h3>{this.state.class}</h3>
                         </div>
                     </div>
                 </div>
