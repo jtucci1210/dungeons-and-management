@@ -12,7 +12,7 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            // // debugger;
+            // debugger;
             return {
                 // return Object.assign({}, state, { 
                 //     [action.currentUser.id]: action.currentUser,
@@ -23,8 +23,7 @@ export default function (state = initialState, action) {
                 // });
                 ...state,
                 isAuthenticated: !!action.currentUser,
-                email: action.email,
-                username: action.username
+                user: action.currentUser,
 
             };
         case RECEIVE_USER_LOGOUT:
