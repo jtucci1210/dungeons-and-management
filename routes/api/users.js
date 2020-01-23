@@ -22,7 +22,6 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 
 //Register New Users
 router.post("/register", (req, res) => {
-    debugger;
     const { errors, isValid } = validateRegisterInput(req.body);
 
     if (!isValid) {
@@ -47,7 +46,7 @@ router.post("/register", (req, res) => {
                     newUser
                         .save()
                         .then(user => {
-                            const payload = { id: user.id, email: user.email };
+                            const payload = { id: user.id, email: user.email, username: user.username };
 
                             jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                                 res.json({
@@ -66,7 +65,7 @@ router.post("/register", (req, res) => {
 //Login Users
 router.post("/login", (req, res) => {
     const { errors, isValid } = validateLoginInput(req.body);
-
+    
     if (!isValid) {
         return res.status(400).json(errors);
     }
@@ -82,8 +81,7 @@ router.post("/login", (req, res) => {
 
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
-                const payload = { id: user.id, email: user.email };
-
+                const payload = { id: user.id, email: user.email, username: user.username };
                 jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                     res.json({
                         success: true,

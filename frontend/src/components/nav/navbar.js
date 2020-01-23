@@ -18,25 +18,25 @@ class NavBar extends React.Component {
     // Selectively render links dependent on whether the user is logged in
     getLinks() {
         if (this.props.loggedIn) {
+            const currentUsername = this.props.currentUser.username
             return (
                 <div className="nav-bar-signed-in">
-                    <div className='nav-bar-tutorial-button'>
-                        Tutorial button
+                    <div className="nav-bar-greeting-message">
+                        <div className="nav-bar-greeting-message">Welcome {currentUsername}!</div>
                     </div>
-                    <div>
-                        <p className="nav-bar-greeting message">Hi, USERNAME PLACE</p>
-
-                    </div>
-                    <button onClick={this.logoutUser}>Logout</button>
+                    <button className='nav-bar-tutorial-button'>
+                        Tutorial
+                    </button>
+                    <button onClick={this.logoutUser} className='nav-bar-logout-button'>
+                        Logout
+                    </button>
                 </div>
             );
         } else {
             return (
                 <div className="nav-bar-login-signup">
-                    {/* <Link to={'/signup'} className="nav-bar-signup">Signup</Link> */}
-                    <button onClick={()=>this.props.openModal('signup')}>Signup</button>
-                    <button onClick={()=>this.props.openModal('login')}>Login</button>
-                    {/* <Link to={'/login'} className='nav-bar-login'>Login</Link> */}
+                    <button className="login-signup-button" onClick={()=>this.props.openModal('signup')}>Signup</button>
+                    <button className="login-signup-button" onClick={()=>this.props.openModal('login')}>Login</button>
                 </div>
             );
         }
@@ -45,9 +45,9 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className="nav-bar">
-                <div className="nav-bar-logo"><i className="fab fa-d-and-d"></i></div>
+                <div className="imma-spacer"></div>
                 <Link className="nav-bar-title" to='/'>
-                    <h1 className='nav-bar-page-title'>Dungeons & Management</h1>
+                    <h1 className='nav-bar-page-title'>Dungeons <i className="fab fa-d-and-d"></i> Management</h1>
                 </Link>
                 {this.getLinks()}
             </div>
