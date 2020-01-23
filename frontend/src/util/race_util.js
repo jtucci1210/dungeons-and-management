@@ -17,7 +17,7 @@ export const fullRace = {
             wisdom: 1
         },
         speed: 25,
-        skillProficiencies: []
+        skillProficiencies: null
     },
     mountainDwarf: {
         abilityScores: {
@@ -25,7 +25,7 @@ export const fullRace = {
             strength: 2
         },
         speed: 25,
-        skillProficiencies: []
+        skillProficiencies: null
     },
     highElf: {
         abilityScores: {
@@ -57,7 +57,7 @@ export const fullRace = {
             charisma: 1
         },
         speed: 25,
-        skillProficiencies: []
+        skillProficiencies: null
     },
     stoutHalfling: {
         abilityScores: {
@@ -65,7 +65,7 @@ export const fullRace = {
             constitution: 1
         },
         speed: 25,
-        skillProficiencies: []
+        skillProficiencies: null
     },
     human: {
         abilityScores: {
@@ -77,7 +77,7 @@ export const fullRace = {
             charisma: 1
         },
         speed: 30,
-        skillProficiencies: []
+        skillProficiencies: null
     },
     dragonborn: {
         abilityScores: {
@@ -85,7 +85,7 @@ export const fullRace = {
             charisma: 1
         },
         speed: 30,
-        skillProficiencies: []
+        skillProficiencies: null
     },
     forestGnome: {
         abilityScores: {
@@ -93,7 +93,7 @@ export const fullRace = {
             dexterity: 1
         },
         speed: 25,
-        skillProficiencies: []
+        skillProficiencies: null
     },
     rockGnome: {
         abilityScores: {
@@ -101,14 +101,14 @@ export const fullRace = {
             constitution: 1
         },
         speed: 25,
-        skillProficiencies: []
+        skillProficiencies: null
     },
     halfelf: {
         abilityScores: {
             charisma: 2
         },
         speed: 30,
-        skillProficiencies: []
+        skillProficiencies: null
     },
     halforc: {
         abilityScores: {
@@ -124,7 +124,7 @@ export const fullRace = {
             charisma: 2
         },
         speed: 30,
-        skillProficiencies: []
+        skillProficiencies: null
     }
 
 }

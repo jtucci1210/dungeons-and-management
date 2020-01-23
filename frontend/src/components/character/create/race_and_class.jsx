@@ -42,6 +42,17 @@ class RaceAndClass extends React.Component {
         )
     }
 
+    renderSkills(raceObject) {
+        if (raceObject && raceObject.skillProficiencies) {
+            return raceObject.skillProficiencies.map( (skill, idx) => 
+                <div>Skill Proficiencies: 
+                    <li key={idx}>{skill}</li>
+                </div>
+                )
+        } else {
+            return null
+        }
+    }
 
     render() {
 
@@ -93,24 +104,25 @@ class RaceAndClass extends React.Component {
                         </div>
                         <div className="subrace-blurb">{srblurb}</div>
                         <div className="racial-modifiers">
+                                <div className="modifiers">
                                     {
                                        raceSubCombo || raceNoSub
                                        ?
                                         Object.keys(raceObject.abilityScores).map ( (ability,idx) =>
                                             <div key={idx} className="race-abilities">
                                                 <div className="race-ability-name">{ability}</div>
-                                                <div>{raceObject.abilityScores[ability]}</div>
+                                                <div className="race-ability-mod">+ {raceObject.abilityScores[ability]}</div>
                                             </div>
                                         )
                                         
                                         :
                                         ""
                                     }
-                            <div>
-                                {}
+                                </div>
+                            <div className="speed-and-proficiencies">
+                                <div className="speed">{raceObject ? `Speed: ${raceObject.speed}` : ""}</div>
+                                <div className="skills">{this.renderSkills(raceObject)}</div>
                             </div>
-                            {/* speed
-                            skill proficiences */}
                         </div>
                     </div>
                     <div className="class-container">
