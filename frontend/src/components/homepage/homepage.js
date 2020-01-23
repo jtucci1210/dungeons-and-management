@@ -57,7 +57,7 @@ class HomePage extends React.Component {
 
         return (
             <div className="index-characters">
-                    <Link to={`/`} className="home-page-create-character">
+                    <Link to={`/characters/new`} className="home-page-create-character">
                         <div className="home-page-create-character-text"> + </div>
                     </Link>
                 {characters.map((character, i) => (

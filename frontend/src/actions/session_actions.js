@@ -27,6 +27,12 @@ export const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT
 });
 
+export const fetchCurrentUser = user => dispatch => (
+    APIUtil.getCurrentUser()
+        .then(res =>  dispatch(receiveCurrentUser(res))
+));
+
+
 
 export const signup = user => dispatch => (
     APIUtil.signup(user).then(res => {
@@ -43,19 +49,17 @@ export const signup = user => dispatch => (
 )
 
 
-export const login = user => dispatch => (
-    APIUtil.login(user).then(res => {
+export const login = user => dispatch => {
+    return (APIUtil.login(user).then(res => {
         const { token } = res.data;
-        console.log(res.data)
         localStorage.setItem('jwtToken', token);
         APIUtil.setAuthToken(token);
         const decoded = jwt_decode(token);
         return dispatch(receiveCurrentUser(decoded))
-    })
-        .catch(err => (
-            dispatch(receiveErrors(err.response.data))
-        ))
-)
+    }).catch(err => {
+            return dispatch(receiveErrors(err.response.data))
+    }))
+}
 
 export const logout = () => dispatch => {
     localStorage.removeItem('jwtToken')

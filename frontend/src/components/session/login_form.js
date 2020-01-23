@@ -15,6 +15,9 @@ class LoginForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+
+    }
    
     update(field) {
         return e => this.setState({
@@ -29,12 +32,15 @@ class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         };
+        // Object.assign({}, this.state)
+        // debugger    
         this.props.login(user).then(res => {
           if (!res.errors) {
             this.props.closeModal();
           }
         });
-           
+        // this.props.history.push('/')
+        
     }
 
 

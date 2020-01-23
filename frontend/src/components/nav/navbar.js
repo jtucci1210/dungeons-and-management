@@ -17,9 +17,8 @@ class NavBar extends React.Component {
 
     // Selectively render links dependent on whether the user is logged in
     getLinks() {
-       
         if (this.props.loggedIn) {
-            const currentUsername = this.props.currentUser.user.username
+            const currentUsername = this.props.currentUser.username
             return (
                 <div className="nav-bar-signed-in">
                     <div className="nav-bar-greeting-message">

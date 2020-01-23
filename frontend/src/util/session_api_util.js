@@ -16,6 +16,6 @@ export const login = (userData) => {
     return axios.post('/api/users/login', userData);
 };
 
-// export const getCurrentUser = () => {
-//     return axios.get('/api/users/current')
-// }
+export const getCurrentUser = () => {
+    return axios.get('/api/users/current')
+}
