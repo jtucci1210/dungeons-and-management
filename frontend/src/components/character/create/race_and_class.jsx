@@ -4,7 +4,6 @@ import DropDown from '../../dropdown';
 import {raceBlurb, subraceBlurb, classBlurb} from '../../../util/blurb_util';
 import {fullRace} from '../../../util/race_util';
 import {fullClass} from '../../../util/class_util';
-import { abilityScores } from '../../../util/skill_util';
 
 class RaceAndClass extends React.Component {
     constructor(props) {
@@ -18,7 +17,8 @@ class RaceAndClass extends React.Component {
             raceSelected: this.props.raceSelected,
             classSelected: this.props.classSelected,
             finalRace: this.props.fullRace,
-            classes: this.props.classes
+            classes: this.props.classes,
+            statsRolled: this.props.statsRolled
         }  
         this.handleRaceClick = this.handleRaceClick.bind(this) 
         this.handleSubRaceClick = this.handleSubRaceClick.bind(this) 
@@ -97,7 +97,7 @@ class RaceAndClass extends React.Component {
     }
     
     render() {
-
+        
         let rblurb = this.state.race ? raceBlurb[this.state.race] : ""
         
         let cblurb = this.state.class ? classBlurb[this.state.class] : ""

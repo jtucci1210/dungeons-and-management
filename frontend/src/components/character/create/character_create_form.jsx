@@ -6,6 +6,7 @@ import '../../../stylesheet/character_create_form.css';
 class CharacterCreateForm extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {...this.props}
     }
 
     render() {
@@ -23,6 +24,7 @@ class CharacterCreateForm extends React.Component {
                     />
                 </div>
                 <div className="race-and-class-component">
+                   
                         <RaceAndClass 
                             raceSelected={this.props.raceSelected}
                             classSelected={this.props.classSelected}
@@ -32,9 +34,10 @@ class CharacterCreateForm extends React.Component {
                             race={this.props.race}
                             class={this.props.class}
                             fullRace={this.props.fullRace}
-                            statsRolled={this.props.statsRolled}
                             classes={this.props.classes}
+                            statsRolled={this.state.statsRolled}
                         />
+                   
                 </div>
             </div>
         )
