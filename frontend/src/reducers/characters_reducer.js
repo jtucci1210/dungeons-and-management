@@ -10,7 +10,7 @@ export default function (state = {}, action) {
     // debugger
     switch (action.type) {
         case RECEIVE_CHARACTER:
-            return Object.assign({}, { [action.character.data.name]: action.character.data })
+            return  action.character.data
         case RECEIVE_ALL_CHARACTERS:
             return {}
         default:
