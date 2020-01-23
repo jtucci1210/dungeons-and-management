@@ -7,9 +7,15 @@ class CharacterCreateForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {...this.props}
+        this.updateState = this.updateState.bind(this)
+    }
+
+    updateState(slice) {
+        this.setState(slice)
     }
 
     render() {
+        debugger
         return (
             <div className="character-create-form-container">
                 <div className="character-name">
@@ -21,10 +27,13 @@ class CharacterCreateForm extends React.Component {
                         rolls = {this.props.rolls}
                         order = {this.props.order}
                         statsRolled = {this.props.statsRolled}
+                        updateState={this.updateState}
                     />
                 </div>
                 <div className="race-and-class-component">
-                   
+                    {
+                        this.state.statsRolled
+                        ?
                         <RaceAndClass 
                             raceSelected={this.props.raceSelected}
                             classSelected={this.props.classSelected}
@@ -35,9 +44,12 @@ class CharacterCreateForm extends React.Component {
                             class={this.props.class}
                             fullRace={this.props.fullRace}
                             classes={this.props.classes}
-                            statsRolled={this.state.statsRolled}
+                            updateState={this.updateState}
+
                         />
-                   
+                        :
+                        ""
+                    }
                 </div>
             </div>
         )

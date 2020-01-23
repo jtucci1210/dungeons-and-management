@@ -26,6 +26,10 @@ class StatRoller extends React.Component {
                 statsRolled: true
             }
         )
+        this.props.updateState({
+                rolls: rolls,
+                statsRolled: true
+            })
     }
 
     handleClick(id, ability) {
@@ -43,6 +47,12 @@ class StatRoller extends React.Component {
             abilities: temp,
             roll: temp2
         })
+        this.props.updateState(
+            {
+                abilities: temp,
+                roll: temp2
+            }
+        )
     }
 
     render() {

@@ -34,6 +34,14 @@ class RaceAndClass extends React.Component {
             }
         )
 
+        this.props.updateState(
+            {
+                race: this.state.races[id].title,
+                subrace: "",
+                raceSelected: true
+            }
+        )
+
     }
 
     handleSubRaceClick(id) {
@@ -43,10 +51,24 @@ class RaceAndClass extends React.Component {
                 subraceSelected: true
             }
         )
+
+        this.props.updateState(
+            {
+                subrace: this.state.subraces[this.state.race][id].title,
+                subraceSelected: true
+            }
+        )
     }
 
     handleClassClick(id) {
         this.setState(
+            {
+                class: this.state.classes[id].title,
+                classSelected: true
+            }
+        )
+
+        this.props.updateState(
             {
                 class: this.state.classes[id].title,
                 classSelected: true
