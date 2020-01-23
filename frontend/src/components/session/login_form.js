@@ -13,7 +13,6 @@ class LoginForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.renderErrors = this.renderErrors.bind(this);
     }
 
     componentDidMount() {
@@ -44,42 +43,38 @@ class LoginForm extends React.Component {
         
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {this.props.errors.map((error, idx) => (
-                    <li key={`error-${idx}`}>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
-    }
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input type="email"
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"
-                        />
-                        <br />
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder="Password"
-                        />
-                        <br />
-                        <input type="submit" value="Submit" />
-                        <div className="login-errors">
-                            {this.renderErrors()}
-                        </div>
-                    </div>
-                </form>
-            </div>
+          <div className="login-form-container">
+            <form className="login-form" onSubmit={this.handleSubmit}>
+              <h2 className="modal-header">
+                D <i className="fab fa-d-and-d"></i> M
+              </h2>
+              <br />
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Email"
+              />
+              <div className="login-errors">{this.props.errors.email}</div>
+              <br />
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Password"
+              />
+              <div className="login-errors">{this.props.errors.password}</div>
+              <br />
+              <input
+                className="submit-button-modal"
+                type="submit"
+                value="Submit"
+              />
+            </form>
+          </div>
         );
     }
 }

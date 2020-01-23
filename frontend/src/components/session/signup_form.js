@@ -42,53 +42,65 @@ class SignupForm extends React.Component {
 
 
 
-    renderErrors() {
-        return (
-            <ul>
-               {this.props.errors.map((error,idx) => (
-                   <li key={`error-${idx}`}>
-                       {error}
-                   </li>
-               ))}
-            </ul>
-        );
-    }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //            {this.props.errors.map((error,idx) => (
+    //                <li key={`error-${idx}`}>
+    //                    {error}
+    //                </li>
+    //            ))}
+    //         </ul>
+    //     );
+    // }
 
     render() {
         return (
-            <div className="signup-form-container">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="signup-form">
-                        <br />
-                        <input type="text"
-                            value={this.state.username}
-                            onChange={this.update('username')}
-                            placeholder="Username"
-                        />
-                        <br />
-                        <input type="email"
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"
-                        />
-                        <br />
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder="Password"
-                        />
-                        <br />
-                        <input type="password"
-                            value={this.state.password2}
-                            onChange={this.update('password2')}
-                            placeholder="Confirm Password"
-                        />
-                        <br />
-                        <input type="submit" value="Submit" />
-                        {this.renderErrors()}
-                    </div>
-                </form>
-            </div>
+          <div className="signup-form-container">
+            <form className="signup-form" onSubmit={this.handleSubmit}>
+              <h2 className="modal-header">
+                D <i className="fab fa-d-and-d"></i> M
+              </h2>
+              <br />
+              <input
+                type="text"
+                value={this.state.username}
+                onChange={this.update("username")}
+                placeholder="Username"
+              />
+              <div className="signup-errors">{this.props.errors.username}</div>
+              <br />
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Email"
+              />
+              <div className="signup-errors">{this.props.errors.email}</div>
+              <br />
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Password"
+              />
+              <div className="signup-errors">{this.props.errors.password}</div>
+              <br />
+              <input
+                type="password"
+                value={this.state.password2}
+                onChange={this.update("password2")}
+                placeholder="Confirm Password"
+              />
+              <div className="signup-errors">{this.props.errors.password2}</div>
+              <br />
+              <input
+                className="submit-button-modal"
+                type="submit"
+                value="Submit"
+              />
+            </form>
+          </div>
         );
     }
 }
