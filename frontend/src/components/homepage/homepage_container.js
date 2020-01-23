@@ -1,7 +1,5 @@
 
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
-
 import HomePage from './homepage.js';
 
 const mapStateToProps = state => ({
