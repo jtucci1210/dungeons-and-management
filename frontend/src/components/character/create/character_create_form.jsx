@@ -3,7 +3,6 @@ import StatRoller from './stat_roller';
 import RaceAndClass from './race_and_class';
 import '../../../stylesheet/character_create_form.css';
 
-
 class CharacterCreateForm extends React.Component {
     constructor(props) {
         super(props)

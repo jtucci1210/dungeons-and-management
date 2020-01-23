@@ -41,7 +41,7 @@
     border: 1px solid lightgray;
     display: block;
     position: absolute;
-    top: 630px;
+    top: 680px;
     z-index: 1;
     min-width: 120px;
 }
@@ -267,6 +267,15 @@
 .class-drop-down {
     align-self: flex-end;
 }
+
+.class-drop-down-box {
+    display: flex;
+    width: 450px;
+    margin-left: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .dd-wrapper-Class {
     height: auto;
     width: auto;
@@ -274,9 +283,9 @@
     border: 1px solid lightgray;
     display: block;
     position: absolute;
-    top: 880px;
+    top: 680px;
     z-index: 1;
-    min-width: 135px;
+    min-width: 120px;
 }
 
 .dd-header-Class {
@@ -301,7 +310,7 @@
     background-color: white;
     border: 1px solid lightgray;
     position: absolute;
-    min-width: 135px;
+    min-width: 120px;
 }
 
 .dd-list-item-Class {
@@ -321,3 +330,76 @@
     cursor: pointer;
     color: grey;
 } */
+
+.class-drop-down-box h3 {
+    width: 70px;
+    text-transform: capitalize;
+    margin: 30px 30px;
+    font-weight: bold;
+    align-self: baseline;
+}
+
+.class-modifiers {
+    border: solid black 1px;
+    width: 450px;
+    height: 250px;
+    margin: 10px;
+    justify-self: flex-end;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.class-skills {
+    display: flex;
+}
+
+.class-blurb {
+    width: 420px;
+    margin: 20px 10px;
+    text-align: justify;
+    height: 100px;
+}
+
+.hit-dice {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.saving-throw-box {
+    font-weight: bold;
+    display: flex;
+    margin: 10px 0;
+}
+
+.saving-throw {
+    font-weight: normal;
+    list-style-type: none;
+    margin: 0 5px;
+    text-transform: capitalize;
+}
+
+.class-skills {
+    margin: 5px 0;
+}
+
+.class-skill-list-box {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    font-weight: bold;
+}
+
+.class-skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 0;
+    margin: 5px 0;
+
+}
+
+.class-skill {
+    margin: 5px 0;
+    font-weight: normal;
+    width: 150px;
+}

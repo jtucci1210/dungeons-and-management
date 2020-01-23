@@ -1,8 +1,9 @@
 import React from 'react';
 import '../../../stylesheet/race_and_class.css';
 import DropDown from '../../dropdown';
-import {raceBlurb, subraceBlurb} from '../../../util/blurb_util';
+import {raceBlurb, subraceBlurb, classBlurb} from '../../../util/blurb_util';
 import {fullRace} from '../../../util/race_util';
+import {fullClass} from '../../../util/class_util';
 import { abilityScores } from '../../../util/skill_util';
 
 class RaceAndClass extends React.Component {
@@ -65,9 +66,41 @@ class RaceAndClass extends React.Component {
         }
     }
 
+    renderClassSkills() {
+        if (this.state.classSelected) {
+            return (
+                <div className="class-skill-list-box">Choice of {fullClass[this.state.class].numSkills} skills (to be selected on next page): 
+                    <div className="class-skill-list">
+                    {fullClass[this.state.class].skillList.map( (skill, idx) =>
+                        <li key={idx} className="class-skill">{skill}</li>
+                        )}
+                    </div>
+                </div>
+            )
+        } else {
+            return null
+        }
+    }
+
+    renderSavingThrows() {
+        if (this.state.classSelected) {
+            return (
+                <div className="saving-throw-box">Saving Throws: 
+                    {fullClass[this.state.class].savingThrows.map((skill, idx) =>
+                    <li className="saving-throw" key={idx}>{idx == 0 ? `${skill},` : skill}</li>
+                )}
+                </div>
+            )
+        } else {
+            return null
+        }
+    }
+    
     render() {
 
         let rblurb = this.state.race ? raceBlurb[this.state.race] : ""
+        
+        let cblurb = this.state.class ? classBlurb[this.state.class] : ""
 
         let srblurb = this.state.subrace ? subraceBlurb[this.state.subrace] : ""
 
@@ -139,15 +172,27 @@ class RaceAndClass extends React.Component {
                     <div className="class-container">
                         <h1>Class</h1>
                         <div className="class-selector">
-                            <div>
-                                <DropDown
-                                    title="Select Class"
-                                    list={this.state.classes}
-                                    className="class-drop-down"
-                                    handleClick={this.handleClassClick}
-                                />
+                            <div className="class-drop-down-box">
+                                <div>
+                                    <DropDown
+                                        title="Select Class"
+                                        list={this.state.classes}
+                                        className="class-drop-down"
+                                        handleClick={this.handleClassClick}
+                                    />
+                                </div>
+                                <h3>{this.state.class}</h3>
                             </div>
-                            <h3>{this.state.class}</h3>
+                        </div>
+                        <div className="class-blurb">{cblurb}</div>
+                        <div className="class-modifiers">
+                            <div className="hit-dice">{ this.state.class ? `HitDice: ${fullClass[this.state.class].hitDice}` : ""}</div>
+                            <div className="saving-throws">
+                                    {this.renderSavingThrows(this.state.class)}
+                            </div>
+                            <div className="class-skills">
+                                <div className="class-skill-list-box">{this.renderClassSkills(this.state.class)}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
