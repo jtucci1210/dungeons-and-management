@@ -39,7 +39,7 @@ class LoginForm extends React.Component {
             this.props.closeModal();
           }
         });
-        this.props.history.push('/')
+        // this.props.history.push('/')
         
     }
 
