@@ -93,6 +93,8 @@ class HomePage extends React.Component {
         
         return (
             <div className="home-page-main-box">
+                <script src="/socket.io/socket.io.js"></script>
+                <script src="routes/api/web-socket.js"></script>
                     <div className="home-page-characters">
                         {this.characterInfo()}
                     </div>
@@ -120,6 +122,7 @@ class HomePage extends React.Component {
                             </div>
                         </div>
                     </div>
+                    
                 <div className='main-page-background-img'>
                     <img src={splashImg} alt="background" className="splash-image" />
                 </div>  

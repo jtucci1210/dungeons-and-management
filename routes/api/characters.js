@@ -47,14 +47,14 @@ router.post("/create", (req, res) => {
 });
 
 //Get a single character
-router.get('/:id', (req, res) => {
-    Character.findById(req.params.id)
+router.get('/:char_id', (req, res) => {
+    Character.findById(req.params.char_id)
         .then(character => res.json(character))
 });
 
 //Edit a character
-router.patch('/:id/edit', (req, res) => {
-    Character.findById(req.params.id).then(char => {
+router.patch('/:char_id/edit', (req, res) => {
+    Character.findById(req.params.char_id).then(char => {
         const { errors, isValid } = validCreateCharInput(req.body);
 
         if (!isValid) {
@@ -78,8 +78,8 @@ router.patch('/:id/edit', (req, res) => {
 });
 
 //Delete a character
-router.delete('/:id', (req, res) => {
-    Character.findById(req.params.id).then(char => {
+router.delete('/:char_id', (req, res) => {
+    Character.findById(req.params.char_id).then(char => {
        char.delete();
        res.json("Success")
     })

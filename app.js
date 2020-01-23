@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+var socket = require("socket.io");
 
 //File Imports
 const users = require("./routes/api/users");
@@ -23,27 +24,29 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
-//Websockets
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
-
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
-});
-
-io.on('connection', function (socket) {
-    socket.on('chat message', function (msg) {
-        io.emit('chat message', msg);
-    });
-});
-
-
-http.listen(8080, function () {
-    console.log('listening on *:8080');
-});
-
-
 //Routes
 app.use("/api/users", users);
 app.use("/api/characters", characters);
 app.use("/api/campaigns", campaigns);
+
+//Websockets
+const socketPort = 3000;
+const server = app.listen(socketPort, function () {
+    console.log("Listening at http://localhost: " + socketPort);
+});
+const sock = socket(server);
+sock.on("connection", function (socket) {
+    console.log("made connection with socket " + socket.id);
+
+    socket.on("test", function (data) {
+        sock.sockets.emit("test", data);
+    });
+    // socket.on("chat", function (data) {
+    //     sock.sockets.emit("chat", data);
+    // });
+
+    // socket.on("typing", function (data) {
+    //     // send an event to everyone but the person who emitted the typing event to the server
+    //     socket.broadcast.emit("typing", data);
+    // });
+});

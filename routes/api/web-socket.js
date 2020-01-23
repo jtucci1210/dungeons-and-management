@@ -1,9 +1,9 @@
-const webSocketsServerPort = 8000;
-const webSocketServer = require('websocket').server;
-const http = require('http');
-// Spinning the http server and the websocket server.
-const server = http.createServer();
-server.listen(webSocketsServerPort);
-const wsServer = new webSocketServer({
-    httpServer: server
+var socket = io.connect("http://localhost:3000");
+
+socket.emit("test", {
+    message: "Banana"
+});
+
+socket.on("test", function (data) {
+    console.log(data);
 });
