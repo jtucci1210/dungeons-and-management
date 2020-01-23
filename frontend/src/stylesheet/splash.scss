@@ -1,5 +1,4 @@
 
-
 .main-page-background-img {
     width: 100%;
     height: 100%;
@@ -14,8 +13,102 @@
     }
 
     .content {
+        width: 100%;
         position: absolute;
         top: 0;
         color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .header-splash-description {
+            font-size: 40px;
+            color: white;
+            font-family: Birmingham;
+            text-shadow: 5px 5px 8px black;
+
+        }
+        .splash-description {
+            margin-top: 200px;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+            .splash-description-paragraph {
+                background-color: #173514;
+                border-radius: 5px;
+                opacity: .9;
+                height: 75%;
+                width: 75%;
+                text-align: center;
+                box-shadow: 5px 5px 8px black;
+                padding: 20px;
+            }
+        }
+
+        .splash-character-build {
+            margin-top: 50px;
+            width: 100%;
+            height: 400px;
+            background-color: rgba(92, 160, 79, 0.3);
+            box-shadow: 5px 5px 8px black;
+
+            display: flex;
+            p {
+                width: 50%;
+                text-align: center;
+                padding: 20px 0px 20px 0px;
+
+
+            }
+            img {
+                width: 50%;
+                background-color: black;
+            }
+        }
+
+        .splash-campaign-management {
+            margin-top: 50px;
+            width: 100%;
+            height: 400px;
+            background-color: rgba(92, 160, 79, 0.3);
+            box-shadow: 5px 5px 8px black;
+
+            display: flex;
+            p {
+                width: 50%;
+                text-align: center;
+                padding: 20px 0px 20px 0px;
+
+
+            }
+            img {
+                width: 50%;
+                background-color: black;
+            }
+        }
+
+        .splash-dice-manager {
+            margin-top: 50px;
+            width: 100%;
+            height: 400px;
+            background-color: rgba(92, 160, 79, 0.3);
+            box-shadow: 5px 5px 8px black;
+
+            display: flex;
+            .splash-dice-manager-paragraph {
+                width: 50%;
+                text-align: center;
+                padding: 20px 0px 20px 0px;
+
+            }
+            .splash-dice-manager-img {
+                width: 50%;
+                background-color: black;
+            }
+        }
     }
 }

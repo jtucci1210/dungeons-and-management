@@ -46,7 +46,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className="nav-bar">
-                <div className="nav-bar-logo"></div>
+                <div className="imma-spacer"></div>
                 <Link className="nav-bar-title" to='/'>
                     <h1 className='nav-bar-page-title'>Dungeons <i className="fab fa-d-and-d"></i> Management</h1>
                 </Link>
