@@ -6,7 +6,7 @@ import NavBar from './navbar';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
-    // debugger;
+    debugger;
     return ({
         loggedIn: state.session.isAuthenticated,
         currentUser: state.session.user
@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout()),
     openModal: modal => dispatch(openModal(modal)),
     closeModal: modal => dispatch(closeModal(modal)),
-    // fetchCurrentUser: () => dispatch(fetchCurrentUser())
+    fetchCurrentUser: () => dispatch(fetchCurrentUser())
 })
 
 export default connect(

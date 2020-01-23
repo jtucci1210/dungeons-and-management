@@ -58,7 +58,6 @@ export const login = user => dispatch => {
         const decoded = jwt_decode(token);
         return dispatch(receiveCurrentUser(decoded))
     }).catch(err => {
-            // debugger;
             return dispatch(receiveErrors(err.response.data))
     })
 }
