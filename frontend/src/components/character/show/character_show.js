@@ -2,6 +2,8 @@ import React from 'react';
 import { withRouter } from 'react-router-dom'
 import '../../../stylesheet/show_page.css'
 import '../../../stylesheet/test.css'
+import GeneralStats from './character_main_stats';
+import MainStats from './character_main_stats';
 
 
 
@@ -20,45 +22,25 @@ class CharacterShowPage extends React.Component {
         // this.props.getCharacter(this.props.match.params.characterId)
     }
 
+    generalStates() {
+        
+    }
+
     render() {
         if (this.state.loaded) {
             const character = this.props.character
             return (
                 <div className='show-character-page'>
-                    <div className="test">
-                        {character.name}
-                    </div>
-                    <div className="show-character-hit-dice">
-                        Hit Dice Box
-                    </div>
-                    <div className='show-character-general-stats'>
-                        <img></img>
-                        <div className='show-character-general-race'>
-                            <p className='show-character-general-race'>
-                                Race:
-                            </p>
-                            <div className='show-character-general-race'>
-                                {character.race}
-                            </div>
+                    <div className='show-character-header'>
+                        <div className="show-character-name">
+                            {character.name}
                         </div>
-                        <div className='show-character-general-lvl'>
-                            <p className='show-character-general-race'>
-                                Level:
-                            </p>
-                            <div className='show-character-general-level'>
-                                {character.level}
-                            </div>
-                        </div>
-                        <div className='show-character-general-class'>
-                            <p className='show-character-general-race'>
-                                Class:
-                            </p>
-                            <div className='show-character-general-class'>
-                                {character.class}
-                            </div>
+                        <div className="show-character-hit-dice">
+                            Hit Dice Box
                         </div>
                     </div>
-
+                    <GeneralStats character={character}/>
+                    <MainStats character={character} />
                 </div>
             )
         } else {
