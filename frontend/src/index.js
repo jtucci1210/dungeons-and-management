@@ -6,7 +6,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { logout } from './actions/session_actions';
-import { setAuthToken, login } from './util/session_api_util';
+import { setAuthToken } from './util/session_api_util';
 import axios from 'axios';
 import { getCharacter } from "./util/character_util";
 
@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore({});
     }   
      const root = document.getElementById('root');
-    window.getState = store.getState();
-    window.axios = axios;
-    window.getCharacter = getCharacter;
+    // window.getState = store.getState();
+    // window.axios = axios;
+    // window.getCharacter = getCharacter;
     ReactDOM.render(<Root store={store} />, root);
 });
