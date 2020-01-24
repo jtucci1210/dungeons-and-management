@@ -6,6 +6,7 @@ class Dice extends React.Component {
         super(props)
         this.socket = io.connect('http://localhost:8080');
         this.calcRollTotal = this.calcRollTotal.bind(this);
+        this.diceArr = [4, 6, 8, 10, 12, 20]
     }
 
     componentDidMount() {
@@ -40,16 +41,14 @@ class Dice extends React.Component {
     }
 
     handleRoll() {
-        let diceArr = [4,6,8,10,12,20]
-        diceArr.forEach(die => this.handleDiceClick(die))
+        this.diceArr.forEach(die => this.handleDiceClick(die))
         this.calcRollTotal()
     }
 
     calcRollTotal() {
-        let diceArr = [4, 6, 8, 10, 12, 20]
         let rollTotal = 0
 
-        diceArr.forEach(die => {
+        this.diceArr.forEach(die => {
             let sub = parseInt(document.getElementById(`diceRes${die}`).innerHTML)
             rollTotal += sub;
         })
@@ -60,8 +59,7 @@ class Dice extends React.Component {
     }
 
     handleClear() {
-        let diceArr = [4, 6, 8, 10, 12, 20]
-        diceArr.forEach(die => {
+        this.diceArr.forEach(die => {
             let dieEle = document.getElementById(`diceRes${die}`)
             let dieInput = document.getElementById(`num${die}`)
             dieInput.value = "";
