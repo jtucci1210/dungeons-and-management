@@ -11,19 +11,23 @@ function MainStats(props) {
     return (
         <div className='show-character-main-stats'>
             <div className='show-character-battle-stats'>
-                <div className='show-character-battle-stats-titles'>
-                    <p className='battle-state-title'>A.C.</p>
-                    <p className='battle-state-title'>Initiative</p>
-                    <p className='battle-state-title'>Speed</p>
-                    <p className='battle-state-title'>P.P</p>
-                    <p className='battle-state-title'>Prot</p>
-                </div>
                 <div className='show-character-battle-stats-info'>
-                    <div className='battle-state-title-info'>A.C. value</div>
-                    <div className='battle-state-title-info'>Initiative value</div>
-                    <div className='battle-state-title-info'>Speed value</div>
-                    <div className='battle-state-title-info'>P.P value</div>
-                    <div className='battle-state-title-info'>Prot value</div>
+                    <div>
+                        <p className='battle-state-title'>A.C.</p>
+                        <div className='battle-state-title-info'>1111</div>
+                    </div>
+                    <div>
+                        <p className='battle-state-title'>Speed</p>
+                        <div className='battle-state-title-info'>1111</div>
+                    </div>
+                    <div>
+                        <p className='battle-state-title'>P.P</p>
+                        <div className='battle-state-title-info'>1111</div>
+                    </div>
+                    <div>
+                        <p className='battle-state-title'>Prot</p>
+                        <div className='battle-state-title-info'>1111</div>
+                    </div>
                 </div>
             </div>
             <div className='show-character-all-stats'>

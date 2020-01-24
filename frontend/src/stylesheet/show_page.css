@@ -81,6 +81,9 @@
 }
 
 .show-character-battle-stats-titles{
+    /* display: flex;
+    justify-content: space-between;
+    padding: 10px; */
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-gap: 10px;
@@ -91,11 +94,13 @@
 }
 
 .show-character-battle-stats-info {
+    /* display: flex;
+    justify-content: space-between;
+    padding: 10px; */
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-gap: 10px;
     padding: 10px;
-    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
     font-size: 14px;
     align-items: center;
 }
@@ -105,6 +110,9 @@
         justify-content: center;
         height: 50px;
         align-items: center;
+        min-width: 100px;
+        padding: 0px 5px;
+        width: 150px;
     }
     .battle-state-title-info {
         border: 2px solid brown;
@@ -112,6 +120,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        max-width: 159px;
     }
 
 .show-character-general-race,
@@ -132,7 +141,6 @@
     /* grid-template-columns: auto auto auto auto auto auto;
     grid-gap: 10px; */
     padding: 10px;
-    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
     font-size: 14px;
     align-items: center;
      /* delete */
@@ -146,6 +154,7 @@
 .show-character-self-stat {
     display: block;
     text-align: center;
+    min-width: 100px;
 }
 
     .str-value{

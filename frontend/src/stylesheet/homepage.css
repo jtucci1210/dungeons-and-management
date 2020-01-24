@@ -122,10 +122,8 @@
 .home-page-campaign-box {
     background-color: #173514;
     background-image: url("https://www.transparenttextures.com/patterns/shley-tree-1.png");
-    display: block;
     width: 25%;
     justify-content: center;
-    height: 100px;
     position: fixed;
     right: 0px;
     top: 130px;
@@ -134,6 +132,11 @@
     border: solid 10px #A6C8BC;
     border-radius: 5px;
     box-shadow: 5px 5px 10px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 150px;
+    height: auto;
 }
 
     .home-page-campaign-links {
@@ -151,10 +154,7 @@
 }
 
 .home-page-campaign-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 150px;
+    
 }
 .home-page-campaign-links {
     display: flex;

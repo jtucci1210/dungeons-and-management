@@ -36,7 +36,7 @@ class CharacterShowPage extends React.Component {
                             {character.name}
                         </div>
                         <div className="show-character-hit-dice">
-                            Hit Dice Box
+                            {character.level}d
                         </div>
                     </div>
                     <div className='show-character-page'>
