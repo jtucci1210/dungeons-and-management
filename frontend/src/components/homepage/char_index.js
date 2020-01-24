@@ -20,6 +20,7 @@ class CharIndex extends React.Component {
             { _id:"5e28927822d5dd01891a7618",name: 'character2', race: 'forestGnome', currentHealth: 10, health: 40, class: 'rogue' },
             { _id:"5e28927822d5dd01891a7618",name: 'character2', race: 'dragonborn', currentHealth: 10, health: 40, class: 'rogue' },
     ];
+    // const characters = props.characters
         return (
           <div className="index-characters">
             <Link to={`/characters/new`} className="home-page-create-character">
