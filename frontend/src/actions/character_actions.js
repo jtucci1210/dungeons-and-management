@@ -23,7 +23,6 @@ export const receiveAllCharacters = () => ({
 })
 
 export const getCharacter = characterId => dispatch => {
-    debugger;
    return ( 
        CHARACTERAPIUTIL.getCharacter(characterId)
         .then(character => dispatch(receiveCharacter(character.data)))
