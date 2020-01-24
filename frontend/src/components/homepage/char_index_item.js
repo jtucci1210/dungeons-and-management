@@ -49,10 +49,23 @@ class CharIndexItem extends React.Component {
             return "meow";
       }
   }
+  charHealth () {
+      const { character } = this.props;
+      let healthPct = character.currentHealth / character.health;
+            if (healthPct < 0.3) {
+      return (
+          <span className="warning-health">{character.currentHealth}</span>
+      )} else {
+          return (
+            <span className="safe-health">{character.currentHealth}</span>
+          );
+      }
+  }
 
   render() {
       const {character} = this.props;
       const cardImg = this.charImage();
+      const healthAmt = this.charHealth();
     return (
       <div className="character-box">
         <div className="character-name-index">
@@ -61,16 +74,24 @@ class CharIndexItem extends React.Component {
         <div className="character-image-div">
           <img className="character-image" src={cardImg}></img>
         </div>
-        <div className="character-image-index">
+        <div className="index-character-stats">
           <div className="character-image-health-index">
-            MaxHealth (Current): {character.health}  ({character.currentHealth})
+            <span className="field-title">MaxHealth (Current): </span>
+            <div className="imma-blank-space"> </div>
+            <span >
+              {character.health} ({healthAmt})
+            </span>
           </div>
-        </div>
-        <div className="character-race-index">
-          <h3>Race: </h3> {character.race}
-        </div>
-        <div className="character-class-index">
-          <h3>Class: </h3> {character.class}
+          <div className="character-race-index">
+            <span className="field-title">Race:</span>
+            <div className="imma-blank-space"> </div>
+            <span>{character.race}</span>
+          </div>
+          <div className="character-class-index">
+            <span className="field-title">Class:</span>
+            <div className="imma-blank-space"> </div>
+            <span>{character.class}</span>
+          </div>
         </div>
       </div>
     );

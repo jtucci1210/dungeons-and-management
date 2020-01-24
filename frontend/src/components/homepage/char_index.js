@@ -12,11 +12,11 @@ class CharIndex extends React.Component {
     const characters = [
             { name: 'character1', race: 'woodElf', currentHealth: 10, health: 20, class: 'rogue' },
             { name: 'character2', race: 'tiefling', currentHealth: 10, health: 40, class: 'rogue' },
-            { name: 'character2', race: 'hillDwarf', currentHealth: 10, health: 40, class: 'rogue' },
-            { name: 'character2', race: 'halforc', currentHealth: 10, health: 40, class: 'rogue' },
-            { name: 'character2', race: 'halfelf', currentHealth: 10, health: 40, class: 'rogue' },
-            { name: 'character2', race: 'human', currentHealth: 10, health: 40, class: 'rogue' },
-            { name: 'character2', race: 'stoutHalfling', currentHealth: 10, health: 40, class: 'rogue' },
+            { name: 'character2', race: 'hillDwarf', currentHealth: 20, health: 40, class: 'rogue' },
+            { name: 'character2', race: 'halforc', currentHealth: 15, health: 40, class: 'rogue' },
+            { name: 'character2', race: 'halfelf', currentHealth: 12, health: 40, class: 'rogue' },
+            { name: 'character2', race: 'human', currentHealth: 30, health: 40, class: 'rogue' },
+            { name: 'character2', race: 'stoutHalfling', currentHealth: 11, health: 40, class: 'rogue' },
             { name: 'character2', race: 'forestGnome', currentHealth: 10, health: 40, class: 'rogue' },
             { name: 'character2', race: 'dragonborn', currentHealth: 10, health: 40, class: 'rogue' },
     ];
