@@ -53,7 +53,8 @@ const mapStateToProps = state => ({
         { id: 10, selected: false, title: "warlock"},
         { id: 11, selected: false, title: "wizard"},
     ],
-    fullRace
+    fullRace,
+    characterName: ""
 });
 
 const mapDispatchToProps = dispatch => ({
