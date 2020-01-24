@@ -5,6 +5,7 @@ import NavBarContainer from './nav/navbar_container';
 import SplashPage from './splash/splash_page';
 import Modal from './modal/modal';
 import HomePage from './homepage/homepage_container';
+import CampaignContainer from './campaign/campaign_container'
 import Footer from './footer/footer';
 
 const App = () => (
@@ -14,6 +15,8 @@ const App = () => (
         <Switch>
             <AuthRoute exact path="/" component={SplashPage} />
             <ProtectedRoute exact path='/home' component={HomePage} />
+            <ProtectedRoute exact path="/campaign" component={CampaignContainer} />
+            {/* {/* <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
         </Switch>
         <Footer/>
         

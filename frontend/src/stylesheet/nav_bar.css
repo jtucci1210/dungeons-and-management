@@ -39,12 +39,12 @@
     text-decoration: none;
 }
 
-    .nav-bar-signup,
-    .nav-bar-login {
-        font-size: 22px;
-        color: #A6C8BC;
-        text-decoration: none;
-    }
+.nav-bar-signup,
+.nav-bar-login {
+    font-size: 22px;
+    color: #A6C8BC;
+    text-decoration: none;
+}
 
 .nav-bar-title{
     text-decoration: none;

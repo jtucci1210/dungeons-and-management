@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const socket = require("socket.io");
 
 //File Imports
 const users = require("./routes/api/users");
@@ -23,27 +24,31 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
-//Websockets
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
-
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
-});
-
-io.on('connection', function (socket) {
-    socket.on('chat message', function (msg) {
-        io.emit('chat message', msg);
-    });
-});
-
-
-http.listen(8080, function () {
-    console.log('listening on *:8080');
-});
-
-
 //Routes
 app.use("/api/users", users);
 app.use("/api/characters", characters);
 app.use("/api/campaigns", campaigns);
+
+//Websockets Set-Up
+const socketPort = 8080;
+const server = app.listen(socketPort, function () {
+    console.log("Listening at http://localhost: " + socketPort);
+});
+const sock = socket(server);
+
+//Socket Emitters
+sock.on("connection", function (socket) {
+    console.log("made connection with socket " + socket.id);
+
+    socket.on("hp", function (data) {
+        sock.sockets.emit("hp", data);
+    });
+
+    socket.on("dice", function (data) {
+        sock.sockets.emit("dice", data);
+    });
+
+    socket.on("total", function (data) {
+        sock.sockets.emit("total", data);
+    });
+});
