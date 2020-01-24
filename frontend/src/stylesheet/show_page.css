@@ -13,24 +13,34 @@
     }
 
     .show-character-hit-dice {
-        width: 100px;
+        width: auto;
     }
+
 
 
 /* ---------------------------- */
 
 /* general stats styling */
 
+.placeholder-img {
+    height: 175px;
+}
+
 .show-character-general-stats {
     /* delete */
     border: 2px solid red;
     /* delete */
     margin: 15px;
-    display: flex;
+    display: block;
     height: 300px;
-    width: 220px;
+    width: auto;
 }
 
+.show-character-general-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 4px;
+}
 
 
 /* ---------------------------- */
@@ -45,9 +55,14 @@
     
 }
 
+.show-character-main-stats{
+    padding: 15px;
+    width: 75%;
+}
+
 .show-character-battle-stats-titles{
     display: grid;
-    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-template-columns: auto auto auto auto auto;
     grid-gap: 10px;
     padding: 10px;
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
@@ -57,7 +72,7 @@
 
 .show-character-battle-stats-info {
     display: grid;
-    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-template-columns: auto auto auto auto auto;
     grid-gap: 10px;
     padding: 10px;
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
@@ -66,13 +81,35 @@
 }
     .battle-state-title {
         border: 2px solid brown;
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        align-items: center;
     }
+    .battle-state-title-info {
+        border: 2px solid brown;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+.show-character-general-race,
+.show-character-general-lvl,
+.show-character-general-class {
+    display: flex;
+    margin-right: 5px;
+}
+
+.show-character-general-class {
+    padding: 0px 4px;
+}
 
 /* ---------------------------- */
 
 .show-character-self-stats {
     display: grid;
-    grid-template-columns: 100px 100px 100px 100px 100px 100px;
+    grid-template-columns: auto auto auto auto auto auto;
     grid-gap: 10px;
     padding: 10px;
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
@@ -82,3 +119,8 @@
     border: 2px solid red;
     /* delete */
 }
+
+    .str-value{
+        display: block;
+
+    }

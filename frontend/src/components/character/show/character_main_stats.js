@@ -16,11 +16,11 @@ function MainStats(props) {
                     <p className='battle-state-title'>Prot</p>
                 </div>
                 <div className='show-character-battle-stats-info'>
-                    <div className='battle-state-title'>A.C. value</div>
-                    <div className='battle-state-title'>Initiative value</div>
-                    <div className='battle-state-title'>Speed value</div>
-                    <div className='battle-state-title'>P.P value</div>
-                    <div className='battle-state-title'>Prot value</div>
+                    <div className='battle-state-title-info'>A.C. value</div>
+                    <div className='battle-state-title-info'>Initiative value</div>
+                    <div className='battle-state-title-info'>Speed value</div>
+                    <div className='battle-state-title-info'>P.P value</div>
+                    <div className='battle-state-title-info'>Prot value</div>
                 </div>
             </div>
             <div className='show-character-self-stats'>
