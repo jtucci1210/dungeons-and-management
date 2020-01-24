@@ -6,6 +6,7 @@ import SplashPage from './splash/splash_page';
 import Modal from './modal/modal';
 import HomePage from './homepage/homepage_container';
 import CampaignContainer from './campaign/campaign_container'
+import Footer from './footer/footer';
 
 const App = () => (
     <div>
@@ -17,7 +18,7 @@ const App = () => (
             <ProtectedRoute exact path="/campaign" component={CampaignContainer} />
             {/* {/* <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
         </Switch>
-        {/* <FooterBarContainer/> */}
+        <Footer/>
         
     </div>
 );
