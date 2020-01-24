@@ -23,22 +23,23 @@ export const receiveAllCharacters = () => ({
 })
 
 export const getCharacter = characterId => dispatch => {
+    debugger;
    return ( 
        CHARACTERAPIUTIL.getCharacter(characterId)
         .then(character => dispatch(receiveCharacter(character.data)))
    )
 }
-export const getCharacters = () => dispatch => (
-    CHARACTERAPIUTIL.getCharacters()
+export const getCharacters = (userId) => dispatch => (
+    CHARACTERAPIUTIL.getCharacters(userId)
         .then(characters => dispatch(receiveAllCharacters(characters)))
 )
-export const editCharacter = () => dispatch => (
-    CHARACTERAPIUTIL.editCharacter()
-        .then(character => dispatch(receiveCharacter(character)))
+export const editCharacter = (data) => dispatch => (
+    CHARACTERAPIUTIL.editCharacter(data)
+        .then(character => dispatch(receiveCharacter(character.data)))
 )
-export const createCharacter = () => dispatch => (
-    CHARACTERAPIUTIL.createCharacter()
-        .then(character => dispatch(receiveAllCharacters(character)))
+export const createCharacter = (data) => dispatch => (
+    CHARACTERAPIUTIL.createCharacter(data)
+        .then(character => dispatch(receiveAllCharacters(character.data)))
 )
 
 
