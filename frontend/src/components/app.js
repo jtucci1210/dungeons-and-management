@@ -8,6 +8,7 @@ import SignupFormContainer from './session/signup_form_container';
 import CharacterCreateFormContainer from './character/create/character_create_form_container';
 import Modal from './modal/modal';
 import HomePage from './homepage/homepage_container';
+import Footer from './footer/footer';
 
 const App = () => (
     <div>
@@ -20,7 +21,7 @@ const App = () => (
             {/* <AuthRoute exact path="/login" component={LoginFormContainer} /> */}
             {/* <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
         </Switch>
-        {/* <FooterBarContainer/> */}
+        <Footer/>
         
     </div>
 );

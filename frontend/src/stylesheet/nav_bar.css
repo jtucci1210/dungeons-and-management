@@ -1,9 +1,10 @@
 .nav-bar {
     background-color: #173514;
+    background-image: url("https://www.transparenttextures.com/patterns/shley-tree-1.png");
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 100px;
+    height: 80px;
     color: #A6C8BC;
     padding: 5px;
     align-items: center;
@@ -24,7 +25,7 @@
     padding-right: 30px;
 }
 .nav-bar-page-title {
-    font-size: 50px;
+    font-size: 40px;
     font-family: Birmingham;
 }
 
@@ -70,9 +71,10 @@
 
 .nav-bar-greeting-message {
     font-size: 20px;
-    display: flex;
+    display: flex; 
     align-items: center;
     padding-right: 4px;
+    font-family: Special Elite;
 }
 
 
