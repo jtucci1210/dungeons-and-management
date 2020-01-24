@@ -77,7 +77,7 @@
 
 .show-character-main-stats{
     padding: 15px;
-    width: 75%;
+    /* width: 75%; */
 }
 
 .show-character-battle-stats-titles{
@@ -142,7 +142,6 @@
     grid-gap: 10px; */
     padding: 10px;
     font-size: 14px;
-    align-items: center;
      /* delete */
     border: 2px solid red;
     /* delete */
@@ -155,6 +154,9 @@
     display: block;
     text-align: center;
     min-width: 100px;
+    border: 2px solid #173514;
+    width: 150px;
+    margin: 4px;
 }
 
     .str-value{
@@ -170,6 +172,18 @@
     .show-character-ability-value,
     .show-character-ability-modifier{
         margin: 7px;
+    }
+
+    .show-character-ability-modifier {
+        border-radius: 15px 50px 30px 5px;
+        border: 2px solid rgba(118, 92, 6, 0.831);
+        padding: 6px
+    }
+
+    .show-character-ability-value {
+        border-radius: 50px 15px  5px 30px;
+        border: 2px solid rgba(118, 92, 6, 0.831);
+        padding: 6px
     }
     /* ------------------------ */
 
