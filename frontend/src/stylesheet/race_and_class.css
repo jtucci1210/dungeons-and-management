@@ -332,6 +332,11 @@
     color: grey;
 } */
 
+.dd-list-item-Class:Hover {
+    background-color: green;
+    cursor: pointer;
+}
+
 .class-drop-down-box h3 {
     width: 70px;
     text-transform: capitalize;
@@ -403,12 +408,4 @@
     margin: 5px 0;
     font-weight: normal;
     width: 150px;
-}
-
-.final-stats-container {
-    display: flex;
-    border: solid 1px black;
-    width: 600px;
-    height: 100px;
-    margin: 20px 0;
 }

@@ -16,7 +16,7 @@ class RaceAndClass extends React.Component {
             subraces: this.props.subraces,
             raceSelected: this.props.raceSelected,
             classSelected: this.props.classSelected,
-            finalRace: this.props.fullRace,
+            finalRace: this.props.finalRace,
             classes: this.props.classes,
             statsRolled: this.props.statsRolled
         }  
@@ -26,6 +26,11 @@ class RaceAndClass extends React.Component {
     }
 
     handleRaceClick(id) {
+       
+        let chosenRace = this.state.races[id].title
+
+        let subs = this.props.subraces[chosenRace]
+
         this.setState(
             {
                 race: this.state.races[id].title,
@@ -38,29 +43,41 @@ class RaceAndClass extends React.Component {
             {
                 race: this.state.races[id].title,
                 subrace: "",
-                raceSelected: true
+                raceSelected: true,
+                finalRace: chosenRace
             }
         )
+
+        if (!subs) {
+            this.props.updateFinalStats(chosenRace)
+        }
 
     }
 
     handleSubRaceClick(id) {
+        let chosenRace = `${this.state.subraces[this.state.race][id].title}${this.state.race[0].toUpperCase()}${this.state.race.substring(1)}`
+
         this.setState(
             {
                 subrace: this.state.subraces[this.state.race][id].title,
                 subraceSelected: true
             }
         )
-
+ 
         this.props.updateState(
             {
                 subrace: this.state.subraces[this.state.race][id].title,
-                subraceSelected: true
+                subraceSelected: true,
+                finalRace: chosenRace
             }
         )
+
+        this.props.updateFinalStats(chosenRace)
+
     }
 
     handleClassClick(id) {
+
         this.setState(
             {
                 class: this.state.classes[id].title,
@@ -217,9 +234,6 @@ class RaceAndClass extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="final-stats-container">
-                    
                 </div>
             </div>
         )

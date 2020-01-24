@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CharacterCreateForm from './character_create_form';
+import { fullRace } from '../../../util/race_util';
 
 const mapStateToProps = state => ({
     abilities: [
@@ -51,7 +52,8 @@ const mapStateToProps = state => ({
         { id: 9, selected: false, title: "sorcerer"},
         { id: 10, selected: false, title: "warlock"},
         { id: 11, selected: false, title: "wizard"},
-    ]
+    ],
+    fullRace
 });
 
 const mapDispatchToProps = dispatch => ({

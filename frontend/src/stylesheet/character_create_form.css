@@ -35,3 +35,50 @@
     justify-content: center;
 }
 
+.race-and-class-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.final-stats-container {
+    display: flex;
+    border: solid 1px black;
+    width: 600px;
+    height: auto;
+    margin: 20px 0;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+.stats-list {
+    display: flex;
+}
+
+.final-stat-box {
+    width: 90px;
+    margin: 4px;
+    height: 60px;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.final-stat-box h1 {
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+.final-stat-box div {
+    margin: 4px 4px 0 4px;
+}
+
+.final-stats-container > h1 {
+    font-weight: bold;
+    font-size: 30px;
+    padding: 5px;
+}
