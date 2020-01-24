@@ -39,9 +39,7 @@ class CharacterCreateForm extends React.Component {
     }
 
     renderFinalStats() {
-
-        // this.updateFinalStats(finalRace)
-
+        if (this.props.order.includes("")) return "please select abilities for each of your rolls"
        return Object.values(this.state.abilities).map((ability, idx) =>
             <div className="final-stat-box" key={idx}>
                 <h1>{ability.title}</h1>

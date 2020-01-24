@@ -35,7 +35,8 @@ class RaceAndClass extends React.Component {
             {
                 race: this.state.races[id].title,
                 subrace: "",
-                raceSelected: true
+                raceSelected: true,
+                subraceSelected: false
             }
         )
 
@@ -44,6 +45,7 @@ class RaceAndClass extends React.Component {
                 race: this.state.races[id].title,
                 subrace: "",
                 raceSelected: true,
+                subraceSelected: false,
                 finalRace: chosenRace
             }
         )
@@ -96,8 +98,8 @@ class RaceAndClass extends React.Component {
     renderSkills(raceObject) {
         if (raceObject && raceObject.skillProficiencies) {
             return raceObject.skillProficiencies.map( (skill, idx) => 
-                <div>Skill Proficiencies: 
-                    <li key={idx}>{skill}</li>
+                <div key={idx}>Skill Proficiencies: 
+                    <li>{skill}</li>
                 </div>
                 )
         } else {
