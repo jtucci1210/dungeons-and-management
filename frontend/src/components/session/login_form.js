@@ -77,7 +77,7 @@ class LoginForm extends React.Component {
                 />
                 <div className="login-errors">{this.props.errors.password}</div>
                 <br />
-                <div>
+                <div className="guest-login-submit-div">
                   <input
                     className="submit-button-modal"
                     type="submit"

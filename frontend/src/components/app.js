@@ -7,6 +7,7 @@ import Modal from './modal/modal';
 import HomePage from './homepage/homepage_container';
 import CharacterShowContainer from './character/show/character_show_container';
 import CampaignContainer from './campaign/campaign_container';
+import Footer from './footer/footer';
 
 const App = () => (
     <div>
@@ -18,7 +19,7 @@ const App = () => (
             <ProtectedRoute exact path="/characters/:characterId" component={CharacterShowContainer} />
             <ProtectedRoute exact path="/campaign" component={CampaignContainer} />
         </Switch>
-        {/* <FooterBarContainer/> */}
+        <Footer/>
         
     </div>
 );
