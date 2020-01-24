@@ -22,15 +22,20 @@ function MainStats(props) {
                         <div className='battle-state-title-info'>1111</div>
                     </div>
                     <div>
+                        <p className='battle-state-title'>Initiative</p>
+                        <div className='battle-state-title-info'>1111</div>
+                    </div>
+                    <div>
                         <p className='battle-state-title'>Speed</p>
                         <div className='battle-state-title-info'>1111</div>
                     </div>
                     <div>
-                        <p className='battle-state-title'>P.P</p>
+                        <p className='battle-state-title'>Proficiency Bonus</p>
                         <div className='battle-state-title-info'>1111</div>
                     </div>
                     <div>
-                        <p className='battle-state-title'>Prot</p>
+                        <p className='battle-state-title'>Passive Wisdom</p>
+                        <p className='battle-state-title'>Perception</p>
                         <div className='battle-state-title-info'>1111</div>
                     </div>
                 </div>
@@ -43,10 +48,10 @@ function MainStats(props) {
                         <div className='show-character-ability-modifier'> +2 </div>
                     </div>
                     <div className='str-skills'>
-                        <p> List of Str Skills </p>
+                        <p> Strength Skills </p>
                         <div className='character-skills'>
                             {strSkills.map((skill, i) => (
-                                <ul>
+                                <ul key={i+skill}>
                                     <div className='character-skills-checkbox'>
                                         <input type ='checkbox'/> {skill}
                                     </div>
@@ -62,10 +67,10 @@ function MainStats(props) {
                         <div className='show-character-ability-modifier'> +2 </div>
                     </div>
                     <div className='str-skills'>
-                        <p> List of Dex Skills </p>
+                        <p> Dexterity Skills </p>
                         <div className='character-skills'>
                             {dexSkills.map((skill, i) => (
-                                <ul>
+                                <ul key={i+skill + 1}>
                                     <div className='character-skills-checkbox'>
                                         <input type='checkbox' /> {skill}
                                     </div>
@@ -81,10 +86,10 @@ function MainStats(props) {
                         <div className='show-character-ability-modifier'> +2 </div>
                     </div>
                     <div className='str-skills'>
-                        <p> List of Const. Skills </p>
+                        <p> Constitution Skills </p>
                         <div className='character-skills'>
                             {constSkills.map((skill, i) => (
-                                <ul>
+                                <ul key={i+skill + 11}>
                                     <div className='character-skills-checkbox'>
                                         <input type='checkbox' /> {skill}
                                     </div>
@@ -100,10 +105,10 @@ function MainStats(props) {
                         <div className='show-character-ability-modifier'> +2 </div>
                     </div>
                      <div className='str-skills'>
-                        <p> List of Intel. Skills </p>
+                        <p> Intelligence Skills </p>
                         <div className='character-skills'>
                             {intelSkills.map((skill, i) => (
-                                <ul>
+                                <ul key={i+skill + 12}>
                                     <div className='character-skills-checkbox'>
                                         <input type='checkbox' /> {skill}
                                     </div>
@@ -119,10 +124,10 @@ function MainStats(props) {
                         <div className='show-character-ability-modifier'> +2 </div>
                     </div>
                      <div className='str-skills'>
-                        <p> List of Wisd. Skills </p>
+                        <p> Wisdom Skills </p>
                         <div className='character-skills'>
                             {wisdSkills.map((skill, i) => (
-                                <ul>
+                                <ul key={i+skill + 13}>
                                     <div className='character-skills-checkbox'>
                                         <input type='checkbox' /> {skill}
                                     </div>
@@ -138,10 +143,10 @@ function MainStats(props) {
                         <div className='show-character-ability-modifier'> +2 </div>
                     </div>
                      <div className='str-skills'>
-                        <p> List of Char. Skills </p>
+                        <p> Charisma Skills </p>
                         <div className='character-skills'>
                             {charSkills.map((skill, i) => (
-                                <ul>
+                                <ul key={i+skill + 14}>
                                     <div className='character-skills-checkbox'>
                                         <input type='checkbox' /> {skill}
                                     </div>

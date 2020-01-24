@@ -34,6 +34,17 @@ function GeneralStats(props) {
                         {character.charClass}
                     </div>
                 </div>
+            <div className="show-character-general-hp">
+                <div className="show-character-general-hp">
+                    Max Life: {character.maxHp}
+                </div>
+                <div className="show-character-general-hp">
+                    Current Life: {character.currentHp}
+                </div>
+                <div className="show-character-general-hp">
+                    {character.level}d
+                </div>
+            </div>
         </div>
     )
 }
