@@ -8,6 +8,8 @@ import SignupFormContainer from './session/signup_form_container';
 import CharacterCreateFormContainer from './character/create/character_create_form_container';
 import Modal from './modal/modal';
 import HomePage from './homepage/homepage_container';
+import CharacterShowContainer from './character/show/character_show_container';
+import CampaignContainer from './campaign/campaign_container';
 import Footer from './footer/footer';
 
 const App = () => (
@@ -18,8 +20,8 @@ const App = () => (
             <AuthRoute exact path="/" component={SplashPage} />
             <ProtectedRoute exact path='/home' component={HomePage} />
             <ProtectedRoute exact path="/characters/new" component={CharacterCreateFormContainer} />
-            {/* <AuthRoute exact path="/login" component={LoginFormContainer} /> */}
-            {/* <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
+            <ProtectedRoute exact path="/characters/:characterId" component={CharacterShowContainer} />
+            <ProtectedRoute exact path="/campaign" component={CampaignContainer} />
         </Switch>
         <Footer/>
         

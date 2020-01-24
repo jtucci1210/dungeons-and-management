@@ -61,7 +61,7 @@ const chainShirt = {
     type: "medium"
 },
 
-const scaleMail = {
+scaleMail = {
     base: 14,
     type: "medium"
 };

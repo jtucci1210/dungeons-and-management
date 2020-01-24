@@ -39,12 +39,12 @@
     text-decoration: none;
 }
 
-    .nav-bar-signup,
-    .nav-bar-login {
-        font-size: 22px;
-        color: #A6C8BC;
-        text-decoration: none;
-    }
+.nav-bar-signup,
+.nav-bar-login {
+    font-size: 22px;
+    color: #A6C8BC;
+    text-decoration: none;
+}
 
 .nav-bar-title{
     text-decoration: none;
@@ -75,6 +75,7 @@
     align-items: center;
     padding-right: 4px;
     font-family: Special Elite;
+    padding-left: 8px;
 }
 
 
