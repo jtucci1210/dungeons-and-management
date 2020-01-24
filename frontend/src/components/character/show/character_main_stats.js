@@ -23,33 +23,33 @@ function MainStats(props) {
                     <div className='battle-state-title'>Prot value</div>
                 </div>
             </div>
-            <div className='show-character-character-stats'>
-                <div className='show-character-character-stat-str'>
+            <div className='show-character-self-stats'>
+                <div className='show-character-self-stat-str'>
                     <p>Strength</p>
                     <div className='str-value'> 8</div>
                     <div className='str-skills'>List of Str Skills</div>
                 </div>
-                <div className='show-character-character-stat-dex'>
+                <div className='show-character-self-stat-dex'>
                     <p>Dexterity</p>
                     <div className='str-value'>3</div>
                     <div className='str-skills'>List of Dex Skills</div>
                 </div>
-                <div className='show-character-character-stat-cons'>
+                <div className='show-character-self-stat-cons'>
                     <p>Constitution</p>
                     <div className='str-value'> 15 </div>
                     <div className='str-skills'>List of cons Skills</div>
                 </div>
-                <div className='show-character-character-stat-intel'>
+                <div className='show-character-self-stat-intel'>
                     <p>Intelligence</p>
                     <div className='str-value'> 18 </div>
                     <div className='str-skills'>List of intel Skills</div>
                 </div>
-                <div className='show-character-character-stat-wisd'>
+                <div className='show-character-self-stat-wisd'>
                     <p>Wisdom</p>
                     <div className='str-value'>13 </div>
                     <div className='str-skills'>List of wisd Skills</div>
                 </div>
-                <div className='show-character-character-stat-chari'>
+                <div className='show-character-self-stat-chari'>
                     <p>Charisma</p>
                     <div className='str-value'> 15 </div>
                     <div className='str-skills'>List of chari Skills</div>

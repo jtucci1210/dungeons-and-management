@@ -27,6 +27,58 @@
     /* delete */
     margin: 15px;
     display: flex;
+    height: 300px;
+    width: 220px;
 }
 
+
+
 /* ---------------------------- */
+
+/* main stats styling */
+
+.show-character-battle-stats {
+    /* delete */
+    border: 2px solid red;
+    /* delete */
+    /* margin: 15px; */
+    
+}
+
+.show-character-battle-stats-titles{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-gap: 10px;
+    padding: 10px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    align-items: center;
+}
+
+.show-character-battle-stats-info {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-gap: 10px;
+    padding: 10px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    align-items: center;
+}
+    .battle-state-title {
+        border: 2px solid brown;
+    }
+
+/* ---------------------------- */
+
+.show-character-self-stats {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px;
+    grid-gap: 10px;
+    padding: 10px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    align-items: center;
+     /* delete */
+    border: 2px solid red;
+    /* delete */
+}
