@@ -1,6 +1,8 @@
 import React from 'react';
-import '../../stylesheet/test.css';
+import '../../stylesheet/campaign.scss';
+import '../../stylesheet/dice.scss';
 import io from "socket.io-client";
+import Dice from "./dice"
 
 
 
@@ -42,7 +44,7 @@ class CampaignRoom extends React.Component {
     render() {
 
         return (
-            <div>
+            <div id="campaignContainer">
                 <h3 className="ws-test">Safar</h3>
                 <h3 id="hp" className="ws-test">15</h3>
                 <button className="ws-test" 
@@ -53,6 +55,7 @@ class CampaignRoom extends React.Component {
                     onClick={() => this.handleHpClick("dec")} 
                     id="decHpButton"
                 > Decrease HP</button>
+                <Dice />
             </div>
         );
     }

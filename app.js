@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-var socket = require("socket.io");
+const socket = require("socket.io");
 
 //File Imports
 const users = require("./routes/api/users");
@@ -29,24 +29,22 @@ app.use("/api/users", users);
 app.use("/api/characters", characters);
 app.use("/api/campaigns", campaigns);
 
-//Websockets
-const socketPort = 3000;
+//Websockets Set-Up
+const socketPort = 8080;
 const server = app.listen(socketPort, function () {
     console.log("Listening at http://localhost: " + socketPort);
 });
 const sock = socket(server);
+
+//Socket Emitters
 sock.on("connection", function (socket) {
     console.log("made connection with socket " + socket.id);
 
-    socket.on("test", function (data) {
-        sock.sockets.emit("test", data);
+    socket.on("hp", function (data) {
+        sock.sockets.emit("hp", data);
     });
-    // socket.on("chat", function (data) {
-    //     sock.sockets.emit("chat", data);
-    // });
 
-    // socket.on("typing", function (data) {
-    //     // send an event to everyone but the person who emitted the typing event to the server
-    //     socket.broadcast.emit("typing", data);
-    // });
+    socket.on("dice", function (data) {
+        sock.sockets.emit("dice", data);
+    });
 });
