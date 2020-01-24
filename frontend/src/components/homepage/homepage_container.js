@@ -1,16 +1,20 @@
 
 import { connect } from 'react-redux';
 import HomePage from './homepage.js';
+import { getCharacters } from '../../actions/character_actions.js';
 
 
-const mapStateToProps = state => ({
+
+const mapStateToProps = state => {
+    return {
     loggedIn: state.session.isAuthenticated,
     currentUser: state.session,
     currentUserID: state.session.user.id
-});
+    }
+};
 
 const mapDispatchToProps = dispatch => ({
-    
+    getCharacters: userId => dispatch(getCharacters(userId)),
 })
 
 export default connect(

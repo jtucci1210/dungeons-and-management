@@ -26,7 +26,8 @@ class CharIndex extends React.Component {
               <div className="home-page-create-character-text"> + </div>
             </Link>
             {characters.map((character, i) => (
-                <Link
+                <Link 
+                  key={i}
                   to={`/characters/${character._id}`}
                   className="home-characters-link"
                 >

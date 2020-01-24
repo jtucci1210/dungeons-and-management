@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore({});
     }   
      const root = document.getElementById('root');
-    // window.getState = store.getState();
+    window.getState = store.getState();
     // window.axios = axios;
     // window.getCharacter = getCharacter;
     ReactDOM.render(<Root store={store} />, root);

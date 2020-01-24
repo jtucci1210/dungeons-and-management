@@ -10,8 +10,11 @@ class HomePage extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+      this.props.getCharacters(this.props.currentUserID)
+    }
+
     render() {
-        
         return (
           <div className="home-page-main-box">
             <div className="home-page-characters">

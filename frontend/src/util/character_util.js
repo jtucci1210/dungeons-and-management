@@ -7,8 +7,8 @@ export const getCharacter = (characterId) => {
     return axios.get(`/api/characters/${characterId}`);
 };
 
-export const getCharacters = (id) => {
-    return axios.get(`/api/characters/user/${id}`);
+export const getCharacters = (currentUserID) => {
+    return axios.get(`/api/characters/user/${currentUserID}`);
 };
 
 export const editCharacter = (characterId, characterData) => {

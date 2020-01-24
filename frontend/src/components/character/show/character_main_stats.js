@@ -34,8 +34,7 @@ function MainStats(props) {
                         <div className='battle-state-title-info'>1111</div>
                     </div>
                     <div>
-                        <p className='battle-state-title'>Passive Wisdom</p>
-                        <p className='battle-state-title'>Perception</p>
+                        <p className='battle-state-title'>Passive Wisdom (Perception)</p>
                         <div className='battle-state-title-info'>1111</div>
                     </div>
                 </div>
