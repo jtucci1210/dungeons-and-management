@@ -8,10 +8,6 @@
 }
 
     .main-page-background-img {
-        /* z-index: -2; */
-        /* background-repeat: no-repeat; */
-        /* background-attachment: fixed; */
-        /* width: 100%; */
         top: 100px;
     }
 
@@ -38,20 +34,18 @@
 
 .home-page-characters {
     position: absolute;
-    grid-gap: 10px;
-    padding: 10px;
-    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    padding: 20px;
+    font-family: Special Elite;
     font-size: 14px;
-    min-width: 200px;
+    width: 60%;
     height: auto;
-    justify-content: space-between;
+    justify-content: center;
     background-color:  #66995B;
-    /* width: 50%; */
     opacity: .9;
-    /* max-height: -webkit-fill-available; */
-    top:100px;
+    top:150px;
     overflow: visible;
-    margin: 20px;
+    margin-left: 5%;
+    margin-bottom: 130px;
 }
 
 .home-page-create-character {
@@ -133,7 +127,17 @@
 }
 
 
-
+.character-image-div {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    position: relative;
+}
+.character-image {
+    position: absolute;
+    max-width:100%;
+    height:auto;
+}
 
 
 
