@@ -45,8 +45,22 @@ class CampaignRoom extends React.Component {
 
         return (
             <div id="campaignContainer">
-                <h3 className="ws-test">Safar</h3>
-                <h3 id="hp" className="ws-test">15</h3>
+                <div id="char-boxes">
+                    <span>
+                        <h3>Person 1: </h3>
+                        <div id="person1">-</div>
+                    </span>
+                    <span>
+                        <h3>Person 2: </h3>
+                        <div id="person2">-</div>
+                    </span>
+                    <span>
+                        <h3>Person 3: </h3>
+                        <div id="person3">-</div>
+                    </span>
+                </div>
+                    <h3>Safar</h3>
+                    <h3 id="hp" className="ws-test">15</h3>
                 <button className="ws-test" 
                     onClick={() => this.handleHpClick("inc")} 
                     id="incHpButton"
