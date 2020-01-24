@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../../stylesheet/show_page.css'
+
 
 
 function MainStats(props) {
@@ -23,22 +25,34 @@ function MainStats(props) {
             </div>
             <div className='show-character-character-stats'>
                 <div className='show-character-character-stat-str'>
-
+                    <p>Strength</p>
+                    <div className='str-value'> 8</div>
+                    <div className='str-skills'>List of Str Skills</div>
                 </div>
                 <div className='show-character-character-stat-dex'>
-
+                    <p>Dexterity</p>
+                    <div className='str-value'>3</div>
+                    <div className='str-skills'>List of Dex Skills</div>
                 </div>
                 <div className='show-character-character-stat-cons'>
-
+                    <p>Constitution</p>
+                    <div className='str-value'> 15 </div>
+                    <div className='str-skills'>List of cons Skills</div>
                 </div>
                 <div className='show-character-character-stat-intel'>
-
+                    <p>Intelligence</p>
+                    <div className='str-value'> 18 </div>
+                    <div className='str-skills'>List of intel Skills</div>
                 </div>
                 <div className='show-character-character-stat-wisd'>
-
+                    <p>Wisdom</p>
+                    <div className='str-value'>13 </div>
+                    <div className='str-skills'>List of wisd Skills</div>
                 </div>
-                <div className='show-character-character-stat-char'>
-
+                <div className='show-character-character-stat-chari'>
+                    <p>Charisma</p>
+                    <div className='str-value'> 15 </div>
+                    <div className='str-skills'>List of chari Skills</div>
                 </div>
             </div>
         </div>

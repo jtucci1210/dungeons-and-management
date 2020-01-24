@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom'
 import '../../../stylesheet/show_page.css'
 import '../../../stylesheet/test.css'
-import GeneralStats from './character_main_stats';
+import GeneralStats from './character_general_stats';
 import MainStats from './character_main_stats';
 
 
@@ -22,15 +22,12 @@ class CharacterShowPage extends React.Component {
         // this.props.getCharacter(this.props.match.params.characterId)
     }
 
-    generalStates() {
-        
-    }
 
     render() {
         if (this.state.loaded) {
             const character = this.props.character
             return (
-                <div className='show-character-page'>
+                <div className='show-character-box'>
                     <div className='show-character-header'>
                         <div className="show-character-name">
                             {character.name}
@@ -39,8 +36,13 @@ class CharacterShowPage extends React.Component {
                             Hit Dice Box
                         </div>
                     </div>
-                    <GeneralStats character={character}/>
-                    <MainStats character={character} />
+                    <div className='show-character-page'>
+                        <div>
+                            <GeneralStats character={character}/>
+
+                        </div>
+                        <MainStats character={character} />
+                    </div>
                 </div>
             )
         } else {

@@ -1,3 +1,32 @@
 .show-character-page {
     padding-top: 175px;
+    display: flex;
 }
+
+    .show-character-header{
+        display: flex;
+        justify-content: center;
+    }
+
+    .show-character-name {
+        text-align: center;
+    }
+
+    .show-character-hit-dice {
+        width: 100px;
+    }
+
+
+/* ---------------------------- */
+
+/* general stats styling */
+
+.show-character-general-stats {
+    /* delete */
+    border: 2px solid red;
+    /* delete */
+    margin: 15px;
+    display: flex;
+}
+
+/* ---------------------------- */

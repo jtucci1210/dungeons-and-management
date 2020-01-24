@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../stylesheet/show_page.css'
 
 
 function GeneralStats(props) {
@@ -9,7 +10,7 @@ function GeneralStats(props) {
             <div className='show-character-general-race'>
                 <p className='show-character-general-race'>
                     Race:
-                            </p>
+                </p>
                 <div className='show-character-general-race'>
                     {character.race}
                 </div>
@@ -17,7 +18,7 @@ function GeneralStats(props) {
             <div className='show-character-general-lvl'>
                 <p className='show-character-general-race'>
                     Level:
-                            </p>
+                </p>
                 <div className='show-character-general-level'>
                     {character.level}
                 </div>
@@ -25,7 +26,7 @@ function GeneralStats(props) {
             <div className='show-character-general-class'>
                 <p className='show-character-general-race'>
                     Class:
-                            </p>
+                </p>
                 <div className='show-character-general-class'>
                     {character.class}
                 </div>
