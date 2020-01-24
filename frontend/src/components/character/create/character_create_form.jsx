@@ -5,7 +5,6 @@ import '../../../stylesheet/character_create_form.css';
 import { fullRace } from '../../../util/race_util';
 import { fullClass } from '../../../util/class_util';
 
-
 class CharacterCreateForm extends React.Component {
     constructor(props) {
         super(props)
@@ -17,7 +16,6 @@ class CharacterCreateForm extends React.Component {
     updateState(slice) {
         this.setState(slice)
     }
-
 
     updateFinalStats(finalRace) {
         let allBonusAbilities = Object.keys(fullRace[finalRace].abilityScores)
@@ -38,6 +36,22 @@ class CharacterCreateForm extends React.Component {
 
     }
 
+    handleChange(field) {
+        return (e) => {
+            this.setState(
+                { [field]: e.target.value }
+            )
+        }
+    }
+
+    handleNext() {
+        return () => {
+            this.setState(
+                { nextClicked: true }
+            )
+        }
+    }
+
     renderFinalStats() {
         if (this.props.order.includes("")) return "please select abilities for each of your rolls"
        return Object.values(this.state.abilities).map((ability, idx) =>
@@ -53,7 +67,7 @@ class CharacterCreateForm extends React.Component {
         return (
             <div className="character-create-form-container">
                 <div className="character-name">
-                    <input type="text" placeholder="character name"/>
+                    <input type="text" placeholder="character name" onChange={this.handleChange('characterName')}/>
                 </div>
                 <div className="stat-roller-component">
                     <StatRoller 
@@ -85,7 +99,7 @@ class CharacterCreateForm extends React.Component {
 
                             />
                             <div className="final-stats-container">
-                                <h1>Final Stats</h1>
+                                <h1>FINAL STATS</h1>
                                 <div className="stats-list">
                                     {
                                       
@@ -94,6 +108,13 @@ class CharacterCreateForm extends React.Component {
                                     }
                                 </div>
                             </div>
+                            { (this.state.raceSelected && this.state.classSelected && this.state.subraceSelected && this.state.hasSubraces) || 
+                                    (this.state.raceSelected && this.state.classSelected && !this.state.hasSubraces)
+                                ?
+                                <button onClick={this.handleNext}>Next</button>
+                                :
+                                ""
+                            }
                         </div>
                             :
                         ""

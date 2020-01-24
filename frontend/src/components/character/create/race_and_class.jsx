@@ -31,6 +31,8 @@ class RaceAndClass extends React.Component {
 
         let subs = this.props.subraces[chosenRace]
 
+        let hasSubs = !!subs
+
         this.setState(
             {
                 race: this.state.races[id].title,
@@ -46,7 +48,8 @@ class RaceAndClass extends React.Component {
                 subrace: "",
                 raceSelected: true,
                 subraceSelected: false,
-                finalRace: chosenRace
+                finalRace: chosenRace,
+                hasSubraces: hasSubs
             }
         )
 
