@@ -47,4 +47,8 @@ sock.on("connection", function (socket) {
     socket.on("dice", function (data) {
         sock.sockets.emit("dice", data);
     });
+
+    socket.on("total", function (data) {
+        sock.sockets.emit("total", data);
+    });
 });
