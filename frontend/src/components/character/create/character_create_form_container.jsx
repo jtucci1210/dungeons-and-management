@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import CharacterCreateForm from './character_create_form';
 import { fullRace } from '../../../util/race_util';

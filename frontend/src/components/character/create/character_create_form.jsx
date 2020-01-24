@@ -3,7 +3,6 @@ import StatRoller from './stat_roller';
 import RaceAndClass from './race_and_class';
 import '../../../stylesheet/character_create_form.css';
 import { fullRace } from '../../../util/race_util';
-import { fullClass } from '../../../util/class_util';
 
 class CharacterCreateForm extends React.Component {
     constructor(props) {
@@ -111,7 +110,7 @@ class CharacterCreateForm extends React.Component {
                             { (this.state.raceSelected && this.state.classSelected && this.state.subraceSelected && this.state.hasSubraces) || 
                                     (this.state.raceSelected && this.state.classSelected && !this.state.hasSubraces)
                                 ?
-                                <button onClick={this.handleNext}>Next</button>
+                                <button className="next-button" onClick={this.handleNext}>Next</button>
                                 :
                                 ""
                             }
