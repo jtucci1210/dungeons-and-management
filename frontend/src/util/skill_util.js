@@ -1,11 +1,11 @@
-const strengthSkills = ["athletics"];
+export const strengthSkills = ["athletics"];
 
-const dexteritySkills = ["acrobatics", "sleight of hand", "stealth"];
+export const dexteritySkills = ["acrobatics", "sleight of hand", "stealth"];
 
-const constitutionSkills = [];
+export const constitutionSkills = [];
 
-const intelligenceSkills = ["arcana", "history", "investigation", "nature", "religion"];
+export const intelligenceSkills = ["arcana", "history", "investigation", "nature", "religion"];
 
-const wisdomSkills = ["animal handling", "insight", "medicine", "perception", "survival"];
+export const wisdomSkills = ["animal handling", "insight", "medicine", "perception", "survival"];
 
-const charismaSkills = ["deception", "intimidation", "performance", "persuasion"];
+export const charismaSkills = ["deception", "intimidation", "performance", "persuasion"];

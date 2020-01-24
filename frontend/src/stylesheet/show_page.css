@@ -1,0 +1,173 @@
+.show-character-box {
+    padding-top: 175px;
+    font-family: Birmingham;
+}
+
+
+.show-character-page {
+    padding-top: 50px;
+    display: flex;
+}
+
+    .show-character-header{
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .show-character-name {
+        text-align: center;
+        font-size: 40px;
+        text-decoration: underline;
+        
+    }
+
+    .show-character-hit-dice {
+        width: auto;
+        padding-right: 10px;
+    }
+
+    .show-character-current-hp{
+        padding-left: 10px;
+    }
+
+
+
+/* ---------------------------- */
+
+/* general stats styling */
+
+.placeholder-img {
+    height: 175px;
+    margin: 8px;
+}
+
+.show-character-general-stats {
+    /* delete */
+    border: 2px solid red;
+    /* delete */
+    margin: 15px;
+    display: block;
+    height: 500px;
+    width: 400px;
+
+}
+
+.show-character-general-level-info {
+    padding-left: 4px;
+}
+
+.show-character-general-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 4px;
+}
+
+
+/* ---------------------------- */
+
+/* main stats styling */
+
+.show-character-battle-stats {
+    /* delete */
+    border: 2px solid red;
+    /* delete */
+    
+}
+
+.show-character-main-stats{
+    padding: 15px;
+    width: 75%;
+}
+
+.show-character-battle-stats-titles{
+    /* display: flex;
+    justify-content: space-between;
+    padding: 10px; */
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    align-items: center;
+}
+
+.show-character-battle-stats-info {
+    /* display: flex;
+    justify-content: space-between;
+    padding: 10px; */
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    font-size: 14px;
+    align-items: center;
+}
+    .battle-state-title {
+        border: 2px solid brown;
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        align-items: center;
+        min-width: 100px;
+        padding: 0px 5px;
+        width: 150px;
+    }
+    .battle-state-title-info {
+        border: 2px solid brown;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 159px;
+    }
+
+.show-character-general-race,
+.show-character-general-lvl,
+.show-character-general-class {
+    display: flex;
+    margin-right: 5px;
+}
+
+.show-character-general-class {
+    padding: 0px 4px;
+}
+
+/* ---------------------------- */
+
+.show-character-all-stats {
+    display: flex;
+    /* grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 10px; */
+    padding: 10px;
+    font-size: 14px;
+    align-items: center;
+     /* delete */
+    border: 2px solid red;
+    /* delete */
+    justify-content: space-between;
+    margin-top: 10px
+    
+}
+
+.show-character-self-stat {
+    display: block;
+    text-align: center;
+    min-width: 100px;
+}
+
+    .str-value{
+        display: block;
+
+    }
+
+    /* ------------------------ */
+
+    .show-character-items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 30px;
+        text-decoration-line: underline;
+    }

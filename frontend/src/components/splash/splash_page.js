@@ -13,7 +13,7 @@ class Splash extends React.Component {
                 <div className="splash-description">
                 <h1 className="header-splash-description">What are we?</h1>
                   <p className="splash-description-paragraph">
-                    I'm the decription of the app
+                    I'm the description of the app
                   </p>
                 </div>
                 <div className="splash-character-build">
