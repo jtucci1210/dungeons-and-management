@@ -167,6 +167,10 @@
         justify-content: center;
     }
 
+    .show-character-ability-value,
+    .show-character-ability-modifier{
+        margin: 7px;
+    }
     /* ------------------------ */
 
     .show-character-items {
