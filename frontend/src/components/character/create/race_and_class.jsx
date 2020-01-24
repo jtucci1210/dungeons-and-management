@@ -113,7 +113,7 @@ class RaceAndClass extends React.Component {
     renderClassSkills() {
         if (this.state.classSelected) {
             return (
-                <div className="class-skill-list-box">Choice of {fullClass[this.state.class].numSkills} skills (to be selected on next page): 
+                <div className="class-skill-list-box">Choice of {fullClass[this.state.class].numSkills} skills (to be selected in next section): 
                     <div className="class-skill-list">
                     {fullClass[this.state.class].skillList.map( (skill, idx) =>
                         <li key={idx} className="class-skill">{skill}</li>
@@ -210,6 +210,7 @@ class RaceAndClass extends React.Component {
                             <div className="speed-and-proficiencies">
                                 <div className="speed">{raceObject ? `Speed: ${raceObject.speed}` : ""}</div>
                                 <div className="skills">{this.renderSkills(raceObject)}</div>
+                                <div className="misc-halfelf">{this.state.race === "halfelf" ? "Misc: gain +1 to two ability scores and gain proficiency bonus for two skills (to be selected in next section)" : ""}</div>
                             </div>
                         </div>
                     </div>

@@ -10,6 +10,7 @@ class CharacterCreateForm extends React.Component {
         this.state = {...this.props}
         this.updateState = this.updateState.bind(this)
         this.updateFinalStats = this.updateFinalStats.bind(this)
+        this.handleNext = this.handleNext.bind(this)
     }
 
     updateState(slice) {
@@ -44,11 +45,9 @@ class CharacterCreateForm extends React.Component {
     }
 
     handleNext() {
-        return () => {
-            this.setState(
-                { nextClicked: true }
-            )
-        }
+        this.setState(
+            { nextClicked: true }
+        )
     }
 
     renderFinalStats() {
@@ -62,6 +61,7 @@ class CharacterCreateForm extends React.Component {
     }
 
     render() {
+        // debugger
 
         return (
             <div className="character-create-form-container">
@@ -107,8 +107,8 @@ class CharacterCreateForm extends React.Component {
                                     }
                                 </div>
                             </div>
-                            { (this.state.raceSelected && this.state.classSelected && this.state.subraceSelected && this.state.hasSubraces) || 
-                                    (this.state.raceSelected && this.state.classSelected && !this.state.hasSubraces)
+                                {(this.state.raceSelected && this.state.classSelected && this.state.subraceSelected && this.state.hasSubraces && !this.state.order.includes("")) || 
+                                    (this.state.raceSelected && this.state.classSelected && !this.state.hasSubraces && !this.state.order.includes(""))
                                 ?
                                 <button className="next-button" onClick={this.handleNext}>Next</button>
                                 :
@@ -116,6 +116,17 @@ class CharacterCreateForm extends React.Component {
                             }
                         </div>
                             :
+                        ""
+                    }
+                </div>
+                    <div>
+                    { this.state.nextClicked 
+                        ?
+                        <div className="skill-selection-container">
+                            <p>hello world</p>
+
+                        </div>
+                        :
                         ""
                     }
                 </div>
