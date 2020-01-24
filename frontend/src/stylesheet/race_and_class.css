@@ -248,6 +248,7 @@
     margin: 10px 10px 10px 5px;
     padding: 10px;
     font-weight: bold;
+    width: 160px;
 }
 
 .skills {
@@ -258,6 +259,7 @@
 .skills div {
     display: flex;
     font-weight: bold;
+    width: 210px;
 }
 
 .skills div li {

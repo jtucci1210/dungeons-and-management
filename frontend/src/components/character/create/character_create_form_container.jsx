@@ -55,7 +55,9 @@ const mapStateToProps = state => ({
     fullRace,
     characterName: "",
     nextClicked: false,
-    hasSubraces: false
+    hasSubraces: false,
+    selectedSkills: [],
+    numSkills: ""
 });
 
 const mapDispatchToProps = dispatch => ({

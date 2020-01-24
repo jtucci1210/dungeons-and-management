@@ -93,7 +93,8 @@ class RaceAndClass extends React.Component {
         this.props.updateState(
             {
                 class: this.state.classes[id].title,
-                classSelected: true
+                classSelected: true,
+                numSkills: fullClass[this.state.classes[id].title].numSkills
             }
         )
     }

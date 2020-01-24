@@ -83,3 +83,27 @@
     font-size: 30px;
     padding: 5px;
 }
+
+.skill-selection-container {
+    display: flex;
+    border: 1px solid black;
+    width: 700px;
+    height: 180px;
+    margin: 50px;
+    padding: 10px;
+}
+
+.skill-type {
+    font-weight: bold;
+    margin-top: 5px;
+    width: 190px;
+    height: 180px;
+}
+
+.choose-skills {
+    font-weight: normal;
+    margin-top: 10px;
+    line-height: 30px;
+    display: flex;
+    flex-direction: column;
+}

@@ -3,6 +3,8 @@ import StatRoller from './stat_roller';
 import RaceAndClass from './race_and_class';
 import '../../../stylesheet/character_create_form.css';
 import { fullRace } from '../../../util/race_util';
+import { fullClass } from '../../../util/class_util';
+import { strengthSkills, dexteritySkills, intelligenceSkills, wisdomSkills, charismaSkills } from '../../../util/skill_util';
 
 class CharacterCreateForm extends React.Component {
     constructor(props) {
@@ -11,6 +13,7 @@ class CharacterCreateForm extends React.Component {
         this.updateState = this.updateState.bind(this)
         this.updateFinalStats = this.updateFinalStats.bind(this)
         this.handleNext = this.handleNext.bind(this)
+        this.handleCheckbox = this.handleCheckbox.bind(this)
     }
 
     updateState(slice) {
@@ -50,6 +53,30 @@ class CharacterCreateForm extends React.Component {
         )
     }
 
+    handleCheckbox() {
+        debugger
+
+        return (event) => {
+            if (this.state.selectedSkills.length - 1 === this.state.numSkills && event.target.checked) {
+                event.preventDefault();
+            } else if (this.state.selectedSkills.length - 1 < this.state.numSkills) {
+                this.setState(
+                    {
+                        selectedSkills: this.state.selectedSkills.push(event.target.name)
+                    }
+                )
+            } else if (!event.target.checked && this.state.selectedSkills.includes(event.target.name)) {
+                this.setState(
+                {
+                    selectedSkills: this.state.selectedSkills.splice(this.state.selectedSkills.indexOf(event.target.name),1)
+                })
+            }}
+
+        //event.target.checked (boolean)
+        //disabled => to disable
+        //event.target.name = skill
+    }
+
     renderFinalStats() {
         if (this.props.order.includes("")) return "please select abilities for each of your rolls"
        return Object.values(this.state.abilities).map((ability, idx) =>
@@ -60,8 +87,8 @@ class CharacterCreateForm extends React.Component {
         )
     }
 
+
     render() {
-        // debugger
 
         return (
             <div className="character-create-form-container">
@@ -122,9 +149,65 @@ class CharacterCreateForm extends React.Component {
                     <div>
                     { this.state.nextClicked 
                         ?
-                        <div className="skill-selection-container">
-                            <p>hello world</p>
-
+                        <div>
+                        <div>Please select {this.state.numSkills} skills below</div>
+                            <div className="skill-selection-container">
+                                <div className="skill-type">Strength:
+                                    <div className="choose-skills">
+                                        {
+                                            fullClass[this.state.class].skillList.map( (skill, idx) => {
+                                                if (strengthSkills.includes(skill)) {
+                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox()}/>{skill}</label>
+                                                }
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                                <div className="skill-type">Dexterity:
+                                    <div className="choose-skills">
+                                        {
+                                            fullClass[this.state.class].skillList.map((skill, idx) => {
+                                                if (dexteritySkills.includes(skill)) {
+                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox()}/>{skill}</label>
+                                                }
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                                <div className="skill-type">Intelligence:
+                                    <div className="choose-skills">
+                                        {
+                                            fullClass[this.state.class].skillList.map((skill, idx) => {
+                                                if (intelligenceSkills.includes(skill)) {
+                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox()}/>{skill}</label>
+                                                }
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                                <div className="skill-type">Wisdom:
+                                    <div className="choose-skills">
+                                        {
+                                            fullClass[this.state.class].skillList.map((skill, idx) => {
+                                                if (wisdomSkills.includes(skill)) {
+                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox()}/>{skill}</label>
+                                                }
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                                <div className="skill-type">Charisma:
+                                    <div className="choose-skills">
+                                        {
+                                            fullClass[this.state.class].skillList.map((skill, idx) => {
+                                                if (charismaSkills.includes(skill)) {
+                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox()}/>{skill}</label>
+                                                }
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         :
                         ""
