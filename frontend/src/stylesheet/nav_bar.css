@@ -25,7 +25,7 @@
     padding-right: 30px;
 }
 .nav-bar-page-title {
-    font-size: 50px;
+    font-size: 40px;
     font-family: Birmingham;
 }
 
@@ -71,9 +71,10 @@
 
 .nav-bar-greeting-message {
     font-size: 20px;
-    display: flex;
+    display: flex; 
     align-items: center;
     padding-right: 4px;
+    font-family: Special Elite;
 }
 
 
