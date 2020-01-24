@@ -162,6 +162,11 @@
 
     }
 
+    .show-character-ability-pair{
+        display: flex;
+        justify-content: center;
+    }
+
     /* ------------------------ */
 
     .show-character-items {

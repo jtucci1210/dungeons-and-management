@@ -33,7 +33,10 @@ function MainStats(props) {
             <div className='show-character-all-stats'>
                 <div className='show-character-self-stat'>
                     <p>Strength</p>
-                    <div className='str-value'> 8</div>
+                    <div className='show-character-ability-pair'>
+                        <div className='show-character-ability-value'> 8</div>
+                        <div className=''> +2 </div>
+                    </div>
                     <div className='str-skills'>
                         List of Str Skills
                         <div className='character-str-skills'>
@@ -43,27 +46,42 @@ function MainStats(props) {
                 </div>
                 <div className='show-character-self-stat'>
                     <p>Dexterity</p>
-                    <div className='str-value'>3</div>
+                    <div className='show-character-ability-pair'>
+                        <div className='show-character-ability-value'>3</div>
+                        <div className=''> +2 </div>
+                    </div>
                     <div className='str-skills'>List of Dex Skills</div>
                 </div>
                 <div className='show-character-self-stat'>
                     <p>Constitution</p>
-                    <div className='str-value'> 15 </div>
+                    <div className='show-character-ability-pair'>
+                        <div className='show-character-ability-value'> 15 </div>
+                        <div className=''> +2 </div>
+                    </div>
                     <div className='str-skills'>List of cons Skills</div>
                 </div>
                 <div className='show-character-self-stat'>
                     <p>Intelligence</p>
-                    <div className='str-value'> 18 </div>
+                    <div className='show-character-ability-pair'>
+                        <div className='show-character-ability-value'> 18 </div>
+                        <div className=''> +2 </div>
+                    </div>
                     <div className='str-skills'>List of intel Skills</div>
                 </div>
                 <div className='show-character-self-stat'>
                     <p>Wisdom</p>
-                    <div className='str-value'>13 </div>
+                    <div className='show-character-ability-pair'>
+                        <div className='show-character-ability-value'>13 </div>
+                        <div className=''> +2 </div>
+                    </div>
                     <div className='str-skills'>List of wisd Skills</div>
                 </div>
                 <div className='show-character-self-stat'>
                     <p>Charisma</p>
-                    <div className='str-value'> 15 </div>
+                    <div className='show-character-ability-pair'>
+                        <div className='show-character-ability-value'> 15 </div>
+                        <div className=''> +2 </div>
+                    </div>
                     <div className='str-skills'>List of chari Skills</div>
                 </div>
             </div>
