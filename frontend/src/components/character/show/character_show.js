@@ -4,7 +4,7 @@ import '../../../stylesheet/show_page.css'
 import '../../../stylesheet/test.css'
 import GeneralStats from './character_general_stats';
 import MainStats from './character_main_stats';
-
+import Items from './character_item_page'
 
 
 
@@ -29,6 +29,9 @@ class CharacterShowPage extends React.Component {
             return (
                 <div className='show-character-box'>
                     <div className='show-character-header'>
+                        <div className="show-character-current-hp">
+                            Current Life: {character.currentHp}
+                        </div>
                         <div className="show-character-name">
                             {character.name}
                         </div>
@@ -39,9 +42,11 @@ class CharacterShowPage extends React.Component {
                     <div className='show-character-page'>
                         <div>
                             <GeneralStats character={character}/>
-
                         </div>
                         <MainStats character={character} />
+                    </div>
+                    <div>
+                        <Items character={character}/>
                     </div>
                 </div>
             )

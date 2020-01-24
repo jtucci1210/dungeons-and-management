@@ -16,4 +16,4 @@ export const editCharacter = (characterId, characterData) => {
 }
 export const createCharacter = (characterData) => {
     return axios.post(`/api/characters/create`, characterData)
-}
+} 
