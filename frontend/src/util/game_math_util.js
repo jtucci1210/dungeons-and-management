@@ -1,8 +1,8 @@
-const mod = (abilityScore, proficiencyBonus = 0) => {
+export const mod = (abilityScore, proficiencyBonus = 0) => {
     return Math.floor((abilityScore - 10) / 2 ) + proficiencyBonus
 };
 
-const proficiencyBonus = {
+export const proficiencyBonus = {
     levelOne: 2,
     levelTwo: 2,
     levelThree: 2,
@@ -27,18 +27,18 @@ const proficiencyBonus = {
 
 // hitDice => class.hitDice
 
-const healthLevelOne = ( hitDice, constitutionMod ) => {
+export const healthLevelOne = ( hitDice, constitutionMod ) => {
     return hitDice + constitutionMod
 };
 
 // hitDice => class.hitDice, avgHealth => class.avgHealth
 
-const healthLevelUp = ( hitDice, constitutionMod, newLevel, avgHealth ) => {
+export const healthLevelUp = ( hitDice, constitutionMod, newLevel, avgHealth ) => {
     let newHealth = hitDice + ((newLevel - 1) * avgHealth) + (constitutionMod * newLevel);
     return newHealth
 };
 
-const passivePerception = (wisMod, proficiencyBonus = 0) => {
+export const passivePerception = (wisMod, proficiencyBonus = 0) => {
     return 10 + wisMod + proficiencyBonus
 }
 
