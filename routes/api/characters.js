@@ -1,6 +1,7 @@
 //Libraries
 const express = require("express");
 const router = express.Router();
+const ObjectId = require('mongodb').ObjectID;
 
 //Files
 const Character = require("../../models/Character")
@@ -20,30 +21,25 @@ router.post("/create", (req, res) => {
         return res.status(400).json(errors);
     }
 
-    //Possibly bugs once used on front end
-    User.findOne({ id: req.user.id }).then(user => {
         const newChar = new Character({
-            userId: user.id,
+            userId: req.body.user.id,
             name: req.body.name,
             race: req.body.race,
             charClass: req.body.charClass,
             armorType: req.body.armorType,
-    
+            
             level: req.body.level,
             maxHp: req.body.maxHp,
             currentHp: req.body.currentHp,
-    
+            
             abilities: req.body.abilities,
             skills: req.body.skills
         })
         newChar.save();
-
+        
         res.json({
-            user: user,
             char: newChar
         })
-
-    })
 });
 
 //Get a single character

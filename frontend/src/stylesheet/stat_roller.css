@@ -1,0 +1,161 @@
+.stat-roller-container {
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 90%;
+    height: 250px;
+    align-items: center;
+    min-width: 925px;
+}
+
+.stat-roller-boxes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    width: 90%;
+    height: 200px;
+    margin: 10px;
+}
+
+.ability-box {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px black;
+    padding: 3px;
+    width: 120px;
+    height: 180px;
+    text-align: center;
+    align-items: center;
+    min-width: 140px;
+}
+
+.ability-name {
+    text-transform: capitalize;
+    font-size: 20px;
+    height: 20px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.dice {
+    font-size: 45px;
+}
+
+.stat-roll {
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.generate-button {
+    width: auto;
+    padding: 5px;
+    border: solid 3px black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.info {
+    width: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.skill-blurb {
+   display: none;
+   font-size: 15px;
+   padding: 5px; 
+}
+
+.skill-blurb-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.info:hover + .skill-blurb {
+    display: block;
+    position: absolute;
+    width: 500px;
+    height: auto;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.skill-blurb-box span b {
+    font-weight: bold;
+}
+
+.stat-drop-down {
+    align-self: flex-end;
+}
+
+.dd-wrapper-select-Ability {
+    height: auto;
+    background-color: white;
+    border: 1px solid lightgray;
+    display: block;
+    position: absolute;
+    top: 350px;
+    z-index: 1;
+    min-width: 120px;
+}
+
+.dd-header-Ability {
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 3px 8px;
+    display: flex;
+}
+
+.dd-header-Ability i {
+    margin-left: 3px;
+}
+
+.dd-header-Ability:hover {
+    cursor: pointer;
+}
+
+.dd-list-Ability {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+    background-color: white;
+    border: 1px solid lightgray;
+    position: absolute;
+    min-width: 120px;
+}
+
+.dd-list-item-Ability {
+    margin: 5px;
+}
+
+.dd-list-item-Ability.false {
+    text-transform: capitalize;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.dd-list-item-Ability.true {
+    text-transform: capitalize;
+    margin: 5px;
+    text-decoration: line-through;
+    cursor: pointer;
+    color: grey;
+}
+
+.dd-list-item-Ability:Hover {
+    background-color: green;
+    cursor: pointer;
+}

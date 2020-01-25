@@ -27,10 +27,10 @@ export const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT
 });
 
-export const fetchCurrentUser = user => dispatch => (
-    APIUtil.getCurrentUser()
-        .then(res =>  dispatch(receiveCurrentUser(res))
-));
+// export const fetchCurrentUser = user => dispatch => (
+//     APIUtil.getCurrentUser()
+//         .then(res =>  dispatch(receiveCurrentUser(res))
+// ));
 
 
 

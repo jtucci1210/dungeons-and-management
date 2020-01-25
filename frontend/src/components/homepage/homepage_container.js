@@ -1,18 +1,27 @@
 
 import { connect } from 'react-redux';
 import HomePage from './homepage.js';
-import { joinCampaign } from '../../actions/campaign_actions'
+import { getCharacters } from '../../actions/character_actions.js';
+import { joinCampaign, createCampaign } from '../../actions/campaign_actions';
 
-const mapStateToProps = state => ({
-    loggedIn: state.session.isAuthenticated,
-    currentUser: state.session
-});
+
+
+const mapStateToProps = state => {
+        return {
+        loggedIn: state.session.isAuthenticated,
+        currentUser: state.session,
+        currentUserID: state.session.user.id,
+        characters: Object.values(state.characters)
+        }
+};
 
 const mapDispatchToProps = dispatch => ({
-    joinCampaign: (character, charId) => dispatch(joinCampaign(character, charId))
+        getCharacters: userId => dispatch(getCharacters(userId)),
+        joinCampaign: (campaignId, charId) => dispatch(joinCampaign(campaignId, charId)),
+        createCampaign: () => dispatch(createCampaign())
 })
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+        mapStateToProps,
+        mapDispatchToProps
 )(HomePage);
