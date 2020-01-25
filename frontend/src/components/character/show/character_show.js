@@ -5,7 +5,7 @@ import '../../../stylesheet/test.css'
 import GeneralStats from './character_general_stats';
 import MainStats from './character_main_stats';
 import Items from './character_item_page'
-
+import Class from '../../../util/class_util'
 
 
 class CharacterShowPage extends React.Component {
@@ -19,7 +19,6 @@ class CharacterShowPage extends React.Component {
     componentDidMount() {
        const characterInfo = this.props.getCharacter(this.props.match.params.characterId)
         Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
-        // this.props.getCharacter(this.props.match.params.characterId)
     }
 
 
@@ -51,7 +50,7 @@ class CharacterShowPage extends React.Component {
                         <MainStats character={character} />
                     </div>
                     <div>
-                        <Items character={character}/>
+                        {/* <Items character={character}/> */}
                     </div>
                 </div>
             )

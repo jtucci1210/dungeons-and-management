@@ -1,19 +1,19 @@
-const allClasses = ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"];
+export const allClasses = ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"];
 
-const barbarianSubclasses = ["path of the berserker", "path of the totem warrior"];
-const bardSubclasses = ["college of lore", "college of valor"];
-const clericSubclasses = ["knowledge domain", "life domain", "light domain", "nature domain", "tempest domain", "trickery domain", "war domain"];
-const druidSubclasses = ["circle of the land", "circle of the moon"];
-const fighterSubclasses = ["champion", "battle master", "eldritch knight"];
-const monkSubclasses = ["way of the open hand", "way of the shadow", "way of the four elements"];
-const paladinSubclasses = ["oath of devotion", "oath of the ancients", "oath of vengeance"];
-const rangerSubclasses = ["hunter", "beast master"];
-const rogueSubclasses = ["thief", "assassin", "arcane trickster"];
-const sorcererSubclasses = ["draconic bloodline", "wild magic"];
-const warlockSubclasses = ["the archfey", "the fiend", "the great old one"];
-const wizardSubclasses = ["school of abjuration", "school of conjuration", "school of divination", "school of enchantment", "school of evocation", "school of illusion", "school of necromancy", "school of transmutation"];
+export const barbarianSubclasses = ["path of the berserker", "path of the totem warrior"];
+export const bardSubclasses = ["college of lore", "college of valor"];
+export const clericSubclasses = ["knowledge domain", "life domain", "light domain", "nature domain", "tempest domain", "trickery domain", "war domain"];
+export const druidSubclasses = ["circle of the land", "circle of the moon"];
+export const fighterSubclasses = ["champion", "battle master", "eldritch knight"];
+export const monkSubclasses = ["way of the open hand", "way of the shadow", "way of the four elements"];
+export const paladinSubclasses = ["oath of devotion", "oath of the ancients", "oath of vengeance"];
+export const rangerSubclasses = ["hunter", "beast master"];
+export const rogueSubclasses = ["thief", "assassin", "arcane trickster"];
+export const sorcererSubclasses = ["draconic bloodline", "wild magic"];
+export const warlockSubclasses = ["the archfey", "the fiend", "the great old one"];
+export const wizardSubclasses = ["school of abjuration", "school of conjuration", "school of divination", "school of enchantment", "school of evocation", "school of illusion", "school of necromancy", "school of transmutation"];
 
-const barbarian = {
+export const barbarian = {
     hitDice: 12,
     savingThrows: ["strength", "constitution"],
     avgHealth: 7,
@@ -22,7 +22,7 @@ const barbarian = {
     subclassType: "primal path"
 };
 
-const bard = {
+export const bard = {
     hitDice: 8,
     savingThrows: ["dexterity", "charisma"],
     avgHealth: 5,
@@ -31,7 +31,7 @@ const bard = {
     subclassType: "bard college"
 };
 
-const cleric = {
+export const cleric = {
     hitDice: 8,
     savingThrows: ["wisdom", "charisma"],
     avgHealth: 5,
@@ -40,7 +40,7 @@ const cleric = {
     subclassType: "divine domain"
 };
 
-const druid = {
+export const druid = {
     hitDice: 8,
     savingThrows: ["intelligence", "wisdom"],
     avgHealth: 5,
@@ -49,7 +49,7 @@ const druid = {
     subclassType: "druid circle"
 };
 
-const fighter = {
+export const fighter = {
     hitDice: 10,
     savingThrows: ["strength", "constitution"],
     avgHealth: 6,
@@ -58,7 +58,7 @@ const fighter = {
     subclassType: "martial archetypes"
 };
 
-const monk = {
+export const monk = {
     hitDice: 8,
     savingThrows: ["strength", "dexterity"],
     avgHealth: 5,
@@ -67,7 +67,7 @@ const monk = {
     subclassType: "monastic tradition"
 };
 
-const paladin = {
+export const paladin = {
     hitDice: 10,
     savingThrows: ["wisdom", "charisma"],
     avgHealth: 6,
@@ -76,7 +76,7 @@ const paladin = {
     subclassType: "sacred oath"
 };
 
-const ranger = {
+export const ranger = {
     hitDice: 10,
     savingThrows: ["strength", "dexterity"],
     avgHealth: 6,
@@ -85,7 +85,7 @@ const ranger = {
     subclassType: "ranger archetype"
 };
 
-const rogue = {
+export const rogue = {
     hitDice: 8,
     savingThrows: ["dexterity", "intelligence"],
     avgHealth: 5,
@@ -94,7 +94,7 @@ const rogue = {
     subclassType: "roguish archetype"
 };
 
-const sorcerer = {
+export const sorcerer = {
     hitDice: 6,
     savingThrows: ["constitution", "charisma"],
     avgHealth: 4, 
@@ -103,7 +103,7 @@ const sorcerer = {
     subclassType: "sorcerous origin"
 };
 
-const warlock = {
+export const warlock = {
     hitDice: 8,
     savingThrows: ["wisdom", "charisma"],
     avgHealth: 5, 
@@ -112,7 +112,7 @@ const warlock = {
     subclassType: "otherworldly patrons"
 };
 
-const wizard = {
+export const wizard = {
     hitDice: 6,
     savingThrows: ["intelligence", "wisdom"],
     avgHealth: 4, 
