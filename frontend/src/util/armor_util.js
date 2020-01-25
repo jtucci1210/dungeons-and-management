@@ -31,70 +31,71 @@ export const armorClass = ( armor, dexMod, shield ) => {
     };
 }; 
 
+export const fullArmor = {
 
-export const noArmor = {
-    base: 10,
-    type: "none"
-};
+    noArmor: {
+        base: 10,
+        type: "none"
+    },
 
-export const padded = {
-    base: 11,
-    type: "light"
-};
+    padded: {
+        base: 11,
+        type: "light"
+    },
 
-export const leather = {
-    base: 11,
-    type: "light"
-};
+    leather: {
+        base: 11,
+        type: "light"
+    },
 
-export const studdedLeather = {
-    base: 12,
-    type: "light"
-};
+    studdedLeather: {
+        base: 12,
+        type: "light"
+    },
 
-export const hide = {
-    base: 12,
-    type: "medium"
-};
+    hide: {
+        base: 12,
+        type: "medium"
+    },
 
-export const chainShirt = {
-    base: 13,
-    type: "medium"
-},
+    chainShirt: {
+        base: 13,
+        type: "medium"
+    },
 
-scaleMail = {
-    base: 14,
-    type: "medium"
-};
+    scaleMail: {
+        base: 14,
+        type: "medium"
+    },
 
-export const breastplate = {
-    base: 14,
-    type: "medium"
-};
+    breastplate: {
+        base: 14,
+        type: "medium"
+    },
 
-export const halfPlate = {
-    base: 15,
-    type: "medium"
-};
+    halfPlate: {
+        base: 15,
+        type: "medium"
+    },
 
-export const ringMail = {
-    base: 14,
-    type: "heavy"
-};
+    ringMail: {
+        base: 14,
+        type: "heavy"
+    },
 
-export const chainMail = {
-    base: 16,
-    type: "heavy"
-};
+    chainMail: {
+        base: 16,
+        type: "heavy"
+    },
 
-export const splint = {
-    base: 17,
-    type: "heavy"
-};
+    splint: {
+        base: 17,
+        type: "heavy"
+    },
 
-export const plate = {
-    base: 18,
-    type: "heavy"
-};
+    plate: {
+        base: 18,
+        type: "heavy"
+    }
 
-
+}
