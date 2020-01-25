@@ -107,3 +107,19 @@
     display: flex;
     flex-direction: column;
 }
+
+.halfelf-extra-skills {
+    display: flex;
+    width: 400px;
+    height: 100px;
+    margin: 5px;
+}
+
+.halfelf-extra-skills {
+    display: flex;
+    border: 1px solid black;
+    width: 700px;
+    height: 180px;
+    margin: 50px;
+    padding: 10px;
+}
