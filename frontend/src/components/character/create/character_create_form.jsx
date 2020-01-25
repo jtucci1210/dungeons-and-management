@@ -4,7 +4,7 @@ import RaceAndClass from './race_and_class';
 import '../../../stylesheet/character_create_form.css';
 import { fullRace } from '../../../util/race_util';
 import { fullClass } from '../../../util/class_util';
-import {allSkills} from '../../../util/skill_util';
+import {allSkills, halfelfAbilityScores} from '../../../util/skill_util';
 import { strengthSkills, dexteritySkills, intelligenceSkills, wisdomSkills, charismaSkills } from '../../../util/skill_util';
 import { withRouter } from 'react-router-dom';
 import { healthLevelOne, mod } from '../../../util/game_math_util';
@@ -18,6 +18,7 @@ class CharacterCreateForm extends React.Component {
         this.handleNext = this.handleNext.bind(this)
         this.handleCheckbox = this.handleCheckbox.bind(this)
         this.handleHalfElfCheckbox = this.handleHalfElfCheckbox.bind(this)
+        this.handleHalfElfAbilityCheckbox = this.handleHalfElfAbilityCheckbox.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -70,6 +71,12 @@ class CharacterCreateForm extends React.Component {
         this.state.abilities.forEach(ability =>
             abilityObj[ability.title] = ability.value
             )
+
+        if (this.state.finalRace === "halfelf") {
+            this.state.halfelfAbilities.forEach( ability =>
+                abilityObj[ability] += 1
+                )
+        }
 
         let bonusSkills = fullRace[this.state.finalRace].skillProficiencies
 
@@ -140,13 +147,38 @@ class CharacterCreateForm extends React.Component {
                     halfelfSkills: this.state.halfelfSkills
                 }
             )
-        } else if (this.state.halfelfSkills.length < this.state.numSkills) {
+        } else if (this.state.halfelfSkills.length < 2) {
 
             let addNewSkill = this.state.halfelfSkills.concat(skill)
 
             this.setState(
                 {
                     halfelfSkills: addNewSkill
+                }
+            )
+        }
+
+    }
+
+    handleHalfElfAbilityCheckbox(ability) {
+
+
+        if (this.state.halfelfAbilities.includes(ability)) {
+
+            this.state.halfelfAbilities.splice(this.state.halfelfAbilities.indexOf(ability), 1)
+
+            this.setState(
+                {
+                    halfelfAbilities: this.state.halfelfAbilities
+                }
+            )
+        } else if (this.state.halfelfAbilities.length < 2) {
+
+            let addNewAbility = this.state.halfelfAbilities.concat(ability)
+
+            this.setState(
+                {
+                    halfelfAbilities: addNewAbility
                 }
             )
         }
@@ -367,8 +399,18 @@ class CharacterCreateForm extends React.Component {
                                             </div>
                                         </div>
                                 </div>
+                                <div className="halfelf-ability-selection">
+                                    <h1>Choose 2 abilities to increase by +1 for being a halfelf</h1>
+                                    <div className="halfelf-choose-abilities">
+                                        {
+                                            halfelfAbilityScores.map((ability, idx) => {
+                                                return <label key={idx}><input type="checkbox" name={ability} onChange={() => this.handleHalfElfAbilityCheckbox(ability)} disabled={this.state.halfelfAbilities.length === 2 && !this.state.halfelfAbilities.includes(ability) ? true : false} />{ability}</label>
+                                            })
+                                        }
+                                    </div>
+                                </div>
                                     {
-                                        this.state.halfelfSkills.length === 2
+                                        this.state.halfelfSkills.length === 2 && this.state.halfelfAbilities.length == 2
                                         ?
                                         <button onClick={this.handleSubmit}>Create Halfelf</button>
                                         :

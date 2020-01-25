@@ -1,4 +1,5 @@
 export const abilityScores = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+export const halfelfAbilityScores = ["strength", "dexterity", "constitution", "intelligence", "wisdom"];
 
 export const strengthSkills = ["athletics"];
 

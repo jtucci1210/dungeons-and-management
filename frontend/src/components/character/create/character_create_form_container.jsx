@@ -60,7 +60,8 @@ const mapStateToProps = state => ({
     selectedSkills: [],
     numSkills: "",
     currentUser: state.session.user,
-    halfelfSkills: []
+    halfelfSkills: [],
+    halfelfAbilities: []
 });
 
 const mapDispatchToProps = dispatch => ({
