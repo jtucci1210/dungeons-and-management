@@ -226,3 +226,20 @@ padding-top: 4px;
         text-decoration-line: underline;
         padding-bottom: 150px;
     }
+
+.show-character-image-div {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid black;
+    
+    
+}
+
+.show-character-image {
+    /* display: block; */
+    height: 400px;
+    width: 200px;
+    object-fit: contain;
+}

@@ -1,15 +1,70 @@
 import React from 'react';
 import '../../../stylesheet/show_page.css'
 import * as math from '../../../util/game_math_util'
+import ElfImg from "./races/elf.jpg";
+import DragonImg from "./races/dragon-born.jpg";
+import DwarfImg from "./races/dwarf.jpg";
+import GnomeImg from "./races/gnome.jpg";
+import HalfElfImg from "./races/half-elf.jpg";
+import HalfOrcImg from "./races/half-orc.jpg";
+import HalflingImg from "./races/halfling.jpg";
+import HumanImg from "./races/human.jpg";
+import TieflingImg from "./races/tiefling.jpg";
 
+class GeneralStats extends React.Component {
+    constructor(props) {
+        super(props)
+    }
 
-function GeneralStats(props) {
-    const character = props.character
     
+    charImage() {
+        const { character } = this.props;
+        const race = character.race;
+        switch (race) {
+            case "woodElf":
+                return ElfImg;
+            case "highElf":
+                return ElfImg;
+            case "darkElf":
+                return ElfImg;
+            case "dragonborn":
+                return DragonImg;
+            case "hillDwarf":
+                return DwarfImg;
+            case "mountainDwarf":
+                return DwarfImg;
+            case "rockGnome":
+                return GnomeImg;
+            case "forestGnome":
+                return GnomeImg;
+            case "halfelf":
+                return HalfElfImg;
+            case "halforc":
+                return HalfOrcImg;
+            case "lightfootHalfling":
+                return HalflingImg;
+            case "stoutHalfling":
+                return HalflingImg;
+            case "human":
+                return HumanImg;
+            case "tiefling":
+                return TieflingImg;
+            default:
+                return "meow";
+        }
+    }
+
+
+    render() {
+        const character = this.props.character
+        const cardImg = this.charImage();
+   
     return (
         <div className='show-character-general-stats'>
             {/* <img></img> */}
-            <p className="placeholder-img">IMG PLACEHOLDER HERE</p>
+            <div className="show-character-image-div">
+                <img className="show-character-image" src={cardImg}></img>
+            </div>
             <div className="show-character-general-info">
                 <div className='show-character-general-race'>
                     <p className='show-character-general-race'>
@@ -49,6 +104,7 @@ function GeneralStats(props) {
             </div>
         </div>
     )
+    }
 }
 
 export default GeneralStats

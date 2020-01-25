@@ -132,7 +132,7 @@ class RaceAndClass extends React.Component {
             return (
                 <div className="saving-throw-box">Saving Throws: 
                     {fullClass[this.state.class].savingThrows.map((skill, idx) =>
-                    <li className="saving-throw" key={idx}>{idx == 0 ? `${skill},` : skill}</li>
+                    <li className="saving-throw" key={idx}>{idx === 0 ? `${skill},` : skill}</li>
                 )}
                 </div>
             )

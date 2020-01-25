@@ -4,8 +4,7 @@ import '../../../stylesheet/show_page.css'
 import '../../../stylesheet/test.css'
 import GeneralStats from './character_general_stats';
 import MainStats from './character_main_stats';
-import Items from './character_item_page'
-import {fullClass} from '../../../util/class_util'
+
 
 
 class CharacterShowPage extends React.Component {
@@ -22,9 +21,12 @@ class CharacterShowPage extends React.Component {
     }
 
 
+    
+
     render() {
         if (this.state.loaded) {
             const character = this.props.character
+           
             return (
                 <div className='show-character-box'>
                     <div className='show-character-header'>
