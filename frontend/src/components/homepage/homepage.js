@@ -40,7 +40,11 @@ class HomePage extends React.Component {
   createCampaign () {
     this.props
       .createCampaign()
-      .then(result => this.props.history.push(`/campaign/${result.campaign._id}`));
+      .then(result =>
+        this.props.history.push(
+          `/campaign/${result.campaign.data.campaign._id}`
+        )
+      );
   }
 
   render() {
