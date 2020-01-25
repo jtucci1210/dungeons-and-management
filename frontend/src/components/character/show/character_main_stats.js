@@ -2,7 +2,8 @@ import React from 'react';
 import '../../../stylesheet/show_page.css'
 import * as skills from '../../../util/skill_util'
 import * as math from '../../../util/game_math_util'
-import * as race from '../../../util/race_util';
+import * as race from '../../../util/race_util'
+import * as armor from '../../../util/armor_util'
 
 
 function MainStats(props) {
@@ -28,18 +29,21 @@ function MainStats(props) {
     const passivePerception = math.passivePerception(character.abilities.wisdom, proficiency)
     const fullRace = race.fullRace
     const characterRace = character.race
+    const raceInfo = race.fullRace[characterRace].abilityScores
+    const armorClass = armor.armorClass
     
+
     return (
         <div className='show-character-main-stats'>
             <div className='show-character-battle-stats'>
                 <div className='show-character-battle-stats-info'>
                     <div>
                         <p className='battle-state-title'>A.C.</p>
-                        <div className='battle-state-title-info'>1111</div>
+                        <div className='battle-state-title-info'>{armorClass(armor.noArmor, proficiency, )}</div>
                     </div>
                     <div>
                         <p className='battle-state-title'>Initiative</p>
-                        <div className='battle-state-title-info'>1111</div>
+                        <div className='battle-state-title-info'>{proficiency}</div>
                     </div>
                     <div>
                         <p className='battle-state-title'>Speed</p>
@@ -59,7 +63,7 @@ function MainStats(props) {
                 <div className='show-character-self-stat'>
                     <p>Strength</p>
                     <div className='show-character-ability-pair'>
-                        <div className='show-character-ability-value'> {character.abilities.strength} </div>
+                        <div className='show-character-ability-value'> {character.abilities.strength + raceInfo.strength} </div>
                         <div className='show-character-ability-modifier'> {math.mod(character.abilities.strength, proficiency)} </div>
                     </div>
                     <div className='str-skills'>
@@ -78,7 +82,7 @@ function MainStats(props) {
                 <div className='show-character-self-stat'>
                     <p>Dexterity</p>
                     <div className='show-character-ability-pair'>
-                        <div className='show-character-ability-value'>{character.abilities.dexterity}</div>
+                        <div className='show-character-ability-value'>{character.abilities.dexterity + raceInfo.dexterity}</div>
                         <div className='show-character-ability-modifier'> {math.mod(character.abilities.dexterity,proficiency)} </div>
                     </div>
                     <div className='str-skills'>
@@ -97,7 +101,7 @@ function MainStats(props) {
                 <div className='show-character-self-stat'>
                     <p>Constitution</p>
                     <div className='show-character-ability-pair'>
-                        <div className='show-character-ability-value'> {character.abilities.constitution} </div>
+                        <div className='show-character-ability-value'> {character.abilities.constitution + + raceInfo.constitution} </div>
                         <div className='show-character-ability-modifier'> {math.mod(character.abilities.constitution, proficiency)} </div>
                     </div>
                     <div className='str-skills'>

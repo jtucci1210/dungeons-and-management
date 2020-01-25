@@ -13,6 +13,11 @@ export const tieflingSubraces = [];
 export const fullRace = {
     hillDwarf: {
         abilityScores: {
+            strength: 0,
+            dexterity: 0,
+            intelligence: 0,
+            charisma: 0,
+            // 
             constitution: 2,
             wisdom: 1
         },
@@ -21,6 +26,11 @@ export const fullRace = {
     },
     mountainDwarf: {
         abilityScores: {
+            dexterity: 0,
+            intelligence: 0,
+            wisdom: 0,
+            charisma: 0,
+            //
             constitution: 2,
             strength: 2
         },
@@ -29,6 +39,11 @@ export const fullRace = {
     },
     highElf: {
         abilityScores: {
+            strength: 0,
+            constitution: 0,
+            wisdom: 0,
+            charisma: 0,
+            // 
             dexterity: 2,
             intelligence: 1
         },
@@ -37,6 +52,11 @@ export const fullRace = {
     },
     woodElf: {
         abilityScores: {
+            strength: 0,
+            constitution: 0,
+            intelligence: 0,
+            charisma: 0,
+            // 
             dexterity: 2,
             wisdom: 1
         },
@@ -45,6 +65,11 @@ export const fullRace = {
     },
     darkElf: {
         abilityScores: {
+            strength: 0,
+            constitution: 0,
+            intelligence: 0,
+            wisdom: 0,
+            // 
             dexterity: 2,
             charisma: 1
         },
@@ -53,6 +78,11 @@ export const fullRace = {
     },
     lightfootHalfling: {
         abilityScores: {
+            strength: 0,
+            constitution: 0,
+            intelligence: 0,
+            wisdom: 0,
+            // 
             dexterity: 2,
             charisma: 1
         },
@@ -61,6 +91,11 @@ export const fullRace = {
     },
     stoutHalfling: {
         abilityScores: {
+            strength: 0,
+            intelligence: 0,
+            wisdom: 0,
+            charisma: 0,
+            // 
             dexterity: 2,
             constitution: 1
         },
@@ -81,14 +116,25 @@ export const fullRace = {
     },
     dragonborn: {
         abilityScores: {
+            dexterity: 0,
+            constitution: 0,
+            intelligence: 0,
+            wisdom: 0,
+            //
             strength: 2,
-            charisma: 1
+            charisma: 1,
+            
         },
         speed: 30,
         skillProficiencies: null
     },
     forestGnome: {
         abilityScores: {
+            strength: 0,
+            constitution: 0,
+            wisdom: 0,
+            charisma: 0,
+            //
             intelligence: 2,
             dexterity: 1
         },
@@ -97,6 +143,11 @@ export const fullRace = {
     },
     rockGnome: {
         abilityScores: {
+            strength: 0,
+            dexterity: 0,
+            wisdom: 0,
+            charisma: 0,
+            //
             intelligence: 2,
             constitution: 1
         },
@@ -105,6 +156,12 @@ export const fullRace = {
     },
     halfelf: {
         abilityScores: {
+            strength: 0,
+            dexterity: 0,
+            constitution: 0,
+            intelligence: 0,
+            wisdom: 0,
+            //
             charisma: 2
         },
         speed: 30,
@@ -112,6 +169,11 @@ export const fullRace = {
     },
     halforc: {
         abilityScores: {
+            dexterity: 0,
+            intelligence: 0,
+            wisdom: 0,
+            charisma: 0,
+            //
             strength: 2,
             constitution: 1
         },
@@ -120,6 +182,11 @@ export const fullRace = {
     },
     tiefling: {
         abilityScores: {
+            strength: 0,
+            dexterity: 0,
+            constitution: 0,
+            wisdom: 0,
+            //
             intelligence: 1,
             charisma: 2
         },

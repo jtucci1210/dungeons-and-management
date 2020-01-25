@@ -1,6 +1,6 @@
-const armorTypes = ["none", "padded (light)", "leather (light)", "studded leather (light)", "hide (medium)", "chain shirt (medium)", "scale mail (medium)", "breastplate (medium)", "half plate (medium)", "ring mail (heavy)", "chain mail (heavy)", "splint (heavy)", "plate (heavy)"]
+export const armorTypes = ["none", "padded (light)", "leather (light)", "studded leather (light)", "hide (medium)", "chain shirt (medium)", "scale mail (medium)", "breastplate (medium)", "half plate (medium)", "ring mail (heavy)", "chain mail (heavy)", "splint (heavy)", "plate (heavy)"]
 
-const armorClass = ( armor, dexMod, shield ) => {
+export const armorClass = ( armor, dexMod, shield ) => {
 
     let shieldBonus = 0;
 
@@ -31,32 +31,32 @@ const armorClass = ( armor, dexMod, shield ) => {
     };
 }; 
 
-const noArmor = {
+export const noArmor = {
     base: 10,
     type: "none"
 };
 
-const padded = {
+export const padded = {
     base: 11,
     type: "light"
 };
 
-const leather = {
+export const leather = {
     base: 11,
     type: "light"
 };
 
-const studdedLeather = {
+export const studdedLeather = {
     base: 12,
     type: "light"
 };
 
-const hide = {
+export const hide = {
     base: 12,
     type: "medium"
 };
 
-const chainShirt = {
+export const chainShirt = {
     base: 13,
     type: "medium"
 },
@@ -66,32 +66,32 @@ scaleMail = {
     type: "medium"
 };
 
-const breastplate = {
+export const breastplate = {
     base: 14,
     type: "medium"
 };
 
-const halfPlate = {
+export const halfPlate = {
     base: 15,
     type: "medium"
 };
 
-const ringMail = {
+export const ringMail = {
     base: 14,
     type: "heavy"
 };
 
-const chainMail = {
+export const chainMail = {
     base: 16,
     type: "heavy"
 };
 
-const splint = {
+export const splint = {
     base: 17,
     type: "heavy"
 };
 
-const plate = {
+export const plate = {
     base: 18,
     type: "heavy"
 };

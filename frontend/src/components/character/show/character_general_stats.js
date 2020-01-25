@@ -1,13 +1,11 @@
 import React from 'react';
 import '../../../stylesheet/show_page.css'
-// import * as ClassInfo from '../../../util/class_util'
-
+import * as math from '../../../util/game_math_util'
 
 
 function GeneralStats(props) {
     const character = props.character
-    // const characterClass = character.charClass
-    // const info = ClassInfo.[characterClass]
+    
     return (
         <div className='show-character-general-stats'>
             {/* <img></img> */}
