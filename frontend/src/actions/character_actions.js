@@ -19,9 +19,9 @@ export const receiveCharacterErrors = errors => ({
 })
 
 //Safar's user id: 5e2890208321d6fc98d5bc24
-export const receiveAllCharacters = character => ({
-    type: RECEIVE_CHARACTER,
-    character
+export const receiveAllCharacters = characters => ({
+    type: RECEIVE_ALL_CHARACTERS,
+    characters
 })
 
 export const getCharacter = characterId => dispatch => {
@@ -40,7 +40,7 @@ export const editCharacter = (data) => dispatch => (
 )
 export const createCharacter = (data) => dispatch => (
     CHARACTERAPIUTIL.createCharacter(data)
-        .then(character => dispatch(receiveAllCharacters(character.data)))
+        .then(character => dispatch(receiveCharacter(character.data)))
 )
 
 

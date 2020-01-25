@@ -70,6 +70,7 @@ class CharacterCreateForm extends React.Component {
         
         let characterObj = {
             user: this.props.currentUser,
+            name: this.state.characterName,
             race: this.state.finalRace,
             charClass: this.state.class,
             armorType: "noArmor",
@@ -80,8 +81,10 @@ class CharacterCreateForm extends React.Component {
             skills: this.state.selectedSkills
         };
 
+
+
         this.props.createCharacter(characterObj)
-            .then(result => this.props.history.push(`/character/${result.id}`))
+            .then(result => this.props.history.push(`/home`))
 
     }
 
@@ -246,7 +249,13 @@ class CharacterCreateForm extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            <button onClick={this.handleSubmit}>Create Character</button>
+                            {
+                                this.state.selectedSkills.length === this.state.numSkills
+                                ?
+                                <button onClick={this.handleSubmit}>Create Character</button>
+                                :
+                                ""
+                            }
                         </div>
                         :
                         ""

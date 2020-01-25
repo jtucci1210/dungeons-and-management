@@ -10,9 +10,8 @@ export default function (state = {}, action) {
     switch (action.type) {
         case RECEIVE_CHARACTER:
             return  Object.assign({},action.character); 
-            return  action.character; 
         case RECEIVE_ALL_CHARACTERS:
-            return Object.assign({}, action.character);
+            return action.characters;
         default:
             return state;
     }
