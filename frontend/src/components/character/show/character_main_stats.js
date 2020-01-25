@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../stylesheet/show_page.css'
 import * as skills from '../../../util/skill_util'
-
+import * as math from '../../../util/game_math_util'
 
 function MainStats(props) {
     const character = props.character
@@ -11,7 +11,21 @@ function MainStats(props) {
     const intelSkills = ['SAVING THROW', 'ARCANA', 'HISTORY', 'INVESTIGATION', 'NATURE', 'RELIGION']
     const wisdSkills = ['SAVING THROW', 'ANIMAL HANDLING', 'INSIGHT', 'MEDICINE', 'PERCEPTION', 'SURVIVAL']
     const charSkills = ['SAVING THROW', 'DECEPTION', 'INTIMIDATION', 'PERFORMANCE', 'PERSUASION']
-    
+    let proficiency
+    if (character.level < 5) {
+        proficiency = `+2`
+    } else if (character.level > 4 && character.level <9 ) {
+        proficiency = `+3`
+    } else if (character.level > 4 && character.level <9 ) {
+        proficiency = `+3`
+    } else if (character.level > 8 && character.level < 13) {
+        proficiency = `+4`
+    } else if (character.level > 12 && character.level < 17 ) {
+        proficiency = `+5`
+    } else {
+        proficiency = `+6`
+    }
+
 
     return (
         <div className='show-character-main-stats'>
@@ -43,8 +57,8 @@ function MainStats(props) {
                 <div className='show-character-self-stat'>
                     <p>Strength</p>
                     <div className='show-character-ability-pair'>
-                        <div className='show-character-ability-value'> 8</div>
-                        <div className='show-character-ability-modifier'> +2 </div>
+                        <div className='show-character-ability-value'> {character.abilities.strength} </div>
+                        <div className='show-character-ability-modifier'> {proficiency} </div>
                     </div>
                     <div className='str-skills'>
                         <p> Strength Skills </p>
@@ -62,8 +76,8 @@ function MainStats(props) {
                 <div className='show-character-self-stat'>
                     <p>Dexterity</p>
                     <div className='show-character-ability-pair'>
-                        <div className='show-character-ability-value'>3</div>
-                        <div className='show-character-ability-modifier'> +2 </div>
+                        <div className='show-character-ability-value'>{character.abilities.dexterity}</div>
+                        <div className='show-character-ability-modifier'> {proficiency} </div>
                     </div>
                     <div className='str-skills'>
                         <p> Dexterity Skills </p>
@@ -81,8 +95,8 @@ function MainStats(props) {
                 <div className='show-character-self-stat'>
                     <p>Constitution</p>
                     <div className='show-character-ability-pair'>
-                        <div className='show-character-ability-value'> 15 </div>
-                        <div className='show-character-ability-modifier'> +2 </div>
+                        <div className='show-character-ability-value'> {character.abilities.constitution} </div>
+                        <div className='show-character-ability-modifier'> {proficiency} </div>
                     </div>
                     <div className='str-skills'>
                         <p> Constitution Skills </p>
@@ -100,8 +114,8 @@ function MainStats(props) {
                 <div className='show-character-self-stat'>
                     <p>Intelligence</p>
                     <div className='show-character-ability-pair'>
-                        <div className='show-character-ability-value'> 18 </div>
-                        <div className='show-character-ability-modifier'> +2 </div>
+                        <div className='show-character-ability-value'> {character.abilities.intelligence} </div>
+                        <div className='show-character-ability-modifier'> {proficiency} </div>
                     </div>
                      <div className='str-skills'>
                         <p> Intelligence Skills </p>
@@ -119,8 +133,8 @@ function MainStats(props) {
                 <div className='show-character-self-stat'>
                     <p>Wisdom</p>
                     <div className='show-character-ability-pair'>
-                        <div className='show-character-ability-value'>13 </div>
-                        <div className='show-character-ability-modifier'> +2 </div>
+                        <div className='show-character-ability-value'>{character.abilities.wisdom} </div>
+                        <div className='show-character-ability-modifier'> {proficiency} </div>
                     </div>
                      <div className='str-skills'>
                         <p> Wisdom Skills </p>
@@ -138,8 +152,8 @@ function MainStats(props) {
                 <div className='show-character-self-stat'>
                     <p>Charisma</p>
                     <div className='show-character-ability-pair'>
-                        <div className='show-character-ability-value'> 15 </div>
-                        <div className='show-character-ability-modifier'> +2 </div>
+                        <div className='show-character-ability-value'> {character.abilities.charisma} </div>
+                        <div className='show-character-ability-modifier'> {proficiency} </div>
                     </div>
                      <div className='str-skills'>
                         <p> Charisma Skills </p>
