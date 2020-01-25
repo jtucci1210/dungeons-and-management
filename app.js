@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const socket = require("socket.io");
+const socketio = require("socket.io");
 
 //File Imports
 const users = require("./routes/api/users");
@@ -34,31 +34,33 @@ const socketPort = 8080;
 const server = app.listen(socketPort, function () {
     console.log("Listening at http://localhost: " + socketPort);
 });
-const sock = socket(server);
+const io = socketio(server);
 
 //Socket Listeners
 //These listen for events that get sent from the frontend and then send back a response
-sock.on("connection", function (socket) {
+io.on("connection", function (socket) {
     console.log("made connection with socket " + socket.id);
 
+    socket.on("joinCampaign", function (roomName) {
+        socket.join(roomName); //Join a room
+        console.log("Joined room: " + roomName)
+        io.to(roomName).emit("receive-room", "made it")
+    });
+
+    //Test listener for a room and responsding
+    // socket.on("test-room", function (data) {
+    //     io.to(data).emit("receive-room", 'more-success')
+    // });
+
     socket.on("hp", function (data) {
-        sock.sockets.emit("hp", data);
+        io.sockets.emit("hp", data);
     });
 
     socket.on("dice", function (data) {
-        sock.sockets.emit("dice", data);
+        io.sockets.emit("dice", data);
     });
 
     socket.on("total", function (data) {
-        sock.sockets.emit("total", data);
+        io.sockets.emit("total", data);
     });
 });
-
-module.exports = function createCampaignNamespace (campKey) {
-    const campSocket = sock.of(campKey);
-
-    campSocket.on("connection", function (socket) {
-        console.log("made connection with socket " + socket.id);
-    })
-
-}

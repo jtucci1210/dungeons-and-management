@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 //Files and Functions
 const Campaign = require('../../models/Campaign')
 const validCreateCampInput = require('../../validation/create-campaign')
-const createCampaignNamespace = require('../../app')
+const createCampaignNamespace = require('../../app.js')
 
 //Get info for a campaign using
 router.get('/:id', (req, res) => {
@@ -39,7 +39,6 @@ router.post("/create", (req, res) => {
 //Add character to a campaign
 router.patch("/:id/join", (req, res) => {
     Campaign.findById(req.params.id).then(camp => {
-        createCampaignNamespace("testKey")
         camp.characters.push(req.body.id)
         camp.save();
         res.json(camp);
