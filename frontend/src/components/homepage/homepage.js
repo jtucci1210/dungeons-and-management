@@ -2,6 +2,7 @@ import React from 'react';
 import '../../stylesheet/homepage.css'
 import splashImg from './splash_image.jpg'
 import CharIndex from './char_index';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -27,15 +28,19 @@ class HomePage extends React.Component {
   campaignJoin (e) {
     e.preventDefault();
     const { characters } = this.props;
+    let charId = '';
+
     characters.map(char => {
       if (char.name === this.state.campaignChar) {
-        const charId = char._id
+        charId = char._id;
       } 
     })
-      // this.props.joinCampaign(this.state.campaignId, charId);
+      this.props.joinCampaign(this.state.campaignId, charId);
   }
-  campaignCreate () {
-    // this.props.campaignCreate();
+  createCampaign () {
+    this.props
+      .createCampaign()
+      .then(result => this.props.history.push(`/campaign/${result.campaign._id}`));
   }
 
   render() {
@@ -48,7 +53,7 @@ class HomePage extends React.Component {
         <div className="home-page-campaign-box">
           <div className="home-page-campaign-title">Campaign Menu</div>
           <div className="home-page-campaign-links">
-            <button onClick={this.campaignCreate()} className="start-campaign">
+            <button onClick={() => this.createCampaign()} className="start-campaign">
               Create Campaign</button>
             <div className="home-page-lobby-join">
               <span className="or-separator">-OR-</span>
@@ -98,4 +103,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default withRouter(HomePage);
