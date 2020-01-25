@@ -30,7 +30,7 @@ function MainStats(props) {
     const fullRace = race.fullRace
     const characterRace = character.race
     const armorClass = armor.armorClass
-    const characterArmor = character.armorType
+    const characterArmor = armor.fullArmor[character.armorType]
 
     return (
         <div className='show-character-main-stats'>
