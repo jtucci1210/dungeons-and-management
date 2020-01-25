@@ -12,7 +12,7 @@ export const rogueSubclasses = ["thief", "assassin", "arcane trickster"];
 export const sorcererSubclasses = ["draconic bloodline", "wild magic"];
 export const warlockSubclasses = ["the archfey", "the fiend", "the great old one"];
 export const wizardSubclasses = ["school of abjuration", "school of conjuration", "school of divination", "school of enchantment", "school of evocation", "school of illusion", "school of necromancy", "school of transmutation"];
-
+    
 export const barbarian = {
     hitDice: 12,
     savingThrows: ["strength", "constitution"],
