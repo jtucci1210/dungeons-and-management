@@ -12,6 +12,7 @@
     .show-character-header{
         display: flex;
         justify-content: space-between;
+        padding-top: 5px;
 
     }
 
@@ -19,7 +20,7 @@
         text-align: center;
         font-size: 40px;
         text-decoration: underline;
-        
+        padding-left: 20px;
     }
 
     .show-character-hit-dice {
@@ -29,6 +30,10 @@
 
     .show-character-current-hp{
         padding-left: 10px;
+    }
+
+    .show-character-hp{
+        padding-right: 20px;
     }
 
 
@@ -77,7 +82,7 @@
 
 .show-character-main-stats{
     padding: 15px;
-    width: 75%;
+    /* width: 75%; */
 }
 
 .show-character-battle-stats-titles{
@@ -134,6 +139,14 @@
     padding: 0px 4px;
 }
 
+.show-character-general-hp,
+.show-character-general-class,
+.show-character-general-class,
+.show-character-general-race-info div{
+padding-top: 4px;
+}
+
+
 /* ---------------------------- */
 
 .show-character-all-stats {
@@ -142,7 +155,6 @@
     grid-gap: 10px; */
     padding: 10px;
     font-size: 14px;
-    align-items: center;
      /* delete */
     border: 2px solid red;
     /* delete */
@@ -155,13 +167,47 @@
     display: block;
     text-align: center;
     min-width: 100px;
+    border: 2px solid #173514;
+    width: 155px;
+    margin: 4px;
 }
+
+.show-character-self-stat p {
+    padding: 10px 0px;
+}
+.show-character-self-stat ul {
+    padding: 5px 0px;
+
+}
+
+
 
     .str-value{
         display: block;
 
     }
 
+    .show-character-ability-pair{
+        display: flex;
+        justify-content: center;
+    }
+
+    .show-character-ability-value,
+    .show-character-ability-modifier{
+        margin: 7px;
+    }
+
+    .show-character-ability-modifier {
+        border-radius: 15px 50px 30px 5px;
+        border: 2px solid rgba(118, 92, 6, 0.831);
+        padding: 6px
+    }
+
+    .show-character-ability-value {
+        border-radius: 50px 15px  5px 30px;
+        border: 2px solid rgba(118, 92, 6, 0.831);
+        padding: 6px
+    }
     /* ------------------------ */
 
     .show-character-items {
@@ -170,4 +216,5 @@
         justify-content: center;
         padding-top: 30px;
         text-decoration-line: underline;
+        padding-bottom: 150px;
     }

@@ -12,14 +12,16 @@ export const receiveCharacter = character => {
     character
     }
 }
+
 export const receiveCharacterErrors = errors => ({
     type: RECEIVE_CHARACTER_ERRORS,
     errors
 })
 
 //Safar's user id: 5e2890208321d6fc98d5bc24
-export const receiveAllCharacters = () => ({
+export const receiveAllCharacters = character => ({
     type: RECEIVE_CHARACTER,
+    character
 })
 
 export const getCharacter = characterId => dispatch => {
@@ -28,17 +30,17 @@ export const getCharacter = characterId => dispatch => {
         .then(character => dispatch(receiveCharacter(character.data)))
    )
 }
-export const getCharacters = () => dispatch => (
-    CHARACTERAPIUTIL.getCharacters()
-        .then(characters => dispatch(receiveAllCharacters(characters)))
+export const getCharacters = (userId) => dispatch => (
+    CHARACTERAPIUTIL.getCharacters(userId)
+        .then(characters => dispatch(receiveAllCharacters(characters.data)))
 )
-export const editCharacter = () => dispatch => (
-    CHARACTERAPIUTIL.editCharacter()
-        .then(character => dispatch(receiveCharacter(character)))
+export const editCharacter = (data) => dispatch => (
+    CHARACTERAPIUTIL.editCharacter(data)
+        .then(character => dispatch(receiveCharacter(character.data)))
 )
 export const createCharacter = (data) => dispatch => (
     CHARACTERAPIUTIL.createCharacter(data)
-        .then(character => dispatch(receiveAllCharacters(character.id)))
+        .then(character => dispatch(receiveAllCharacters(character.data)))
 )
 
 

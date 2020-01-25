@@ -83,7 +83,7 @@ class LoginForm extends React.Component {
                     type="submit"
                     value="Submit"
                   />
-                  <button className='login-signup-button' onClick={this.guestLogin}> Guest Login</button>
+                  <button className='submit-button-modal' onClick={this.guestLogin}> Guest Login</button>
                 </div>
               </form>
             </div>
