@@ -149,6 +149,10 @@
 padding-top: 4px;
 }
 
+.show-character-general-hp {
+    text-transform: none;
+}
+
 
 /* ---------------------------- */
 

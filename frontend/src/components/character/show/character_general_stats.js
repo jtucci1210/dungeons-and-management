@@ -10,6 +10,7 @@ import HalfOrcImg from "./races/half-orc.jpg";
 import HalflingImg from "./races/halfling.jpg";
 import HumanImg from "./races/human.jpg";
 import TieflingImg from "./races/tiefling.jpg";
+import * as charClass from '../../../util/class_util'
 
 class GeneralStats extends React.Component {
     constructor(props) {
@@ -58,7 +59,9 @@ class GeneralStats extends React.Component {
     render() {
         const character = this.props.character
         const cardImg = this.charImage();
-   
+        const fullClass = charClass.fullClass
+        const hitDice = fullClass[character.charClass].hitDice
+
     return (
         <div className='show-character-general-stats'>
             {/* <img></img> */}
@@ -99,7 +102,7 @@ class GeneralStats extends React.Component {
                     Current Life: {character.currentHp}
                 </div>
                 <div className="show-character-general-hp">
-                    {character.level}d
+                   {character.level}d{hitDice}
                 </div>
             </div>
         </div>
