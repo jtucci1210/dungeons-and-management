@@ -16,6 +16,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     getCharacters: userId => dispatch(getCharacters(userId)),
+    // joinCampaign: (campaignId, charId) => dispatch(joinCampaign(campaignId, charId)),
+    // createCampaign: () => dispatch(createCampaign())
 })
 
 export default connect(

@@ -184,3 +184,17 @@
     height: 20px;
 }
 
+.home-page-lobby-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-page-lobby-join {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.or-separator {
+    color: white;
+}
+
