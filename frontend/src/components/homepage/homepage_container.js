@@ -9,7 +9,8 @@ const mapStateToProps = state => {
     return {
     loggedIn: state.session.isAuthenticated,
     currentUser: state.session,
-    currentUserID: state.session.user.id
+    currentUserID: state.session.user.id,
+    characters: Object.values(state.characters)
     }
 };
 

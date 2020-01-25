@@ -51,13 +51,13 @@ class CharIndexItem extends React.Component {
   }
   charHealth () {
       const { character } = this.props;
-      let healthPct = character.currentHealth / character.health;
+      let healthPct = character.currentHp / character.maxHp;
             if (healthPct < 0.3) {
       return (
-          <span className="warning-health">{character.currentHealth}</span>
+          <span className="warning-health">{character.currentHp}</span>
       )} else {
           return (
-            <span className="safe-health">{character.currentHealth}</span>
+            <span className="safe-health">{character.currentHp}</span>
           );
       }
   }
@@ -79,7 +79,7 @@ class CharIndexItem extends React.Component {
             <span className="field-title">MaxHealth (Current): </span>
             <div className="imma-blank-space"> </div>
             <span >
-              {character.health} ({healthAmt})
+              {character.maxHp} ({healthAmt})
             </span>
           </div>
           <div className="character-race-index">
@@ -90,7 +90,7 @@ class CharIndexItem extends React.Component {
           <div className="character-class-index">
             <span className="field-title">Class:</span>
             <div className="imma-blank-space"> </div>
-            <span>{character.class}</span>
+            <span>{character.charClass}</span>
           </div>
         </div>
       </div>
