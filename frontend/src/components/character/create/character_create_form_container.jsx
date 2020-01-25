@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import CharacterCreateForm from './character_create_form';
 import { fullRace } from '../../../util/race_util';
+import { createCharacter } from '../../../actions/character_actions';
 
 const mapStateToProps = state => ({
     abilities: [
@@ -57,11 +58,12 @@ const mapStateToProps = state => ({
     nextClicked: false,
     hasSubraces: false,
     selectedSkills: [],
-    numSkills: ""
+    numSkills: "",
+    currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-
+    createCharacter: data => dispatch(createCharacter(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CharacterCreateForm);

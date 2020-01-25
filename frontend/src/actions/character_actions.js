@@ -36,9 +36,9 @@ export const editCharacter = () => dispatch => (
     CHARACTERAPIUTIL.editCharacter()
         .then(character => dispatch(receiveCharacter(character)))
 )
-export const createCharacter = () => dispatch => (
-    CHARACTERAPIUTIL.createCharacter()
-        .then(character => dispatch(receiveAllCharacters(character)))
+export const createCharacter = (data) => dispatch => (
+    CHARACTERAPIUTIL.createCharacter(data)
+        .then(character => dispatch(receiveAllCharacters(character.id)))
 )
 
 

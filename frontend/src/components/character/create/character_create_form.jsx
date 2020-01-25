@@ -5,6 +5,8 @@ import '../../../stylesheet/character_create_form.css';
 import { fullRace } from '../../../util/race_util';
 import { fullClass } from '../../../util/class_util';
 import { strengthSkills, dexteritySkills, intelligenceSkills, wisdomSkills, charismaSkills } from '../../../util/skill_util';
+import { withRouter } from 'react-router-dom';
+import { healthLevelOne, mod } from '../../../util/game_math_util';
 
 class CharacterCreateForm extends React.Component {
     constructor(props) {
@@ -14,7 +16,7 @@ class CharacterCreateForm extends React.Component {
         this.updateFinalStats = this.updateFinalStats.bind(this)
         this.handleNext = this.handleNext.bind(this)
         this.handleCheckbox = this.handleCheckbox.bind(this)
-        this.handleDisableCheckbox = this.handleDisableCheckbox.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     updateState(slice) {
@@ -54,40 +56,57 @@ class CharacterCreateForm extends React.Component {
         )
     }
 
-    handleDisableCheckbox() {
-        return (event) => {
-            if (this.state.numSkills === this.state.selectedSkills.length && !event.target.checked) {
-                return true
-            } else {
-                return false
-            }
-        }
+    handleSubmit() {
+
+        let conScore = this.state.abilities[2].value
+        let conMod = mod(conScore, 2)
+        let hd = fullClass[this.state.class].hitDice
+        let maxHealth = healthLevelOne(hd, conMod)
+
+        let abilityObj = {}
+        this.state.abilities.forEach(ability =>
+            abilityObj[ability.title] = ability.value
+            )
+        
+        let characterObj = {
+            user: this.props.currentUser,
+            race: this.state.finalRace,
+            charClass: this.state.class,
+            armorType: "noArmor",
+            level: 1,
+            maxHp: maxHealth,
+            currentHp: maxHealth,
+            abilities: abilityObj,
+            skills: this.state.selectedSkills
+        };
+
+        this.props.createCharacter(characterObj)
+            .then(result => this.props.history.push(`/character/${result.id}`))
+
     }
 
-
     handleCheckbox(skill) {
-        debugger
 
-        let addNewSkill = this.state.selectedSkills.concat(skill)
-    
-            if (this.state.selectedSkills.length - 1 < this.state.numSkills) {
-                this.setState(
-                    {
-                        selectedSkills: addNewSkill
-                    }
-                )
-            } else if (this.state.selectedSkills.includes(skill)) {
+        
+        if (this.state.selectedSkills.includes(skill)) {
                 
-                this.state.selectedSkills.splice(this.state.selectedSkills.indexOf(skill), 1)
+            this.state.selectedSkills.splice(this.state.selectedSkills.indexOf(skill), 1)
 
                 this.setState(
                     {
                         selectedSkills: this.state.selectedSkills
                     }
                 )
-            }
+        } else if (this.state.selectedSkills.length - 1 < this.state.numSkills) {
 
+            let addNewSkill = this.state.selectedSkills.concat(skill)
 
+            this.setState(
+                {
+                    selectedSkills: addNewSkill
+                }
+            )
+        }
 
     }
 
@@ -109,18 +128,23 @@ class CharacterCreateForm extends React.Component {
                 <div className="character-name">
                     <input type="text" placeholder="character name" onChange={this.handleChange('characterName')}/>
                 </div>
-                <div className="stat-roller-component">
-                    <StatRoller 
-                        abilities = {this.props.abilities}
-                        rolls = {this.props.rolls}
-                        order = {this.props.order}
-                        statsRolled = {this.props.statsRolled}
-                        updateState={this.updateState}
-                    />
-                </div>
+                { !this.state.nextClicked
+                    ?
+                    <div className="stat-roller-component">
+                        <StatRoller 
+                            abilities = {this.props.abilities}
+                            rolls = {this.props.rolls}
+                            order = {this.props.order}
+                            statsRolled = {this.props.statsRolled}
+                            updateState={this.updateState}
+                        />
+                    </div>
+                    :
+                    ""
+                }
                 <div className="race-and-class-component">
                     {
-                        this.state.statsRolled
+                        this.state.statsRolled && !this.state.nextClicked
                         ?
                         <div className="race-and-class-box">
                             <RaceAndClass 
@@ -171,7 +195,7 @@ class CharacterCreateForm extends React.Component {
                                         {
                                             fullClass[this.state.class].skillList.map( (skill, idx) => {
                                                 if (strengthSkills.includes(skill)) {
-                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox(skill)} disabled={this.state.selectedSkills.length === this.state.numSkills ? true : false}/>{skill}</label>
+                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox(skill)} disabled={this.state.selectedSkills.length === this.state.numSkills && !this.state.selectedSkills.includes(skill) ? true : false}/>{skill}</label>
                                                 }
                                             })
                                         }
@@ -182,7 +206,7 @@ class CharacterCreateForm extends React.Component {
                                         {
                                             fullClass[this.state.class].skillList.map((skill, idx) => {
                                                 if (dexteritySkills.includes(skill)) {
-                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox(skill)} disabled={this.state.selectedSkills.length === this.state.numSkills ? true : false}/>{skill}</label>
+                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox(skill)} disabled={this.state.selectedSkills.length === this.state.numSkills && !this.state.selectedSkills.includes(skill) ? true : false}/>{skill}</label>
                                                 }
                                             })
                                         }
@@ -193,7 +217,7 @@ class CharacterCreateForm extends React.Component {
                                         {
                                             fullClass[this.state.class].skillList.map((skill, idx) => {
                                                 if (intelligenceSkills.includes(skill)) {
-                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox(skill)} disabled={this.state.selectedSkills.length === this.state.numSkills ? true : false}/>{skill}</label>
+                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox(skill)} disabled={this.state.selectedSkills.length === this.state.numSkills && !this.state.selectedSkills.includes(skill) ? true : false}/>{skill}</label>
                                                 }
                                             })
                                         }
@@ -204,7 +228,7 @@ class CharacterCreateForm extends React.Component {
                                         {
                                             fullClass[this.state.class].skillList.map((skill, idx) => {
                                                 if (wisdomSkills.includes(skill)) {
-                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox(skill)} disabled={this.state.selectedSkills.length === this.state.numSkills ? true : false}/>{skill}</label>
+                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox(skill)} disabled={this.state.selectedSkills.length === this.state.numSkills && !this.state.selectedSkills.includes(skill) ? true : false}/>{skill}</label>
                                                 }
                                             })
                                         }
@@ -215,13 +239,14 @@ class CharacterCreateForm extends React.Component {
                                         {
                                             fullClass[this.state.class].skillList.map((skill, idx) => {
                                                 if (charismaSkills.includes(skill)) {
-                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox(skill)} disabled={this.state.selectedSkills.length === this.state.numSkills ? true : false}/>{skill}</label>
+                                                    return <label key={idx}><input type="checkbox" name={skill} onChange={() => this.handleCheckbox(skill)} disabled={this.state.selectedSkills.length === this.state.numSkills && !this.state.selectedSkills.includes(skill) ? true : false}/>{skill}</label>
                                                 }
                                             })
                                         }
                                     </div>
                                 </div>
                             </div>
+                            <button onClick={this.handleSubmit}>Create Character</button>
                         </div>
                         :
                         ""
@@ -232,4 +257,4 @@ class CharacterCreateForm extends React.Component {
     }
 }
 
-export default CharacterCreateForm;
+export default withRouter(CharacterCreateForm);
