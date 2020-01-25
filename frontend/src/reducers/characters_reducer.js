@@ -11,7 +11,7 @@ export default function (state = {}, action) {
         case RECEIVE_CHARACTER:
             return  Object.assign({},action.character); 
         case RECEIVE_ALL_CHARACTERS:
-            return Object.assign({}, action.characters);
+            return action.characters;
         default:
             return state;
     }

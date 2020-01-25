@@ -1,5 +1,5 @@
 
-const abilityBlurb = {
+export const abilityBlurb = {
     strength: "Measures bodily power, athletic training, and the extent to which you can exert raw physical force.",
     dexterity: "Measures agility, reflexes, and balance.",
     constitution: "Measures health, stamina, and vital force.",
@@ -8,34 +8,46 @@ const abilityBlurb = {
     charisma: "Measures your ability to interact effectively with others."
 };
 
-const classBlurb = {
-    barbarian: "A fierce warrior of primitive background who can enter a battle rage",
-    bard: "An inspiring magician whose power echoes the music of creation",
-    cleric: "A priestly champion who wields divine magic in service of a higher power",
-    druid: "A priest of the Old Faith, wielding the powers of nature - moonlight and plant growth, fire and lightning - and adopting animal forms",
-    fighter: "A master of martial combat, skilled with a variety of weapons and armor",
-    monk: "A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection",
-    paladin: "A holy warrior bound to a sacred oath",
-    ranger: "A warrior who uses martial prowess and nature magic to combat threats on the edges of civilization",
-    rogue: "A scoundrel who uses stealth and trickery to overcome obstacles and enemies",
-    sorcerer: "A spellcaster who draws on inherent magic from a gift or bloodline",
-    warlock: "A wielder of magic that is derived from a bargain with an extraplanar entity",
-    wizard: "A scholarly magic-user capable of manipulating the structures of reality"
+export const classBlurb = {
+    barbarian: "A fierce warrior of primitive background who can enter a battle rage.",
+    bard: "An inspiring magician whose power echoes the music of creation.",
+    cleric: "A priestly champion who wields divine magic in service of a higher power.",
+    druid: "A priest of the Old Faith, wielding the powers of nature - moonlight and plant growth, fire and lightning - and adopting animal forms.",
+    fighter: "A master of martial combat, skilled with a variety of weapons and armor.",
+    monk: "A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection.",
+    paladin: "A holy warrior bound to a sacred oath.",
+    ranger: "A warrior who uses martial prowess and nature magic to combat threats on the edges of civilization.",
+    rogue: "A scoundrel who uses stealth and trickery to overcome obstacles and enemies.",
+    sorcerer: "A spellcaster who draws on inherent magic from a gift or bloodline.",
+    warlock: "A wielder of magic that is derived from a bargain with an extraplanar entity.",
+    wizard: "A scholarly magic-user capable of manipulating the structures of reality."
 };
 
-const raceBlurb = {
-    dwarf: "Kingdoms rich in ancient grandeur, halls carved into the roots of mountains, the echoing of picks and hammers in deep mines and blazing forges, a commitment to clan and tradition, and a burning hatred of goblins and orcs - these common threads unit all dwarves",
-    elf: "Elves are a magical people of otherworldly grace, living in the world but not entirely part of it. They live in places of ethereal beauty, in the midst of ancient forests or in silvery spires glittering with faerie light, where soft music drifts through the air and gentle fragrances waft on the breeze. Elves love nature and magic, art and artistry, music and poetry, and the good things of the world",
+export const raceBlurb = {
+    dwarf: "Kingdoms rich in ancient grandeur, halls carved into the roots of mountains, the echoing of picks and hammers in deep mines and blazing forges, a commitment to clan and tradition, and a burning hatred of goblins and orcs - these common threads unit all dwarves.",
+    elf: "Elves are a magical people of otherworldly grace, living in the world but not entirely part of it. They live in places of ethereal beauty, in the midst of ancient forests or in silvery spires glittering with faerie light, where soft music drifts through the air and gentle fragrances waft on the breeze. Elves love nature and magic, art and artistry, music and poetry, and the good things of the world.",
     halfling: "The comforts of home are the goals of most halfings' lives: a place to settle in peace and quiet, far from marauding monsters and clashing armies; a blazing fire and a generous meal; fine drink and fine conversation. Though some halfings live out their days in remote agricultural communities, others form nomadic bands that travel constantly, lured by the open road and the wide horizon to discover the wonders of new lands and peoples. But even these wanderers love peace, food, hearth, and home, though home might be a wagon jostling along a dirt road or a raft floating downriver.",
     human: "In the reckonings of most worlds, humans are the youngest of the common races, late to arrive on the world scene and short-lived in comparison to dwarves, elves, and dragons. Perhaps it is because of their shorter lives that they strive to achieve as much as they can in the years they are given. Or maybe they feel they have something to prove to the elder races, and that's why they build their mighty empires on the foundation of conquest and trade. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.",
-    dragonborn: "Born of dragons, as their name proclaims, the dragonborn walk proudly through a world that greets them with fearful incomprehension. Shaped by draconic gods or the dragons themselves, dragonborn originally hatched from dragon eggs as a unique race, combining the best attributes of dragons and humanoids. Some dragonborn are faithful servants to true dragons, others form the ranks of soldiers in great wars, and still others find themselves adrift, with no clear calling in life",
+    dragonborn: "Born of dragons, as their name proclaims, the dragonborn walk proudly through a world that greets them with fearful incomprehension. Shaped by draconic gods or the dragons themselves, dragonborn originally hatched from dragon eggs as a unique race, combining the best attributes of dragons and humanoids. Some dragonborn are faithful servants to true dragons, others form the ranks of soldiers in great wars, and still others find themselves adrift, with no clear calling in life.",
     gnome: "A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.",
     halfelf: "Walking in two worlds but truly belonging to neither, half-elves combine what some say are the best qualities of their elf and human parents: human curiosity, inventiveness, and ambition tempered by the refined senses, love of nature, and artistic tastes of the elves. Some half-elves live among humans, set apart by their emotional and physical differences, watching friends and loved ones age while time barely touches them. Others live with the elves, growing restless as they reach adulthood in the timeless elven realms, while their peers continue to live as children. Many half-elves, unable to fit into either society, choose lives of solitary wandering or join with other misfits and outcasts in the adventuring life.",
     halforc: "Whether united under the leadership of a mighty warlock or having fought to a standstill after years of conflict, orc and human tribes sometimes form alliances, joining forces into a larger horde to the terror of civilized lands nearby. When these alliances are sealed by marriages, half-orcs are born. Some half-orcs rise to become proud chiefs of orc tribes, their human blood giving them an edge over their full-blooded orc rivals. Some venture into the world to prove their worth among humans and other more civilized races. Many of these become adventurers, achieving greatness for their mighty deeds and notoriety for their barbaric customs and savage fury.",
     tiefling: "To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling. And to twist the knife, tieflings know that this is because a pact struck generations ago infused the essence of Asmodeus - overlord of the Nine Hells - into their bloodline. Their appearance and their nature are not their fault but the result of an ancient sin, for which they and their children and their children's children will always be held accountable."
 };
 
-const skillBlurb = {
+export const subraceBlurb = {
+    hill: "As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.",
+    mountain: "As a mountain dwarf, you're strong and hardy, accustomed to a difficult life in rugged terrain. You're probably on the tall side (for a dwarf), and tend toward lighter coloration.",
+    high: "As a high elf, you have a keen mind and a mastery of at least basic magical theory.",
+    wood: "As a wood elf, you have keen senses and intuition, and your fleet feet carry you quickly and stealthily through your native forests.",
+    dark: "Descendants of an earlier, dark-skinned race of elf, the dark elves, known as Drow, were banished from the surface for following the goddess Lolth down her path of evil and corruption.",
+    lightfoot: "As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You're inclined to be affable and get along well with others. In the Forgotten Realms, lightfoot halflings have spread the farthest and thus are the most common variety. Lightfoots are more prone to wanderlust than other halflings, and often dwell alongside other races or take up a nomadic life.",
+    stout: "As a stout halfling, you're hardier than average and have some resistance to poison. Some say that stouts have dwarven blood.",
+    forest: "Forest gnomes have a knack for stealth and illusion, and are generally rather secretive. They gather in hidden forest communities, befriending the local fey and animals.",
+    rock: "Rock gnomes are naturally inventive and quite hardy for such a small creature. Also known as tinker gnomes, they are well known for their contraptions, ranging from revolutionary to eccentric."
+}
+
+export const skillBlurb = {
     athletics: "Covers difficult situations you encounter while climbing, jumping, or swimming.",
     acrobatics: "Covers your attempt to stay on your feet in a tricky situation.",
     slightOfHand: "Covers your attempt to make an act of legerdemain or manual trickery.",
@@ -56,7 +68,7 @@ const skillBlurb = {
     persuasion: "Measures your ability to influence someone or a group of people with tact, social graces, or good nature."
 };
 
-const armorBlurb = {
+export const armorBlurb = {
     padded: "Padded armor consists of quilted layers of cloth and batting.",
     leather: "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
     studdedLeather: "Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes.",

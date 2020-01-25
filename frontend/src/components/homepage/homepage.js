@@ -36,7 +36,9 @@ class HomePage extends React.Component {
                   placeholder="Lobby Number"
                 />
                 <select>
-                  
+                  {characters.map(char => (
+                    <option>{char.name}</option>
+                  ))}
                 </select>
                 <input
                   className="join-campaign"

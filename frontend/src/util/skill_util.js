@@ -1,3 +1,5 @@
+export const abilityScores = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+
 export const strengthSkills = ["athletics"];
 
 export const dexteritySkills = ["acrobatics", "sleight of hand", "stealth"];

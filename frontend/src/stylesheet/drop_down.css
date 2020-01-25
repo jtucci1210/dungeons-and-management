@@ -1,0 +1,55 @@
+.drop-down {
+    align-self: flex-end;
+}
+
+.dd-wrapper {
+    height: auto;
+    width: auto;
+    background-color: white;
+    border: 1px solid lightgray;
+    display: block;
+    position: absolute;
+    top: 350px;
+    z-index: 1;
+    min-width: 120px;
+}
+
+.dd-header {
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 3px 8px;
+    display: flex;
+}
+
+.dd-header i {
+    margin-left: 3px;
+}
+
+.dd-header:hover {
+    cursor: pointer;
+}
+
+.dd-list {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+}
+
+.dd-list-item-false {
+    text-transform: capitalize;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.dd-list-item-true {
+    text-transform: capitalize;
+    margin: 5px;
+    text-decoration: line-through;
+    cursor: pointer;
+    color: grey;
+}
+
+.dd-list-item:Hover {
+    background-color: green;
+    cursor: pointer;
+}

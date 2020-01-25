@@ -40,7 +40,7 @@ export const editCharacter = (data) => dispatch => (
 )
 export const createCharacter = (data) => dispatch => (
     CHARACTERAPIUTIL.createCharacter(data)
-        .then(character => dispatch(receiveAllCharacters(character.data)))
+        .then(character => dispatch(receiveCharacter(character.data)))
 )
 
 
