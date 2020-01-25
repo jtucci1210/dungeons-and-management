@@ -1,6 +1,6 @@
-const armorTypes = ["none", "padded (light)", "leather (light)", "studded leather (light)", "hide (medium)", "chain shirt (medium)", "scale mail (medium)", "breastplate (medium)", "half plate (medium)", "ring mail (heavy)", "chain mail (heavy)", "splint (heavy)", "plate (heavy)"]
+export const armorTypes = ["none", "padded (light)", "leather (light)", "studded leather (light)", "hide (medium)", "chain shirt (medium)", "scale mail (medium)", "breastplate (medium)", "half plate (medium)", "ring mail (heavy)", "chain mail (heavy)", "splint (heavy)", "plate (heavy)"]
 
-const armorClass = ( armor, dexMod, shield ) => {
+export const armorClass = ( armor, dexMod, shield ) => {
 
     let shieldBonus = 0;
 
@@ -31,69 +31,71 @@ const armorClass = ( armor, dexMod, shield ) => {
     };
 }; 
 
-const noArmor = {
-    base: 10,
-    type: "none"
-};
+export const fullArmor = {
 
-const padded = {
-    base: 11,
-    type: "light"
-};
+    noArmor: {
+        base: 10,
+        type: "none"
+    },
 
-const leather = {
-    base: 11,
-    type: "light"
-};
+    padded: {
+        base: 11,
+        type: "light"
+    },
 
-const studdedLeather = {
-    base: 12,
-    type: "light"
-};
+    leather: {
+        base: 11,
+        type: "light"
+    },
 
-const hide = {
-    base: 12,
-    type: "medium"
-};
+    studdedLeather: {
+        base: 12,
+        type: "light"
+    },
 
-const chainShirt = {
-    base: 13,
-    type: "medium"
-},
+    hide: {
+        base: 12,
+        type: "medium"
+    },
 
-scaleMail = {
-    base: 14,
-    type: "medium"
-};
+    chainShirt: {
+        base: 13,
+        type: "medium"
+    },
 
-const breastplate = {
-    base: 14,
-    type: "medium"
-};
+    scaleMail: {
+        base: 14,
+        type: "medium"
+    },
 
-const halfPlate = {
-    base: 15,
-    type: "medium"
-};
+    breastplate: {
+        base: 14,
+        type: "medium"
+    },
 
-const ringMail = {
-    base: 14,
-    type: "heavy"
-};
+    halfPlate: {
+        base: 15,
+        type: "medium"
+    },
 
-const chainMail = {
-    base: 16,
-    type: "heavy"
-};
+    ringMail: {
+        base: 14,
+        type: "heavy"
+    },
 
-const splint = {
-    base: 17,
-    type: "heavy"
-};
+    chainMail: {
+        base: 16,
+        type: "heavy"
+    },
 
-const plate = {
-    base: 18,
-    type: "heavy"
-};
+    splint: {
+        base: 17,
+        type: "heavy"
+    },
 
+    plate: {
+        base: 18,
+        type: "heavy"
+    }
 
+}
