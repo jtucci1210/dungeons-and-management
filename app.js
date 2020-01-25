@@ -36,7 +36,8 @@ const server = app.listen(socketPort, function () {
 });
 const sock = socket(server);
 
-//Socket Emitters
+//Socket Listeners
+//These listen for events that get sent from the frontend and then send back a response
 sock.on("connection", function (socket) {
     console.log("made connection with socket " + socket.id);
 
@@ -52,3 +53,12 @@ sock.on("connection", function (socket) {
         sock.sockets.emit("total", data);
     });
 });
+
+module.exports = function createCampaignNamespace (campKey) {
+    const campSocket = sock.of(campKey);
+
+    campSocket.on("connection", function (socket) {
+        console.log("made connection with socket " + socket.id);
+    })
+
+}

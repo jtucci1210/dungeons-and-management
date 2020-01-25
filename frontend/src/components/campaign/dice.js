@@ -5,13 +5,13 @@ import * as DiceUtil from '../../util/dice_util'
 class Dice extends React.Component {
     constructor(props) {
         super(props);
-        this.socket = io.connect('http://localhost:8080');
         this.calcRollTotal = this.calcRollTotal.bind(this);
         this.diceArr = [4, 6, 8, 10, 12, 20];
     }
-
+    
     componentDidMount() {
-        this.initializeSockets();
+        this.socket = this.props.socket
+        this.initializeSocketListeners();
     }
     
     handlePercentRoll() {
@@ -77,11 +77,12 @@ class Dice extends React.Component {
     }
 
     //Helper Functions
-    initializeSockets() {
-        this.initializeDiceSockets();
+    initializeSocketListeners() {
+        this.initializeDiceSocketListeners();
     }
 
-    initializeDiceSockets() {
+    initializeDiceSocketListeners() {
+        //These listen for events that are sent from the server on the backend
         this.socket.on("dice", function (data) {
             let diceRes = document.getElementById(`diceRes${data.diceNum}`);
             if (data.diceNum === 100) {

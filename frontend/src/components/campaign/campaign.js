@@ -13,14 +13,14 @@ class CampaignRoom extends React.Component {
     }
 
     componentDidMount() {
-        this.initializeSockets();
+        this.initializeSocketListeners();
     }
 
-    initializeSockets() {
-        this.initializeHpSocket();
+    initializeSocketListeners() {
+        this.initializeHpSocketListener();
     }
 
-    initializeHpSocket() {
+    initializeHpSocketListener() {
         this.socket.on("hp", function (data) {
             let hpEle = document.getElementById("hp");
             let hp;
@@ -76,7 +76,7 @@ class CampaignRoom extends React.Component {
                     onClick={() => this.handleHpClick("dec")} 
                     id="decHpButton"
                 > Decrease HP</button>
-                <Dice />
+                <Dice socket={this.socket} />
             </div>
         );
     }

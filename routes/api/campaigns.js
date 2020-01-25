@@ -3,9 +3,10 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require('mongoose');
 
-//Files
+//Files and Functions
 const Campaign = require('../../models/Campaign')
 const validCreateCampInput = require('../../validation/create-campaign')
+const createCampaignNamespace = require('../../app')
 
 //Get info for a campaign using
 router.get('/:id', (req, res) => {
@@ -38,8 +39,7 @@ router.post("/create", (req, res) => {
 //Add character to a campaign
 router.patch("/:id/join", (req, res) => {
     Campaign.findById(req.params.id).then(camp => {
-        // camp.characters.push(req.body.character.id) //Might use depending on front end
-        // res.json({"data": req.body});
+        createCampaignNamespace("testKey")
         camp.characters.push(req.body.id)
         camp.save();
         res.json(camp);
