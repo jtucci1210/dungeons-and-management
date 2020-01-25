@@ -1,16 +1,19 @@
 //Libraries
 const express = require("express");
 const router = express.Router();
+const mongoose = require('mongoose');
 
 //Files
 const Campaign = require('../../models/Campaign')
 const validCreateCampInput = require('../../validation/create-campaign')
 
-//Get info for a campaign
+//Get info for a campaign using
 router.get('/:id', (req, res) => {
     Campaign.findById(req.params.id)
         .then(campaign => res.json(campaign))
 });
+
+
 
 //Create new campaign
 router.post("/create", (req, res) => {
@@ -35,7 +38,9 @@ router.post("/create", (req, res) => {
 //Add character to a campaign
 router.patch("/:id/join", (req, res) => {
     Campaign.findById(req.params.id).then(camp => {
-        camp.characters.push(req.body.character.id)
+        // camp.characters.push(req.body.character.id) //Might use depending on front end
+        // res.json({"data": req.body});
+        camp.characters.push(req.body.id)
         camp.save();
         res.json(camp);
     })

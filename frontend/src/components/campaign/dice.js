@@ -43,7 +43,7 @@ class Dice extends React.Component {
 
     renderDiceButtons() {
         return this.diceArr.map(die => (
-            <span>
+            <span key={die}>
                 <h3>D{die}</h3>
                 <input type="text" id={`num${die}`} className="numDice"></input>
                 <div id={`diceRes${die}`} >-</div>

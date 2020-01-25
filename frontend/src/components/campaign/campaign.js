@@ -41,10 +41,17 @@ class CampaignRoom extends React.Component {
         this.socket.emit("hp", type)
     }
 
+    handleJoinClick() {
+        let campId = "5e28a7d77b6d902dd5930b1b";
+        let charId = "5e2ba2411da4057cd0da8dc9";
+        this.props.joinCampaign(campId, charId);
+    }
+
     render() {
 
         return (
             <div id="campaignContainer">
+                <button onClick={() => this.handleJoinClick()}>Join Campaign</button>
                 <div id="char-boxes">
                     <span>
                         <h3>Person 1: </h3>
