@@ -5,7 +5,7 @@ import '../../../stylesheet/test.css'
 import GeneralStats from './character_general_stats';
 import MainStats from './character_main_stats';
 import Items from './character_item_page'
-import Class from '../../../util/class_util'
+import {fullClass} from '../../../util/class_util'
 
 
 class CharacterShowPage extends React.Component {

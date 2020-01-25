@@ -119,6 +119,7 @@
         min-width: 100px;
         padding: 0px 5px;
         width: 150px;
+        margin-bottom: 4px;
     }
     .battle-state-title-info {
         border: 2px solid brown;
@@ -127,6 +128,7 @@
         justify-content: center;
         align-items: center;
         max-width: 159px;
+        padding-top: 4px;
     }
 
 .show-character-general-race,
