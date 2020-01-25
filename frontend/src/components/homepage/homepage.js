@@ -35,6 +35,9 @@ class HomePage extends React.Component {
                   className="lobby-number"
                   placeholder="Lobby Number"
                 />
+                <select>
+                  
+                </select>
                 <input
                   className="join-campaign"
                   type="submit"
