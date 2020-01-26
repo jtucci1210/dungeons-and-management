@@ -40,7 +40,6 @@ class HomePage extends React.Component {
 		let charId = "";
 
 		characters.map(char => {
-			debugger
 			if (char.name === this.state.campaignChar) {
 				charId = char._id;
 			}

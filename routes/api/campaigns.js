@@ -35,8 +35,6 @@ router.post("/create", (req, res) => {
 		campKey: campKey
 	});
 
-	debugger
-
 	newCamp.save();
 	res.json(newCamp);
 });
