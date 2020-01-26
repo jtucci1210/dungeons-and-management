@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../../stylesheet/show_page.css'
-import * as math from '../../../util/game_math_util'
 import ElfImg from "./races/elf.jpg";
 import DragonImg from "./races/dragon-born.jpg";
 import DwarfImg from "./races/dwarf.jpg";
@@ -10,11 +9,39 @@ import HalfOrcImg from "./races/half-orc.jpg";
 import HalflingImg from "./races/halfling.jpg";
 import HumanImg from "./races/human.jpg";
 import TieflingImg from "./races/tiefling.jpg";
-import * as charClass from '../../../util/class_util'
+import * as math from '../../../util/game_math_util'
+import * as race from '../../../util/race_util'
+import * as armor from '../../../util/armor_util'
+import * as classUtil from '../../../util/class_util'
 
 class GeneralStats extends React.Component {
     constructor(props) {
         super(props)
+        this.healthManagement = this.healthManagement.bind(this)
+        this.showSkillMod = this.showSkillMod.bind(this)
+
+    }
+
+    healthManagement(hitDice, newLevel, avgHealth) {
+        const levelone = math.healthLevelOne(hitDice, constitutionMod)
+        const levelUp = math.healthLevelUp(hitDice, constitutionMod, newLevel, avgHealth)
+        const character = this.props.character
+        const constitutionMod = math.mod(character.abilities.constitution)
+        (character.level === 1) ? levelone : levelUp
+
+    }
+
+    showSkillMod(skill, stat, prof) {
+        const characterSkills = this.props.character.skills
+        const characterClass = this.props.character.charClass
+        const fullClass = classUtil.fullClass
+        const classInfo = fullClass[characterClass].savingThrows
+
+        if (characterSkills.includes(skill.toLowerCase())) {
+            return math.mod(stat, prof)
+        } else {
+            return math.mod(stat)
+        }
     }
 
     
@@ -59,7 +86,8 @@ class GeneralStats extends React.Component {
     render() {
         const character = this.props.character
         const cardImg = this.charImage();
-        const fullClass = charClass.fullClass
+        const fullClass = classUtil.fullClass
+        console.log(character)
         const hitDice = fullClass[character.charClass].hitDice
 
     return (
@@ -90,12 +118,13 @@ class GeneralStats extends React.Component {
                         Class:
                     </p>
                     <div className='show-character-general-class-info'>
-                        {character.charClass}
+                        {character.classUtil}
                     </div>
                 </div>
             <div className="show-character-general-hp">
                 <div className="show-character-general-hp">
-                    Max Life: {character.maxHp}
+                    {/* Max Life: {this.healthManagement(hitDice, )} */}
+                    {/* Max Life: {character.maxHp} */}
                 </div>
                 <div className="show-character-general-hp">
                     Current Life: {character.currentHp}
