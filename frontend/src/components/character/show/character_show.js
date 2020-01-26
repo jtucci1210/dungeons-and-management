@@ -4,7 +4,6 @@ import '../../../stylesheet/show_page.css'
 import '../../../stylesheet/test.css'
 import GeneralStats from './character_general_stats';
 import MainStats from './character_main_stats';
-import Items from './character_item_page'
 
 
 
@@ -18,14 +17,17 @@ class CharacterShowPage extends React.Component {
 
     componentDidMount() {
        const characterInfo = this.props.getCharacter(this.props.match.params.characterId)
-        Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
         // this.props.getCharacter(this.props.match.params.characterId)
+        Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
     }
 
+
+    
 
     render() {
         if (this.state.loaded) {
             const character = this.props.character
+           
             return (
                 <div className='show-character-box'>
                     <div className='show-character-header'>
@@ -51,7 +53,7 @@ class CharacterShowPage extends React.Component {
                         <MainStats character={character} />
                     </div>
                     <div>
-                        <Items character={character}/>
+                        {/* <Items character={character}/> */}
                     </div>
                 </div>
             )

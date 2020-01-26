@@ -7,6 +7,7 @@
 .show-character-page {
     padding-top: 50px;
     display: flex;
+    padding-bottom: 200px;
 }
 
     .show-character-header{
@@ -48,14 +49,11 @@
 }
 
 .show-character-general-stats {
-    /* delete */
-    border: 2px solid red;
-    /* delete */
     margin: 15px;
     display: block;
     height: 500px;
-    width: 400px;
-
+    width: 350px;
+    border: 2px groove rgba(181, 139, 0, 0.776)
 }
 
 .show-character-general-level-info {
@@ -75,7 +73,7 @@
 
 .show-character-battle-stats {
     /* delete */
-    border: 2px solid red;
+    /* border: 2px solid red; */
     /* delete */
     
 }
@@ -118,6 +116,7 @@
         min-width: 100px;
         padding: 0px 5px;
         width: 150px;
+        margin-bottom: 4px;
     }
     .battle-state-title-info {
         border: 2px solid brown;
@@ -126,6 +125,7 @@
         justify-content: center;
         align-items: center;
         max-width: 159px;
+        padding-top: 4px;
     }
 
 .show-character-general-race,
@@ -146,6 +146,10 @@
 padding-top: 4px;
 }
 
+.show-character-general-hp {
+    text-transform: none;
+}
+
 
 /* ---------------------------- */
 
@@ -156,7 +160,7 @@ padding-top: 4px;
     padding: 10px;
     font-size: 14px;
      /* delete */
-    border: 2px solid red;
+    /* border: 2px solid red; */
     /* delete */
     justify-content: space-between;
     margin-top: 10px
@@ -168,8 +172,9 @@ padding-top: 4px;
     text-align: center;
     min-width: 100px;
     border: 2px solid #173514;
-    width: 155px;
+    width: 207px;
     margin: 4px;
+    padding: 5px;
 }
 
 .show-character-self-stat p {
@@ -208,6 +213,11 @@ padding-top: 4px;
         border: 2px solid rgba(118, 92, 6, 0.831);
         padding: 6px
     }
+
+    .character-skills {
+        text-align: left;
+        white-space: nowrap;
+    }
     /* ------------------------ */
 
     .show-character-items {
@@ -218,3 +228,20 @@ padding-top: 4px;
         text-decoration-line: underline;
         padding-bottom: 150px;
     }
+
+.show-character-image-div {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid black;
+    
+    
+}
+
+.show-character-image {
+    /* display: block; */
+    height: 400px;
+    width: 200px;
+    object-fit: contain;
+}
