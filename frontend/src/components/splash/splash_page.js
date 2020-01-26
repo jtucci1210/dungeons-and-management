@@ -11,13 +11,17 @@ class Splash extends React.Component {
               <img src={splashImg} alt="background" className="splash-image" />
               <div className="content">
                 <div className="splash-description">
-                <h1 className="header-splash-description">What are we?</h1>
+                  <h1 className="header-splash-description">What are we?</h1>
                   <p className="splash-description-paragraph">
                     I'm the description of the app
                   </p>
                 </div>
                 <div className="splash-character-build">
-                  <img className="splash-character-build-img"></img>
+                  <img
+                    src="//:0"
+                    alt="img"
+                    className="splash-character-build-img"
+                  ></img>
                   <p className="splash-character-build-paragraph">
                     I'm the description of the character building feature
                   </p>
@@ -26,10 +30,18 @@ class Splash extends React.Component {
                   <p className="splash-campaign-management-paragraph">
                     I'm the description of the campaign management feature
                   </p>
-                  <img className="splash-campaign-management-img"></img>
+                  <img
+                    src="//:0"
+                    alt="img"
+                    className="splash-campaign-management-img"
+                  ></img>
                 </div>
                 <div className="splash-dice-manager">
-                  <img className="splash-dice-manager-img"></img>
+                  <img
+                    src="//:0"
+                    alt="img"
+                    className="splash-dice-manager-img"
+                  ></img>
                   <p className="splash-dice-manager-paragraph">
                     I'm the description of the dice manager feature
                   </p>
