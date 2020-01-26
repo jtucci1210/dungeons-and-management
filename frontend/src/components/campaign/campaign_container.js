@@ -1,16 +1,18 @@
-
 import { connect } from 'react-redux';
 import CampaignRoom from './campaign';
+import { joinCampaign } from '../../actions/campaign_actions'
+import { getCampaignCharacters } from '../../actions/character_actions'
 
 const mapStateToProps = state => ({
-    // loggedIn: state.session.isAuthenticated,
-    // currentUser: state.session,
-    // currentUserID: state.session.user.id
+
 });
 
 const mapDispatchToProps = dispatch => ({
-
-})
+	joinCampaign: (character, charId) =>
+		dispatch(joinCampaign(character, charId)),
+	getCampaignCharacters: charIds =>
+		dispatch(getCampaignCharacters(charIds))
+});
 
 export default connect(
     mapStateToProps,

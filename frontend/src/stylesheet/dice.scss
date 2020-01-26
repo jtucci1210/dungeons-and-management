@@ -1,11 +1,13 @@
 #dice-component {
-    display: flex;
+    // display: flex;
     font-family: Special Elite;
     flex-direction: column;
 }
 
 #dice-container{
     display: flex;
+    margin: 10px;
+    padding: 10px;
     span {
         display: flex;
         flex-direction: column;
@@ -59,6 +61,23 @@
     h2 {
         padding: 10px;
         margin: 10px;
+        width: 100px;
     }
+}
+
+#roll-total {
+    padding: 10px
+}
+
+#num100 {
+    height: 30px;
+        margin: 5px;
+        padding: 5px;
+        border-radius: 5px;
+        font-family: Special Elite;
+        font-weight: bolder;
+        box-shadow: 3px 3px 10px black;
+        background-color: #A6C8BC;
+        outline: none;
 }
 
