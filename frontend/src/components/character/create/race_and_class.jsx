@@ -171,7 +171,7 @@ class RaceAndClass extends React.Component {
                       handleClick={this.handleRaceClick}
                     />
                   </div>
-                  <h3>{this.state.race}</h3>
+                  <h3 className="class-race-subs-h3">{this.state.race}</h3>
                 </div>
                 <div className="race-blurb">{rblurb}</div>
                 <div className="subrace-selector">
@@ -187,7 +187,7 @@ class RaceAndClass extends React.Component {
                   ) : (
                     <div></div>
                   )}
-                  <h3>{this.state.subrace}</h3>
+                  <h3 className="class-race-subs-h3">{this.state.subrace}</h3>
                 </div>
                 <div className="subrace-blurb">{srblurb}</div>
                 <div className="racial-modifiers">
@@ -232,7 +232,7 @@ class RaceAndClass extends React.Component {
                         handleClick={this.handleClassClick}
                       />
                     </div>
-                    <h3>{this.state.class}</h3>
+                    <h3 className="class-race-subs-h3">{this.state.class}</h3>
                   </div>
                 </div>
                 <div className="class-blurb">{cblurb}</div>

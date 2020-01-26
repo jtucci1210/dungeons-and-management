@@ -19,6 +19,7 @@
     margin: 10px;
     font-weight: bold;
     text-align: center;
+    font-family: Birmingham;
 }
 
 .race-container, .class-container {
@@ -108,6 +109,9 @@
     margin-right: 20px;
     padding: 20px 10px;
     font-weight: bold;
+}
+.class-race-subs-h3 {
+    font-family: Special Elite;
 }
 
 .race-blurb {
