@@ -16,12 +16,12 @@ router.get("/user/:user_id", (req, res) => {
 
 //Return list of all characters given an array of their ids
 router.post("/campaign", (req, res) => {
-    let charArr = req.body.map(charIds =>
-		mongoose.Types.ObjectId(charIds)
-	);
-
-	Character.find({ _id: { $in: charArr } })
-		.then(characters => res.json(characters));
+    Campaign.findById(req.body.campId)
+        .then(campaign => {
+			Character.find({ _id: { $in: campaign.characters } }).then(characters =>
+				res.json(characters)
+			);
+        })
 }); 
 
 //Create New Character

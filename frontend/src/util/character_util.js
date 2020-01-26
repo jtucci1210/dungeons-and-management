@@ -18,6 +18,6 @@ export const createCharacter = (characterData) => {
     return axios.post(`/api/characters/create`, characterData)
 } 
 
-export const getCampaignCharacters = (charIds) => {
-    return axios.post(`/api/characters/campaign`, charIds)
+export const getCampaignCharacters = (campId) => {
+    return axios.post(`/api/characters/campaign`, {campId})
 }

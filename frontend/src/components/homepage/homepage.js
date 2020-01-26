@@ -46,12 +46,10 @@ class HomePage extends React.Component {
 		});
 		this.props.fetchCampaignByKey(this.state.campaignRoom).then(res => {
 			const campaignId = res.campaign._id;
-			this.socket.emit("joinCampaign", res.campaign.campKey) //"test" should be campaign Id
+			this.socket.emit("joinCampaign", res.campaign.campKey); //"test" should be campaign Id
 			// this.socket.emit("test-room", "test")
 			this.props.joinCampaign(campaignId, charId).then(result => {
-				this.props.history.push(
-					`/campaigns/${result.campaign._id}`
-				);
+				this.props.history.push(`/campaigns/${result.campaign._id}`);
 			});
 		});
 	}
@@ -60,9 +58,7 @@ class HomePage extends React.Component {
 		this.props
 			.createCampaign()
 			.then(result =>
-				this.props.history.push(
-					`/campaigns/${result.campaign._id}`
-				)
+				this.props.history.push(`/campaigns/${result.campaign._id}`)
 			);
 	}
 
@@ -107,7 +103,11 @@ class HomePage extends React.Component {
 										})
 									}
 								>
-									<option value="Choose a Character" disabled={true} selected={true}>
+									<option
+										value="Choose a Character"
+										disabled={true}
+										selected={true}
+									>
 										Choose a Character
 									</option>
 									{characters.map((char, i) => (

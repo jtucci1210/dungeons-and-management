@@ -18,10 +18,12 @@ export const receiveCharacterErrors = errors => ({
 });
 
 //Safar's user id: 5e2890208321d6fc98d5bc24
-export const receiveAllCharacters = characters => ({
-	type: RECEIVE_ALL_CHARACTERS,
-	characters
-});
+export const receiveAllCharacters = characters => {
+	return {
+		type: RECEIVE_ALL_CHARACTERS,
+		characters
+	}
+};
 
 export const getCharacter = characterId => dispatch => {
 	return CHARACTERAPIUTIL.getCharacter(characterId).then(character =>

@@ -3,15 +3,17 @@ import "../../stylesheet/campaign.scss";
 import "../../stylesheet/dice.scss";
 import io from "socket.io-client";
 import Dice from "./dice";
+import CharIndexItem from "../homepage/char_index_item";
 
 class CampaignRoom extends React.Component {
 	constructor(props) {
 		super(props);
 		this.socket = io.connect("http://localhost:8080");
+		this.state = {characters: []} 
 	}
 
 	componentDidMount() {
-		this.props.getCampaignCharacters()
+		this.props.getCampaignCharacters(this.props.match.params.campId);
 		this.initializeSocketListeners();
 	}
 
@@ -40,32 +42,21 @@ class CampaignRoom extends React.Component {
 		this.socket.emit("hp", type);
 	}
 
-	handleJoinClick() {
-		let campId = "5e28a7d77b6d902dd5930b1b";
-		let charId = "5e2ba2411da4057cd0da8dc9";
-		this.props.joinCampaign(campId, charId);
+	renderChars() {
+		//Conditional prevents error from render happening before getCampChars before component did mount
+		if (this.props.characters.keys){
+			return this.props.characters.map(char => {
+				return (
+						<CharIndexItem character={char} />
+				);
+			});
+		}
 	}
 
 	render() {
 		return (
 			<div id="campaignContainer">
-				<button onClick={() => this.handleJoinClick()}>
-					Join Campaign
-				</button>
-				<div id="char-boxes">
-					<span>
-						<h3>Person 1: </h3>
-						<div id="person1">-</div>
-					</span>
-					<span>
-						<h3>Person 2: </h3>
-						<div id="person2">-</div>
-					</span>
-					<span>
-						<h3>Person 3: </h3>
-						<div id="person3">-</div>
-					</span>
-				</div>
+				<ul id="char-boxes">{this.renderChars()}</ul>
 				<h3>Safar</h3>
 				<h3 id="hp" className="ws-test">
 					15
