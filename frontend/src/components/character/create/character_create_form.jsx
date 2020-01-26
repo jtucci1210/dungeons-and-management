@@ -110,8 +110,6 @@ class CharacterCreateForm extends React.Component {
 
     handleCheckbox(skill) {
 
-        debugger
-
         
         if (this.state.selectedSkills.includes(skill)) {
                 
