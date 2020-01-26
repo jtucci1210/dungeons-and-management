@@ -24,7 +24,7 @@
     width: 60%;
     height: auto;
     justify-content: center;
-    background-color: rgba(92, 160, 79, 0.3);
+    /* background-color: rgba(92, 160, 79, 0.3); */
     top:150px;
     overflow: visible;
     margin-left: 5%;
@@ -55,6 +55,7 @@
     align-items: center;
     box-shadow: 5px 5px 10px black;
 }
+
 
 .index-characters {
     display: flex;
@@ -106,6 +107,12 @@
     border: 1px solid black;
 }
 .character-image {
+    position: absolute;
+    max-width:100%;
+    height:auto;
+}
+
+.deceased-character-image {
     position: absolute;
     max-width:100%;
     height:auto;
@@ -182,11 +189,13 @@
 
 .lobby-number {
     height: 20px;
+    width: 100%;
 }
 
 .home-page-lobby-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .home-page-lobby-join {

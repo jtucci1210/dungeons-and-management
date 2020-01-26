@@ -32,14 +32,13 @@ router.post("/create", (req, res) => {
 
 	const campKey = req.body.campKey || Math.floor(Math.random() * 10000);
 	const newCamp = Campaign({
-		name: req.body.name,
 		campKey: campKey
 	});
 
+	debugger
+
 	newCamp.save();
-	res.json({
-		campaign: newCamp
-	});
+	res.json(newCamp);
 });
 
 //Add character to a campaign

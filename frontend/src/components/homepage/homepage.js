@@ -40,13 +40,12 @@ class HomePage extends React.Component {
 		let charId = "";
 
 		characters.map(char => {
+			debugger
 			if (char.name === this.state.campaignChar) {
 				charId = char._id;
 			}
 		});
-
 		this.props.fetchCampaignByKey(this.state.campaignRoom).then(res => {
-			console.log(res)
 			const campaignId = res.campaign._id;
 			this.socket.emit("joinCampaign", res.campaign.campKey) //"test" should be campaign Id
 			// this.socket.emit("test-room", "test")
@@ -63,7 +62,7 @@ class HomePage extends React.Component {
 			.createCampaign()
 			.then(result =>
 				this.props.history.push(
-					`/campaign/${result.campaign.data.campaign._id}`
+					`/campaigns/${result.campaign._id}`
 				)
 			);
 	}
@@ -102,11 +101,6 @@ class HomePage extends React.Component {
 								/>
 								<br />
 								<select
-									value={
-										this.state.campaignChar
-											? this.state.campaignChar
-											: "Choose a character"
-									}
 									className="campaign-char-selector"
 									onChange={e =>
 										this.setState({
@@ -114,7 +108,7 @@ class HomePage extends React.Component {
 										})
 									}
 								>
-									<option value="Choose a Character" disabled>
+									<option value="Choose a Character" disabled={true} selected={true}>
 										Choose a Character
 									</option>
 									{characters.map((char, i) => (
