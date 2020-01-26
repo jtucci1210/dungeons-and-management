@@ -8,6 +8,7 @@ import HalfOrcImg from "./races/half-orc.jpg";
 import HalflingImg from "./races/halfling.jpg";
 import HumanImg from "./races/human.jpg";
 import TieflingImg from "./races/tiefling.jpg";
+import DeceasedImg from "./deceased.png";
 
 class CharIndexItem extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class CharIndexItem extends React.Component {
         case "dragonborn":
             return DragonImg;
         case "hillDwarf":
-            return DwarfImg;
+          return DwarfImg;
         case "mountainDwarf":
             return DwarfImg;
         case "rockGnome":
@@ -66,13 +67,16 @@ class CharIndexItem extends React.Component {
       const {character} = this.props;
       const cardImg = this.charImage();
       const healthAmt = this.charHealth();
+      const deceased = character.currentHp === 0 ? DeceasedImg : ""
+   
     return (
       <div className="character-box">
         <div className="character-name-index">
           <h3>{character.name}</h3>
         </div>
         <div className="character-image-div">
-          <img className="character-image" src={cardImg}></img>
+          <img className='character-image' src={cardImg}></img>
+          <img className='deceased-character-image' src={deceased}></img>
         </div>
         <div className="index-character-stats">
           <div className="character-image-health-index">
