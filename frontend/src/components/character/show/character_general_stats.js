@@ -122,7 +122,7 @@ class GeneralStats extends React.Component {
                         Class:
                     </p>
                     <div className='show-character-general-class-info'>
-                        {character.classUtil}
+                        {character.charClass}
                     </div>
                 </div>
             <div className="show-character-general-hp">

@@ -7,9 +7,21 @@ import * as armor from '../../../util/armor_util'
 import * as classUtil from '../../../util/class_util'
 
 
-class MainStats extends React.Component {
+class EditMainStats extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            character: this.props.characters,
+            currentUser: this.props.session,
+            currentUserID: this.props.session.user.id,
+            race: this.props.characters.race,
+            charClass: this.props.characters.charClass,
+            armorType: this.props.characters.armorType,
+            level: this.props.characters.level,
+            maxHp: this.props.characters.maxHp,
+            currentHp: this.props.characters.currentHp,
+        }
+
         this.handleCheckbox = this.handleCheckbox.bind(this)
         this.showSkillMod = this.showSkillMod.bind(this)
     }
@@ -81,6 +93,7 @@ class MainStats extends React.Component {
                             <div>
                                 <p className='battle-state-title'>A.C.</p>
                                 <div className='battle-state-title-info'>{armorClass(characterArmor, math.mod(character.abilities.dexterity), )}</div>
+                                <div className='battle-state-armor'> {character.armorType} </div>
                             </div>
                             <div>
                                 <p className='battle-state-title'>Initiative</p>
@@ -217,4 +230,4 @@ class MainStats extends React.Component {
     }
 }
 
-export default MainStats
+export default EditMainStats

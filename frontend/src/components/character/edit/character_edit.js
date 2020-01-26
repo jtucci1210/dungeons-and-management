@@ -12,6 +12,14 @@ class CharacterEditPage extends React.Component {
         super(props);
         this.state = {
             loaded: false,
+            character: this.props.characters,
+            currentUser: this.props.session,
+            // race: this.props.characters.race,
+            // charClass: this.props.characters.charClass,
+            // armorType: this.props.characters.armorType,
+            // level: this.props.characters.level,
+            // maxHp: this.props.characters.maxHp,
+            // currentHp: this.props.characters.currentHp,
         }
     }
 

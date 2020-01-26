@@ -81,6 +81,7 @@ class MainStats extends React.Component {
                             <div>
                                 <p className='battle-state-title'>A.C.</p>
                                 <div className='battle-state-title-info'>{armorClass(characterArmor, math.mod(character.abilities.dexterity), )}</div>
+                                <div className='battle-state-armor'> Armor: {character.armorType} </div>
                             </div>
                             <div>
                                 <p className='battle-state-title'>Initiative</p>

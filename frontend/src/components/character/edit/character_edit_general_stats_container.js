@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CharacterEditPage from './character_edit'
 import { getCharacter, editCharacter } from '../../../actions/character_actions';
 import { withRouter } from 'react-router-dom';
+import GeneralStats from './character_edit_general_stats';
 
 
 const mapStateToProps = state => {
@@ -10,7 +11,8 @@ const mapStateToProps = state => {
         character: state.characters,
         currentUser: state.session,
         currentUserID: state.session.user.id,
-        })
+       
+    })
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -21,4 +23,4 @@ const mapDispatchToProps = dispatch => ({
 export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(CharacterEditPage));
+)(GeneralStats));

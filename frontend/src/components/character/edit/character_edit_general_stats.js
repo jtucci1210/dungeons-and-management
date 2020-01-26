@@ -17,9 +17,26 @@ import * as classUtil from '../../../util/class_util'
 class GeneralStats extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            character: this.props.characters,
+            currentUser: this.props.session,
+            currentUserID: this.props.session.user.id,
+            // race: this.props.characters.race,
+            // charClass: this.props.characters.charClass,
+            // armorType: this.props.characters.armorType,
+            // level: this.props.characters.level,
+            // maxHp: this.props.characters.maxHp,
+            // currentHp: this.props.characters.currentHp,
+        }
         this.healthManagement = this.healthManagement.bind(this)
         this.showSkillMod = this.showSkillMod.bind(this)
 
+    }
+
+    componentDidMount() {
+        // const characterInfo = this.props.getCharacter(this.props.match.params.characterId)
+        this.props.getCharacter(this.props.match.params.characterId)
+        // Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
     }
 
     healthManagement(hitDice, newLevel) {
