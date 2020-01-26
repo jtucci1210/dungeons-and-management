@@ -1,11 +1,16 @@
-const strengthSkills = ["athletics"];
+export const abilityScores = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+export const halfelfAbilityScores = ["strength", "dexterity", "constitution", "intelligence", "wisdom"];
 
-const dexteritySkills = ["acrobatics", "sleight of hand", "stealth"];
+export const strengthSkills = ["athletics"];
 
-const constitutionSkills = [];
+export const dexteritySkills = ["acrobatics", "sleight of hand", "stealth"];
 
-const intelligenceSkills = ["arcana", "history", "investigation", "nature", "religion"];
+export const constitutionSkills = [];
 
-const wisdomSkills = ["animal handling", "insight", "medicine", "perception", "survival"];
+export const intelligenceSkills = ["arcana", "history", "investigation", "nature", "religion"];
 
-const charismaSkills = ["deception", "intimidation", "performance", "persuasion"];
+export const wisdomSkills = ["animal handling", "insight", "medicine", "perception", "survival"];
+
+export const charismaSkills = ["deception", "intimidation", "performance", "persuasion"];
+
+export const allSkills = ["athletics", "acrobatics", "sleight of hand", "stealth", "arcana", "history", "investigation", "nature", "religion", "animal handling", "insight", "medicine", "perception", "survival", "deception", "intimidation", "performance", "persuasion"]

@@ -1,4 +1,4 @@
-const dStat = () => {
+export const dStat = () => {
     let a = d6();
     let b = d6();
     let c = d6();
@@ -9,7 +9,7 @@ const dStat = () => {
     return threeRolls.reduce((a,b) => a + b, 0)
 };
 
-const d4 = (x = 1) => {
+export const d4 = (x = 1) => {
     let total = 0;
     for (let i = 0; i < x ; i ++) {
         total += Math.floor(Math.random() * 4) + 1
@@ -17,7 +17,7 @@ const d4 = (x = 1) => {
     return total
 };
 
-const d6 = (x = 1) => {
+export const d6 = (x = 1) => {
     let total = 0;
     for (let i = 0; i < x ; i ++) {
         total += Math.floor(Math.random() * 6) + 1
@@ -25,7 +25,7 @@ const d6 = (x = 1) => {
     return total
 };
 
-const d8 = (x = 1) => {
+export const d8 = (x = 1) => {
     let total = 0;
     for (let i = 0; i < x ; i ++) {
         total += Math.floor(Math.random() * 8) + 1
@@ -33,7 +33,7 @@ const d8 = (x = 1) => {
     return total
 };
 
-const d10 = (x = 1) => {
+export const d10 = (x = 1) => {
     let total = 0;
     for (let i = 0; i < x ; i ++) {
         total += Math.floor(Math.random() * 10) + 1
@@ -41,7 +41,7 @@ const d10 = (x = 1) => {
     return total
 };
 
-const d12 = (x = 1) => {
+export const d12 = (x = 1) => {
     let total = 0;
     for (let i = 0; i < x ; i ++) {
         total += Math.floor(Math.random() * 10) + 1
@@ -49,7 +49,7 @@ const d12 = (x = 1) => {
     return total
 };
 
-const d20 = (x = 1) => {
+export const d20 = (x = 1) => {
     let total = 0;
     for (let i = 0; i < x ; i ++) {
         total += Math.floor(Math.random() * 20) + 1
@@ -57,7 +57,7 @@ const d20 = (x = 1) => {
     return total
 };
 
-const d100 = (x = 1) => {
+export const d100 = (x = 1) => {
     let total = 0;
     for (let i = 0; i < x ; i ++) {
         total += Math.floor(Math.random() * 100) + 1

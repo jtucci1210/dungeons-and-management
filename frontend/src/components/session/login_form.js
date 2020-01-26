@@ -77,13 +77,13 @@ class LoginForm extends React.Component {
                 />
                 <div className="login-errors">{this.props.errors.password}</div>
                 <br />
-                <div>
+                <div className="guest-login-submit-div">
                   <input
                     className="submit-button-modal"
                     type="submit"
                     value="Submit"
                   />
-                  <button className='login-signup-button' onClick={this.guestLogin}> Guest Login</button>
+                  <button className='submit-button-modal' onClick={this.guestLogin}> Guest Login</button>
                 </div>
               </form>
             </div>

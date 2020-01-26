@@ -1,6 +1,7 @@
 //Libraries
 const express = require("express");
 const router = express.Router();
+const ObjectId = require('mongodb').ObjectID;
 
 //Files
 const Character = require("../../models/Character")
@@ -20,41 +21,36 @@ router.post("/create", (req, res) => {
         return res.status(400).json(errors);
     }
 
-    //Possibly bugs once used on front end
-    User.findOne({ id: req.user.id }).then(user => {
         const newChar = new Character({
-            userId: user.id,
+            userId: req.body.user.id,
             name: req.body.name,
             race: req.body.race,
             charClass: req.body.charClass,
             armorType: req.body.armorType,
-    
+            
             level: req.body.level,
             maxHp: req.body.maxHp,
             currentHp: req.body.currentHp,
-    
+            
             abilities: req.body.abilities,
             skills: req.body.skills
         })
         newChar.save();
-
+        
         res.json({
-            user: user,
             char: newChar
         })
-
-    })
 });
 
 //Get a single character
-router.get('/:id', (req, res) => {
-    Character.findById(req.params.id)
+router.get('/:char_id', (req, res) => {
+    Character.findById(req.params.char_id)
         .then(character => res.json(character))
 });
 
 //Edit a character
-router.patch('/:id/edit', (req, res) => {
-    Character.findById(req.params.id).then(char => {
+router.patch('/:char_id/edit', (req, res) => {
+    Character.findById(req.params.char_id).then(char => {
         const { errors, isValid } = validCreateCharInput(req.body);
 
         if (!isValid) {
@@ -69,8 +65,9 @@ router.patch('/:id/edit', (req, res) => {
         char.maxHp = req.body.maxHp
         char.currentHp = req.body.currentHp
 
-        char.abilities = req.body.abilities
-        char.skills = req.body.skills
+        char.abilities = JSON.parse(req.body.abilities) //Possbily get rid of JSON for actual app
+        char.skills = JSON.parse(req.body.skills) //Possbily get rid of JSON for actual app
+
 
         char.save();
         res.json(char)
@@ -78,8 +75,8 @@ router.patch('/:id/edit', (req, res) => {
 });
 
 //Delete a character
-router.delete('/:id', (req, res) => {
-    Character.findById(req.params.id).then(char => {
+router.delete('/:char_id', (req, res) => {
+    Character.findById(req.params.char_id).then(char => {
        char.delete();
        res.json("Success")
     })

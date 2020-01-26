@@ -8,116 +8,67 @@
 }
 
     .main-page-background-img {
-        /* z-index: -2; */
-        /* background-repeat: no-repeat; */
-        /* background-attachment: fixed; */
-        /* width: 100%; */
         top: 100px;
     }
 
     .home-page-create-character-text{
         font-size: 60px;
     }
-    .home-page-campaign-box {
-        background-color: #66995B;
-        display: block;
-        width: 25%;
-        opacity: .9;
-        justify-content: center;
-        height: 100px;
-        position: fixed;
-        right: 0px;
-        top: 100px;
-        margin: 20px;
-        min-width: 250px;
-    }
 
-        .home-page-campaign-links {
-            
-        }
 
 .home-page-characters {
     position: absolute;
-    grid-gap: 10px;
-    padding: 10px;
-    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
-    font-size: 14px;
-    min-width: 200px;
+    padding: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+    width: 60%;
     height: auto;
-    justify-content: space-between;
-    background-color:  #66995B;
-    /* width: 50%; */
-    opacity: .9;
-    /* max-height: -webkit-fill-available; */
-    top:100px;
+    justify-content: center;
+    /* background-color: rgba(92, 160, 79, 0.3); */
+    top:150px;
     overflow: visible;
-    margin: 20px;
+    margin-left: 5%;
+    margin-bottom: 130px;
 }
 
 .home-page-create-character {
     text-decoration: none;
     font-size: 40px;
-    color: #C6C8BC;
+    color: #A6C8BC;
     display: flex;
     justify-content: center;
     display: flex;
     align-items: center;
 }
 
-.index-characters{
-    color: rgb(225, 232, 190);
-}
-
-
-.home-page-campaign-title{
-    color: rgb(225, 232, 190);
-    padding: 10px;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-    font-size: 30px;
-}
-
-.home-page-campaign-join,
-.home-page-campaign-start{
-    display: block;
-    /* margin: auto; */
-}
-
-.home-page-campaign-start {
-    padding-left: 5px;
-    display: block;
-    margin: auto;
-}
-
-.home-page-lobby-join {
-    display: flex;
-    padding-top: 6px;
-    padding-left: 25%;
-
-}
-
-.index-characters {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 10px;
-    padding: 10px;
-    
-}
-
-
-.character-box div {
-    display: flex;
-    padding: 4px;
-}
 .character-box,
 .home-page-create-character {
     text-transform: capitalize;
-    border: groove rgb(130, 104, 0) 2px;
+    border: solid black 1px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: rgb(14, 24, 37);
+    width: 225px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 10px black;
 }
 
-.character-box h3{
-    padding-right: 5px;
+
+.index-characters {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.character-name-index{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 16px;
+    font-family: Special Elite;
 }
 
 .character-box:hover {
@@ -129,11 +80,128 @@
 }
 .home-characters-link {
     text-decoration: none;
-    color: rgb(225, 232, 190);
+    color: #A6C8BC;
 }
 
+.index-character-stats {
+    padding: 10px;
+}
 
+.index-character-stats div {
+    display: flex;
+    padding-top: 10px;
+}
 
+.safe-health {
+    color: green;
+}
+.warning-health {
+    color: red;
+}
 
+.character-image-div {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid black;
+}
+.character-image {
+    position: absolute;
+    max-width:100%;
+    height:auto;
+}
 
+.deceased-character-image {
+    position: absolute;
+    max-width:100%;
+    height:auto;
+}
+
+.imma-blank-space {
+    width: 5px;
+}
+.field-title {
+    font-family: Special Elite;
+    font-size: 14px;
+}
+
+.home-page-campaign-box {
+    background-color: #173514;
+    background-image: url("https://www.transparenttextures.com/patterns/shley-tree-1.png");
+    width: 25%;
+    justify-content: center;
+    position: fixed;
+    right: 0px;
+    top: 130px;
+    margin: 20px;
+    min-width: 250px;
+    border: solid 10px #A6C8BC;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 150px;
+    height: auto;
+}
+
+    .home-page-campaign-links {
+            
+    }
+
+.home-page-campaign-title{
+    color: #A6C8BC;
+    padding: 10px;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-family: Birmingham;
+}
+
+.home-page-campaign-box {
+    
+}
+.home-page-campaign-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.join-campaign {
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color:  #A6C8BC;
+    font-family: Special Elite;
+}
+.start-campaign {
+    width: 150px;
+    height: 30px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color:  #A6C8BC;
+    font-family: Special Elite;
+}
+
+.lobby-number {
+    height: 20px;
+}
+
+.home-page-lobby-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-page-lobby-join {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.or-separator {
+    color: white;
+}
 

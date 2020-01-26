@@ -1,0 +1,419 @@
+.race-and-class-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    width: 90%;
+    min-width: 925px;
+}
+
+.race-and-class {
+    display: flex;
+    max-width: 1000px;
+}
+
+.race-and-class h1 {
+    text-transform: uppercase;
+    font-size: 40px;
+    height: 20px;
+    margin: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.race-container, .class-container {
+    border: 1px solid black;
+    width: 600px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+    padding-bottom: 5px;
+}
+
+.race-drop-down {
+    align-self: flex-end;
+}
+.dd-wrapper-Race {
+    height: auto;
+    width: auto;
+    background-color: white;
+    border: 1px solid lightgray;
+    display: block;
+    position: absolute;
+    top: 680px;
+    z-index: 1;
+    min-width: 120px;
+}
+
+.dd-header-Race {
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 3px 8px;
+    display: flex;
+}
+
+.dd-header-Race i {
+    margin-left: 10px;
+}
+
+.dd-header-Race:hover {
+    cursor: pointer;
+}
+
+.dd-list-Race {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+    background-color: white;
+    border: 1px solid lightgray;
+    position: absolute;
+    min-width: 120px;
+}
+
+.dd-list-item-Race {
+    margin: 5px;
+}
+
+.dd-list-item-Race.false {
+    text-transform: capitalize;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* .dd-list-item-Race.true {
+    text-transform: capitalize;
+    margin: 5px;
+    text-decoration: line-through;
+    cursor: pointer;
+    color: grey;
+} */
+
+.dd-list-item-Race:Hover {
+    background-color: green;
+    cursor: pointer;
+}
+
+.race-selector {
+    display: flex;
+    width: 420px;
+    margin: 15px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 30px;
+}
+
+.race-selector h3 {
+    width: 50px;
+    text-transform: capitalize;
+    margin-right: 20px;
+    padding: 20px 10px;
+    font-weight: bold;
+}
+
+.race-blurb {
+    width: 420px;
+    padding: 10px;
+    text-align: justify;
+    min-height: 200px;
+}
+
+.subrace-drop-down {
+    align-self: flex-end;
+}
+.dd-wrapper-Subrace {
+    height: auto;
+    width: auto;
+    background-color: white;
+    border: 1px solid lightgray;
+    display: block;
+    position: absolute;
+    top: 920px;
+    z-index: 1;
+    min-width: 135px;
+}
+
+.dd-header-Subrace {
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 3px 8px;
+    display: flex;
+}
+
+.dd-header-Subrace i {
+    margin-left: 10px;
+}
+
+.dd-header-Subrace:hover {
+    cursor: pointer;
+}
+
+.dd-list-Subrace {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+    background-color: white;
+    border: 1px solid lightgray;
+    position: absolute;
+    min-width: 135px;
+}
+
+.dd-list-item-Subrace {
+    margin: 5px;
+}
+
+.dd-list-item-Subrace.false {
+    text-transform: capitalize;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* .dd-list-item-Subrace.true {
+    text-transform: capitalize;
+    margin: 5px;
+    text-decoration: line-through;
+    cursor: pointer;
+    color: grey;
+} */
+
+.dd-list-item-Subrace:Hover {
+    background-color: green;
+    cursor: pointer;
+}
+
+.subrace-selector {
+    display: flex;
+    width: 420px;
+    margin: 0 15px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.subrace-selector h3 {
+    width: 50px;
+    text-transform: capitalize;
+    margin-right: 20px;
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+.subrace-blurb {
+    width: 420px;
+    margin: 20px 10px;
+    text-align: justify;
+    height: 100px;
+}
+
+.racial-modifiers {
+    border: solid black 1px;
+    width: 450px;
+    height: 100px;
+    margin: 10px;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+}
+
+.modifiers {
+    display: flex;
+}
+
+.race-abilities {
+    display: flex;
+    height: 35px;
+    border: 1px solid black;
+    flex-direction: column;
+    font-size: 14px;
+    margin: 3px;
+    padding: 3px;
+}
+
+.race-ability-name, .race-ability-mod {
+    text-align: center;
+    padding: 2px;
+    font-weight: bold;
+}
+
+.speed-and-proficiencies {
+    display: flex;
+    align-items: center;
+}
+
+.speed {
+    margin: 10px 10px 10px 5px;
+    padding: 10px;
+    font-weight: bold;
+    width: 160px;
+}
+
+.skills {
+    list-style-type: none;
+    display: flex;
+}
+
+.skills div {
+    display: flex;
+    font-weight: bold;
+    width: 210px;
+}
+
+.skills div li {
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.class-drop-down {
+    align-self: flex-end;
+}
+
+.class-drop-down-box {
+    display: flex;
+    width: 450px;
+    margin-left: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dd-wrapper-Class {
+    height: auto;
+    width: auto;
+    background-color: white;
+    border: 1px solid lightgray;
+    display: block;
+    position: absolute;
+    top: 680px;
+    z-index: 1;
+    min-width: 120px;
+}
+
+.dd-header-Class {
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 3px 8px;
+    display: flex;
+}
+
+.dd-header-Class i {
+    margin-left: 10px;
+}
+
+.dd-header-Class:hover {
+    cursor: pointer;
+}
+
+.dd-list-Class {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+    background-color: white;
+    border: 1px solid lightgray;
+    position: absolute;
+    min-width: 120px;
+}
+
+.dd-list-item-Class {
+    margin: 5px;
+}
+
+.dd-list-item-Class.false {
+    text-transform: capitalize;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* .dd-list-item-Class.true {
+    text-transform: capitalize;
+    margin: 5px;
+    text-decoration: line-through;
+    cursor: pointer;
+    color: grey;
+} */
+
+.dd-list-item-Class:Hover {
+    background-color: green;
+    cursor: pointer;
+}
+
+.class-drop-down-box h3 {
+    width: 70px;
+    text-transform: capitalize;
+    margin: 30px 30px;
+    font-weight: bold;
+    align-self: baseline;
+}
+
+.class-modifiers {
+    border: solid black 1px;
+    width: 450px;
+    height: 275px;
+    margin: 60px 10px 10px 10px;
+    justify-self: flex-end;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.class-skills {
+    display: flex;
+}
+
+.class-blurb {
+    width: 420px;
+    margin: 20px 10px;
+    text-align: justify;
+    height: 100px;
+}
+
+.hit-dice {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.saving-throw-box {
+    font-weight: bold;
+    display: flex;
+    margin: 10px 0;
+}
+
+.saving-throw {
+    font-weight: normal;
+    list-style-type: none;
+    margin: 0 5px;
+    text-transform: capitalize;
+}
+
+.class-skills {
+    margin: 5px 0;
+}
+
+.class-skill-list-box {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    font-weight: bold;
+}
+
+.class-skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 0;
+    margin: 5px 0;
+
+}
+
+.class-skill {
+    margin: 5px 0;
+    font-weight: normal;
+    width: 150px;
+}
+
+.misc-halfelf {
+    font-weight: bold;
+    font-size: 12px;
+    width: 320px;
+}
