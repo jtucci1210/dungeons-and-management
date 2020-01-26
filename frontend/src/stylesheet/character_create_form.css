@@ -7,21 +7,49 @@
     padding-bottom: 150px;
 }
 
+
+.splash-image {
+    width: -webkit-fill-available;
+    object-fit: cover;
+    z-index: -2;
+    position: fixed;
+    height: -webkit-fill-available;
+}
+
+.character-create-form {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(14, 24, 37);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px black;
+
+}
+
 .character-name {
     margin: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    font-family: Special Elite;
 }
 
 .character-name input[type=text] {
     height: 30px;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 5px;
+    padding-top: 8px;
     width: 500px;
     font-size: 30px;
     text-align: center;
+    /*align-items: center;
+    justify-content: center; */
+    font-family: Special Elite;
+
 }
 
 .stat-roller-component {
