@@ -22,13 +22,18 @@ class GeneralStats extends React.Component {
 
     }
 
-    healthManagement(hitDice, newLevel, avgHealth) {
-        const levelone = math.healthLevelOne(hitDice, constitutionMod)
-        const levelUp = math.healthLevelUp(hitDice, constitutionMod, newLevel, avgHealth)
+    healthManagement(hitDice, newLevel) {
         const character = this.props.character
         const constitutionMod = math.mod(character.abilities.constitution)
-        (character.level === 1) ? levelone : levelUp
-
+        const characterClass = this.props.character.charClass
+        const fullClass = classUtil.fullClass
+        const avgHealth = fullClass[characterClass].avgHealth
+        const levelone = math.healthLevelOne(hitDice, constitutionMod)
+        // const levelUp = math.healthLevelUp(hitDice, constitutionMod, newLevel, avgHealth)
+        // (character.level === 1) ? levelone : levelUp
+        return (
+            levelone
+        )
     }
 
     showSkillMod(skill, stat, prof) {
@@ -87,7 +92,6 @@ class GeneralStats extends React.Component {
         const character = this.props.character
         const cardImg = this.charImage();
         const fullClass = classUtil.fullClass
-        console.log(character)
         const hitDice = fullClass[character.charClass].hitDice
 
     return (
@@ -123,7 +127,7 @@ class GeneralStats extends React.Component {
                 </div>
             <div className="show-character-general-hp">
                 <div className="show-character-general-hp">
-                    {/* Max Life: {this.healthManagement(hitDice, )} */}
+                    Max Life: {this.healthManagement(hitDice)}
                     {/* Max Life: {character.maxHp} */}
                 </div>
                 <div className="show-character-general-hp">
