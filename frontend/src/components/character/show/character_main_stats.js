@@ -11,6 +11,7 @@ class MainStats extends React.Component {
     constructor(props) {
         super(props)
         this.handleCheckbox = this.handleCheckbox.bind(this)
+        this.showSkillMod = this.showSkillMod.bind(this)
     }
    
     handleCheckbox(skill, stat) {
@@ -22,6 +23,18 @@ class MainStats extends React.Component {
             return true
         } else if (characterSkills.includes(skill.toLowerCase())) {
             return true
+        }
+    }
+    showSkillMod(skill, stat, prof) {
+        const characterSkills = this.props.character.skills
+        const characterClass = this.props.character.charClass
+        const fullClass = classUtil.fullClass
+        const classInfo = fullClass[characterClass].savingThrows
+
+        if (characterSkills.includes(skill.toLowerCase())) {
+            return math.mod(stat, prof)
+        } else {
+            return math.mod(stat)
         }
     }
 
@@ -106,7 +119,8 @@ class MainStats extends React.Component {
                                     {strSkills.map((skill, i) => (
                                         <ul key={i+skill}>
                                             <div className='character-skills-checkbox'>
-                                            <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} /> {skill}                                            </div>
+                                                <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.strength, proficiency)} {skill}                                
+                                            </div>
                                         </ul>
                                     ))}
                                 </div>
@@ -125,7 +139,7 @@ class MainStats extends React.Component {
                                     {dexSkills.map((skill, i) => (
                                         <ul key={i+skill + 1}>
                                             <div className='character-skills-checkbox'>
-                                            <input checked={this.handleCheckbox(skill, 'dexterity')} type='checkbox' disabled={true} /> {skill}                                            </div>
+                                                <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.dexterity, proficiency)} {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>
@@ -144,7 +158,7 @@ class MainStats extends React.Component {
                                     {constSkills.map((skill, i) => (
                                         <ul key={i+skill + 11}>
                                             <div className='character-skills-checkbox'>
-                                            <input checked={this.handleCheckbox(skill, 'constitution')} type='checkbox' disabled={true} /> {skill}                                            </div>
+                                                <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.constitution, proficiency)} {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>
@@ -163,7 +177,7 @@ class MainStats extends React.Component {
                                     {intelSkills.map((skill, i) => (
                                         <ul key={i+skill + 12}>
                                             <div className='character-skills-checkbox'>
-                                            <input checked={this.handleCheckbox(skill, 'intelligence')} type='checkbox' disabled={true} /> {skill}
+                                                <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.intelligence, proficiency)} {skill} 
                                             </div>
                                         </ul>
                                     ))}
@@ -183,7 +197,7 @@ class MainStats extends React.Component {
                                     {wisdSkills.map((skill, i) => (
                                         <ul key={i+skill + 13}>
                                             <div className='character-skills-checkbox'>
-                                            <input checked={this.handleCheckbox(skill, 'wisdom')} type='checkbox' disabled={true} /> {skill}                                            </div>
+                                                <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.wisdom, proficiency)} {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>
@@ -202,7 +216,7 @@ class MainStats extends React.Component {
                                     {charSkills.map((skill, i) => (
                                         <ul key={i+skill + 14}>
                                             <div className='character-skills-checkbox'>
-                                            <input checked={this.handleCheckbox(skill, 'charisma')} type='checkbox' disabled={true} /> {skill}                                            </div>
+                                                <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.charisma, proficiency)} {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>

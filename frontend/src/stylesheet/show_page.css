@@ -50,7 +50,7 @@
 
 .show-character-general-stats {
     /* delete */
-    border: 2px solid red;
+    /* border: 2px solid red; */
     /* delete */
     margin: 15px;
     display: block;
@@ -76,7 +76,7 @@
 
 .show-character-battle-stats {
     /* delete */
-    border: 2px solid red;
+    /* border: 2px solid red; */
     /* delete */
     
 }
@@ -163,7 +163,7 @@ padding-top: 4px;
     padding: 10px;
     font-size: 14px;
      /* delete */
-    border: 2px solid red;
+    /* border: 2px solid red; */
     /* delete */
     justify-content: space-between;
     margin-top: 10px
@@ -175,8 +175,9 @@ padding-top: 4px;
     text-align: center;
     min-width: 100px;
     border: 2px solid #173514;
-    width: 200px;
+    width: 207px;
     margin: 4px;
+    padding: 2px;
 }
 
 .show-character-self-stat p {
