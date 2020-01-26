@@ -165,6 +165,7 @@
 }
 
 .dd-list-item-Ability:Hover {
-    background-color: green;
+    background-color: #173514;
+    filter: brightness(200%);
     cursor: pointer;
 }

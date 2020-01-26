@@ -30,6 +30,7 @@
     border-radius: 10px;
     box-shadow: 5px 5px 10px black;
 
+
 }
 
 .character-name {
@@ -143,6 +144,7 @@
     margin-top: 5px;
     width: 190px;
     height: 180px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .choose-skills {
@@ -167,10 +169,14 @@
     height: 180px;
     margin: 50px;
     padding: 10px;
+    background-color: whitesmoke;
+
 }
 
 .halfelf-ability-selection {
-    display: column;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .halfelf-choose-abilities {
@@ -182,6 +188,9 @@
     padding: 10px;
     justify-content: space-evenly;
     align-items: center;
+    background-color: whitesmoke;
+    font-family: 'Times New Roman', Times, serif;
+
 }
 
 .next-button {
@@ -217,3 +226,24 @@
     border: 1px solid black;
     box-shadow: 5px 5px 10px black;
 }
+.create-char-btn:hover {
+    cursor: pointer;
+}
+
+.half-elf-div {
+    background-color: #A6C8BC;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    font-family: Special Elite;
+}
+
+/* input [type="checkbox"]:checked {
+    background-color: #173514;
+    color: #173514;
+} */

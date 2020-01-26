@@ -5,11 +5,13 @@
     margin: 20px;
     width: 90%;
     min-width: 925px;
+
 }
 
 .race-and-class {
     display: flex;
     max-width: 1000px;
+
 }
 
 .race-and-class h1 {
@@ -34,6 +36,7 @@
     background-color: #A6C8BC;
     border-radius: 10px;
     box-shadow: 5px 5px 10px black;
+
 }
 
 
@@ -89,7 +92,8 @@
 
 
 .dd-list-item-Race:Hover {
-    background-color: green;
+    background-color: #173514;
+    filter: brightness(200%);
     cursor: pointer;
 }
 

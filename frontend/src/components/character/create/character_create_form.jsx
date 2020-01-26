@@ -440,7 +440,10 @@ class CharacterCreateForm extends React.Component {
                         {this.state.selectedSkills.length ===
                           this.state.numSkills &&
                         this.state.finalRace !== "halfelf" ? (
-                          <button className="create-char-btn" onClick={this.handleSubmit}>
+                          <button
+                            className="create-char-btn"
+                            onClick={this.handleSubmit}
+                          >
                             Create Character
                           </button>
                         ) : (
@@ -455,8 +458,8 @@ class CharacterCreateForm extends React.Component {
                 <div>
                   {this.state.selectedSkills.length === this.state.numSkills &&
                   this.state.finalRace === "halfelf" ? (
-                    <div>
-                      <h1>Choose your 2 bonus skills for being a halfelf</h1>
+                    <div className="half-elf-div">
+                      <h1>Choose your 2 bonus skills for being a Halfelf</h1>
                       <div className="halfelf-extra-skills">
                         <div className="skill-type">
                           Strength:
@@ -621,8 +624,7 @@ class CharacterCreateForm extends React.Component {
                       </div>
                       <div className="halfelf-ability-selection">
                         <h1>
-                          Choose 2 abilities to increase by +1 for being a
-                          halfelf
+                          Choose 2 abilities to increase by +1 for being a Halfelf
                         </h1>
                         <div className="halfelf-choose-abilities">
                           {halfelfAbilityScores.map((ability, idx) => {
@@ -651,7 +653,10 @@ class CharacterCreateForm extends React.Component {
                       </div>
                       {this.state.halfelfSkills.length === 2 &&
                       this.state.halfelfAbilities.length == 2 ? (
-                        <button onClick={this.handleSubmit}>
+                        <button
+                          className="create-char-btn"
+                           onClick={this.handleSubmit}
+                        >
                           Create Halfelf
                         </button>
                       ) : (
