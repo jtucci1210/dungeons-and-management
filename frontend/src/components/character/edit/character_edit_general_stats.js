@@ -20,7 +20,7 @@ class GeneralStats extends React.Component {
         this.state = {
             character: this.props.characters,
             currentUser: this.props.session,
-            currentUserID: this.props.session.user.id,
+            // currentUserID: this.props.session.user.id,
             // race: this.props.characters.race,
             // charClass: this.props.characters.charClass,
             // armorType: this.props.characters.armorType,
@@ -35,21 +35,21 @@ class GeneralStats extends React.Component {
 
     componentDidMount() {
         // const characterInfo = this.props.getCharacter(this.props.match.params.characterId)
-        this.props.getCharacter(this.props.match.params.characterId)
+        // this.props.getCharacter(this.props.match.params.characterId)
         // Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
     }
 
-    healthManagement(hitDice, newLevel) {
+
+    healthManagement(hitDice) {
         const character = this.props.character
         const constitutionMod = math.mod(character.abilities.constitution)
         const characterClass = this.props.character.charClass
         const fullClass = classUtil.fullClass
+        const level = character.level
         const avgHealth = fullClass[characterClass].avgHealth
-        const levelone = math.healthLevelOne(hitDice, constitutionMod)
-        // const levelUp = math.healthLevelUp(hitDice, constitutionMod, newLevel, avgHealth)
-        // (character.level === 1) ? levelone : levelUp
+        const levelingUp = math.healthLevelUp(hitDice, constitutionMod, level, avgHealth)
         return (
-            levelone
+            levelingUp
         )
     }
 

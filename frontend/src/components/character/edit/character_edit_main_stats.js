@@ -11,15 +11,15 @@ class EditMainStats extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            character: this.props.characters,
-            currentUser: this.props.session,
-            currentUserID: this.props.session.user.id,
-            race: this.props.characters.race,
-            charClass: this.props.characters.charClass,
-            armorType: this.props.characters.armorType,
-            level: this.props.characters.level,
-            maxHp: this.props.characters.maxHp,
-            currentHp: this.props.characters.currentHp,
+            // character: this.props.characters,
+            // currentUser: this.props.session,
+            // currentUserID: this.props.session.user.id,
+            // race: this.props.characters.race,
+            // charClass: this.props.characters.charClass,
+            // armorType: this.props.characters.armorType,
+            // level: this.props.characters.level,
+            // maxHp: this.props.characters.maxHp,
+            // currentHp: this.props.characters.currentHp,
         }
 
         this.handleCheckbox = this.handleCheckbox.bind(this)

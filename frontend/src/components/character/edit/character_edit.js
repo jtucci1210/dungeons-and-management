@@ -4,6 +4,10 @@ import '../../../stylesheet/show_page.css'
 import '../../../stylesheet/test.css'
 import GeneralStats from './character_edit_general_stats';
 import MainStats from './character_edit_main_stats';
+import * as math from '../../../util/game_math_util'
+import * as race from '../../../util/race_util'
+import * as armor from '../../../util/armor_util'
+import * as classUtil from '../../../util/class_util'
 
 
 
@@ -12,15 +16,8 @@ class CharacterEditPage extends React.Component {
         super(props);
         this.state = {
             loaded: false,
-            character: this.props.characters,
-            currentUser: this.props.session,
-            // race: this.props.characters.race,
-            // charClass: this.props.characters.charClass,
-            // armorType: this.props.characters.armorType,
-            // level: this.props.characters.level,
-            // maxHp: this.props.characters.maxHp,
-            // currentHp: this.props.characters.currentHp,
         }
+        this.state = { ...this.props }
     }
 
     componentDidMount() {
@@ -29,13 +26,27 @@ class CharacterEditPage extends React.Component {
         Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
     }
 
+    healthManagement(hitDice) {
+        const character = this.props.character
+        const constitutionMod = math.mod(character.abilities.constitution)
+        const characterClass = this.props.character.charClass
+        const fullClass = classUtil.fullClass
+        const level = character.level
+        const avgHealth = fullClass[characterClass].avgHealth
+        const levelingUp = math.healthLevelUp(hitDice, constitutionMod, level, avgHealth)
+        return (
+            levelingUp
+        )
+    }
 
     
 
     render() {
+        // debugger
         if (this.state.loaded) {
             const character = this.props.character
-           
+            const fullClass = classUtil.fullClass
+            const hitDice = fullClass[character.charClass].hitDice
             return (
                 <div className='show-character-box'>
                     <div className='show-character-header'>
@@ -49,13 +60,13 @@ class CharacterEditPage extends React.Component {
                         </div>
                         <div className="show-character-hp">
                             <div className="show-character-current-hp">
-                                Max Life: {character.maxHp}
+                                Max Life: {this.healthManagement(hitDice)}
                             </div>
                             <div className="show-character-current-hp">
                                 Current Life: {character.currentHp}
                             </div>
                             <div className="show-character-current-hp">
-                                {character.level}d
+                                {character.level}d{hitDice}
                             </div>
                         </div>
                     </div>

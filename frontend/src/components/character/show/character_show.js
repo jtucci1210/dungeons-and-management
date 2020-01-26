@@ -5,6 +5,7 @@ import '../../../stylesheet/show_page.css'
 import '../../../stylesheet/test.css'
 import GeneralStats from './character_general_stats';
 import MainStats from './character_main_stats';
+import * as classUtil from '../../../util/class_util'
 
 
 
@@ -26,9 +27,11 @@ class CharacterShowPage extends React.Component {
     
 
     render() {
+
         if (this.state.loaded) {
             const character = this.props.character
-           
+            const fullClass = classUtil.fullClass
+            const hitDice = fullClass[character.charClass].hitDice
             return (
                 <div className='show-character-box'>
                     <div className='edit-character-link'>
@@ -52,7 +55,7 @@ class CharacterShowPage extends React.Component {
                                     Current Life: {character.currentHp}
                                 </div>
                                 <div className="show-character-current-hp">
-                                    {character.level}d
+                                    {character.level}d{hitDice}
                                 </div>
                             </div>
                         </div>

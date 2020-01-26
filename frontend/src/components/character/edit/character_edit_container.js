@@ -10,6 +10,13 @@ const mapStateToProps = state => {
         character: state.characters,
         currentUser: state.session,
         currentUserID: state.session.user.id,
+        name: state.characters.name,
+        race: state.characters.race,
+        charClass: state.characters.charClass, 
+        armorType: state.characters.armorType, 
+        level: state.characters.level, 
+        maxHp: state.characters.maxHp, 
+        currentHp: state.characters.currentHp, 
         })
 };
 
