@@ -19,6 +19,7 @@ class MainStats extends React.Component {
         const characterClass = this.props.character.charClass
         const fullClass = classUtil.fullClass
         const classInfo = fullClass[characterClass].savingThrows
+        console.log(classInfo)
         if (skill.toLowerCase() === 'Saving Throws'.toLowerCase() && classInfo.includes(stat.toLowerCase())) {
             return true
         } else if (characterSkills.includes(skill.toLowerCase())) {
@@ -30,7 +31,6 @@ class MainStats extends React.Component {
         const characterClass = this.props.character.charClass
         const fullClass = classUtil.fullClass
         const classInfo = fullClass[characterClass].savingThrows
-
         if (characterSkills.includes(skill.toLowerCase())) {
             return math.mod(stat, prof)
         } else {
@@ -50,10 +50,6 @@ class MainStats extends React.Component {
         let intelSkills = ['Saving Throws','ARCANA', 'HISTORY', 'INVESTIGATION', 'NATURE', 'RELIGION']
         let wisdSkills = ['Saving Throws','ANIMAL HANDLING', 'INSIGHT', 'MEDICINE', 'PERCEPTION', 'SURVIVAL']
         let charSkills = ['Saving Throws','DECEPTION', 'INTIMIDATION', 'PERFORMANCE', 'PERSUASION']
-        if (character.charClass === 'barbarian') {
-            strSkills.unshift("Saving Throws")
-            constSkills.unshift('Saving Throws')
-        }
 
         let proficiency
         if (character.level < 5) {
@@ -115,7 +111,6 @@ class MainStats extends React.Component {
                             <div className='str-skills'>
                                 <p> Strength Skills </p>
                                 <div className='character-skills'>
-                                    {/* <input checked={this.handleThrow('dexterity')} className='character-skills-checkbox' type='checkbox' disabled={true}/>Saving Throw */}
                                     {strSkills.map((skill, i) => (
                                         <ul key={i+skill}>
                                             <div className='character-skills-checkbox'>
@@ -139,7 +134,7 @@ class MainStats extends React.Component {
                                     {dexSkills.map((skill, i) => (
                                         <ul key={i+skill + 1}>
                                             <div className='character-skills-checkbox'>
-                                                <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.dexterity, proficiency)} {skill}                                            </div>
+                                                <input checked={this.handleCheckbox(skill, 'dexterity')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.dexterity, proficiency)} {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>
@@ -154,11 +149,10 @@ class MainStats extends React.Component {
                             <div className='str-skills'>
                                 <p> Constitution Skills </p>
                                 <div className='character-skills'>
-                                    {/* <input checked={this.handleThrow('dexterity')} className='character-skills-checkbox' type='checkbox' disabled={true}/>Saving Throw */}
                                     {constSkills.map((skill, i) => (
                                         <ul key={i+skill + 11}>
                                             <div className='character-skills-checkbox'>
-                                                <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.constitution, proficiency)} {skill}                                            </div>
+                                                <input checked={this.handleCheckbox(skill, 'constitution')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.constitution, proficiency)} {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>
@@ -172,12 +166,10 @@ class MainStats extends React.Component {
                             </div>
                             <div className='str-skills'>
                                 <p> Intelligence Skills </p>
-                                <div className='character-skills'>
-                                    {/* <input checked={this.handleThrow('dexterity')} className='character-skills-checkbox' type='checkbox' disabled={true}/>Saving Throw */}
-                                    {intelSkills.map((skill, i) => (
+                                <div className='character-skills'>                                    {intelSkills.map((skill, i) => (
                                         <ul key={i+skill + 12}>
                                             <div className='character-skills-checkbox'>
-                                                <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.intelligence, proficiency)} {skill} 
+                                                <input checked={this.handleCheckbox(skill, 'intelligence')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.intelligence, proficiency)} {skill} 
                                             </div>
                                         </ul>
                                     ))}
@@ -193,11 +185,10 @@ class MainStats extends React.Component {
                             <div className='str-skills'>
                                 <p> Wisdom Skills </p>
                                 <div className='character-skills'>
-                                    {/* <input checked={this.handleThrow('dexterity')} className='character-skills-checkbox' type='checkbox' disabled={true}/>Saving Throw */}
                                     {wisdSkills.map((skill, i) => (
                                         <ul key={i+skill + 13}>
                                             <div className='character-skills-checkbox'>
-                                                <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.wisdom, proficiency)} {skill}                                            </div>
+                                                <input checked={this.handleCheckbox(skill, 'wisdom')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.wisdom, proficiency)} {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>
@@ -212,11 +203,10 @@ class MainStats extends React.Component {
                             <div className='str-skills'>
                                 <p> Charisma Skills </p>
                                 <div className='character-skills'>
-                                    {/* <input checked={this.handleThrow('dexterity')} className='character-skills-checkbox' type='checkbox' disabled={true}/>Saving Throw */}
                                     {charSkills.map((skill, i) => (
                                         <ul key={i+skill + 14}>
                                             <div className='character-skills-checkbox'>
-                                                <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.charisma, proficiency)} {skill}                                            </div>
+                                                <input checked={this.handleCheckbox(skill, 'charisma')} type='checkbox' disabled={true} />  {this.showSkillMod(skill, character.abilities.charisma, proficiency)} {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>
