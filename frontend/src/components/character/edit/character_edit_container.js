@@ -2,7 +2,6 @@
 import { connect } from 'react-redux';
 import CharacterEditPage from './character_edit'
 import { getCharacter, editCharacter } from '../../../actions/character_actions';
-import { withRouter } from 'react-router-dom';
 
 
 const mapStateToProps = state => {
@@ -26,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
     editCharacter: characterObj => dispatch(editCharacter(characterObj))
 })
 
-export default withRouter(connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(CharacterEditPage));
+)(CharacterEditPage);

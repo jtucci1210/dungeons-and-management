@@ -61,6 +61,8 @@
 
 .show-character-general-level-info {
     padding-left: 4px;
+    display: block;
+    width: 92px;
 }
 
 .show-character-general-info {

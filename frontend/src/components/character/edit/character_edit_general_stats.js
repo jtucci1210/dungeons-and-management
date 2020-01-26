@@ -14,13 +14,16 @@ import * as race from '../../../util/race_util'
 import * as armor from '../../../util/armor_util'
 import * as classUtil from '../../../util/class_util'
 
-class GeneralStats extends React.Component {
+class EditGeneralStats extends React.Component {
     constructor(props) {
         super(props)
         this.state = { ...this.props, loaded: false }
         this.healthManagement = this.healthManagement.bind(this)
         this.showSkillMod = this.showSkillMod.bind(this)
+        this.handleNext = this.handleNext.bind(this)
+        this.addOrRemoveLevel = this.addOrRemoveLevel.bind(this)
     }
+
 
     updateState(slice) {
         this.setState(slice)
@@ -35,35 +38,35 @@ class GeneralStats extends React.Component {
         }
     }
 
-    handleSubmit(e) {
+    // handleSubmit(e) {
 
-        // debugger
-        // e.preventDefault();
-        let characterObj = {
-            _id: this.props.character._id,
-            user: this.state.currentUserID,
-            name: this.state.name,
-            race: this.props.race,
-            charClass: this.props.charClass,
-            armorType: this.props.armorType,
-            level: this.props.level,
-            maxHp: this.props.maxHp,
-            currentHp: this.props.currentHp,
-            abilities: this.props.character.abilities,
-            skills: this.props.character.skills,
-            dateCreated: this.props.dateCreated
+    //     // debugger
+    //     // e.preventDefault();
+    //     let characterObj = {
+    //         _id: this.props.character._id,
+    //         user: this.state.currentUserID,
+    //         name: this.state.name,
+    //         race: this.props.race,
+    //         charClass: this.props.charClass,
+    //         armorType: this.props.armorType,
+    //         level: this.props.level,
+    //         maxHp: this.props.maxHp,
+    //         currentHp: this.props.currentHp,
+    //         abilities: this.props.character.abilities,
+    //         skills: this.props.character.skills,
+    //         dateCreated: this.props.dateCreated
 
-        };
+    //     };
 
-        this.props.editCharacter(characterObj).then(result => this.props.history.push(`/characters/${this.props.character._id}`))
+    //     this.props.editCharacter(characterObj).then(result => this.props.history.push(`/characters/${this.props.character._id}`))
+    // }
+
+
+    handleNext() {
+        this.setState(
+            { nextClicked: true }
+        )
     }
-
-    componentDidMount() {
-        // const characterInfo = this.props.getCharacter(this.props.match.params.characterId)
-        // this.props.getCharacter(this.props.match.params.characterId)
-        // Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
-    }
-
 
     healthManagement(hitDice) {
         const character = this.props.character
@@ -129,6 +132,36 @@ class GeneralStats extends React.Component {
         }
     }
 
+    addOrRemoveLevel(e, character) {
+        const value = e.target.name
+        let newLevel = this.props.character.level
+
+        if (value === 'decrease' && newLevel > 1) {
+            newLevel = newLevel - 1
+        } else if (value === 'increase' && newLevel < 20) {
+            newLevel = newLevel + 1
+        }
+        // debugger
+        let characterObj = {
+            _id: this.props.character._id,
+            user: this.state.currentUserID,
+            name: this.props.character.name,
+            race: this.props.character.race,
+            charClass: this.props.character.charClass,
+            armorType: this.props.character.armorType,
+            level: newLevel,
+            maxHp: this.props.character.maxHp,
+            currentHp: this.props.character.currentHp,
+            abilities: this.props.character.abilities,
+            skills: this.props.character.skills,
+            dateCreated: this.props.character.dateCreated
+
+        };
+        if (newLevel !== this.props.character.level) {
+            this.props.editCharacter(characterObj)
+        }
+    }
+
 
     render() {
         const character = this.props.character
@@ -155,9 +188,12 @@ class GeneralStats extends React.Component {
                             Level:
                         </p>
                         <div className='show-character-general-level-info'>
-                            {character.level}
+                            <div>
+                                {character.level}
+                            </div>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='increase'> Increase Level</button>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='decrease'> Decrease Level</button>
                         </div>
-                        
                     </div>
                 </div>
                 <div className='show-character-general-class'>
@@ -185,4 +221,4 @@ class GeneralStats extends React.Component {
     }
 }
 
-export default GeneralStats
+export default EditGeneralStats

@@ -2,8 +2,8 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom'
 import '../../../stylesheet/show_page.css'
 import '../../../stylesheet/test.css'
-import GeneralStats from './character_edit_general_stats';
-import MainStats from './character_edit_main_stats';
+import EditGeneralStats from './character_edit_general_stats';
+import EditMainStats from './character_edit_main_stats';
 import * as math from '../../../util/game_math_util'
 import * as race from '../../../util/race_util'
 import * as armor from '../../../util/armor_util'
@@ -39,7 +39,7 @@ class CharacterEditPage extends React.Component {
 
     handleSubmit(e) {
         
-        // debugger
+        debugger
         // e.preventDefault();
         let characterObj = {
             _id: this.props.character._id,
@@ -84,6 +84,7 @@ class CharacterEditPage extends React.Component {
     render() {
         // debugger
         if (this.state.loaded) {
+            const editCharacter = this.props.editCharacter
             const character = this.props.character
             const fullClass = classUtil.fullClass
             const hitDice = fullClass[character.charClass].hitDice
@@ -124,9 +125,9 @@ class CharacterEditPage extends React.Component {
                     </div>
                     <div className='show-character-page'>
                         <div>
-                            <GeneralStats character={character}/>
+                            <EditGeneralStats character={character} editCharacter={editCharacter} currentUserID={this.props.currentUserID}/>
                         </div>
-                        <MainStats character={character} />
+                        <EditMainStats character={character} />
                     </div>
                     <div>
                         {/* <Items character={character}/> */}
