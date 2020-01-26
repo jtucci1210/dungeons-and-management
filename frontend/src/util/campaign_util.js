@@ -5,3 +5,6 @@ export const join = (id, charId) => {
 export const create = () => {
     return axios.post(`/api/campaigns/create`);
 };
+export const fetchCampaignByKey = (key) => {
+    return axios.post(`/api/campaigns/fetch`, { key: key });
+}

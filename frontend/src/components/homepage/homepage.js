@@ -44,9 +44,18 @@ class HomePage extends React.Component {
 				charId = char._id;
 			}
 		});
-		this.props.joinCampaign(this.state.campaignId, charId);
-		// this.socket.emit("joinCampaign", "test") //"test" should be campaign Id
-		// this.socket.emit("test-room", "test")
+
+		this.props.fetchCampaignByKey(this.state.campaignRoom).then(res => {
+			console.log(res)
+			const campaignId = res.campaign._id;
+			this.socket.emit("joinCampaign", res.campaign.campKey) //"test" should be campaign Id
+			// this.socket.emit("test-room", "test")
+			this.props.joinCampaign(campaignId, charId).then(result => {
+				this.props.history.push(
+					`/campaigns/${result.campaign._id}`
+				);
+			});
+		});
 	}
 
 	createCampaign() {
@@ -81,7 +90,7 @@ class HomePage extends React.Component {
 							<span className="or-separator">-OR-</span>
 							<br />
 							<form
-								onSubmit={this.campaignJoin}
+								onSubmit={e => this.campaignJoin(e)}
 								className="home-page-lobby-form"
 							>
 								<input

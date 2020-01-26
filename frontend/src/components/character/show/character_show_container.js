@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
     return ({
-    character: state.characters
+        character: state.characters
     })
 };
 

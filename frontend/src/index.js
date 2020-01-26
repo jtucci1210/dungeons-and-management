@@ -7,10 +7,8 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { logout } from './actions/session_actions';
 import { setAuthToken } from './util/session_api_util';
-import { join } from './util/campaign_util'
-import { joinCampaign } from './actions/campaign_actions'
 import axios from 'axios';
-import { getCharacter } from "./util/character_util";
+import { getCampaignCharacters } from "./util/character_util";
 
 
 
@@ -36,5 +34,5 @@ document.addEventListener('DOMContentLoaded', () => {
         //For Testing
         window.getState = store.getState();
         window.axios = axios
-        window.joinCampaign = joinCampaign;
+        window.getCampaignCharacters = getCampaignCharacters
 });
