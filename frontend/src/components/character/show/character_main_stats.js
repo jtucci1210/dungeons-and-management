@@ -4,7 +4,7 @@ import * as skills from '../../../util/skill_util'
 import * as math from '../../../util/game_math_util'
 import * as race from '../../../util/race_util'
 import * as armor from '../../../util/armor_util'
-import * as charClass from '../../../util/class_util'
+import * as classUtil from '../../../util/class_util'
 
 
 class MainStats extends React.Component {
@@ -13,21 +13,35 @@ class MainStats extends React.Component {
         this.handleCheckbox = this.handleCheckbox.bind(this)
     }
    
-    handleCheckbox(skill) {
+    handleCheckbox(skill, stat) {
         const characterSkills = this.props.character.skills
-        return ((characterSkills.includes(skill.toLowerCase())) ? true : false)
-
+        const characterClass = this.props.character.charClass
+        const fullClass = classUtil.fullClass
+        const classInfo = fullClass[characterClass].savingThrows
+        if (skill.toLowerCase() === 'Saving Throws'.toLowerCase() && classInfo.includes(stat.toLowerCase())) {
+            return true
+        } else if (characterSkills.includes(skill.toLowerCase())) {
+            return true
+        }
     }
+
+ 
 
     
     render () {
+
         const character = this.props.character
-        const strSkills = ['SAVING THROW', 'ATHLETICS']
-        const dexSkills = ['SAVING THROW', 'ACROBATICS', 'SLEIGHT OF HAND', 'STEALTH']
-        const constSkills = ['SAVING THROW']
-        const intelSkills = ['SAVING THROW', 'ARCANA', 'HISTORY', 'INVESTIGATION', 'NATURE', 'RELIGION']
-        const wisdSkills = ['SAVING THROW', 'ANIMAL HANDLING', 'INSIGHT', 'MEDICINE', 'PERCEPTION', 'SURVIVAL']
-        const charSkills = ['SAVING THROW', 'DECEPTION', 'INTIMIDATION', 'PERFORMANCE', 'PERSUASION']
+        let strSkills = ['Saving Throws','ATHLETICS']
+        let dexSkills = ['Saving Throws','ACROBATICS', 'SLEIGHT OF HAND', 'STEALTH']
+        let constSkills = ['Saving Throws']
+        let intelSkills = ['Saving Throws','ARCANA', 'HISTORY', 'INVESTIGATION', 'NATURE', 'RELIGION']
+        let wisdSkills = ['Saving Throws','ANIMAL HANDLING', 'INSIGHT', 'MEDICINE', 'PERCEPTION', 'SURVIVAL']
+        let charSkills = ['Saving Throws','DECEPTION', 'INTIMIDATION', 'PERFORMANCE', 'PERSUASION']
+        if (character.charClass === 'barbarian') {
+            strSkills.unshift("Saving Throws")
+            constSkills.unshift('Saving Throws')
+        }
+
         let proficiency
         if (character.level < 5) {
             proficiency = 2
@@ -88,10 +102,11 @@ class MainStats extends React.Component {
                             <div className='str-skills'>
                                 <p> Strength Skills </p>
                                 <div className='character-skills'>
+                                    {/* <input checked={this.handleThrow('dexterity')} className='character-skills-checkbox' type='checkbox' disabled={true}/>Saving Throw */}
                                     {strSkills.map((skill, i) => (
                                         <ul key={i+skill}>
                                             <div className='character-skills-checkbox'>
-                                            <input checked={this.handleCheckbox(skill)} type='checkbox' disabled={true} /> {skill}                                            </div>
+                                            <input checked={this.handleCheckbox(skill, 'strength')} type='checkbox' disabled={true} /> {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>
@@ -106,10 +121,11 @@ class MainStats extends React.Component {
                             <div className='str-skills'>
                                 <p> Dexterity Skills </p>
                                 <div className='character-skills'>
+                                    {/* <input checked={this.handleThrow('dexterity')} className='character-skills-checkbox' type='checkbox' disabled={true}/>Saving Throw */}
                                     {dexSkills.map((skill, i) => (
                                         <ul key={i+skill + 1}>
                                             <div className='character-skills-checkbox'>
-                                            <input checked={this.handleCheckbox(skill)} type='checkbox' disabled={true} /> {skill}                                            </div>
+                                            <input checked={this.handleCheckbox(skill, 'dexterity')} type='checkbox' disabled={true} /> {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>
@@ -124,10 +140,11 @@ class MainStats extends React.Component {
                             <div className='str-skills'>
                                 <p> Constitution Skills </p>
                                 <div className='character-skills'>
+                                    {/* <input checked={this.handleThrow('dexterity')} className='character-skills-checkbox' type='checkbox' disabled={true}/>Saving Throw */}
                                     {constSkills.map((skill, i) => (
                                         <ul key={i+skill + 11}>
                                             <div className='character-skills-checkbox'>
-                                            <input checked={this.handleCheckbox(skill)} type='checkbox' disabled={true} /> {skill}                                            </div>
+                                            <input checked={this.handleCheckbox(skill, 'constitution')} type='checkbox' disabled={true} /> {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>
@@ -142,10 +159,11 @@ class MainStats extends React.Component {
                             <div className='str-skills'>
                                 <p> Intelligence Skills </p>
                                 <div className='character-skills'>
+                                    {/* <input checked={this.handleThrow('dexterity')} className='character-skills-checkbox' type='checkbox' disabled={true}/>Saving Throw */}
                                     {intelSkills.map((skill, i) => (
                                         <ul key={i+skill + 12}>
                                             <div className='character-skills-checkbox'>
-                                            <input checked={this.handleCheckbox(skill)} type='checkbox' disabled={true} /> {skill}
+                                            <input checked={this.handleCheckbox(skill, 'intelligence')} type='checkbox' disabled={true} /> {skill}
                                             </div>
                                         </ul>
                                     ))}
@@ -161,10 +179,11 @@ class MainStats extends React.Component {
                             <div className='str-skills'>
                                 <p> Wisdom Skills </p>
                                 <div className='character-skills'>
+                                    {/* <input checked={this.handleThrow('dexterity')} className='character-skills-checkbox' type='checkbox' disabled={true}/>Saving Throw */}
                                     {wisdSkills.map((skill, i) => (
                                         <ul key={i+skill + 13}>
                                             <div className='character-skills-checkbox'>
-                                            <input checked={this.handleCheckbox(skill)} type='checkbox' disabled={true} /> {skill}                                            </div>
+                                            <input checked={this.handleCheckbox(skill, 'wisdom')} type='checkbox' disabled={true} /> {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>
@@ -179,10 +198,11 @@ class MainStats extends React.Component {
                             <div className='str-skills'>
                                 <p> Charisma Skills </p>
                                 <div className='character-skills'>
+                                    {/* <input checked={this.handleThrow('dexterity')} className='character-skills-checkbox' type='checkbox' disabled={true}/>Saving Throw */}
                                     {charSkills.map((skill, i) => (
                                         <ul key={i+skill + 14}>
                                             <div className='character-skills-checkbox'>
-                                            <input checked={this.handleCheckbox(skill)} type='checkbox' disabled={true} /> {skill}                                            </div>
+                                            <input checked={this.handleCheckbox(skill, 'charisma')} type='checkbox' disabled={true} /> {skill}                                            </div>
                                         </ul>
                                     ))}
                                 </div>
