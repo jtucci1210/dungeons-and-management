@@ -75,8 +75,8 @@ class CharIndexItem extends React.Component {
           <h3>{character.name}</h3>
         </div>
         <div className="character-image-div">
-          <img className='character-image' src={cardImg}></img>
-          <img className='deceased-character-image' src={deceased}></img>
+          <img className='character-image' src={cardImg} alt=""></img>
+          <img className='deceased-character-image' src={deceased} alt=""></img>
         </div>
         <div className="index-character-stats">
           <div className="character-image-health-index">
