@@ -62,7 +62,7 @@ class HomePage extends React.Component {
             <div className="home-page-lobby-join">
               <span className="or-separator">-OR-</span>
               <br />
-              <form onSubmit={this.campaignJoin} className="home-page-lobby-form">
+              <form onSubmit={() => this.campaignJoin()} className="home-page-lobby-form">
                 <input
                   type="text"
                   value={this.state.campaignRoom}
@@ -72,17 +72,12 @@ class HomePage extends React.Component {
                 />
                 <br />
                 <select
-                  value={
-                    this.state.campaignChar
-                      ? this.state.campaignChar
-                      : "Choose a character"
-                  }
                   className="campaign-char-selector"
                   onChange={e =>
                     this.setState({ campaignChar: e.target.value })
                   }
                 >
-                  <option value="Choose a Character" disabled>
+                  <option value="Choose a Character" disabled={true} selected={true}>
                     Choose a Character
                   </option>
                   {characters.map((char, i) => (
