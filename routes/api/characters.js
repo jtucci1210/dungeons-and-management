@@ -76,8 +76,8 @@ router.patch('/:char_id/edit', (req, res) => {
         char.maxHp = req.body.maxHp
         char.currentHp = req.body.currentHp
 
-        char.abilities = JSON.parse(req.body.abilities) //Possbily get rid of JSON for actual app
-        char.skills = JSON.parse(req.body.skills) //Possbily get rid of JSON for actual app
+        char.abilities = req.body.abilities
+        char.skills = req.body.skills
 
 
         char.save();

@@ -38,7 +38,7 @@ class CharacterEditPage extends React.Component {
     }
 
     handleSubmit(e) {
-
+        
         // debugger
         // e.preventDefault();
         let characterObj = {
@@ -57,7 +57,7 @@ class CharacterEditPage extends React.Component {
 
         };
 
-            this.props.editCharacter(characterObj)
+        this.props.editCharacter(characterObj).then(result => this.props.history.push(`/characters/${this.props.character._id}`))
     }
 
     componentDidMount() {

@@ -12,8 +12,7 @@ export const getCharacters = (currentUserID) => {
 };
 
 export const editCharacter = (characterData) => {
-    debugger
-    return axios.patch(`/api/characters/${characterData._id}/edit`, {characterData})
+    return axios.patch(`/api/characters/${characterData._id}/edit`, characterData)
 }
 export const createCharacter = (characterData) => {
     return axios.post(`/api/characters/create`, characterData)

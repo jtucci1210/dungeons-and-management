@@ -17,20 +17,45 @@ import * as classUtil from '../../../util/class_util'
 class GeneralStats extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            character: this.props.characters,
-            currentUser: this.props.session,
-            // currentUserID: this.props.session.user.id,
-            // race: this.props.characters.race,
-            // charClass: this.props.characters.charClass,
-            // armorType: this.props.characters.armorType,
-            // level: this.props.characters.level,
-            // maxHp: this.props.characters.maxHp,
-            // currentHp: this.props.characters.currentHp,
-        }
+        this.state = { ...this.props, loaded: false }
         this.healthManagement = this.healthManagement.bind(this)
         this.showSkillMod = this.showSkillMod.bind(this)
+    }
 
+    updateState(slice) {
+        this.setState(slice)
+    }
+
+
+    handleChange(field) {
+        return (e) => {
+            this.setState(
+                { [field]: e.target.value }
+            )
+        }
+    }
+
+    handleSubmit(e) {
+
+        // debugger
+        // e.preventDefault();
+        let characterObj = {
+            _id: this.props.character._id,
+            user: this.state.currentUserID,
+            name: this.state.name,
+            race: this.props.race,
+            charClass: this.props.charClass,
+            armorType: this.props.armorType,
+            level: this.props.level,
+            maxHp: this.props.maxHp,
+            currentHp: this.props.currentHp,
+            abilities: this.props.character.abilities,
+            skills: this.props.character.skills,
+            dateCreated: this.props.dateCreated
+
+        };
+
+        this.props.editCharacter(characterObj).then(result => this.props.history.push(`/characters/${this.props.character._id}`))
     }
 
     componentDidMount() {
@@ -128,10 +153,11 @@ class GeneralStats extends React.Component {
                     <div className='show-character-general-lvl'>
                         <p className='show-character-general-level'>
                             Level:
-                    </p>
+                        </p>
                         <div className='show-character-general-level-info'>
                             {character.level}
                         </div>
+                        
                     </div>
                 </div>
                 <div className='show-character-general-class'>
