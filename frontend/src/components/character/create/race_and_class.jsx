@@ -158,92 +158,103 @@ class RaceAndClass extends React.Component {
         let raceObject = subs ? fullRace[raceSubCombo] : fullRace[raceNoSub]
 
         return (
-            <div className="race-and-class-container">
-                <div className="race-and-class">
-                    <div className="race-container">
-                        <h1>Race</h1>
-                        <div className="race-selector">
-                            <div>
-                                <DropDown 
-                                    title="Select Race"
-                                    list={this.state.races}
-                                    className="race-drop-down"
-                                    handleClick={this.handleRaceClick}
-                                />
-                            </div>
-                            <h3>{this.state.race}</h3>
-                        </div>
-                        <div className="race-blurb">{rblurb}</div>
-                        <div className="subrace-selector">
-                            {
-                                subs
-                                    ?
-                                    <div>
-                                        <DropDown
-                                            title="Select Subrace"
-                                            list={subs}
-                                            className="subrace-drop-down"
-                                            handleClick={this.handleSubRaceClick}
-                                        />
-                                    </div>
-                                    :
-                                    <div></div>
-                            }
-                            <h3>{this.state.subrace}</h3>
-                        </div>
-                        <div className="subrace-blurb">{srblurb}</div>
-                        <div className="racial-modifiers">
-                                <div className="modifiers">
-                                    {
-                                       raceSubCombo || raceNoSub
-                                       ?
-                                        Object.keys(raceObject.abilityScores).map ( (ability,idx) =>
-                                            <div key={idx} className="race-abilities">
-                                                <div className="race-ability-name">{ability}</div>
-                                                <div className="race-ability-mod">+ {raceObject.abilityScores[ability]}</div>
-                                            </div>
-                                        )
-                                        
-                                        :
-                                        ""
-                                    }
-                                </div>
-                            <div className="speed-and-proficiencies">
-                                <div className="speed">{raceObject ? `Speed: ${raceObject.speed}` : ""}</div>
-                                <div className="skills">{this.renderSkills(raceObject)}</div>
-                                <div className="misc-halfelf">{this.state.race === "halfelf" ? "Misc: gain +1 to two ability scores and gain proficiency bonus for two skills (to be selected in next section)" : ""}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="class-container">
-                        <h1>Class</h1>
-                        <div className="class-selector">
-                            <div className="class-drop-down-box">
-                                <div>
-                                    <DropDown
-                                        title="Select Class"
-                                        list={this.state.classes}
-                                        className="class-drop-down"
-                                        handleClick={this.handleClassClick}
-                                    />
-                                </div>
-                                <h3>{this.state.class}</h3>
-                            </div>
-                        </div>
-                        <div className="class-blurb">{cblurb}</div>
-                        <div className="class-modifiers">
-                            <div className="hit-dice">{ this.state.class ? `HitDice: ${fullClass[this.state.class].hitDice}` : ""}</div>
-                            <div className="saving-throws">
-                                    {this.renderSavingThrows(this.state.class)}
-                            </div>
-                            <div className="class-skills">
-                                <div className="class-skill-list-box">{this.renderClassSkills(this.state.class)}</div>
-                            </div>
-                        </div>
-                    </div>
+          <div className="race-and-class-container">
+            <div className="race-and-class">
+              <div className="race-container">
+                <h1 className="race-class-header">Race</h1>
+                <div className="race-selector">
+                  <div>
+                    <DropDown
+                      title="Select Race"
+                      list={this.state.races}
+                      className="race-drop-down"
+                      handleClick={this.handleRaceClick}
+                    />
+                  </div>
+                  <h3>{this.state.race}</h3>
                 </div>
+                <div className="race-blurb">{rblurb}</div>
+                <div className="subrace-selector">
+                  {subs ? (
+                    <div>
+                      <DropDown
+                        title="Select Subrace"
+                        list={subs}
+                        className="subrace-drop-down"
+                        handleClick={this.handleSubRaceClick}
+                      />
+                    </div>
+                  ) : (
+                    <div></div>
+                  )}
+                  <h3>{this.state.subrace}</h3>
+                </div>
+                <div className="subrace-blurb">{srblurb}</div>
+                <div className="racial-modifiers">
+                  <div className="modifiers">
+                    {raceSubCombo || raceNoSub
+                      ? Object.keys(raceObject.abilityScores).map(
+                          (ability, idx) => (
+                            <div key={idx} className="race-abilities">
+                              <div className="race-ability-name">{ability}</div>
+                              <div className="race-ability-mod">
+                                + {raceObject.abilityScores[ability]}
+                              </div>
+                            </div>
+                          )
+                        )
+                      : ""}
+                  </div>
+                  <div className="speed-and-proficiencies">
+                    <div className="speed">
+                      {raceObject ? `Speed: ${raceObject.speed}` : ""}
+                    </div>
+                    <div className="skills">
+                      {this.renderSkills(raceObject)}
+                    </div>
+                    <div className="misc-halfelf">
+                      {this.state.race === "halfelf"
+                        ? "Misc: gain +1 to two ability scores and gain proficiency bonus for two skills (to be selected in next section)"
+                        : ""}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="class-container">
+                <h1 className="race-class-header">Class</h1>
+                <div className="class-selector">
+                  <div className="class-drop-down-box">
+                    <div>
+                      <DropDown
+                        title="Select Class"
+                        list={this.state.classes}
+                        className="class-drop-down"
+                        handleClick={this.handleClassClick}
+                      />
+                    </div>
+                    <h3>{this.state.class}</h3>
+                  </div>
+                </div>
+                <div className="class-blurb">{cblurb}</div>
+                <div className="class-modifiers">
+                  <div className="hit-dice">
+                    {this.state.class
+                      ? `HitDice: ${fullClass[this.state.class].hitDice}`
+                      : ""}
+                  </div>
+                  <div className="saving-throws">
+                    {this.renderSavingThrows(this.state.class)}
+                  </div>
+                  <div className="class-skills">
+                    <div className="class-skill-list-box">
+                      {this.renderClassSkills(this.state.class)}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        )
+          </div>
+        );
     }
 }
 

@@ -20,6 +20,7 @@
     display: flex;
     flex-direction: column;
     width: 75%;
+    /* min-width: 1050px; */
     align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -71,6 +72,9 @@
     justify-content: center;
     flex-direction: column;
 }
+
+
+
 
 .final-stats-container {
     display: flex;

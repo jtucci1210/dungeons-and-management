@@ -30,7 +30,11 @@
     align-items: center;
     height: 600px;
     padding-bottom: 5px;
+    background-color: #A6C8BC;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px black;
 }
+
 
 .race-drop-down {
     align-self: flex-end;
@@ -82,13 +86,6 @@
     cursor: pointer;
 }
 
-/* .dd-list-item-Race.true {
-    text-transform: capitalize;
-    margin: 5px;
-    text-decoration: line-through;
-    cursor: pointer;
-    color: grey;
-} */
 
 .dd-list-item-Race:Hover {
     background-color: green;
@@ -170,13 +167,6 @@
     cursor: pointer;
 }
 
-/* .dd-list-item-Subrace.true {
-    text-transform: capitalize;
-    margin: 5px;
-    text-decoration: line-through;
-    cursor: pointer;
-    color: grey;
-} */
 
 .dd-list-item-Subrace:Hover {
     background-color: green;
@@ -217,6 +207,7 @@
     display: flex;
     padding: 5px;
     flex-direction: column;
+    background-color: whitesmoke;
 }
 
 .modifiers {
@@ -356,6 +347,7 @@
     display: flex;
     padding: 10px;
     flex-direction: column;
+    background-color: whitesmoke;
 }
 
 .class-skills {
