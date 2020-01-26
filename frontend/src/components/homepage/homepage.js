@@ -42,7 +42,7 @@ class HomePage extends React.Component {
       .createCampaign()
       .then(result =>
         this.props.history.push(
-          `/campaign/${result.campaign.data.campaign._id}`
+          `/campaigns/${result.campaign.data.campaign._id}`
         )
       );
   }
