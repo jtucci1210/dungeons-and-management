@@ -111,8 +111,6 @@ class CharacterCreateForm extends React.Component {
 
     handleCheckbox(skill) {
 
-        debugger
-
         
         if (this.state.selectedSkills.includes(skill)) {
                 
@@ -200,10 +198,10 @@ class CharacterCreateForm extends React.Component {
     render() {
 
         return (
-            <div className="main-page-background-img">
-              <img src={splashImg} alt="background" className="splash-image" />
-              <div className="character-create-form-container">
-                <div className="character-create-form">
+          <div className="main-page-background-img">
+            <img src={splashImg} alt="background" className="splash-image" />
+            <div className="character-create-form-container">
+              <div className="character-create-form">
                 <div className="character-name">
                   <input
                     type="text"
@@ -272,8 +270,8 @@ class CharacterCreateForm extends React.Component {
                 </div>
                 <div>
                   {this.state.nextClicked ? (
-                    <div>
-                      <div>
+                    <div className="char-create-pg-2">
+                      <div className="char-create-pg-2-num-skills">
                         Please select {this.state.numSkills} skills below
                       </div>
                       <div className="skill-selection-container">
@@ -442,7 +440,7 @@ class CharacterCreateForm extends React.Component {
                         {this.state.selectedSkills.length ===
                           this.state.numSkills &&
                         this.state.finalRace !== "halfelf" ? (
-                          <button onClick={this.handleSubmit}>
+                          <button className="create-char-btn" onClick={this.handleSubmit}>
                             Create Character
                           </button>
                         ) : (

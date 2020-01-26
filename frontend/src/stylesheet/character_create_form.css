@@ -135,6 +135,7 @@
     height: 180px;
     margin: 50px;
     padding: 10px;
+    background-color: whitesmoke;
 }
 
 .skill-type {
@@ -189,4 +190,30 @@
     height: 33px;
     border-radius: 3px;
     background-color: #A6C8BC;
+}
+
+.char-create-pg-2 {
+    background-color: #A6C8BC;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.char-create-pg-2-num-skills {
+    font-family: Special Elite;
+
+}
+
+.create-char-btn {
+    font-family: Special Elite;
+    width: 100px;
+    height: 33px;
+    border-radius: 3px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px black;
 }
