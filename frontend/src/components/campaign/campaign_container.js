@@ -4,8 +4,10 @@ import { joinCampaign } from "../../actions/campaign_actions";
 import { getCampaignCharacters } from "../../actions/character_actions";
 
 const mapStateToProps = state => {
+
 	return {
-		characters: state.characters
+		characters: state.characters,
+		currentUser: state.session.user
 	}
 };
 

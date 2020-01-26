@@ -1,6 +1,4 @@
 #campaignContainer {
-	// position: absolute;
-	// margin-top: 150px;
 	padding-top: 150px;
 	display: flex;
 	flex-direction: column;
@@ -9,21 +7,10 @@
 }
 
 #char-boxes {
-	display: flex;
-
-	// span {
-	// 	font-size: 20px;
-	// 	display: flex;
-	// 	margin: 10px;
-	// 	padding: 10px;
-	// 	border: solid 1px black;
-
-	// 	h3 {
-	// 		padding: 5px;
-	// 	}
-
-	// 	div {
-	// 		padding: 5px;
-	// 	}
-	// }
+    display: flex;
+    
+    .character-box {
+        background-color: blue; //Temp until background color is chosen
+    }
+    
 }

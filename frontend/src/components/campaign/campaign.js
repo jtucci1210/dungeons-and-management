@@ -9,12 +9,21 @@ class CampaignRoom extends React.Component {
 	constructor(props) {
 		super(props);
 		this.socket = io.connect("http://localhost:8080");
-		this.state = {characters: []} 
+		this.state = {
+			currentChar: {}
+		} 
 	}
 
 	componentDidMount() {
-		this.props.getCampaignCharacters(this.props.match.params.campId);
+		this.props.getCampaignCharacters(this.props.match.params.campId)
+			.then(() => this.getCurrentChar())
 		this.initializeSocketListeners();
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevState.characters !== this.state.characters){
+			this.props.getCampaignCharacters(this.props.match.params.campId);
+		}
 	}
 
 	initializeSocketListeners() {
@@ -40,6 +49,7 @@ class CampaignRoom extends React.Component {
 
 	handleHpClick(type) {
 		this.socket.emit("hp", type);
+
 	}
 
 	renderChars() {
@@ -47,19 +57,29 @@ class CampaignRoom extends React.Component {
 		if (this.props.characters.keys){
 			return this.props.characters.map(char => {
 				return (
-						<CharIndexItem character={char} />
+							<CharIndexItem character={char} />
+
 				);
 			});
 		}
 	}
 
+	getCurrentChar() {
+		return this.props.characters.forEach(char => {
+			if (this.props.currentUser.id === char.userId ) {
+				this.setState({currentChar: char})
+			}
+		})
+	}
+	
 	render() {
+		
 		return (
 			<div id="campaignContainer">
 				<ul id="char-boxes">{this.renderChars()}</ul>
 				<h3>Safar</h3>
 				<h3 id="hp" className="ws-test">
-					15
+					{this.state.currentChar.currentHp}
 				</h3>
 				<button
 					className="ws-test"

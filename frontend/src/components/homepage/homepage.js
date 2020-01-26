@@ -35,6 +35,7 @@ class HomePage extends React.Component {
 	}
 
 	campaignJoin(e) {
+		debugger
 		e.preventDefault();
 		const { characters } = this.props;
 		let charId = "";
