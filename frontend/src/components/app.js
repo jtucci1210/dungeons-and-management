@@ -9,6 +9,7 @@ import HomePage from './homepage/homepage_container';
 import CharacterShowContainer from './character/show/character_show_container';
 import CampaignContainer from './campaign/campaign_container';
 import Footer from './footer/footer';
+import EditShowPage from './character/edit/character_edit_container'
 
 const App = () => (
     <div>
@@ -19,6 +20,7 @@ const App = () => (
             <ProtectedRoute exact path='/home' component={HomePage} />
             <ProtectedRoute exact path="/characters/new" component={CharacterCreateFormContainer} />
             <ProtectedRoute exact path="/characters/:characterId" component={CharacterShowContainer} />
+            <ProtectedRoute exact path="/characters/edit/:characterId" component={EditShowPage} />
             <ProtectedRoute exact path="/campaigns/:campId" component={CampaignContainer} />
         </Switch>
         <Footer/>

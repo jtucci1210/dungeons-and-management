@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { withRouter } from 'react-router-dom'
 import '../../../stylesheet/show_page.css'
 import '../../../stylesheet/test.css'
@@ -30,30 +31,40 @@ class CharacterShowPage extends React.Component {
            
             return (
                 <div className='show-character-box'>
-                    <div className='show-character-header'>
-                        <div className="show-character-name">
-                            {character.name}
-                        </div>
-                        <div className="show-character-hp">
-                            <div className="show-character-current-hp">
-                                Max Life: {character.maxHp}
-                            </div>
-                            <div className="show-character-current-hp">
-                                Current Life: {character.currentHp}
-                            </div>
-                            <div className="show-character-current-hp">
-                                {character.level}d
-                            </div>
-                        </div>
+                    <div className='edit-character-link'>
+                        <Link
+                            to={`/characters/edit/${character._id}`}
+                            className="edit-character-link"
+                        >
+                           Edit Character
+                        </Link>
                     </div>
-                    <div className='show-character-page'>
+                    <div className='show-character-info-box'>
+                        <div className='show-character-header'>
+                            <div className="show-character-name">
+                                {character.name}
+                            </div>
+                            <div className="show-character-hp">
+                                <div className="show-character-current-hp">
+                                    Max Life: {character.maxHp}
+                                </div>
+                                <div className="show-character-current-hp">
+                                    Current Life: {character.currentHp}
+                                </div>
+                                <div className="show-character-current-hp">
+                                    {character.level}d
+                                </div>
+                            </div>
+                        </div>
+                        <div className='show-character-page'>
+                            <div>
+                                <GeneralStats character={character}/>
+                            </div>
+                            <MainStats character={character} />
+                        </div>
                         <div>
-                            <GeneralStats character={character}/>
+                            {/* <Items character={character}/> */}
                         </div>
-                        <MainStats character={character} />
-                    </div>
-                    <div>
-                        {/* <Items character={character}/> */}
                     </div>
                 </div>
             )

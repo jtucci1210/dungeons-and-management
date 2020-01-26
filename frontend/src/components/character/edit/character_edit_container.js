@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux';
-import CharacterShowPage from './character_show'
-import { getCharacter } from '../../../actions/character_actions';
+import CharacterEditPage from './character_edit'
+import { getCharacter, editCharacter } from '../../../actions/character_actions';
 import { withRouter } from 'react-router-dom';
 
 
@@ -12,10 +12,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    getCharacter: characterId => dispatch(getCharacter(characterId))
+    getCharacter: characterId => dispatch(getCharacter(characterId)),
+    editCharacter: data => dispatch(editCharacter(data))
 })
 
 export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(CharacterShowPage));
+)(CharacterEditPage));
