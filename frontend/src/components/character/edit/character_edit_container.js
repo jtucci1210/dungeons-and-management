@@ -17,12 +17,13 @@ const mapStateToProps = state => {
         level: state.characters.level, 
         maxHp: state.characters.maxHp, 
         currentHp: state.characters.currentHp, 
+        dateCreated: state.characters.dateCreated
         })
 };
 
 const mapDispatchToProps = dispatch => ({
     getCharacter: characterId => dispatch(getCharacter(characterId)),
-    editCharacter: data => dispatch(editCharacter(data))
+    editCharacter: characterObj => dispatch(editCharacter(characterObj))
 })
 
 export default withRouter(connect(

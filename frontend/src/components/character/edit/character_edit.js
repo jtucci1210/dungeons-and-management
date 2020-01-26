@@ -14,10 +14,50 @@ import * as classUtil from '../../../util/class_util'
 class CharacterEditPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            loaded: false,
+        // this.state = {
+        //     loaded: false,
+        // }
+        this.state = { ...this.props, loaded: false }
+        this.updateState = this.updateState.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+
+    updateState(slice) {
+        this.setState(slice)
+    }
+
+
+    handleChange(field) {
+        return (e) => {
+            this.setState(
+                { [field]: e.target.value }
+            )
         }
-        this.state = { ...this.props }
+    }
+
+    handleSubmit(e) {
+
+        // debugger
+        // e.preventDefault();
+        let characterObj = {
+            _id: this.props.character._id,
+            user: this.state.currentUserID,
+            name: this.state.name,
+            race: this.props.race,
+            charClass: this.props.charClass,
+            armorType: this.props.armorType,
+            level: this.props.level,
+            maxHp: this.props.maxHp,
+            currentHp: this.props.currentHp,
+            abilities: this.props.character.abilities,
+            skills: this.props.character.skills,
+            dateCreated: this.props.dateCreated
+
+        };
+
+            this.props.editCharacter(characterObj)
     }
 
     componentDidMount() {
@@ -57,6 +97,18 @@ class CharacterEditPage extends React.Component {
                             >
                             {character.name}
                             </Link>
+                            {/* <input type="text" placeholder="character name" onChange={this.handleChange('name')} /> */}
+                            <form onSubmit={this.handleSubmit} className='character-name-edit'>
+                                <label>
+                                    <input type='text'
+                                        placeholder={character.name} 
+                                        value={this.state.name}
+                                        onChange={this.handleChange('name')}
+                                        className='character-name-field'
+                                        />
+                                </label> 
+                                <input className="edit-name-submit-button" type="submit" value={this.props.formType} />
+                            </form>
                         </div>
                         <div className="show-character-hp">
                             <div className="show-character-current-hp">

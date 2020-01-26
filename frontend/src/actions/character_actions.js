@@ -36,6 +36,7 @@ export const editCharacter = data => dispatch =>
 	CHARACTERAPIUTIL.editCharacter(data).then(character =>
 		dispatch(receiveCharacter(character.data))
 	);
+	
 export const createCharacter = data => dispatch =>
 	CHARACTERAPIUTIL.createCharacter(data).then(character =>
 		dispatch(receiveCharacter(character.data))
