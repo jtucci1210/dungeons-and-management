@@ -1,69 +1,132 @@
-.show-character-box {
-    padding-top: 175px;
-    font-family: Birmingham;
-}
-
-
 .show-character-page {
-    padding-top: 50px;
     display: flex;
-    padding-bottom: 200px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 175px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-    .show-character-header{
-        display: flex;
-        justify-content: space-between;
-        padding-top: 5px;
 
-    }
+.show-character-box {
+    padding: 10px;
+    margin-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px black;
+    max-width: 1400px;
+    background-color: rgb(14, 24, 37);
 
-    .show-character-name {
-        text-align: center;
-        font-size: 40px;
-        text-decoration: underline;
-        padding-left: 20px;
-    }
+}
 
-    .show-character-hit-dice {
-        width: auto;
-        padding-right: 10px;
-    }
+.show-character-header{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    font-family: Special Elite;
+    align-items: center;
 
-    .show-character-current-hp{
-        padding-left: 10px;
-    }
+}
 
-    .show-character-hp{
-        padding-right: 20px;
-    }
+.show-character-name {
+    text-align: center;
+    font-size: 40px;
+    text-decoration: underline;
+    padding-left: 20px;
+    color: #A6C8BC;
+}
 
+.edit-delete-char {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.edit-delete-char-btn {
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color:  #A6C8BC;
+    font-family: Special Elite;
+    box-shadow: 5px 5px 10px black;
 
+}
+
+.edit-delete-char-btn:hover {
+    cursor: pointer;
+}
+
+.all-stats {
+    display: flex;
+}
 
 /* ---------------------------- */
 
 /* general stats styling */
 
-.placeholder-img {
-    height: 175px;
-    margin: 8px;
+.show-character-image-div {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid black;
+}
+
+.show-character-image {
+    position: absolute;
+    max-width:100%;
+    height:auto;
 }
 
 .show-character-general-stats {
     margin: 15px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
     height: 500px;
-    width: 350px;
-    border: 2px groove rgba(181, 139, 0, 0.776)
+    width: 225px;
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: #A6C8BC;
+    box-shadow: 5px 5px 10px black;
 }
 
-.show-character-general-level-info {
-    padding-left: 4px;
-}
 
 .show-character-general-info {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     padding: 0px 4px;
+}
+
+.show-character-general {
+    display: flex;
+    align-items: baseline;
+    padding-top: 10px;
+}
+
+.show-character-general-race,
+.show-character-general-class,
+.show-character-general-maxhp,
+.show-character-general-currhp,
+.show-character-general-hd,
+.show-character-general-level {
+    font-family: Special Elite;
+}
+
+.show-character-general-race-info,
+.show-character-general-class-info,
+.show-character-general-maxhp-info,
+.show-character-general-currhp-info,
+.show-character-general-hd-info,
+.show-character-general-level-info {
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: capitalize;
 }
 
 
@@ -71,22 +134,13 @@
 
 /* main stats styling */
 
-.show-character-battle-stats {
-    /* delete */
-    /* border: 2px solid red; */
-    /* delete */
-    
-}
 
 .show-character-main-stats{
     padding: 15px;
-    /* width: 75%; */
+    width: 75%;
 }
 
 .show-character-battle-stats-titles{
-    /* display: flex;
-    justify-content: space-between;
-    padding: 10px; */
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-gap: 10px;
@@ -97,9 +151,6 @@
 }
 
 .show-character-battle-stats-info {
-    /* display: flex;
-    justify-content: space-between;
-    padding: 10px; */
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-gap: 10px;
@@ -108,60 +159,43 @@
     align-items: center;
 }
     .battle-state-title {
-        border: 2px solid brown;
+        border: 1px black solid;
+        border-radius: 5px;
+        background-color: #A6C8BC;
+        font-family: Special Elite;
         display: flex;
+        text-align: center;
         justify-content: center;
         height: 50px;
         align-items: center;
-        min-width: 100px;
         padding: 0px 5px;
         width: 150px;
         margin-bottom: 4px;
+        box-shadow: 5px 5px 10px black;
+
     }
     .battle-state-title-info {
-        border: 2px solid brown;
+        border: 1px black solid;
+        border-radius: 5px;
+        background-color: whitesmoke;
         height: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
         max-width: 159px;
         padding-top: 4px;
+        box-shadow: 5px 5px 10px black;
+
     }
 
-.show-character-general-race,
-.show-character-general-lvl,
-.show-character-general-class {
-    display: flex;
-    margin-right: 5px;
-}
-
-.show-character-general-class {
-    padding: 0px 4px;
-}
-
-.show-character-general-hp,
-.show-character-general-class,
-.show-character-general-class,
-.show-character-general-race-info div{
-padding-top: 4px;
-}
-
-.show-character-general-hp {
-    text-transform: none;
-}
 
 
 /* ---------------------------- */
 
 .show-character-all-stats {
     display: flex;
-    /* grid-template-columns: auto auto auto auto auto auto;
-    grid-gap: 10px; */
     padding: 10px;
     font-size: 14px;
-     /* delete */
-    /* border: 2px solid red; */
-    /* delete */
     justify-content: space-between;
     margin-top: 10px
     
@@ -170,21 +204,25 @@ padding-top: 4px;
 .show-character-self-stat {
     display: block;
     text-align: center;
-    min-width: 100px;
-    border: 2px solid #173514;
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: #A6C8BC;
     width: 207px;
     margin: 4px;
     padding: 5px;
+    box-shadow: 5px 5px 10px black;
+
 }
 
 .show-character-self-stat p {
     padding: 10px 0px;
+    font-family: Special Elite;
+
 }
 .show-character-self-stat ul {
     padding: 5px 0px;
-
+    
 }
-
 
 
     .str-value{
@@ -229,19 +267,4 @@ padding-top: 4px;
         padding-bottom: 150px;
     }
 
-.show-character-image-div {
-    height: 200px;
-    width: 200px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid black;
-    
-    
-}
 
-.show-character-image {
-    /* display: block; */
-    height: 400px;
-    width: 200px;
-    object-fit: contain;
-}
