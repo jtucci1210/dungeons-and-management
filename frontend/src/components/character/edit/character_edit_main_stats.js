@@ -11,21 +11,11 @@ import * as classUtil from '../../../util/class_util'
 class EditMainStats extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            // character: this.props.characters,
-            // currentUser: this.props.session,
-            // currentUserID: this.props.session.user.id,
-            // race: this.props.characters.race,
-            // charClass: this.props.characters.charClass,
-            // armorType: this.props.characters.armorType,
-            // level: this.props.characters.level,
-            // maxHp: this.props.characters.maxHp,
-            // currentHp: this.props.characters.currentHp,
-        }
-
+        this.state = { ...this.props, loaded: false }
         this.handleCheckbox = this.handleCheckbox.bind(this)
         this.showSkillMod = this.showSkillMod.bind(this)
         this.addOrRemoveLevel = this.addOrRemoveLevel.bind(this)
+        // this.changeArmor = this.changeArmor.bind(this)
     }
 
     addOrRemoveLevel(e) {
@@ -134,12 +124,33 @@ class EditMainStats extends React.Component {
 
 
     myFunction() {
-        debugger
         document.getElementById("myDropdown").classList.toggle("show");
     }
 
 // Close the dropdown if the user clicks outside of it
    
+    // changeArmor(armor) {
+    //     armor.preventDefault()
+    //     let newArmor = armor
+    //     let characterObj = {
+    //         _id: this.props.character._id,
+    //         user: this.state.currentUserID,
+    //         name: this.state.name,
+    //         race: this.props.race,
+    //         charClass: this.props.charClass,
+    //         armorType: newArmor,
+    //         level: this.props.level,
+    //         maxHp: this.props.maxHp,
+    //         currentHp: this.props.currentHp,
+    //         abilities: this.props.character.abilities,
+    //         skills: this.props.character.skills,
+    //         dateCreated: this.props.dateCreated
+
+    //     };
+
+    //     this.props.editCharacter(characterObj).then(result => this.props.history.push(`/characters/${this.props.character._id}`))
+
+    // }
 
 
     
@@ -185,10 +196,21 @@ class EditMainStats extends React.Component {
                                 <p className='battle-state-title'>A.C.</p>
                                 <div className='battle-state-title-info'>{armorClass(characterArmor, math.mod(character.abilities.dexterity), )}</div>
                                 <div className="dropdown">
-                                    <button onClick={() => this.myFunction()} className="dropbtn">Dropdown</button>
-                                    <div id="myDropdown" className="dropdown-content">
-                                            
-                                    </div>
+                                    <button onClick={() => this.myFunction()} className="dropbtn">Change Armor</button>
+                                    {/* <div id="myDropdown" className="dropdown-content"> */}
+                                        {/* <div> Current Armor: {character.armorType}</div> */}
+                                        <select 
+
+                                            onClick={() => this.myFunction()} className="dropbtn"
+                                            value={this.state.armorType} 
+                                            onChange={(armor) => this.setState({ armorType: armor.target.value })}>
+                                            <div>
+                                                {armor.armorTypes.map((armor, i) => (
+                                                    <option key={`${armor}-${i}`} value={armor}>{armor}</option>
+                                                ))}
+                                            </div>
+                                        </select>
+                                    {/* </div> */}
                                 </div>
                             </div>
                             <div>

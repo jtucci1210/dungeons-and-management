@@ -38,8 +38,6 @@ class CharacterEditPage extends React.Component {
     }
 
     handleSubmit(e) {
-        
-        debugger
         // e.preventDefault();
         let characterObj = {
             _id: this.props.character._id,
