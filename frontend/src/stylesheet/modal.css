@@ -17,6 +17,7 @@
   box-shadow: 5px 5px 15px black;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #173514;
   background-image: url("https://www.transparenttextures.com/patterns/shley-tree-1.png");
   border-radius: 10px;

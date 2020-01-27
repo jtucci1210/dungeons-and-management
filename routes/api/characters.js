@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const ObjectId = require('mongodb').ObjectID;
+const mongoose = require('mongoose')
 
 //Files
 const Character = require("../../models/Character")
@@ -12,6 +13,16 @@ router.get("/user/:user_id", (req, res) => {
         Character.find({ userId: req.params.user_id })
             .then(characters => res.json(characters))
 }) 
+
+//Return list of all characters given an array of their ids
+router.post("/campaign", (req, res) => {
+    let charArr = req.body.map(charIds =>
+		mongoose.Types.ObjectId(charIds)
+	);
+
+	Character.find({ _id: { $in: charArr } })
+		.then(characters => res.json(characters));
+}); 
 
 //Create New Character
 router.post("/create", (req, res) => {

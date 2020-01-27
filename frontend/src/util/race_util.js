@@ -82,7 +82,8 @@ export const fullRace = {
     dragonborn: {
         abilityScores: {
             strength: 2,
-            charisma: 1
+            charisma: 1,
+            
         },
         speed: 30,
         skillProficiencies: null

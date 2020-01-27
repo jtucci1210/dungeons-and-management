@@ -1,11 +1,13 @@
 import * as CampaignUtil from "../util/campaign_util";
 export const RECEIVE_CAMPAIGN = "RECEIVE_CAMPAIGN";
-const receiveCampaign = campaign => {
+
+const receiveCampaign = payload => {
   return {
     type: RECEIVE_CAMPAIGN,
-    campaign
+    campaign: payload.data
   };
 };
+
 export const joinCampaign = (id, charId) => dispatch => {
   return CampaignUtil.join(id, charId).then(campaign =>
     dispatch(receiveCampaign(campaign))
@@ -17,3 +19,9 @@ export const createCampaign = () => dispatch => {
     dispatch(receiveCampaign(campaign))
   );
 };
+
+export const fetchCampaignByKey = (campRoom) => dispatch => {
+  return CampaignUtil.fetchCampaignByKey(campRoom).then(campaign =>
+    dispatch(receiveCampaign(campaign))
+  );
+}
