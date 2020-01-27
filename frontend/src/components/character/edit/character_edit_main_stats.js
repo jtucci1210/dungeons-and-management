@@ -24,6 +24,88 @@ class EditMainStats extends React.Component {
 
         this.handleCheckbox = this.handleCheckbox.bind(this)
         this.showSkillMod = this.showSkillMod.bind(this)
+        this.addOrRemoveLevel = this.addOrRemoveLevel.bind(this)
+    }
+
+    addOrRemoveLevel(e) {
+        const value = e.target.name
+        let newLevel = this.props.character.level
+        let str = this.props.character.abilities.strength
+        let dex = this.props.character.abilities.dexterity
+        let constit = this.props.character.abilities.constitution
+        let intel = this.props.character.abilities.intelligence
+        let wisd = this.props.character.abilities.wisdom
+        let char = this.props.character.abilities.charisma
+
+        if (value === 'decrease-str' && str > 1) {
+           
+            str = str - 1
+        } else if (value === 'increase-str') {
+            str = str + 1
+        }
+        else if (value === 'decrease-dex' && dex > 1) {
+            dex = dex - 1
+        } else if (value === 'increase-dex') {
+            dex = dex + 1
+        }
+        else if (value === 'decrease-constit' && constit > 1) {
+            constit = constit - 1
+        } else if (value === 'increase-constit') {
+            constit = constit + 1
+        }
+        else if (value === 'decrease-intel' && intel > 1) {
+            intel = intel - 1
+        } else if (value === 'increase-intel') {
+            intel = intel + 1
+        }
+        else if (value === 'decrease-wisd' && wisd > 1) {
+            wisd = wisd - 1
+        } else if (value === 'increase-wisd') {
+            wisd = wisd + 1
+        }
+        else if (value === 'decrease-char' && char > 1) {
+            char = char - 1
+        } else if (value === 'increase-char') {
+            char = char + 1
+        }
+
+       
+        let characterObj = {
+            _id: this.props.character._id,
+            user: this.state.currentUserID,
+            name: this.props.character.name,
+            race: this.props.character.race,
+            charClass: this.props.character.charClass,
+            armorType: this.props.character.armorType,
+            level: newLevel,
+            maxHp: this.props.character.maxHp,
+            currentHp: this.props.character.currentHp,
+            abilities: {
+                strength: str,
+                dexterity: dex,
+                constitution: constit,
+                intelligence: intel,
+                wisdom: wisd,
+                charisma: char,
+
+            },
+            skills: this.props.character.skills,
+            dateCreated: this.props.character.dateCreated
+
+        };
+        if (str  !== this.props.character.abilities.strength
+            || 
+            dex  !== this.props.character.abilities.dexterity
+            || 
+            constit  !== this.props.character.abilities.constitution
+            || 
+            wisd  !== this.props.character.abilities.wisdom
+            || 
+            intel  !== this.props.character.abilities.intelligence
+            || 
+            char  !== this.props.character.abilities.charisma) {
+            this.props.editCharacter(characterObj)
+        }
     }
    
     handleCheckbox(skill, stat) {
@@ -55,12 +137,12 @@ class EditMainStats extends React.Component {
     render () {
 
         const character = this.props.character
-        let strSkills = ['Saving Throws','ATHLETICS']
-        let dexSkills = ['Saving Throws','ACROBATICS', 'SLEIGHT OF HAND', 'STEALTH']
-        let constSkills = ['Saving Throws']
-        let intelSkills = ['Saving Throws','ARCANA', 'HISTORY', 'INVESTIGATION', 'NATURE', 'RELIGION']
-        let wisdSkills = ['Saving Throws','ANIMAL HANDLING', 'INSIGHT', 'MEDICINE', 'PERCEPTION', 'SURVIVAL']
-        let charSkills = ['Saving Throws','DECEPTION', 'INTIMIDATION', 'PERFORMANCE', 'PERSUASION']
+        let strSkills = ['SAVING THROWS','ATHLETICS']
+        let dexSkills = ['SAVING THROWS','ACROBATICS', 'SLEIGHT OF HAND', 'STEALTH']
+        let constSkills = ['SAVING THROWS']
+        let intelSkills = ['SAVING THROWS','ARCANA', 'HISTORY', 'INVESTIGATION', 'NATURE', 'RELIGION']
+        let wisdSkills = ['SAVING THROWS','ANIMAL HANDLING', 'INSIGHT', 'MEDICINE', 'PERCEPTION', 'SURVIVAL']
+        let charSkills = ['SAVING THROWS','DECEPTION', 'INTIMIDATION', 'PERFORMANCE', 'PERSUASION']
 
         let proficiency
         if (character.level < 5) {
@@ -117,7 +199,9 @@ class EditMainStats extends React.Component {
                         <div className='show-character-self-stat'>
                             <p>Strength</p>
                             <div className='show-character-ability-pair'>
-                                <div className='show-character-ability-value'> {character.abilities.strength} </div>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='increase-str'> + </button>
+                                    <div className='show-character-ability-value'> {character.abilities.strength} </div>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='decrease-str'> - </button>
                                 <div className='show-character-ability-modifier'> {math.mod(character.abilities.strength)} </div>
                             </div>
                             <div className='str-skills'>
@@ -136,7 +220,9 @@ class EditMainStats extends React.Component {
                         <div className='show-character-self-stat'>
                             <p>Dexterity</p>
                             <div className='show-character-ability-pair'>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='increase-dex'> + </button>
                                 <div className='show-character-ability-value'>{character.abilities.dexterity}</div>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='decrease-dex'> - </button>
                                 <div className='show-character-ability-modifier'> {math.mod(character.abilities.dexterity)} </div>
                             </div>
                             <div className='str-skills'>
@@ -155,7 +241,9 @@ class EditMainStats extends React.Component {
                         <div className='show-character-self-stat'>
                             <p>Constitution</p>
                             <div className='show-character-ability-pair'>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='increase-constit'> + </button>
                                 <div className='show-character-ability-value'> {character.abilities.constitution} </div>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='decrease-constit'> - </button>
                                 <div className='show-character-ability-modifier'> {math.mod(character.abilities.constitution)} </div>
                             </div>
                             <div className='str-skills'>
@@ -173,7 +261,9 @@ class EditMainStats extends React.Component {
                         <div className='show-character-self-stat'>
                             <p>Intelligence</p>
                             <div className='show-character-ability-pair'>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='increase-intel'> + </button>
                                 <div className='show-character-ability-value'> {character.abilities.intelligence} </div>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='decrease-intel'> - </button>
                                 <div className='show-character-ability-modifier'> {math.mod(character.abilities.intelligence)} </div>
                             </div>
                             <div className='str-skills'>
@@ -191,7 +281,9 @@ class EditMainStats extends React.Component {
                         <div className='show-character-self-stat'>
                             <p>Wisdom</p>
                             <div className='show-character-ability-pair'>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='increase-wisd'> + </button>
                                 <div className='show-character-ability-value'>{character.abilities.wisdom} </div>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='decrease-wisd'> - </button>
                                 <div className='show-character-ability-modifier'> {math.mod(character.abilities.wisdom)} </div>
                             </div>
                             <div className='str-skills'>
@@ -209,7 +301,9 @@ class EditMainStats extends React.Component {
                         <div className='show-character-self-stat'>
                             <p>Charisma</p>
                             <div className='show-character-ability-pair'>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='increase-char'> + </button>
                                 <div className='show-character-ability-value'> {character.abilities.charisma} </div>
+                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='decrease-char'> - </button>
                                 <div className='show-character-ability-modifier'> {math.mod(character.abilities.charisma)} </div>
                             </div>
                             <div className='str-skills'>

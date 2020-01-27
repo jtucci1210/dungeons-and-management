@@ -127,7 +127,7 @@ class CharacterEditPage extends React.Component {
                         <div>
                             <EditGeneralStats character={character} editCharacter={editCharacter} currentUserID={this.props.currentUserID}/>
                         </div>
-                        <EditMainStats character={character} />
+                        <EditMainStats character={character} editCharacter={editCharacter} currentUserID={this.props.currentUserID} />
                     </div>
                     <div>
                         {/* <Items character={character}/> */}

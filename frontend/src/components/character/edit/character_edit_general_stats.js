@@ -132,7 +132,7 @@ class EditGeneralStats extends React.Component {
         }
     }
 
-    addOrRemoveLevel(e, character) {
+    addOrRemoveLevel(e) {
         const value = e.target.name
         let newLevel = this.props.character.level
 
