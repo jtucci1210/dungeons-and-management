@@ -6,6 +6,8 @@ import '../../../stylesheet/test.css'
 import GeneralStats from './character_general_stats';
 import MainStats from './character_main_stats';
 import * as classUtil from '../../../util/class_util'
+import splashImg from '../../splash/splash_image.jpg'
+
 
 
 
@@ -33,44 +35,26 @@ class CharacterShowPage extends React.Component {
             const fullClass = classUtil.fullClass
             const hitDice = fullClass[character.charClass].hitDice
             return (
-                <div className='show-character-box'>
-                    <div className='edit-character-link'>
-                        <Link
-                            to={`/characters/edit/${character._id}`}
-                            className="edit-character-link"
-                        >
-                           Edit Character
-                        </Link>
+            <div className="main-page-background-img">
+              <img src={splashImg} alt="background" className="splash-image" />
+              <div className="show-character-page">
+                <div className="show-character-box">
+                  <div className="show-character-header">
+                    <div className="show-character-name">{character.name}</div>
+                    <div className="edit-delete-char">
+                        <button className="edit-delete-char-btn">Edit Character</button>
+                        <button className="edit-delete-char-btn">Delete Character</button>
                     </div>
-                    <div className='show-character-info-box'>
-                        <div className='show-character-header'>
-                            <div className="show-character-name">
-                                {character.name}
-                            </div>
-                            <div className="show-character-hp">
-                                <div className="show-character-current-hp">
-                                    Max Life: {character.maxHp}
-                                </div>
-                                <div className="show-character-current-hp">
-                                    Current Life: {character.currentHp}
-                                </div>
-                                <div className="show-character-current-hp">
-                                    {character.level}d{hitDice}
-                                </div>
-                            </div>
-                        </div>
-                        <div className='show-character-page'>
-                            <div>
-                                <GeneralStats character={character}/>
-                            </div>
-                            <MainStats character={character} />
-                        </div>
-                        <div>
-                            {/* <Items character={character}/> */}
-                        </div>
-                    </div>
+                  </div>
+                  <div className="all-stats">
+                    <GeneralStats character={character} />
+                    <MainStats character={character} />
+                  </div>
                 </div>
-            )
+                <div>{/* <Items character={character}/> */}</div>
+              </div>
+            </div>
+            );
         } else {
             return (<div className='test'>Loading</div>)
         }

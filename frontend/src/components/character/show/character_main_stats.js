@@ -19,7 +19,7 @@ class MainStats extends React.Component {
         const characterClass = this.props.character.charClass
         const fullClass = classUtil.fullClass
         const classInfo = fullClass[characterClass].savingThrows
-        if (skill.toLowerCase() === 'Saving Throws'.toLowerCase() && classInfo.includes(stat.toLowerCase())) {
+        if (skill.toLowerCase() === 'Saving Throw'.toLowerCase() && classInfo.includes(stat.toLowerCase())) {
             return true
         } else if (characterSkills.includes(skill.toLowerCase())) {
             return true
@@ -43,12 +43,12 @@ class MainStats extends React.Component {
     render () {
 
         const character = this.props.character
-        let strSkills = ['Saving Throws','ATHLETICS']
-        let dexSkills = ['Saving Throws','ACROBATICS', 'SLEIGHT OF HAND', 'STEALTH']
-        let constSkills = ['Saving Throws']
-        let intelSkills = ['Saving Throws','ARCANA', 'HISTORY', 'INVESTIGATION', 'NATURE', 'RELIGION']
-        let wisdSkills = ['Saving Throws','ANIMAL HANDLING', 'INSIGHT', 'MEDICINE', 'PERCEPTION', 'SURVIVAL']
-        let charSkills = ['Saving Throws','DECEPTION', 'INTIMIDATION', 'PERFORMANCE', 'PERSUASION']
+        let strSkills = ['Saving Throw','Athletics']
+        let dexSkills = ['Saving Throw','Acrobatics', 'Sleight of hand', 'Stealth']
+        let constSkills = ['Saving Throw']
+        let intelSkills = ['Saving Throw','Arcanas', 'History', 'Investigation', 'Nature', 'Religion']
+        let wisdSkills = ['Saving Throw','Animal handling', 'Insight', 'Medicine', 'Perception', 'Survival']
+        let charSkills = ['Saving Throw','Deception', 'Intimidation', 'Performance', 'Persuasion']
 
         let proficiency
         if (character.level < 5) {

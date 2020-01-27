@@ -13,6 +13,7 @@ import * as math from '../../../util/game_math_util'
 import * as race from '../../../util/race_util'
 import * as armor from '../../../util/armor_util'
 import * as classUtil from '../../../util/class_util'
+import DeceasedImg from "../../homepage/deceased.png";
 
 class GeneralStats extends React.Component {
     constructor(props) {
@@ -22,7 +23,7 @@ class GeneralStats extends React.Component {
 
     }
 
-    healthManagement(hitDice, newLevel) {
+    healthManagement(hitDice) {
         const character = this.props.character
         const constitutionMod = math.mod(character.abilities.constitution)
         const characterClass = this.props.character.charClass
@@ -93,52 +94,61 @@ class GeneralStats extends React.Component {
         const cardImg = this.charImage();
         const fullClass = classUtil.fullClass
         const hitDice = fullClass[character.charClass].hitDice
+        const deceased = character.currentHp === 0 ? DeceasedImg : "";
+
 
     return (
-        <div className='show-character-general-stats'>
-            <div className="show-character-image-div">
-                <img className="show-character-image" src={cardImg}></img>
-            </div>
-            <div className="show-character-general-info">
-                <div className='show-character-general-race'>
-                    <p className='show-character-general-race'>
-                        Race: 
-                    </p>
-                    <div className='show-character-general-race-info'>
-                        {character.race}
-                    </div>
-                </div>
-                <div className='show-character-general-lvl'>
-                    <p className='show-character-general-level'>
-                        Level:
-                    </p>
-                    <div className='show-character-general-level-info'>
-                        {character.level}
-                    </div>
-                </div>
-            </div>
-                <div className='show-character-general-class'>
-                    <p className='show-character-general-race'>
-                        Class:
-                    </p>
-                    <div className='show-character-general-class-info'>
-                        {character.charClass}
-                    </div>
-                </div>
-            <div className="show-character-general-hp">
-                <div className="show-character-general-hp">
-                    Max Life: {this.healthManagement(hitDice)}
-                    {/* Max Life: {character.maxHp} */}
-                </div>
-                <div className="show-character-general-hp">
-                    Current Life: {character.currentHp}
-                </div>
-                <div className="show-character-general-hp">
-                   {character.level}d{hitDice}
-                </div>
-            </div>
+      <div className="show-character-general-stats">
+        <div className="show-character-image-div">
+          <img className="show-character-image" src={cardImg}></img>
+          <img className="deceased-character-image" src={deceased}></img>
         </div>
-    )
+        <div className="show-character-general-info">
+          <div className="show-character-general">
+            <div className="show-character-general-race">Race:</div>
+            <div className="imma-blank-space"> </div>
+            <div className="show-character-general-race-info">
+              {character.race}
+            </div>
+          </div>
+          <div className="show-character-general">
+            <div className="show-character-general-class">Class:</div>
+            <div className="imma-blank-space"> </div>
+            <div className="show-character-general-class-info">
+              {character.charClass}
+            </div>
+          </div>
+          <div className="show-character-general">
+            <div className="show-character-general-maxhp">Max Health:</div>
+            <div className="imma-blank-space"> </div>
+            <div className="show-character-general-maxhp-info">
+              {this.healthManagement(hitDice)}
+            </div>
+          </div>
+          <div className="show-character-general">
+            <div className="show-character-general-currhp">Current Health:</div>
+            <div className="imma-blank-space"> </div>
+            <div className="show-character-general-currhp-info">
+              {character.currentHp}
+            </div>
+          </div>
+          <div className="show-character-general">
+            <div className="show-character-general-hd">Hit Dice:</div>
+            <div className="imma-blank-space"> </div>
+            <div className="show-character-general-hd-info">
+              {character.level}d{hitDice}
+            </div>
+          </div>
+          <div className="show-character-general">
+            <div className="show-character-general-level">Level:</div>
+            <div className="imma-blank-space"> </div>
+            <div className="show-character-general-level-info">
+              {character.level}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
     }
 }
 

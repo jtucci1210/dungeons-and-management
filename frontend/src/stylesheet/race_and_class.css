@@ -5,11 +5,13 @@
     margin: 20px;
     width: 90%;
     min-width: 925px;
+
 }
 
 .race-and-class {
     display: flex;
     max-width: 1000px;
+
 }
 
 .race-and-class h1 {
@@ -19,6 +21,7 @@
     margin: 10px;
     font-weight: bold;
     text-align: center;
+    font-family: Birmingham;
 }
 
 .race-container, .class-container {
@@ -30,7 +33,12 @@
     align-items: center;
     height: 600px;
     padding-bottom: 5px;
+    background-color: #A6C8BC;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px black;
+
 }
+
 
 .race-drop-down {
     align-self: flex-end;
@@ -82,16 +90,10 @@
     cursor: pointer;
 }
 
-/* .dd-list-item-Race.true {
-    text-transform: capitalize;
-    margin: 5px;
-    text-decoration: line-through;
-    cursor: pointer;
-    color: grey;
-} */
 
 .dd-list-item-Race:Hover {
-    background-color: green;
+    background-color: #173514;
+    filter: brightness(200%);
     cursor: pointer;
 }
 
@@ -111,6 +113,9 @@
     margin-right: 20px;
     padding: 20px 10px;
     font-weight: bold;
+}
+.class-race-subs-h3 {
+    font-family: Special Elite;
 }
 
 .race-blurb {
@@ -170,13 +175,6 @@
     cursor: pointer;
 }
 
-/* .dd-list-item-Subrace.true {
-    text-transform: capitalize;
-    margin: 5px;
-    text-decoration: line-through;
-    cursor: pointer;
-    color: grey;
-} */
 
 .dd-list-item-Subrace:Hover {
     background-color: green;
@@ -217,6 +215,7 @@
     display: flex;
     padding: 5px;
     flex-direction: column;
+    background-color: whitesmoke;
 }
 
 .modifiers {
@@ -356,6 +355,7 @@
     display: flex;
     padding: 10px;
     flex-direction: column;
+    background-color: whitesmoke;
 }
 
 .class-skills {

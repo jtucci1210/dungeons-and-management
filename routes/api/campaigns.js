@@ -7,7 +7,6 @@ const Campaign = require("../../models/Campaign");
 
 //Get info for a campaign using id from params
 // router.get('/:id', (req, res) => {
-//     debugger
 
 //     Campaign.findById(req.params.id)
 //         .then(campaign => res.json(campaign));
