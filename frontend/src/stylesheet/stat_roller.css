@@ -7,6 +7,9 @@
     height: 250px;
     align-items: center;
     min-width: 925px;
+    background-color: #A6C8BC;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px black;
 }
 
 .stat-roller-boxes {
@@ -29,6 +32,7 @@
     text-align: center;
     align-items: center;
     min-width: 140px;
+    background-color: whitesmoke;
 }
 
 .ability-name {
@@ -37,10 +41,12 @@
     height: 20px;
     margin: 10px;
     font-weight: bold;
+    font-family: Special Elite;
 }
 
 .dice {
     font-size: 45px;
+    color: #173514;
 }
 
 .stat-roll {
@@ -52,17 +58,20 @@
     margin: 10px;
     text-align: center;
     font-weight: bold;
+    font-family: Special Elite;
 }
 
 .generate-button {
     width: auto;
-    padding: 5px;
+    padding: 8px;
     border: solid 3px black;
     border-radius: 5px;
     margin-bottom: 10px;
     cursor: pointer;
     text-transform: uppercase;
     outline: none;
+    font-family: Special Elite;
+
 }
 
 .info {
@@ -156,6 +165,7 @@
 }
 
 .dd-list-item-Ability:Hover {
-    background-color: green;
+    background-color: #173514;
+    filter: brightness(200%);
     cursor: pointer;
 }
