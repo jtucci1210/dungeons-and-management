@@ -34,6 +34,7 @@ class CampaignRoom extends React.Component {
 
 	initializeHpSocketListener() {
 		this.socket.on("sendHptoFront", function(newCharData) {
+			debugger
 			let charHp = document.getElementById(`charidhp-${newCharData._id}`);
 			charHp.innerText = `${newCharData.maxHp} (${newCharData.currentHp})`
 			//Set class to safe or not safe hp
@@ -64,8 +65,11 @@ class CampaignRoom extends React.Component {
 			currentChar: oldState,
 			reload: true
 		});
-		
-		this.socket.emit("sendHptoBack", this.state.currentChar);
+
+		this.socket.emit("sendHptoBack", {
+			character: this.state.currentChar,
+			room: this.props.match.params.campId
+		})
 	}
 
 	renderChars() {

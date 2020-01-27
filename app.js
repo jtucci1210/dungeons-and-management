@@ -40,6 +40,10 @@ const io = socketio(server);
 //These listen for events that get sent from the frontend and then send back a response
 io.on("connection", function (socket) {
         console.log("made connection with socket " + socket.id);
+        
+        //Auto join specific room for testing purposes
+        socket.join("6613"); //Join a room
+        console.log("Joined room: " + "6613")
 
         socket.on("joinCampaign", function (roomName) {
                 socket.join(roomName); //Join a room
@@ -47,14 +51,16 @@ io.on("connection", function (socket) {
                 io.to(roomName).emit("receive-room", "made it")
         });
 
-        //Test listener for a room and responsding
-        // socket.on("test-room", function (data) {
-        //         io.to(data).emit("receive-room", 'more-success')
-        // });
 
         socket.on("sendHptoBack", function (data) {
-                io.sockets.emit("sendHptoFront", data);
+                Campaign.findById(data.room).then(camp => {
+                        io.to(camp.campKey).emit("sendHptoFront", data.character);
+                })
         });
+
+        // socket.on("sendHptoBack", function (data) {
+        //         io.sockets.emit("sendHptoFront", data);
+        // });
 
         socket.on("dice", function (data) {
                 io.sockets.emit("dice", data);
