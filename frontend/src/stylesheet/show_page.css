@@ -127,6 +127,7 @@
 .show-character-general-level-info {
     font-family: 'Times New Roman', Times, serif;
     text-transform: capitalize;
+    font-weight: bolder;
 }
 
 
@@ -185,6 +186,8 @@
         max-width: 159px;
         padding-top: 4px;
         box-shadow: 5px 5px 10px black;
+        font-weight: bolder;
+        font-size: 20px;
 
     }
 
@@ -238,6 +241,7 @@
     .show-character-ability-value,
     .show-character-ability-modifier{
         margin: 7px;
+        font-weight: bolder;
     }
 
     .show-character-ability-modifier {
