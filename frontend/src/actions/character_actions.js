@@ -34,8 +34,8 @@ export const getCharacters = userId => dispatch =>
 	CHARACTERAPIUTIL.getCharacters(userId).then(characters =>
 		dispatch(receiveAllCharacters(characters.data))
 	);
-export const editCharacter = data => dispatch =>
-	CHARACTERAPIUTIL.editCharacter(data).then(character =>
+export const editCharacter = character => dispatch =>
+	CHARACTERAPIUTIL.editCharacter(character).then(character =>
 		dispatch(receiveCharacter(character.data))
 	);
 export const createCharacter = data => dispatch =>

@@ -52,8 +52,8 @@ io.on("connection", function (socket) {
         //         io.to(data).emit("receive-room", 'more-success')
         // });
 
-        socket.on("hp", function (data) {
-                io.sockets.emit("hp", data);
+        socket.on("sendHptoBack", function (data) {
+                io.sockets.emit("sendHptoFront", data);
         });
 
         socket.on("dice", function (data) {

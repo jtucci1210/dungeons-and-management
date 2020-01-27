@@ -10,8 +10,10 @@ class CampaignRoom extends React.Component {
 		super(props);
 		this.socket = io.connect("http://localhost:8080");
 		this.state = {
-			currentChar: {}
+			currentChar: {},
+			reload: false
 		} 
+		this.saveHp = this.saveHp.bind(this)
 	}
 
 	componentDidMount() {
@@ -21,8 +23,8 @@ class CampaignRoom extends React.Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		if (prevState.characters !== this.state.characters){
-			this.props.getCampaignCharacters(this.props.match.params.campId);
+		if (this.state.reload){
+			this.reload();
 		}
 	}
 
@@ -31,25 +33,39 @@ class CampaignRoom extends React.Component {
 	}
 
 	initializeHpSocketListener() {
-		this.socket.on("hp", function(data) {
-			let hpEle = document.getElementById("hp");
-			let hp;
-			if (data === "inc") {
-				hp = parseInt(hpEle.innerText) + 1;
-				hpEle.innerText = hp;
-			} else {
-				hp = hpEle.innerText - 1;
-				hpEle.innerText = hp;
-			}
-
-			//Save to backend
-			//this.props.editCharacter()
+		this.socket.on("sendHptoFront", function(newCharData) {
+			let charHp = document.getElementById(`charidhp-${newCharData._id}`);
+			charHp.innerText = `${newCharData.maxHp} (${newCharData.currentHp})`
+			//Set class to safe or not safe hp
 		});
 	}
 
 	handleHpClick(type) {
-		this.socket.emit("hp", type);
+		let oldState = Object.assign({}, this.state.currentChar);
+		if (type === "inc") {
+			oldState.currentHp += 1;
+		} else {
+			oldState.currentHp -= 1;
+		}
+		this.setState({
+			currentChar: oldState
+		})
+	}
 
+	saveHp() {
+		let oldState = Object.assign({}, this.state.currentChar);
+		this.props
+			.editCharacter(this.state.currentChar)
+			.then(
+				this.props.getCampaignCharacters(this.props.match.params.campId)
+			);
+
+		this.setState({
+			currentChar: oldState,
+			reload: true
+		});
+		
+		this.socket.emit("sendHptoBack", this.state.currentChar);
 	}
 
 	renderChars() {
@@ -57,8 +73,7 @@ class CampaignRoom extends React.Component {
 		if (this.props.characters.keys){
 			return this.props.characters.map(char => {
 				return (
-							<CharIndexItem character={char} />
-
+						<CharIndexItem character={char} />
 				);
 			});
 		}
@@ -73,34 +88,39 @@ class CampaignRoom extends React.Component {
 	}
 	
 	render() {
-		
+		const { currentChar } = this.state
 		return (
 			<div id="campaignContainer">
 				<ul id="char-boxes">{this.renderChars()}</ul>
-				<h3>Safar</h3>
+				<h3>{currentChar.name}</h3>
 				<h3 id="hp" className="ws-test">
-					{this.state.currentChar.currentHp}
+					{currentChar.currentHp}
 				</h3>
 				<button
 					className="ws-test"
 					onClick={() => this.handleHpClick("inc")}
 					id="incHpButton"
-				>
-					{" "}
-					Increase HP
-				</button>
+				>{" "}Increase HP</button>
 				<button
 					className="ws-test"
 					onClick={() => this.handleHpClick("dec")}
 					id="decHpButton"
-				>
-					{" "}
-					Decrease HP
-				</button>
+				>{" "}Decrease HP</button>
+				<button onClick={() => this.saveHp()}>saveHp</button>
 				<Dice socket={this.socket} />
 			</div>
 		);
 	}
+
+	//Helper Methods
+	reload() {
+			let oldState = Object.assign({}, this.state);
+			oldState.reload = false;
+			this.setState(oldState);
+			this.props.getCampaignCharacters(this.props.match.params.campId);
+		}
 }
 
+
 export default CampaignRoom;
+

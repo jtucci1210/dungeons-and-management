@@ -62,23 +62,24 @@ router.get('/:char_id', (req, res) => {
 //Edit a character
 router.patch('/:char_id/edit', (req, res) => {
     Character.findById(req.params.char_id).then(char => {
-        const { errors, isValid } = validCreateCharInput(req.body);
 
+        const { errors, isValid } = validCreateCharInput(req.body);
+        
         if (!isValid) {
             return res.status(400).json(errors);
         }
-
+        
         char.name = req.body.name
         char.charClass = req.body.charClass
         char.armorType = req.body.armorType
-
+        
         char.level = req.body.level
         char.maxHp = req.body.maxHp
         char.currentHp = req.body.currentHp
-
-        char.abilities = JSON.parse(req.body.abilities) //Possbily get rid of JSON for actual app
-        char.skills = JSON.parse(req.body.skills) //Possbily get rid of JSON for actual app
-
+        
+        char.abilities = req.body.abilities
+        char.skills = req.body.skills
+        
 
         char.save();
         res.json(char)

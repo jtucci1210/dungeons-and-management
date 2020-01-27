@@ -11,8 +11,8 @@ export const getCharacters = (currentUserID) => {
     return axios.get(`/api/characters/user/${currentUserID}`);
 };
 
-export const editCharacter = (characterId, characterData) => {
-    return axios.patch(`/api/characters/${characterId}/edit`, characterData)
+export const editCharacter = (characterData) => {
+    return axios.patch(`/api/characters/${characterData._id}/edit`, characterData)
 }
 export const createCharacter = (characterData) => {
     return axios.post(`/api/characters/create`, characterData)

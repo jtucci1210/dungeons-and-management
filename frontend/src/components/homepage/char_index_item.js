@@ -67,7 +67,6 @@ class CharIndexItem extends React.Component {
 		const cardImg = this.charImage();
 		const healthAmt = this.charHealth();
 		const deceased = character.currentHp === 0 ? DeceasedImg : "";
-
 		return (
 			<div className="character-box">
 				<div className="character-name-index">
@@ -86,7 +85,7 @@ class CharIndexItem extends React.Component {
 							MaxHealth (Current):{" "}
 						</span>
 						<div className="imma-blank-space"> </div>
-						<span>
+						<span id={`charidhp-${character._id}`}>
 							{character.maxHp} ({healthAmt})
 						</span>
 					</div>
