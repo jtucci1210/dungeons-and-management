@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../../stylesheet/show_page.css'
+import '../../../stylesheet/drop_down.css'
 import * as skills from '../../../util/skill_util'
 import * as math from '../../../util/game_math_util'
 import * as race from '../../../util/race_util'
@@ -131,7 +132,15 @@ class EditMainStats extends React.Component {
         }
     }
 
- 
+
+    myFunction() {
+        debugger
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+// Close the dropdown if the user clicks outside of it
+   
+
 
     
     render () {
@@ -175,7 +184,12 @@ class EditMainStats extends React.Component {
                             <div>
                                 <p className='battle-state-title'>A.C.</p>
                                 <div className='battle-state-title-info'>{armorClass(characterArmor, math.mod(character.abilities.dexterity), )}</div>
-                                <div className='battle-state-armor'> {character.armorType} </div>
+                                <div className="dropdown">
+                                    <button onClick={() => this.myFunction()} className="dropbtn">Dropdown</button>
+                                    <div id="myDropdown" className="dropdown-content">
+                                            
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <p className='battle-state-title'>Initiative</p>
