@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import CampaignRoom from "./campaign";
-import { joinCampaign } from "../../actions/campaign_actions";
+import { joinCampaign, leaveCampaign } from "../../actions/campaign_actions";
 import { getCampaignCharacters, editCharacter } from "../../actions/character_actions";
 
 const mapStateToProps = state => {
@@ -12,10 +12,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-	joinCampaign: (character, charId) =>
-		dispatch(joinCampaign(character, charId)),
+	joinCampaign: (id, charId) => dispatch(joinCampaign(id, charId)),
 	getCampaignCharacters: charIds => dispatch(getCampaignCharacters(charIds)),
-	editCharacter: (character) => dispatch(editCharacter(character))
+	editCharacter: (character) => dispatch(editCharacter(character)),
+	leaveCampaign: (id, charId) => dispatch(leaveCampaign(id, charId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CampaignRoom);

@@ -1,16 +1,16 @@
-import React from "react";
-import "../../stylesheet/homepage.css";
-import splashImg from "./splash_image.jpg";
-import CharIndex from "./char_index";
-import io from "socket.io-client";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import '../../stylesheet/homepage.css';
+import splashImg from './splash_image.jpg';
+import CharIndex from './char_index';
+import io from 'socket.io-client';
+import { withRouter } from 'react-router-dom';
 
 class HomePage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			campaignRoom: "",
-			campaignChar: ""
+			campaignChar: "", //I think this should be "Choose a character"
 		};
 		this.socket = io.connect("http://localhost:8080");
 	}
@@ -47,11 +47,16 @@ class HomePage extends React.Component {
 		});
 		this.props.fetchCampaignByKey(this.state.campaignRoom).then(res => {
 			const campaignId = res.campaign._id;
-			this.socket.emit("joinCampaign", res.campaign.campKey); //"test" should be campaign Id
-			// this.socket.emit("test-room", "test")
-			this.props.joinCampaign(campaignId, charId).then(result => {
-				this.props.history.push(`/campaigns/${result.campaign._id}`);
-			});
+			console.log(res.campaign.characters)
+			if (res.campaign.characters.includes(charId)) {
+				this.props.history.push(`/campaigns/${res.campaign._id}`);
+			} else {
+				// this.socket.emit("joinCampaign", res.campaign.campKey); //"test" should be campaign Id
+				// this.socket.emit("test-room", "test")
+				this.props.joinCampaign(campaignId, charId).then(result => {
+					this.props.history.push(`/campaigns/${result.campaign._id}`);
+				});
+			}
 		});
 	}
 
@@ -107,7 +112,8 @@ class HomePage extends React.Component {
 									<option
 										value="Choose a Character"
 										disabled={true}
-										selected={true}
+										selected={true} //This is a bad way to have default in React.
+							
 									>
 										Choose a Character
 									</option>

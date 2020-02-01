@@ -14,6 +14,12 @@ export const joinCampaign = (id, charId) => dispatch => {
   );
 };
 
+export const leaveCampaign = (id, charId) => dispatch => {
+  return CampaignUtil.leave(id, charId).then(campaign =>
+    dispatch(receiveCampaign(campaign))
+  );
+};
+
 export const createCampaign = () => dispatch => {
   return CampaignUtil.create().then(campaign =>
     dispatch(receiveCampaign(campaign))

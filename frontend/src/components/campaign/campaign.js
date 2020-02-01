@@ -1,9 +1,9 @@
-import React from "react";
-import "../../stylesheet/campaign.scss";
-import "../../stylesheet/dice.scss";
-import io from "socket.io-client";
-import Dice from "./dice";
-import CharIndexItem from "../homepage/char_index_item";
+import React from 'react';
+import '../../stylesheet/campaign.scss';
+import '../../stylesheet/dice.scss';
+import io from 'socket.io-client';
+import Dice from './dice';
+import CharIndexItem from '../homepage/char_index_item';
 
 class CampaignRoom extends React.Component {
 	constructor(props) {
@@ -34,7 +34,6 @@ class CampaignRoom extends React.Component {
 
 	initializeHpSocketListener() {
 		this.socket.on("sendHptoFront", function(newCharData) {
-			debugger
 			let charHp = document.getElementById(`charidhp-${newCharData._id}`);
 			charHp.innerText = `${newCharData.maxHp} (${newCharData.currentHp})`
 			//Set class to safe or not safe hp
@@ -77,7 +76,7 @@ class CampaignRoom extends React.Component {
 		if (this.props.characters.keys){
 			return this.props.characters.map(char => {
 				return (
-						<CharIndexItem character={char} />
+						<CharIndexItem key={char._id} character={char} />
 				);
 			});
 		}
@@ -90,11 +89,19 @@ class CampaignRoom extends React.Component {
 			}
 		})
 	}
+
+	handleLeaveClick() {
+		let campId = this.props.match.params.campId;
+		let charId = this.state.currentChar._id
+		this.props.leaveCampaign(campId, charId)
+		this.props.history.push(`/home`)
+	}
 	
 	render() {
 		const { currentChar } = this.state
 		return (
 			<div id="campaignContainer">
+				<button onClick={() => this.handleLeaveClick() }>Leave Campaign</button>
 				<ul id="char-boxes">{this.renderChars()}</ul>
 				<h3>{currentChar.name}</h3>
 				<h3 id="hp" className="ws-test">
