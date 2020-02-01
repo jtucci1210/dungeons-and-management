@@ -25,9 +25,12 @@ router.get('/:id', (req, res) => {
 
 router.post("/fetch", (req, res) => {
 	Campaign.findOne({ campKey: req.body.key }).then(campaign => {
+		let charId = req.body.id;
 
-		campaign.characters.push(req.body.id);
-		campaign.save();
+		if (!campaign.characters.includes(charId)) {
+			campaign.characters.push(req.body.id);
+			campaign.save();
+		}
 
 		Character.find({ _id: { $in: campaign.characters } }).then(characters =>
 			res.json({
