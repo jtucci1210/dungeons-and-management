@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
 		})
 });
 
-//Get info for a campaign using key
+//Get info for a campaign using key and then add seleced character to it
 
 router.post("/fetch", (req, res) => {
 	Campaign.findOne({ campKey: req.body.key }).then(campaign => {
@@ -40,37 +40,21 @@ router.post("/fetch", (req, res) => {
 
 //Create new campaign
 router.post("/create", (req, res) => {
-	// const { errors, isValid } = validCreateCampInput(req.body);
-
-	// if (!isValid) {
-	//     return res.status(400).json(errors);
-	// }
-
 	const campKey = req.body.campKey || Math.floor(Math.random() * 10000);
 	const newCamp = Campaign({
 		campKey: campKey
 	});
+	const charId = req.body.id
 
+	newCamp.characters.push(charId);
 	newCamp.save();
-	res.json(newCamp);
-});
 
-//Add character to a campaign
-router.patch("/:id/join", (req, res) => {
-	Campaign.findById(req.params.id).then(camp => {
-		camp.characters.push(req.body.id);
-		camp.save();
-
-		
-		// res.json(camp);
-
-		Character.find({ _id: { $in: camp.characters } }).then(characters =>
-			res.json({
-				campaign: camp,
-				characters: characters
-			})
-		);
-	});
+	Character.findById(charId).then(character =>
+		res.json({
+			campaign: newCamp,
+			characters: [character]
+		})
+	);
 });
 
 //Remove a character from a campaign

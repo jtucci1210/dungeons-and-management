@@ -1,11 +1,7 @@
 import { connect } from "react-redux";
 import HomePage from "./homepage.js";
 import { getCharacters } from "../../actions/character_actions.js";
-import {
-	joinCampaign,
-	createCampaign,
-	fetchCampaignByKey
-} from "../../actions/campaign_actions";
+import {createCampaign,fetchCampaignByKey} from "../../actions/campaign_actions";
 
 const mapStateToProps = state => {
 	return {
@@ -18,9 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
 	getCharacters: userId => dispatch(getCharacters(userId)),
-	joinCampaign: (campaignId, charId) =>
-		dispatch(joinCampaign(campaignId, charId)),
-	createCampaign: () => dispatch(createCampaign()),
+	createCampaign: (charId) => dispatch(createCampaign(charId)),
 	fetchCampaignByKey: (campRoom, charId) => dispatch(fetchCampaignByKey(campRoom, charId))
 });
 

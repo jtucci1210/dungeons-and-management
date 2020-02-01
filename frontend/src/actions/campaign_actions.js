@@ -9,15 +9,11 @@ const receiveCampaign = payload => {
   };
 };
 
+//Response is not needed so we don't need a thunk action
 export const leaveCampaign = (id, charId) => {
   CampaignUtil.leave(id, charId)
 }
 
-export const joinCampaign = (id, charId) => dispatch => {
-  return CampaignUtil.join(id, charId).then(campaign =>
-    dispatch(receiveCampaign(campaign))
-  );
-};
 
 export const getCampaign = (id) => dispatch => {
   return CampaignUtil.getCampaign(id).then(campaign =>
@@ -25,18 +21,13 @@ export const getCampaign = (id) => dispatch => {
   );
 };
 
-// export const leaveCampaign = (id, charId) => dispatch => {
-//   return CampaignUtil.leave(id, charId).then(campaign =>
-//     dispatch(receiveCampaign(campaign))
-//   );
-// };
-
-export const createCampaign = () => dispatch => {
-  return CampaignUtil.create().then(campaign =>
+export const createCampaign = (charId) => dispatch => {
+  return CampaignUtil.create(charId).then(campaign =>
     dispatch(receiveCampaign(campaign))
   );
 };
 
+//Fetches campaign and add charId to that campaign
 export const fetchCampaignByKey = (campRoom, charId) => dispatch => {
   return CampaignUtil.fetchCampaignByKey(campRoom, charId).then(campaign =>
     dispatch(receiveCampaign(campaign))
