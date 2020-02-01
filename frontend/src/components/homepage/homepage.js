@@ -37,13 +37,14 @@ class HomePage extends React.Component {
 	campaignJoin(e) {
 		e.preventDefault();
 		const { characters } = this.props;
+		const campKey = document.getElementById('room-num').value
 		let charId = "";
 
 		characters.forEach(char => {
 			if (char.name === this.state.campaignChar) charId = char._id;
 		});
 
-		this.props.fetchCampaignByKey(this.state.campaignRoom, charId).then(res => {
+		this.props.fetchCampaignByKey(campKey, charId).then(res => {
 			// this.socket.emit("joinCampaign", res.campaign.campKey); //"test" should be campaign Id
 			// this.socket.emit("test-room", "test")
 			this.props.history.push(`/campaigns/${res.campaign._id}`);
@@ -118,11 +119,13 @@ class HomePage extends React.Component {
 							className="join-campaign"
 							type="submit"
 							value="Join"
+							onClick={(e) => this.campaignJoin(e)}
 						></input>
 						<input
 							type="text"
 							value={this.state.campaignRoom}
 							onChange={this.update("campaignRoom")}
+							id="room-num"
 							className="lobby-number"
 							placeholder="Lobby Number"
 						/>
