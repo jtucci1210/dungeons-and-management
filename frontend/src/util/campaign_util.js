@@ -15,6 +15,6 @@ export const getCampaign = (id) => {
 	return axios.get(`/api/campaigns/${id}`)
 }
 
-export const fetchCampaignByKey = key => {
-	return axios.post(`/api/campaigns/fetch`, { key: key });
+export const fetchCampaignByKey = (key, charId) => {
+	return axios.post(`/api/campaigns/fetch`, { key: key, id: charId });
 };

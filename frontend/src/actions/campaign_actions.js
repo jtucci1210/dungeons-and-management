@@ -37,8 +37,8 @@ export const createCampaign = () => dispatch => {
   );
 };
 
-export const fetchCampaignByKey = (campRoom) => dispatch => {
-  return CampaignUtil.fetchCampaignByKey(campRoom).then(campaign =>
+export const fetchCampaignByKey = (campRoom, charId) => dispatch => {
+  return CampaignUtil.fetchCampaignByKey(campRoom, charId).then(campaign =>
     dispatch(receiveCampaign(campaign))
   );
 }

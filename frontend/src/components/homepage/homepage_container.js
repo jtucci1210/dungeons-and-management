@@ -21,7 +21,7 @@ const mapDispatchToProps = dispatch => ({
 	joinCampaign: (campaignId, charId) =>
 		dispatch(joinCampaign(campaignId, charId)),
 	createCampaign: () => dispatch(createCampaign()),
-	fetchCampaignByKey: campRoom => dispatch(fetchCampaignByKey(campRoom))
+	fetchCampaignByKey: (campRoom, charId) => dispatch(fetchCampaignByKey(campRoom, charId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
