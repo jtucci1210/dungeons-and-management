@@ -11,6 +11,10 @@ export const create = () => {
 	return axios.post(`/api/campaigns/create`);
 };
 
+export const getCampaign = (id) => {
+	return axios.get(`/api/campaigns/${id}`)
+}
+
 export const fetchCampaignByKey = key => {
 	return axios.post(`/api/campaigns/fetch`, { key: key });
 };

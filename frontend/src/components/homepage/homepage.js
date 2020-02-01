@@ -35,19 +35,17 @@ class HomePage extends React.Component {
 	}
 
 	campaignJoin(e) {
-
 		e.preventDefault();
 		const { characters } = this.props;
 		let charId = "";
 
-		characters.map(char => {
-			if (char.name === this.state.campaignChar) {
-				charId = char._id;
-			}
+		characters.forEach(char => {
+			if (char.name === this.state.campaignChar) charId = char._id;
 		});
+
 		this.props.fetchCampaignByKey(this.state.campaignRoom).then(res => {
 			const campaignId = res.campaign._id;
-			console.log(res.campaign.characters)
+			
 			if (res.campaign.characters.includes(charId)) {
 				this.props.history.push(`/campaigns/${res.campaign._id}`);
 			} else {
@@ -110,7 +108,7 @@ class HomePage extends React.Component {
 									}
 								>
 									<option
-										value="Choose a Character"
+										// value="Choose a Character"
 										disabled={true}
 										selected={true} //This is a bad way to have default in React.
 							

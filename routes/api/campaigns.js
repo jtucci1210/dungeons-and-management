@@ -6,11 +6,20 @@ const router = express.Router();
 const Campaign = require("../../models/Campaign");
 
 //Get info for a campaign using id from params
-// router.get('/:id', (req, res) => {
+router.get('/:id', (req, res) => {
 
-//     Campaign.findById(req.params.id)
-//         .then(campaign => res.json(campaign));
-// });
+    Campaign.findById(req.params.id)
+        .then(campaign => {
+			// res.json(campaign);
+			Character.find({ _id: { $in: campaign.characters } }).then(characters =>
+				res.json({
+					campaign: campaign,
+					characters: characters
+				})
+			);
+
+		})
+});
 
 //Get info for a campaign using key
 

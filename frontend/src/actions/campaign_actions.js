@@ -4,12 +4,19 @@ export const RECEIVE_CAMPAIGN = "RECEIVE_CAMPAIGN";
 const receiveCampaign = payload => {
   return {
     type: RECEIVE_CAMPAIGN,
-    campaign: payload.data
+    campaign: payload.data.campaign,
+    characters: payload.data.characters
   };
 };
 
 export const joinCampaign = (id, charId) => dispatch => {
   return CampaignUtil.join(id, charId).then(campaign =>
+    dispatch(receiveCampaign(campaign))
+  );
+};
+
+export const getCampaign = (id) => dispatch => {
+  return CampaignUtil.getCampaign(id).then(campaign =>
     dispatch(receiveCampaign(campaign))
   );
 };

@@ -17,8 +17,9 @@ class CampaignRoom extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.getCampaignCharacters(this.props.match.params.campId)
-			.then(() => this.getCurrentChar())
+		this.props.getCampaign(this.props.match.params.campId)
+			.then(() => this.getCurrentChar());
+		// this.props.getCampaignCharacters(this.props.match.params.campId)
 		this.initializeSocketListeners();
 	}
 
@@ -72,8 +73,9 @@ class CampaignRoom extends React.Component {
 	}
 
 	renderChars() {
+
 		//Conditional prevents error from render happening before getCampChars before component did mount
-		if (this.props.characters.keys){
+		if (this.props.characters){
 			return this.props.characters.map(char => {
 				return (
 						<CharIndexItem key={char._id} character={char} />
@@ -101,7 +103,10 @@ class CampaignRoom extends React.Component {
 		const { currentChar } = this.state
 		return (
 			<div id="campaignContainer">
-				<button onClick={() => this.handleLeaveClick() }>Leave Campaign</button>
+				<div>
+					<h3>{this.props.campaign.campKey}</h3>
+					<button onClick={() => this.handleLeaveClick() }>Leave Campaign</button>
+				</div>
 				<ul id="char-boxes">{this.renderChars()}</ul>
 				<h3>{currentChar.name}</h3>
 				<h3 id="hp" className="ws-test">
