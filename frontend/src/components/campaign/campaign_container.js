@@ -4,7 +4,6 @@ import { leaveCampaign, getCampaign } from "../../actions/campaign_actions";
 import { getCampaignCharacters, editCharacter } from "../../actions/character_actions";
 
 const mapStateToProps = state => {
-	debugger
 	return {
 		characters: state.campaign.characters,
 		currentUser: state.session.user,
@@ -16,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
 	getCampaignCharacters: charIds => dispatch(getCampaignCharacters(charIds)),
 	getCampaign: campId => dispatch(getCampaign(campId)),
 	editCharacter: (character) => dispatch(editCharacter(character)),
-	leaveCampaign: (id, charId) => dispatch(leaveCampaign(id, charId))
+	leaveCampaign: (id, charId) => leaveCampaign(id, charId)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CampaignRoom);

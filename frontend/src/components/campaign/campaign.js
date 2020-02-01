@@ -19,7 +19,6 @@ class CampaignRoom extends React.Component {
 	componentDidMount() {
 		this.props.getCampaign(this.props.match.params.campId)
 			.then(() => this.getCurrentChar());
-		// this.props.getCampaignCharacters(this.props.match.params.campId)
 		this.initializeSocketListeners();
 	}
 

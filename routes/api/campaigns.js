@@ -10,7 +10,7 @@ router.get('/:id', (req, res) => {
 
     Campaign.findById(req.params.id)
         .then(campaign => {
-			// res.json(campaign);
+
 			Character.find({ _id: { $in: campaign.characters } }).then(characters =>
 				res.json({
 					campaign: campaign,
@@ -24,9 +24,14 @@ router.get('/:id', (req, res) => {
 //Get info for a campaign using key
 
 router.post("/fetch", (req, res) => {
-	Campaign.findOne({ campKey: req.body.key }).then(campaign =>
-		res.json(campaign)
-	);
+	Campaign.findOne({ campKey: req.body.key }).then(campaign => {
+		Character.find({ _id: { $in: campaign.characters } }).then(characters =>
+			res.json({
+				campaign: campaign,
+				characters: characters
+			})
+		);
+	});
 });
 
 //Create new campaign
@@ -51,7 +56,16 @@ router.patch("/:id/join", (req, res) => {
 	Campaign.findById(req.params.id).then(camp => {
 		camp.characters.push(req.body.id);
 		camp.save();
+
+		
 		res.json(camp);
+
+		// Character.find({ _id: { $in: campaign.characters } }).then(characters =>
+		// 	res.json({
+		// 		campaign: campaign,
+		// 		characters: characters
+		// 	})
+		// );
 	});
 });
 

@@ -9,6 +9,10 @@ const receiveCampaign = payload => {
   };
 };
 
+export const leaveCampaign = (id, charId) => {
+  CampaignUtil.leave(id, charId)
+}
+
 export const joinCampaign = (id, charId) => dispatch => {
   return CampaignUtil.join(id, charId).then(campaign =>
     dispatch(receiveCampaign(campaign))
@@ -21,11 +25,11 @@ export const getCampaign = (id) => dispatch => {
   );
 };
 
-export const leaveCampaign = (id, charId) => dispatch => {
-  return CampaignUtil.leave(id, charId).then(campaign =>
-    dispatch(receiveCampaign(campaign))
-  );
-};
+// export const leaveCampaign = (id, charId) => dispatch => {
+//   return CampaignUtil.leave(id, charId).then(campaign =>
+//     dispatch(receiveCampaign(campaign))
+//   );
+// };
 
 export const createCampaign = () => dispatch => {
   return CampaignUtil.create().then(campaign =>

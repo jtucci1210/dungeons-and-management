@@ -44,6 +44,7 @@ class HomePage extends React.Component {
 		});
 
 		this.props.fetchCampaignByKey(this.state.campaignRoom).then(res => {
+
 			const campaignId = res.campaign._id;
 			
 			if (res.campaign.characters.includes(charId)) {
@@ -108,7 +109,7 @@ class HomePage extends React.Component {
 									}
 								>
 									<option
-										// value="Choose a Character"
+										value="Choose a Character"
 										disabled={true}
 										selected={true} //This is a bad way to have default in React.
 							
