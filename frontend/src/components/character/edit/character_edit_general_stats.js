@@ -199,9 +199,6 @@ class EditGeneralStats extends React.Component {
 
         return (
             <div className='show-character-general-stats'>
-                {/* <div>
-
-                </div> */}
                 <div className="show-character-image-div">
                     <img className="show-character-image" src={cardImg}></img>
                 </div>
