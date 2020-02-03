@@ -1,7 +1,6 @@
 export const armorTypes = ["none", "padded (light)", "leather (light)", "studded leather (light)", "hide (medium)", "chain shirt (medium)", "scale mail (medium)", "breastplate (medium)", "half plate (medium)", "ring mail (heavy)", "chain mail (heavy)", "splint (heavy)", "plate (heavy)"]
 
 export const armorClass = ( armor, dexMod, shield ) => {
-    // debugger
     let shieldBonus = 0;
     if (shield) {
         shieldBonus += 2

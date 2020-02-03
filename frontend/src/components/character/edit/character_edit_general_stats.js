@@ -124,7 +124,6 @@ class EditGeneralStats extends React.Component {
 
         };
         if (characterObj.armorType !== this.props.character.armorType) {
-            debugger
             this.props.editCharacter(characterObj)
         }
     }
