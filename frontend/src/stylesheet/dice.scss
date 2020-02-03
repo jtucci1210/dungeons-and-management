@@ -2,6 +2,8 @@
     // display: flex;
     font-family: Special Elite;
     flex-direction: column;
+    height: 200px;
+    margin-bottom: 100px;
 }
 
 #dice-container{
@@ -44,6 +46,7 @@
     justify-content: center;
     align-items: center;
     font-family: inherit;
+    
     
     
     button {

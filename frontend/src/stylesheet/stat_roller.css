@@ -62,13 +62,15 @@
 }
 
 .generate-button {
-    width: auto;
+    width: 100px;
     padding: 8px;
-    border: solid 3px black;
+    border: solid 1px black;
+    box-shadow: 2px 2px 6px black;
     border-radius: 5px;
     margin-bottom: 10px;
     cursor: pointer;
-    text-transform: uppercase;
+    background-color: #173514;
+    color: white;
     outline: none;
     font-family: Special Elite;
 
@@ -76,6 +78,7 @@
 
 .info {
     width: auto;
+    color: #173514;
     margin-bottom: 10px;
     cursor: pointer;
     font-size: 30px;
@@ -122,7 +125,8 @@
 }
 
 .dd-header-Ability {
-    background-color: white;
+    background-color: #173514;
+    color: white;
     border: 1px solid lightgray;
     padding: 3px 8px;
     display: flex;
@@ -140,7 +144,9 @@
     list-style-type: none;
     text-align: left;
     padding: 0;
-    background-color: white;
+    background-color: #173514;
+    border-radius: 5px;
+    color: white;
     border: 1px solid lightgray;
     position: absolute;
     min-width: 120px;
@@ -165,7 +171,6 @@
 }
 
 .dd-list-item-Ability:Hover {
-    background-color: #173514;
-    filter: brightness(200%);
+    background-color: #A6C8BC;
     cursor: pointer;
 }
