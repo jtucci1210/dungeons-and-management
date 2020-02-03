@@ -121,29 +121,6 @@ class EditMainStats extends React.Component {
         }
     }
 
-
-    
-
-    /* <div id="myDropdown" className="dropdown-content"> */ 
-    //     {/* <div> Current Armor: {character.armorType}</div> */ }
-    //     {/* <div className="armor-dropdown"> */ }
-    //     <select
-    //         onClick={() => this.myFunction()} className="myDropdown"
-    //         value={this.state.armorType}
-    //         onChange={(armor) => this.setState({ armorType: armor.target.value })}> */}
-//                                     </select>
-    //     {/* </div> */ }
-    //     {/* </div> */ }
-
-    //     {
-    //         armor.armorTypes.map((armor, i) => (
-    //             <option key={`${armor}-${i}`} value={armor}>{armor}</option>
-    //         ))
-    //     }
-
-
-
-
     
     render () {
 

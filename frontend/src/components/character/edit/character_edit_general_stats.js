@@ -10,9 +10,10 @@ import HalflingImg from "./races/halfling.jpg";
 import HumanImg from "./races/human.jpg";
 import TieflingImg from "./races/tiefling.jpg";
 import * as math from '../../../util/game_math_util'
-import * as race from '../../../util/race_util'
 import * as armor from '../../../util/armor_util'
 import * as classUtil from '../../../util/class_util'
+import { Link } from 'react-router-dom';
+
 
 class EditGeneralStats extends React.Component {
     constructor(props) {
@@ -38,29 +39,6 @@ class EditGeneralStats extends React.Component {
             )
         }
     }
-
-    // handleSubmit(e) {
-
-
-    //     // e.preventDefault();
-    //     let characterObj = {
-    //         _id: this.props.character._id,
-    //         user: this.state.currentUserID,
-    //         name: this.state.name,
-    //         race: this.props.race,
-    //         charClass: this.props.charClass,
-    //         armorType: this.props.armorType,
-    //         level: this.props.level,
-    //         maxHp: this.props.maxHp,
-    //         currentHp: this.props.currentHp,
-    //         abilities: this.props.character.abilities,
-    //         skills: this.props.character.skills,
-    //         dateCreated: this.props.dateCreated
-
-    //     };
-
-    //     this.props.editCharacter(characterObj).then(result => this.props.history.push(`/characters/${this.props.character._id}`))
-    // }
 
 
     handleNext() {
@@ -97,7 +75,6 @@ class EditGeneralStats extends React.Component {
 
     myFunction() {
         const armor_list = document.getElementsByClassName("change-armor")[0]
-        // armor_list.classList.toggle("change-armor")
         armor_list.classList.toggle("armor-list")
     }
 
@@ -272,6 +249,13 @@ class EditGeneralStats extends React.Component {
                     <div className="show-character-general-hp">
                         {character.level}d{hitDice}
                     </div>
+                    <div className="show-character-general">
+                        <div className="show-character-general-level">Armor:</div>
+                        <div className="imma-blank-space"> </div>
+                        <div className="show-character-general-level-info">
+                            {character.armorType}
+                        </div>
+                    </div>
                 </div>
                 <div className="armor">
                     <button 
@@ -291,27 +275,11 @@ class EditGeneralStats extends React.Component {
                             ))}
                         </select>
                         <button onClick={() =>this.changeArmor()}>Change Armor</button>
-                        {/* <form onSubmit={e => this.changeArmor(e) }>
-                           <select
-                            className="armor-list-selector"
-                            onChange={armor => this.setState({
-                                armorType: armor.target.value
-                            })}>
-                                <option value="Change Armor" disabled={true}>
-                                    Current: {this.props.character.armorType}
-                                </option>
-                                {armor.armorTypes.map((armor, i) => (
-                                    <option key={i}>{armor}</option>
-                                ))}
-                            </select>
-                            <input
-                                className="change-armor-submit"
-                                type="submit"
-                                value="Change">
-                            </input>
-                        </form> */}
                     </div>
                 </div>
+                <Link to={`/api/characters/${this.props.character._id}`}>
+                    <button>Save</button>
+                </Link>
             </div>
         )
     }
