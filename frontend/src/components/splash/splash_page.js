@@ -1,4 +1,3 @@
-
 import React from 'react';
 import '../../stylesheet/splash.scss';
 import splashImg from './splash_image.jpg';
@@ -14,8 +13,9 @@ class Splash extends React.Component {
               <img src={splashImg} alt="background" className="splash-image" />
               <div className="content">
                 <div className="splash-description">
-                  <h1 className="header-splash-description">What are we?</h1>
                   <p className="splash-description-paragraph">
+                    <br/>
+                    <strong>What are we?</strong>
                     <br/>
                     <br/>
                     Dungeons and Management is a character building and game play aid for the popular role playing game, Dungeons and Dragons.
@@ -28,6 +28,7 @@ class Splash extends React.Component {
                     className="splash-character-build-img"
                   ></img>
                   <p className="splash-character-build-paragraph">
+                    <br/>
                     <strong>Character Creation</strong>
                     <br/>
                     <br/>
@@ -42,6 +43,7 @@ class Splash extends React.Component {
                 </div>
                 <div className="splash-campaign-management">
                   <p className="splash-campaign-management-paragraph">
+                    <br />
                     <strong>Campaign Management</strong>
                     <br />
                     <br />
@@ -63,6 +65,7 @@ class Splash extends React.Component {
                     className="splash-dice-manager-img"
                   ></img>
                   <p className="splash-dice-manager-paragraph">
+                    <br/>
                     <strong>Dice Manager</strong>
                     <br />
                     <br />
@@ -72,7 +75,7 @@ class Splash extends React.Component {
                     Fret not!
                     <br />
                     <br />
-                    We can roll dice for you!
+                    We can roll dice for you! Any amount and any type.
                   </p>
                 </div>
               </div>
