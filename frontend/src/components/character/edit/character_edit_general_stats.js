@@ -22,6 +22,7 @@ class EditGeneralStats extends React.Component {
         this.showSkillMod = this.showSkillMod.bind(this)
         this.handleNext = this.handleNext.bind(this)
         this.addOrRemoveLevel = this.addOrRemoveLevel.bind(this)
+        this.changeArmor = this.changeArmor.bind(this)
     }
 
 
@@ -40,7 +41,7 @@ class EditGeneralStats extends React.Component {
 
     // handleSubmit(e) {
 
-    //     // debugger
+
     //     // e.preventDefault();
     //     let characterObj = {
     //         _id: this.props.character._id,
@@ -94,6 +95,33 @@ class EditGeneralStats extends React.Component {
         }
     }
 
+    myFunction() {
+        const armor_list = document.getElementsByClassName("change-armor")[0]
+        // armor_list.classList.toggle("change-armor")
+        armor_list.classList.toggle("armor-list")
+    }
+
+    changeArmor(e) {
+        let characterObj = {
+            _id: this.props.character._id,
+            user: this.state.currentUserID,
+            name: this.props.character.name,
+            race: this.props.character.race,
+            charClass: this.props.character.charClass,
+            armorType: this.state.armorType,
+            level: this.props.character.level,
+            maxHp: this.props.character.maxHp,
+            currentHp: this.props.character.currentHp,
+            abilities: this.props.character.abilities,
+            skills: this.props.character.skills,
+            dateCreated: this.props.character.dateCreated
+
+        };
+        if (characterObj.armorType !== this.props.character.armorType) {
+            this.props.editCharacter(characterObj)
+        }
+    }
+
 
     charImage() {
         const { character } = this.props;
@@ -141,7 +169,7 @@ class EditGeneralStats extends React.Component {
         } else if (value === 'increase' && newLevel < 20) {
             newLevel = newLevel + 1
         }
-        // debugger
+
         let characterObj = {
             _id: this.props.character._id,
             user: this.state.currentUserID,
@@ -171,6 +199,9 @@ class EditGeneralStats extends React.Component {
 
         return (
             <div className='show-character-general-stats'>
+                {/* <div>
+
+                </div> */}
                 <div className="show-character-image-div">
                     <img className="show-character-image" src={cardImg}></img>
                 </div>
@@ -178,10 +209,10 @@ class EditGeneralStats extends React.Component {
                     <div className='show-character-general-race'>
                         <p className='show-character-general-race'>
                             Race:
-                    </p>
-                        <div className='show-character-general-race-info'>
-                            {character.race}
-                        </div>
+                        </p>
+                    <div className='show-character-general-race-info'>
+                        {character.race}
+                    </div>
                     </div>
                     <div className='show-character-general-lvl'>
                         <p className='show-character-general-level'>
@@ -207,13 +238,51 @@ class EditGeneralStats extends React.Component {
                 <div className="show-character-general-hp">
                     <div className="show-character-general-hp">
                         Max Life: {this.healthManagement(hitDice)}
-                        {/* Max Life: {character.maxHp} */}
                     </div>
                     <div className="show-character-general-hp">
                         Current Life: {character.currentHp}
                     </div>
                     <div className="show-character-general-hp">
                         {character.level}d{hitDice}
+                    </div>
+                </div>
+                <div className="armor">
+                    <button 
+                        className="armor_list" 
+                        onClick={() => this.myFunction()}>Change Armor</button>
+                    <div className="change-armor">
+                        <select
+                            className="armor-list-selector"
+                            onChange={armor => this.setState({
+                                armorType: armor.target.value
+                            })}>
+                            <option value="Change Armor" disabled={true}>
+                                Current: {this.props.character.armorType}
+                            </option>
+                            {armor.armorTypes.map((armorItem, i) => (
+                                <option key={i} value={armor.fullArmor[i]}>{armorItem}</option>
+                            ))}
+                        </select>
+                        <button onClick={e =>this.changeArmor(e)}>Change Armor</button>
+                        {/* <form onSubmit={e => this.changeArmor(e) }>
+                           <select
+                            className="armor-list-selector"
+                            onChange={armor => this.setState({
+                                armorType: armor.target.value
+                            })}>
+                                <option value="Change Armor" disabled={true}>
+                                    Current: {this.props.character.armorType}
+                                </option>
+                                {armor.armorTypes.map((armor, i) => (
+                                    <option key={i}>{armor}</option>
+                                ))}
+                            </select>
+                            <input
+                                className="change-armor-submit"
+                                type="submit"
+                                value="Change">
+                            </input>
+                        </form> */}
                     </div>
                 </div>
             </div>

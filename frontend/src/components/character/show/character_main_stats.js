@@ -74,6 +74,7 @@ class MainStats extends React.Component {
         const characterRace = character.race
         const armorClass = armor.armorClass
         const characterArmor = armor.fullArmor[character.armorType]
+        debugger
             return (
                 <div className='show-character-main-stats'>
                     <div className='show-character-battle-stats'>
@@ -81,7 +82,6 @@ class MainStats extends React.Component {
                             <div>
                                 <p className='battle-state-title'>A.C.</p>
                                 <div className='battle-state-title-info'>{armorClass(characterArmor, math.mod(character.abilities.dexterity), )}</div>
-                                <div className='battle-state-armor'> Armor: {character.armorType} </div>
                             </div>
                             <div>
                                 <p className='battle-state-title'>Initiative</p>

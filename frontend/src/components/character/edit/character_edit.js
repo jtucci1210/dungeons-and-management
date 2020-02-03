@@ -80,7 +80,7 @@ class CharacterEditPage extends React.Component {
     
 
     render() {
-        // debugger
+
         if (this.state.loaded) {
             const editCharacter = this.props.editCharacter
             const character = this.props.character
