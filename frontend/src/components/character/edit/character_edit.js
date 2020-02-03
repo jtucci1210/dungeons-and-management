@@ -8,6 +8,8 @@ import * as math from '../../../util/game_math_util'
 import * as race from '../../../util/race_util'
 import * as armor from '../../../util/armor_util'
 import * as classUtil from '../../../util/class_util'
+import splashImg from '../../splash/splash_image.jpg';
+
 
 
 
@@ -87,50 +89,22 @@ class CharacterEditPage extends React.Component {
             const fullClass = classUtil.fullClass
             const hitDice = fullClass[character.charClass].hitDice
             return (
-                <div className='show-character-box'>
-                    <div className='show-character-header'>
-                        <div className="show-character-name">
-                            <Link
-                                to={`/characters/${character._id}`}
-                                className="edit-character-link"
-                            >
-                            {character.name}
-                            </Link>
-                            {/* <input type="text" placeholder="character name" onChange={this.handleChange('name')} /> */}
-                            <form onSubmit={this.handleSubmit} className='character-name-edit'>
-                                <label>
-                                    <input type='text'
-                                        placeholder={character.name} 
-                                        value={this.state.name}
-                                        onChange={this.handleChange('name')}
-                                        className='character-name-field'
-                                        />
-                                </label> 
-                                <input className="edit-name-submit-button" type="submit" value={this.props.formType} />
-                            </form>
-                        </div>
-                        <div className="show-character-hp">
-                            <div className="show-character-current-hp">
-                                Max Life: {this.healthManagement(hitDice)}
-                            </div>
-                            <div className="show-character-current-hp">
-                                Current Life: {character.currentHp}
-                            </div>
-                            <div className="show-character-current-hp">
-                                {character.level}d{hitDice}
+            <div className="main-page-background-img">
+                <img src={splashImg} alt="background" className="splash-image" />
+                <div className='show-character-page'>
+                    <div className='show-character-box'>
+                        <div className='show-character-header'>
+                            <div className="show-character-name">
+                                {character.name}
                             </div>
                         </div>
-                    </div>
-                    <div className='show-character-page'>
-                        <div>
+                        <div className="all-stats">
                             <EditGeneralStats character={character} editCharacter={editCharacter} currentUserID={this.props.currentUserID}/>
+                            <EditMainStats character={character} editCharacter={editCharacter} currentUserID={this.props.currentUserID} />
                         </div>
-                        <EditMainStats character={character} editCharacter={editCharacter} currentUserID={this.props.currentUserID} />
-                    </div>
-                    <div>
-                        {/* <Items character={character}/> */}
                     </div>
                 </div>
+            </div>
             )
         } else {
             return (<div className='test'>Loading</div>)

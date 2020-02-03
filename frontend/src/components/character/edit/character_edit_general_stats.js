@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../../stylesheet/show_page.css'
+import '../../../stylesheet/character_edit_form.css'
 import ElfImg from "./races/elf.jpg";
 import DragonImg from "./races/dragon-born.jpg";
 import DwarfImg from "./races/dwarf.jpg";
@@ -205,12 +206,6 @@ class EditGeneralStats extends React.Component {
 
         return (
             <div className='show-character-general-stats'>
-                <Link
-                    to={`/characters/${character._id}`}
-                    className="edit-character-link"
-                >
-                    {character.name}
-                </Link>
                 <div className="show-character-image-div">
                     <img className="show-character-image" src={cardImg}></img>
                 </div>

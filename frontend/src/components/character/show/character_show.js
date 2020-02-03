@@ -56,7 +56,6 @@ class CharacterShowPage extends React.Component {
                     <MainStats character={character} />
                   </div>
                 </div>
-                <div>{/* <Items character={character}/> */}</div>
               </div>
             </div>
             );
