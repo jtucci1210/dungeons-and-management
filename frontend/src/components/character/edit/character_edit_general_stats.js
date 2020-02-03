@@ -102,13 +102,42 @@ class EditGeneralStats extends React.Component {
     }
 
     changeArmor(e) {
+        let newArmor
+        if (this.state.armorType.includes("none")) {
+            newArmor = "noArmor"
+        } else if (this.state.armorType === "padded (light)") {
+            newArmor = "padded"
+        } else if (this.state.armorType === "leather (light)") {
+            newArmor = "leather"
+        } else if (this.state.armorType === "studded leather (light)") {
+            newArmor = "studdedLeather"
+        } else if (this.state.armorType === "hide (medium)") {
+            newArmor = "hide"
+        } else if (this.state.armorType === "chain shirt (medium)") {
+            newArmor = "chainShirt"
+        } else if (this.state.armorType === "scale mail (medium)") {
+            newArmor = "scaleMail"
+        } else if (this.state.armorType === "breastplate (medium)") {
+            newArmor = "breastplate"
+        } else if (this.state.armorType === "half plate (medium)") {
+            newArmor = "halfPlate"
+        } else if (this.state.armorType === "ring mail (heavy)") {
+            newArmor = "ringMail"
+        } else if (this.state.armorType === "chain mail (heavy)") {
+            newArmor = "chainMail"
+        } else if (this.state.armorType === "splint (heavy)") {
+            newArmor = "splint"
+        } else {
+            newArmor = "plate"
+        }
+        
         let characterObj = {
             _id: this.props.character._id,
             user: this.state.currentUserID,
             name: this.props.character.name,
             race: this.props.character.race,
             charClass: this.props.character.charClass,
-            armorType: this.state.armorType,
+            armorType: armor,
             level: this.props.character.level,
             maxHp: this.props.character.maxHp,
             currentHp: this.props.character.currentHp,
@@ -260,7 +289,7 @@ class EditGeneralStats extends React.Component {
                                 <option key={i} value={armor.fullArmor[i]}>{armorItem}</option>
                             ))}
                         </select>
-                        <button onClick={e =>this.changeArmor(e)}>Change Armor</button>
+                        <button onClick={() =>this.changeArmor()}>Change Armor</button>
                         {/* <form onSubmit={e => this.changeArmor(e) }>
                            <select
                             className="armor-list-selector"

@@ -106,6 +106,7 @@
 }
 
 .show-character-general-info {
+    padding-top: 9px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

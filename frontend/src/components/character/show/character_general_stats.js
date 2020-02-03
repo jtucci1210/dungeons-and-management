@@ -146,6 +146,13 @@ class GeneralStats extends React.Component {
               {character.level}
             </div>
           </div>
+          <div className="show-character-general">
+            <div className="show-character-general-level">Armor:</div>
+            <div className="imma-blank-space"> </div>
+            <div className="show-character-general-level-info">
+              {character.armorType}
+            </div>          
+          </div>
         </div>
       </div>
     );
