@@ -2,11 +2,11 @@ import * as CampaignUtil from "../util/campaign_util";
 export const RECEIVE_CAMPAIGN = "RECEIVE_CAMPAIGN";
 
 const receiveCampaign = payload => {
-
   return {
     type: RECEIVE_CAMPAIGN,
     campaign: payload.data.campaign,
-    characters: payload.data.characters
+    characters: payload.data.characters,
+    churrentCharId: payload.data.churrentCharId
   };
 };
 

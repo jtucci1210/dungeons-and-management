@@ -7,7 +7,8 @@ const campaignsReducer = (state = {}, action) => {
             return {
                 _id: campaign._id,
                 campKey: campaign.campKey,
-                characters: action.characters
+                characters: action.characters,
+                currentCharId: campaign.currentCharId
             }
         default:
             return state;

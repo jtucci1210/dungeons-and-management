@@ -62,11 +62,21 @@ class CharIndexItem extends React.Component {
 		}
 	}
 
+	renderDiceTotal() {
+		return(
+			<span>
+				<div>Dice Roll: </div>
+				<div id={`dt-${this.props.character._id}`}></div>
+			</span>
+		)
+	}
+
 	render() {
 		const { character } = this.props;
 		const cardImg = this.charImage();
 		const healthAmt = this.charHealth();
 		const deceased = character.currentHp === 0 ? DeceasedImg : "";
+
 		return (
 			<div className="character-box">
 				<div className="character-name-index">
@@ -99,6 +109,7 @@ class CharIndexItem extends React.Component {
 						<div className="imma-blank-space"> </div>
 						<span>{character.charClass}</span>
 					</div>
+					{this.props.inCampRoom ? this.renderDiceTotal() : null}
 				</div>
 			</div>
 		);

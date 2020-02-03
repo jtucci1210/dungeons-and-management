@@ -18,10 +18,10 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("frontend/build"));
-  app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-  });
+        app.use(express.static("frontend/build"));
+        app.get("/", (req, res) => {
+                res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+        });
 }
 
 mongoose
@@ -47,12 +47,15 @@ const io = socketio(server);
 
 //Socket Listeners
 //These listen for events that get sent from the frontend and then send back a response
-io.on("connection", function (socket) {
+io.on("connection", function (socket, data) {
         console.log("made connection with socket " + socket.id);
-        
-        //Auto join specific room for testing purposes
-        socket.join("6613"); //Join a room
-        console.log("Joined room: " + "6613")
+
+        socket.on("sendJoinRoomToBack", function(data) {
+                Campaign.findById(data.campId).then(camp => {
+                        socket.join(camp.campKey); //Join a room
+                        console.log("Joined room: " + camp.campKey)
+                })
+        })
 
         socket.on("joinCampaign", function (roomName) {
                 socket.join(roomName); //Join a room
@@ -62,20 +65,12 @@ io.on("connection", function (socket) {
 
 
         socket.on("sendHptoBack", function (data) {
-                Campaign.findById(data.room).then(camp => {
+                Campaign.findById(data.campId).then(camp => {
                         io.to(camp.campKey).emit("sendHptoFront", data.character);
                 })
         });
 
-        // socket.on("sendHptoBack", function (data) {
-        //         io.sockets.emit("sendHptoFront", data);
-        // });
-
-        socket.on("dice", function (data) {
-                io.sockets.emit("dice", data);
-        });
-
-        socket.on("total", function (data) {
-                io.sockets.emit("total", data);
+        socket.on("sendTotalToBack", function (data) {
+                io.sockets.emit("sendTotalToFront", data);
         });
 });
