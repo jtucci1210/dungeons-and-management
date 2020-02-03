@@ -9,7 +9,7 @@ const Character = require("../../models/Character")
 const validCreateCharInput = require('../../validation/create-character')
 
 //Return list of all characters for a user
-router.get("/user/:user_id", (req, res) => {
+    router.get("/user/:user_id", (req, res) => {
     Character.find({ userId: req.params.user_id })
         .then(characters => res.json(characters))
 })

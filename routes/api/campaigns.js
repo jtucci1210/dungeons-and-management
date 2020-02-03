@@ -22,7 +22,6 @@ router.get('/:id', (req, res) => {
 });
 
 //Get info for a campaign using key and then add seleced character to it
-
 router.post("/fetch", (req, res) => {
 	Campaign.findOne({ campKey: req.body.key }).then(campaign => {
 		let charId = req.body.id;

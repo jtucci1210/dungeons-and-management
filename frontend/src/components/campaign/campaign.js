@@ -4,6 +4,7 @@ import '../../stylesheet/dice.scss';
 import io from 'socket.io-client';
 import Dice from './dice';
 import CharIndexItem from '../homepage/char_index_item';
+import CharacterShowContainer from '../character/show/character_show_container'
 
 class CampaignRoom extends React.Component {
 	constructor(props) {
@@ -102,8 +103,8 @@ class CampaignRoom extends React.Component {
 		const { currentChar } = this.state
 		return (
 			<div id="campaignContainer">
-				<div>
-					<h3>{this.props.campaign.campKey}</h3>
+				<div id="campaign-info-container">
+					<h3>{`Room#: ${this.props.campaign.campKey}`}</h3>
 					<button onClick={() => this.handleLeaveClick() }>Leave Campaign</button>
 				</div>
 				<ul id="char-boxes">{this.renderChars()}</ul>
@@ -122,6 +123,7 @@ class CampaignRoom extends React.Component {
 					id="decHpButton"
 				>{" "}Decrease HP</button>
 				<button onClick={() => this.saveHp()}>saveHp</button>
+				{/* <CharacterShowContainer character={currentChar} /> */}
 				<Dice socket={this.socket} />
 			</div>
 		);
