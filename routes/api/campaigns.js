@@ -46,17 +46,10 @@ router.post("/create", (req, res) => {
 	const newCamp = Campaign({
 		campKey: campKey
 	});
-	const charId = req.body.id
 
-	newCamp.characters.push(charId);
 	newCamp.save();
 
-	Character.findById(charId).then(character =>
-		res.json({
-			campaign: newCamp,
-			characters: [character]
-		})
-	);
+	res.json({ campaign: newCamp })	
 });
 
 //Remove a character from a campaign

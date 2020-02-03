@@ -14,7 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
 	getCharacters: userId => dispatch(getCharacters(userId)),
-	createCampaign: (charId) => dispatch(createCampaign(charId)),
+	createCampaign: () => dispatch(createCampaign()),
 	fetchCampaignByKey: (campRoom, charId) => dispatch(fetchCampaignByKey(campRoom, charId))
 });
 

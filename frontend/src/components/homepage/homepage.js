@@ -52,14 +52,8 @@ class HomePage extends React.Component {
 	}
 
 	createCampaign() {
-		let charId = "";
-		const { characters } = this.props;
-		characters.forEach(char => {
-			if (char.name === this.state.campaignChar) charId = char._id;
-		});
-		
 		this.props
-			.createCampaign(charId)
+			.createCampaign()
 			.then(result => {
 				this.props.history.push(`/campaigns/${result.campaign._id}`)
 			});
@@ -103,12 +97,11 @@ class HomePage extends React.Component {
 				<div className="home-page-campaign-box">
 					<div className="home-page-campaign-title">Campaign Menu</div>
 					<div className="home-page-campaign-links">
-						{this.renderChooseCharacterForm()}
 						
 						<button
 							onClick={() => this.createCampaign()}
 							className="start-campaign"
-						>
+							>
 							Create Campaign
 						</button>
 						<div className="home-page-lobby-join">
@@ -116,20 +109,20 @@ class HomePage extends React.Component {
 							<br />
 						</div>
 						<input
-							className="join-campaign"
-							type="submit"
-							value="Join"
-							onClick={(e) => this.campaignJoin(e)}
-						></input>
-						<input
 							type="text"
 							value={this.state.campaignRoom}
 							onChange={this.update("campaignRoom")}
 							id="room-num"
 							className="lobby-number"
 							placeholder="Lobby Number"
-						/>
-						
+							/>
+						{this.renderChooseCharacterForm()}
+						<input
+							className="join-campaign"
+							type="submit"
+							value="Join"
+							onClick={(e) => this.campaignJoin(e)}
+						></input>
 					</div>
 				</div>
 				<div className="main-page-background-img">

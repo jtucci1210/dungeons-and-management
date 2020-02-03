@@ -4,8 +4,8 @@ export const leave = (id, charId) => {
 	return axios.patch(`/api/campaigns/${id}/leave`, { id: charId });
 };
 
-export const create = (charId) => {
-	return axios.post(`/api/campaigns/create`, { id: charId });
+export const create = () => {
+	return axios.post(`/api/campaigns/create`);
 };
 
 export const getCampaign = (id) => {
