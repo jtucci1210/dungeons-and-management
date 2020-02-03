@@ -4,6 +4,7 @@ import '../../stylesheet/splash.scss';
 import splashImg from './splash_image.jpg';
 import diceImg from './dice.jpg';
 import gameFiguresImg from './game_figures.jpg';
+import characterCreationImg from './character_creation.png';
 
 class Splash extends React.Component {
     render() {
@@ -22,7 +23,7 @@ class Splash extends React.Component {
                 </div>
                 <div className="splash-character-build">
                   <img
-                    src="//:0"
+                    src={characterCreationImg}
                     alt="img"
                     className="splash-character-build-img"
                   ></img>

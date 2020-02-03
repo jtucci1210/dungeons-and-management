@@ -65,11 +65,13 @@
                 text-align: center;
                 padding: 20px 15px 20px 15px;
                 font-size: 30px;
-
+                overflow: scroll;
             }
             img {
                 width: 50%;
                 background-color: black;
+                min-width: 400px;
+
             }
         }
 
@@ -87,11 +89,14 @@
                 text-align: center;
                 padding: 20px 15px 20px 15px;
                 font-size: 30px;
+                overflow: scroll;
 
             }
             img {
                 width: 50%;
                 background-color: black;
+                min-width: 400px;
+
             }
         }
 
@@ -110,11 +115,16 @@
                 text-align: center;
                 padding: 20px 15px 20px 15px;
                 font-size: 30px;
+                overflow: scroll;
+
+
 
             }
             .splash-dice-manager-img {
                 width: 50%;
                 background-color: black;
+                min-width: 400px;
+
             }
         }
     }
