@@ -16,7 +16,6 @@ export const editCharacter = (characterData) => {
 }
 
 export const deleteCharacter = (characterId) => {
-    debugger
     return axios.delete(`/api/characters/${characterId}`)
 }
 
