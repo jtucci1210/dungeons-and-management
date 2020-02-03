@@ -206,6 +206,12 @@ class EditGeneralStats extends React.Component {
 
         return (
             <div className='show-character-general-stats'>
+                <Link
+                    to={`/characters/${character._id}`}
+                    className="edit-character-link"
+                >
+                    {character.name}
+                </Link>
                 <div className="show-character-image-div">
                     <img className="show-character-image" src={cardImg}></img>
                 </div>
@@ -277,8 +283,11 @@ class EditGeneralStats extends React.Component {
                         <button onClick={() =>this.changeArmor()}>Change Armor</button>
                     </div>
                 </div>
-                <Link to={`/api/characters/${this.props.character._id}`}>
-                    <button>Save</button>
+                <Link
+                    to={`/characters/${character._id}`}
+                    className="edit-character-link"
+                >
+                    Save Changes
                 </Link>
             </div>
         )
