@@ -103,6 +103,41 @@ class CampaignRoom extends React.Component {
 		this.props.leaveCampaign(campId, charId)
 		this.props.history.push(`/home`)
 	}
+
+	renderCurrentCharForm() {
+		const { characters } = this.props;
+		if (this.props.characters) {
+
+			const userChars = characters.filter(char => {
+				return this.props.currentUser.id === char.userId
+			})
+
+			return (
+				<form
+					onSubmit={e => this.campaignJoin(e)}
+					className="home-page-lobby-form"
+				>
+	
+					<br />
+					<select
+						className="campaign-char-selector"
+						onChange={e => this.changeCurrentChar(e)}
+					>
+						<option
+							value="Current Character"
+							disabled={true}
+							selected={true} //This is a bad way to have default in React.
+	
+						>Current</option>
+						{userChars.map((char, i) => (
+							<option key={i}>{char.name}</option>
+						))}
+					</select>
+					<br />
+				</form>
+			)
+		}
+	}
 	
 	render() {
 		const { currentChar } = this.state
@@ -110,6 +145,7 @@ class CampaignRoom extends React.Component {
 			<div id="campaignContainer">
 				<div id="campaign-info-container">
 					<h3>{`Room#: ${this.props.campaign.campKey}`}</h3>
+					{this.renderCurrentCharForm()}
 					<button onClick={() => this.handleLeaveClick() }>Leave Campaign</button>
 				</div>
 				<ul id="char-boxes">{this.renderChars()}</ul>
@@ -148,7 +184,20 @@ class CampaignRoom extends React.Component {
 			oldState.reload = false;
 			this.setState(oldState);
 			this.props.getCampaign(this.campId);
-		}
+	}
+
+	changeCurrentChar(e) {
+		let oldState = Object.assign({}, this.state)
+		let { characters } = this.props;
+
+		characters.forEach(character => {
+			if (character.name === e.target.value) {
+				oldState.currentChar = character
+			}
+		})
+
+		this.setState(oldState)
+	}
 }
 
 
