@@ -20,6 +20,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        font-family: Special Elite;
 
         .header-splash-description {
             font-size: 40px;
@@ -46,6 +47,7 @@
                 text-align: center;
                 box-shadow: 5px 5px 8px black;
                 padding: 20px;
+                font-size: 30px;
             }
         }
 
@@ -53,15 +55,16 @@
             margin-top: 50px;
             width: 100%;
             height: 400px;
-            background-color: rgba(92, 160, 79, 0.3);
+            background-color: #173514;
+            opacity: .9;
             box-shadow: 5px 5px 8px black;
-
             display: flex;
+     
             p {
                 width: 50%;
                 text-align: center;
-                padding: 20px 0px 20px 0px;
-
+                padding: 20px 15px 20px 15px;
+                font-size: 30px;
 
             }
             img {
@@ -74,15 +77,16 @@
             margin-top: 50px;
             width: 100%;
             height: 400px;
-            background-color: rgba(92, 160, 79, 0.3);
+            background-color: #173514;
+            opacity: .9;
             box-shadow: 5px 5px 8px black;
-
             display: flex;
+            
             p {
                 width: 50%;
                 text-align: center;
-                padding: 20px 0px 20px 0px;
-
+                padding: 20px 15px 20px 15px;
+                font-size: 30px;
 
             }
             img {
@@ -96,14 +100,16 @@
             margin-bottom: 200px;
             width: 100%;
             height: 400px;
-            background-color: rgba(92, 160, 79, 0.3);
+            background-color: #173514;
+            opacity: .9;
             box-shadow: 5px 5px 8px black;
-
             display: flex;
+
             .splash-dice-manager-paragraph {
                 width: 50%;
                 text-align: center;
-                padding: 20px 0px 20px 0px;
+                padding: 20px 15px 20px 15px;
+                font-size: 30px;
 
             }
             .splash-dice-manager-img {

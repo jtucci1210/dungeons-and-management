@@ -15,6 +15,8 @@ class Splash extends React.Component {
                 <div className="splash-description">
                   <h1 className="header-splash-description">What are we?</h1>
                   <p className="splash-description-paragraph">
+                    <br/>
+                    <br/>
                     Dungeons and Management is a character building and game play aid for the popular role playing game, Dungeons and Dragons.
                   </p>
                 </div>
@@ -25,12 +27,27 @@ class Splash extends React.Component {
                     className="splash-character-build-img"
                   ></img>
                   <p className="splash-character-build-paragraph">
-                    I'm the description of the character building feature
+                    <strong>Character Creation</strong>
+                    <br/>
+                    <br/>
+                    Character creation got you confused?
+                    <br />
+                    <br />
+                    We got you covered! 
+                    <br />
+                    <br />
+                    We guide you through the character creation process and alert you to any relevant bonuses!
                   </p>
                 </div>
                 <div className="splash-campaign-management">
                   <p className="splash-campaign-management-paragraph">
-                    I'm the description of the campaign management feature
+                    <strong>Campaign Management</strong>
+                    <br />
+                    <br />
+                    Tired of trying to keep track of everyone, their health, and their dice rolls?
+                    <br />
+                    <br />
+                    In our campaign rooms, you will have all the info you need at a glance!
                   </p>
                   <img
                     src={gameFiguresImg}
@@ -45,7 +62,16 @@ class Splash extends React.Component {
                     className="splash-dice-manager-img"
                   ></img>
                   <p className="splash-dice-manager-paragraph">
-                    I'm the description of the dice manager feature
+                    <strong>Dice Manager</strong>
+                    <br />
+                    <br />
+                    Your bag of holding getting a little too heavy? 
+                    <br />
+                    <br />
+                    Fret not!
+                    <br />
+                    <br />
+                    We can roll dice for you!
                   </p>
                 </div>
               </div>
