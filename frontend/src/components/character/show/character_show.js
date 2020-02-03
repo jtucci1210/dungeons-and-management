@@ -42,7 +42,12 @@ class CharacterShowPage extends React.Component {
                   <div className="show-character-header">
                     <div className="show-character-name">{character.name}</div>
                     <div className="edit-delete-char">
+                    <Link
+                        to={`/characters/edit/${character._id}`}
+                        className="edit-character-link"
+                    >
                         <button className="edit-delete-char-btn">Edit Character</button>
+                    </Link>
                         <button className="edit-delete-char-btn">Delete Character</button>
                     </div>
                   </div>

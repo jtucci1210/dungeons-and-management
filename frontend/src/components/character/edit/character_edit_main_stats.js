@@ -157,12 +157,12 @@ class EditMainStats extends React.Component {
     render () {
 
         const character = this.props.character
-        let strSkills = ['SAVING THROWS','ATHLETICS']
-        let dexSkills = ['SAVING THROWS','ACROBATICS', 'SLEIGHT OF HAND', 'STEALTH']
-        let constSkills = ['SAVING THROWS']
-        let intelSkills = ['SAVING THROWS','ARCANA', 'HISTORY', 'INVESTIGATION', 'NATURE', 'RELIGION']
-        let wisdSkills = ['SAVING THROWS','ANIMAL HANDLING', 'INSIGHT', 'MEDICINE', 'PERCEPTION', 'SURVIVAL']
-        let charSkills = ['SAVING THROWS','DECEPTION', 'INTIMIDATION', 'PERFORMANCE', 'PERSUASION']
+        let strSkills = ['Saving Throw', 'Athletics']
+        let dexSkills = ['Saving Throw', 'Acrobatics', 'Sleight of hand', 'Stealth']
+        let constSkills = ['Saving Throw']
+        let intelSkills = ['Saving Throw', 'Arcanas', 'History', 'Investigation', 'Nature', 'Religion']
+        let wisdSkills = ['Saving Throw', 'Animal handling', 'Insight', 'Medicine', 'Perception', 'Survival']
+        let charSkills = ['Saving Throw', 'Deception', 'Intimidation', 'Performance', 'Persuasion']
 
         let proficiency
         if (character.level < 5) {
@@ -200,7 +200,6 @@ class EditMainStats extends React.Component {
                                     {/* <div id="myDropdown" className="dropdown-content"> */}
                                         {/* <div> Current Armor: {character.armorType}</div> */}
                                         <select 
-
                                             onClick={() => this.myFunction()} className="dropbtn"
                                             value={this.state.armorType} 
                                             onChange={(armor) => this.setState({ armorType: armor.target.value })}>
