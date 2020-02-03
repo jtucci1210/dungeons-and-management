@@ -105,7 +105,7 @@ class CharacterCreateForm extends React.Component {
         };
 
         this.props.createCharacter(characterObj)
-            .then(result => this.props.history.push(`/home`))
+            .then(result => this.props.history.push(`/characters/${result.character.char._id}`))
 
     }
 
