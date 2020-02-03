@@ -137,7 +137,7 @@ class EditGeneralStats extends React.Component {
             name: this.props.character.name,
             race: this.props.character.race,
             charClass: this.props.character.charClass,
-            armorType: armor,
+            armorType: newArmor,
             level: this.props.character.level,
             maxHp: this.props.character.maxHp,
             currentHp: this.props.character.currentHp,
@@ -147,6 +147,7 @@ class EditGeneralStats extends React.Component {
 
         };
         if (characterObj.armorType !== this.props.character.armorType) {
+            debugger
             this.props.editCharacter(characterObj)
         }
     }
