@@ -132,9 +132,35 @@ class CampaignRoom extends React.Component {
 			)
 		}
 	}
+
+	renderHpButtons() {
+		const { currentChar } = this.state
+
+		return (
+			<div id="current-char-info">
+				<h3>{currentChar.name}</h3>
+				<h3 id="hp" className="ws-test">
+					{currentChar.currentHp}
+				</h3>
+				<button
+					className="ws-test"
+					onClick={() => this.handleHpClick("inc")}
+					id="incHpButton"
+				>{" "}Increase HP</button>
+				<button
+					className="ws-test"
+					onClick={() => this.handleHpClick("dec")}
+					id="decHpButton"
+				>{" "}Decrease HP</button>
+				<button onClick={() => this.saveHp()}>saveHp</button>
+			</div>
+		)
+	}
 	
 	render() {
 		const { currentChar } = this.state
+		let currentCharExists = Object.keys(currentChar)
+
 		return (
 			<div id="campaignContainer">
 				<div id="campaign-info-container">
@@ -148,23 +174,7 @@ class CampaignRoom extends React.Component {
 					currentChar={this.state.currentChar}
 					characters={this.props.characters}
 				/>
-				<div id="current-char-info">
-					<h3>{currentChar.name}</h3>
-					<h3 id="hp" className="ws-test">
-						{currentChar.currentHp}
-					</h3>
-					<button
-						className="ws-test"
-						onClick={() => this.handleHpClick("inc")}
-						id="incHpButton"
-					>{" "}Increase HP</button>
-					<button
-						className="ws-test"
-						onClick={() => this.handleHpClick("dec")}
-						id="decHpButton"
-					>{" "}Decrease HP</button>
-					<button onClick={() => this.saveHp()}>saveHp</button>
-				</div>
+				{currentCharExists.length > 0 ? this.renderHpButtons() : null}
 				
 				{/* <CharacterShowContainer character={currentChar} /> */}
 				

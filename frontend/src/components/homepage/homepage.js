@@ -2,7 +2,6 @@ import React from 'react';
 import '../../stylesheet/homepage.css';
 import splashImg from './splash_image.jpg';
 import CharIndex from './char_index';
-import io from 'socket.io-client';
 import { withRouter } from 'react-router-dom';
 
 class HomePage extends React.Component {

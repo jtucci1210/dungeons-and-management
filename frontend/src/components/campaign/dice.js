@@ -18,13 +18,16 @@ class Dice extends React.Component {
 
 	handlePercentRoll() {
 		let roll = Math.floor(Math.random() * 100) + 1;
-		let diceNum = 100;
 		let diceRes = document.getElementById(`diceRes100`);
 		diceRes.innerHTML = `${roll}%`;
-		this.socket.emit("dice", {
-			roll: roll,
-			diceNum: diceNum
-		});
+
+		let currentChar = Object.keys(this.props.currentChar)
+		if (currentChar.length > 0){
+			this.socket.emit("sendTotalToBack", {
+				rollTotal: roll,
+				charId: this.props.currentChar._id
+			});
+		}
 	}
 
 	handleRoll() {
@@ -115,7 +118,9 @@ class Dice extends React.Component {
 			rollTotal: rollTotal,
 			charId: this.props.currentChar._id
 		}
-		this.socket.emit("sendTotalToBack", data);
+
+		let currentChar = Object.keys(this.props.currentChar)
+		if(currentChar.length > 0) this.socket.emit("sendTotalToBack", data);
 	}
 
 	rollSingleDie(diceNum) {
