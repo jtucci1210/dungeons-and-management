@@ -36,6 +36,7 @@
 	justify-content: center;
 	display: flex;
 	align-items: center;
+	height: 320px;
 }
 
 .character-box,
