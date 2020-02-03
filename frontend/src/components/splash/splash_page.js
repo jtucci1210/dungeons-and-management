@@ -1,7 +1,9 @@
 
 import React from 'react';
-import '../../stylesheet/splash.scss'
-import splashImg from './splash_image.jpg'
+import '../../stylesheet/splash.scss';
+import splashImg from './splash_image.jpg';
+import diceImg from './dice.jpg';
+import gameFiguresImg from './game_figures.jpg';
 
 class Splash extends React.Component {
     render() {
@@ -13,7 +15,7 @@ class Splash extends React.Component {
                 <div className="splash-description">
                   <h1 className="header-splash-description">What are we?</h1>
                   <p className="splash-description-paragraph">
-                    I'm the description of the app
+                    Dungeons and Management is a character building and game play aid for the popular role playing game, Dungeons and Dragons.
                   </p>
                 </div>
                 <div className="splash-character-build">
@@ -31,14 +33,14 @@ class Splash extends React.Component {
                     I'm the description of the campaign management feature
                   </p>
                   <img
-                    src="//:0"
+                    src={gameFiguresImg}
                     alt="img"
                     className="splash-campaign-management-img"
                   ></img>
                 </div>
                 <div className="splash-dice-manager">
                   <img
-                    src="//:0"
+                    src={diceImg}
                     alt="img"
                     className="splash-dice-manager-img"
                   ></img>
