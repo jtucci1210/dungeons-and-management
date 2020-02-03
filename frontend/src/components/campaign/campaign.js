@@ -114,7 +114,6 @@ class CampaignRoom extends React.Component {
 
 			return (
 				<form
-					onSubmit={e => this.campaignJoin(e)}
 					className="home-page-lobby-form"
 				>
 	
@@ -123,15 +122,10 @@ class CampaignRoom extends React.Component {
 						className="campaign-char-selector"
 						onChange={e => this.changeCurrentChar(e)}
 					>
-						<option
-							value="Current Character"
-							disabled={true}
-							selected={true} //This is a bad way to have default in React.
-	
-						>Current</option>
-						{userChars.map((char, i) => (
-							<option key={i}>{char.name}</option>
-						))}
+					<option>Choose char</option>
+					{userChars.map((char, i) => (
+						<option key={i}>{char.name}</option>
+					))}
 					</select>
 					<br />
 				</form>

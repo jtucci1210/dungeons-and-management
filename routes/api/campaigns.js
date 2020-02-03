@@ -30,11 +30,13 @@ router.post("/fetch", (req, res) => {
 			campaign.characters.push(req.body.id);
 			campaign.save();
 		}
+		
 
 		Character.find({ _id: { $in: campaign.characters } }).then(characters =>
 			res.json({
 				campaign: campaign,
-				characters: characters
+				characters: characters,
+				currentCharId: charId
 			})
 		);
 	});
