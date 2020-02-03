@@ -25,15 +25,20 @@ class CharacterShowPage extends React.Component {
         Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
     }
 
-
+    deleteChar() {
+      const characterId = this.props.character._id
+      const userId = this.props.character.userId
+      const allChars = this.props.getCharacters
+      this.props.deleteCharacter(characterId).then(allChars(userId))
+    }
     
 
     render() {
 
         if (this.state.loaded) {
             const character = this.props.character
-            const fullClass = classUtil.fullClass
-            const hitDice = fullClass[character.charClass].hitDice
+            // const fullClass = classUtil.fullClass
+            // const hitDice = fullClass[character.charClass].hitDice
             return (
             <div className="main-page-background-img">
               <img src={splashImg} alt="background" className="splash-image" />
@@ -48,7 +53,8 @@ class CharacterShowPage extends React.Component {
                     >
                         <button className="edit-delete-char-btn">Edit Character</button>
                     </Link>
-                        <button className="edit-delete-char-btn">Delete Character</button>
+                        <Link to={`/home`} className="edit-delete-char-btn"
+                          onClick={() => this.deleteChar()}>Delete Character</Link>
                     </div>
                   </div>
                   <div className="all-stats">

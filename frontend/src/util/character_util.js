@@ -14,9 +14,16 @@ export const getCharacters = (currentUserID) => {
 export const editCharacter = (characterData) => {
     return axios.patch(`/api/characters/${characterData._id}/edit`, characterData)
 }
+
+export const deleteCharacter = (characterId) => {
+    debugger
+    return axios.delete(`/api/characters/${characterId}`)
+}
+
 export const createCharacter = (characterData) => {
     return axios.post(`/api/characters/create`, characterData)
 } 
+
 
 export const getCampaignCharacters = (campId) => {
     return axios.post(`/api/characters/campaign`, {campId})
