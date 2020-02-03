@@ -12,7 +12,6 @@ class HomePage extends React.Component {
 			campaignRoom: "",
 			campaignChar: "", //I think this should be "Choose a character"
 		};
-		this.socket = io.connect("http://localhost:8080");
 	}
 
 	componentDidMount() {
@@ -21,10 +20,6 @@ class HomePage extends React.Component {
 				characters: this.props.getCharacters(this.props.currentUserID)
 			};
 		});
-		// Example of using a room
-		// this.socket.on("receive-room", function (data) {
-		//   console.log(data)
-		// });
 	}
 
 	update(field) {
@@ -45,8 +40,6 @@ class HomePage extends React.Component {
 		});
 
 		this.props.fetchCampaignByKey(campKey, charId).then(res => {
-			// this.socket.emit("joinCampaign", res.campaign.campKey); //"test" should be campaign Id
-			// this.socket.emit("test-room", "test")
 			this.props.history.push(`/campaigns/${res.campaign._id}`);
 		});
 	}

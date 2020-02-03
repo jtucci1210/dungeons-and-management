@@ -7,6 +7,8 @@ class Dice extends React.Component {
 		super(props);
 		this.calcRollTotal = this.calcRollTotal.bind(this);
 		this.diceArr = [4, 6, 8, 10, 12, 20];
+
+		this.initializeDiceSocketListeners = this.initializeDiceSocketListeners.bind(this)
 	}
 
 	componentDidMount() {
@@ -86,22 +88,9 @@ class Dice extends React.Component {
 
 	initializeDiceSocketListeners() {
 		//These listen for events that are sent from the server on the backend
-		this.socket.on("dice", function(data) {
-			let diceRes = document.getElementById(`diceRes${data.diceNum}`);
-			if (data.diceNum === 100) {
-				diceRes.innerHTML = `${data.roll}%`; //Add % for % die
-			} else {
-				diceRes.innerHTML = data.roll;
-			}
-		});
-
-		this.socket.on("total", function(data) {
-			let diceTotal = document.getElementById(`roll-total`);
-            diceTotal.innerHTML = `Total: ${data}`;
-            
-            //Should be current user
-			// let person1 = document.getElementById("person1"); //Mini-box update
-			// person1.innerHTML = `Total: ${data}`;
+		this.socket.on("sendTotalToFront", function (data) {
+			let currentDt = document.getElementById(`dt-${data.charId}`);
+			currentDt.innerHTML = `${data.rollTotal}`
 		});
 	}
 
@@ -120,10 +109,13 @@ class Dice extends React.Component {
 
 	showRollTotal(rollTotal) {
 		let totalEle = document.getElementById("roll-total");
-		let person1 = document.getElementById("person1"); //Mini-box update
 		totalEle.innerHTML = `Total: ${rollTotal}`;
-		// person1.innerHTML = `Total: ${rollTotal}`;
-		this.socket.emit("total", rollTotal);
+
+		let data = {
+			rollTotal: rollTotal,
+			charId: this.props.currentChar._id
+		}
+		this.socket.emit("sendTotalToBack", data);
 	}
 
 	rollSingleDie(diceNum) {
@@ -134,13 +126,8 @@ class Dice extends React.Component {
 
 	showRoll(diceNum, roll) {
 		let diceRes = document.getElementById(`diceRes${diceNum}`);
-        diceRes.innerHTML = roll;
-        
-        //Only current user should see individual rolls
-		// this.socket.emit("dice", {
-		// 	roll: roll,
-		// 	diceNum: diceNum
-		// });
+		diceRes.innerHTML = roll;
+
 	}
 }
 

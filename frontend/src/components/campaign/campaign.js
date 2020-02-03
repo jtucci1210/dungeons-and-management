@@ -9,7 +9,12 @@ import CharacterShowContainer from '../character/show/character_show_container'
 class CampaignRoom extends React.Component {
 	constructor(props) {
 		super(props);
-		this.socket = io.connect("http://localhost:8080");
+		this.campId = this.props.match.params.campId;
+		this.socket = io.connect("http://localhost:8080", {data: 'test'});
+		this.socket.emit("sendJoinRoomToBack", {
+			campId: this.campId
+		})
+
 		this.state = {
 			currentChar: {},
 			reload: false
@@ -18,7 +23,7 @@ class CampaignRoom extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.getCampaign(this.props.match.params.campId)
+		this.props.getCampaign(this.campId)
 			.then(() => this.getCurrentChar());
 		this.initializeSocketListeners();
 	}
@@ -58,7 +63,7 @@ class CampaignRoom extends React.Component {
 		this.props
 			.editCharacter(this.state.currentChar)
 			.then(
-				this.props.getCampaignCharacters(this.props.match.params.campId)
+				this.props.getCampaign(this.campId)
 			);
 
 		this.setState({
@@ -68,7 +73,7 @@ class CampaignRoom extends React.Component {
 
 		this.socket.emit("sendHptoBack", {
 			character: this.state.currentChar,
-			room: this.props.match.params.campId
+			campId: this.campId
 		})
 	}
 
@@ -78,7 +83,7 @@ class CampaignRoom extends React.Component {
 		if (this.props.characters){
 			return this.props.characters.map(char => {
 				return (
-						<CharIndexItem key={char._id} character={char} />
+						<CharIndexItem key={char._id} character={char} inCampRoom={true} />
 				);
 			});
 		}
@@ -93,7 +98,7 @@ class CampaignRoom extends React.Component {
 	}
 
 	handleLeaveClick() {
-		let campId = this.props.match.params.campId;
+		let campId = this.campId;
 		let charId = this.state.currentChar._id
 		this.props.leaveCampaign(campId, charId)
 		this.props.history.push(`/home`)
@@ -108,23 +113,31 @@ class CampaignRoom extends React.Component {
 					<button onClick={() => this.handleLeaveClick() }>Leave Campaign</button>
 				</div>
 				<ul id="char-boxes">{this.renderChars()}</ul>
-				<h3>{currentChar.name}</h3>
-				<h3 id="hp" className="ws-test">
-					{currentChar.currentHp}
-				</h3>
-				<button
-					className="ws-test"
-					onClick={() => this.handleHpClick("inc")}
-					id="incHpButton"
-				>{" "}Increase HP</button>
-				<button
-					className="ws-test"
-					onClick={() => this.handleHpClick("dec")}
-					id="decHpButton"
-				>{" "}Decrease HP</button>
-				<button onClick={() => this.saveHp()}>saveHp</button>
+				<Dice 
+					socket={this.socket}
+					currentChar={this.state.currentChar}
+					characters={this.props.characters}
+				/>
+				<div id="current-char-info">
+					<h3>{currentChar.name}</h3>
+					<h3 id="hp" className="ws-test">
+						{currentChar.currentHp}
+					</h3>
+					<button
+						className="ws-test"
+						onClick={() => this.handleHpClick("inc")}
+						id="incHpButton"
+					>{" "}Increase HP</button>
+					<button
+						className="ws-test"
+						onClick={() => this.handleHpClick("dec")}
+						id="decHpButton"
+					>{" "}Decrease HP</button>
+					<button onClick={() => this.saveHp()}>saveHp</button>
+				</div>
+				
 				{/* <CharacterShowContainer character={currentChar} /> */}
-				<Dice socket={this.socket} />
+				
 			</div>
 		);
 	}
@@ -134,7 +147,7 @@ class CampaignRoom extends React.Component {
 			let oldState = Object.assign({}, this.state);
 			oldState.reload = false;
 			this.setState(oldState);
-			this.props.getCampaignCharacters(this.props.match.params.campId);
+			this.props.getCampaign(this.campId);
 		}
 }
 
