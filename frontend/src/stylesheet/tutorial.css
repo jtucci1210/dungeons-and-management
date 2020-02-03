@@ -1,0 +1,35 @@
+.tutorial-container {
+    padding: 150px 0;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Special Elite;
+}
+
+.tutorial-step {
+    display: flex;
+    margin: 20px;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.tutorial-step-description {
+    margin: 20px;
+    padding: 50px;
+    width: 100%;
+    background-color: rgba(69, 117, 59, 0.8);
+    text-align: center;
+}
+
+.tutorial-img {
+    width: 800px;
+    height: auto;
+    margin: 20px;
+}
+
+.narrow {
+    height: 500px;
+    width: auto;
+}
