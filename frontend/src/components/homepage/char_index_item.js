@@ -63,10 +63,11 @@ class CharIndexItem extends React.Component {
 	}
 
 	renderDiceTotal() {
+		/* Styling in dice.scss */ 
 		return(
-			<span>
+			<span className="dice-roll-container" >
 				<div>Dice Roll: </div>
-				<div id={`dt-${this.props.character._id}`}></div>
+				<div id={`dt-${this.props.character._id}`}></div> 
 			</span>
 		)
 	}
