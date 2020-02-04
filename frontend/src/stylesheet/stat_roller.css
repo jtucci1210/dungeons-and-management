@@ -174,3 +174,8 @@
     background-color: #A6C8BC;
     cursor: pointer;
 }
+
+.loading {
+    position: absolute;
+    top:200px;
+}

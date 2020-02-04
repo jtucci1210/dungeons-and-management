@@ -45,5 +45,13 @@ export const createCharacter = data => dispatch =>
 	);
 
 export const getCampaignCharacters = charIds => dispatch =>
-		CHARACTERAPIUTIL.getCampaignCharacters(charIds).then( characters =>
-			dispatch(receiveAllCharacters(characters.data)))
+	CHARACTERAPIUTIL.getCampaignCharacters(charIds).then( characters =>
+		dispatch(receiveAllCharacters(characters.data))
+	);
+
+export const deleteCharacter = characterId => dispatch =>
+	CHARACTERAPIUTIL.deleteCharacter(characterId).then(characters =>
+		dispatch(receiveAllCharacters(characters.data))
+	);
+
+

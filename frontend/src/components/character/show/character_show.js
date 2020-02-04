@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { withRouter } from 'react-router-dom'
 import '../../../stylesheet/show_page.css'
-import '../../../stylesheet/test.css'
+import '../../../stylesheet/loading_page.css'
 import GeneralStats from './character_general_stats';
 import MainStats from './character_main_stats';
 import * as classUtil from '../../../util/class_util'
 import splashImg from '../../splash/splash_image.jpg'
+import '../../../stylesheet/stat_roller.css';
 
 
 
@@ -23,17 +24,23 @@ class CharacterShowPage extends React.Component {
        const characterInfo = this.props.getCharacter(this.props.match.params.characterId)
         // this.props.getCharacter(this.props.match.params.characterId)
         Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
+
     }
 
-
+    deleteChar() {
+      const characterId = this.props.character._id
+      const userId = this.props.character.userId
+      const allChars = this.props.getCharacters
+      this.props.deleteCharacter(characterId).then(allChars(userId))
+    }
     
 
     render() {
 
         if (this.state.loaded) {
             const character = this.props.character
-            const fullClass = classUtil.fullClass
-            const hitDice = fullClass[character.charClass].hitDice
+            // const fullClass = classUtil.fullClass
+            // const hitDice = fullClass[character.charClass].hitDice
             return (
             <div className="main-page-background-img">
               <img src={splashImg} alt="background" className="splash-image" />
@@ -48,7 +55,8 @@ class CharacterShowPage extends React.Component {
                     >
                         <button className="edit-delete-char-btn">Edit Character</button>
                     </Link>
-                        <button className="edit-delete-char-btn">Delete Character</button>
+                        <Link to={`/home`} className="edit-delete-char-btn"
+                          onClick={() => this.deleteChar()}>Delete Character</Link>
                     </div>
                   </div>
                   <div className="all-stats">
@@ -60,7 +68,16 @@ class CharacterShowPage extends React.Component {
             </div>
             );
         } else {
-            return (<div className='test'>Loading</div>)
+          return (<div className="loading-page">
+                    <img src={splashImg} alt="background" className="splash-image" />
+                    <div className="loading-sections">
+                        <div>
+                          <i id="loading-die" className="fas fa-dice-six fa-spin"></i>
+                        </div>
+                        <div className="loading-message">Loading - If longer than 1 min, please refresh the page.</div>
+                    </div>
+                  </div>)
+          // return (<div><img src={splashImg} alt="background" className="splash-image" /><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>)
         }
     }
 

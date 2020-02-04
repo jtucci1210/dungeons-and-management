@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
 import SplashPage from './splash/splash_page';
 import CharacterCreateFormContainer from './character/create/character_create_form_container';
@@ -22,6 +22,7 @@ const App = () => (
             <ProtectedRoute exact path="/characters/:characterId" component={CharacterShowContainer} />
             <ProtectedRoute exact path="/characters/edit/:characterId" component={EditShowPage} />
             <ProtectedRoute exact path="/campaigns/:campId" component={CampaignContainer} />
+            <Redirect to="/home"/>
         </Switch>
         <Footer/>
         
