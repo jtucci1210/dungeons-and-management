@@ -18,10 +18,12 @@ export const receiveCharacterErrors = errors => ({
 });
 
 //Safar's user id: 5e2890208321d6fc98d5bc24
-export const receiveAllCharacters = characters => ({
-	type: RECEIVE_ALL_CHARACTERS,
-	characters
-});
+export const receiveAllCharacters = characters => {
+	return {
+		type: RECEIVE_ALL_CHARACTERS,
+		characters
+	}
+};
 
 export const getCharacter = characterId => dispatch => {
 	return CHARACTERAPIUTIL.getCharacter(characterId).then(character =>
@@ -32,15 +34,24 @@ export const getCharacters = userId => dispatch =>
 	CHARACTERAPIUTIL.getCharacters(userId).then(characters =>
 		dispatch(receiveAllCharacters(characters.data))
 	);
-export const editCharacter = data => dispatch =>
-	CHARACTERAPIUTIL.editCharacter(data).then(character =>
+export const editCharacter = character => dispatch =>
+	CHARACTERAPIUTIL.editCharacter(character).then(character =>
 		dispatch(receiveCharacter(character.data))
 	);
+
 export const createCharacter = data => dispatch =>
 	CHARACTERAPIUTIL.createCharacter(data).then(character =>
 		dispatch(receiveCharacter(character.data))
 	);
 
 export const getCampaignCharacters = charIds => dispatch =>
-		CHARACTERAPIUTIL.getCampaignCharacters(charIds).then( characters =>
-			dispatch(receiveAllCharacters(characters.data)))
+	CHARACTERAPIUTIL.getCampaignCharacters(charIds).then( characters =>
+		dispatch(receiveAllCharacters(characters.data))
+	);
+
+export const deleteCharacter = characterId => dispatch =>
+	CHARACTERAPIUTIL.deleteCharacter(characterId).then(characters =>
+		dispatch(receiveAllCharacters(characters.data))
+	);
+
+

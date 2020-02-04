@@ -20,18 +20,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        font-family: Special Elite;
 
-        .header-splash-description {
-            font-size: 40px;
-            color: white;
-            font-family: Birmingham;
-            text-shadow: 5px 5px 8px black;
-
-        }
         .splash-description {
-            margin-top: 200px;
+            margin-top: 150px;
             width: 100%;
-            height: 400px;
+            height: 250px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -46,6 +40,7 @@
                 text-align: center;
                 box-shadow: 5px 5px 8px black;
                 padding: 20px;
+                font-size: 30px;
             }
         }
 
@@ -53,20 +48,23 @@
             margin-top: 50px;
             width: 100%;
             height: 400px;
-            background-color: rgba(92, 160, 79, 0.3);
+            background-color: rgba(69, 117, 59, 0.8);
             box-shadow: 5px 5px 8px black;
-
             display: flex;
+     
             p {
                 width: 50%;
                 text-align: center;
-                padding: 20px 0px 20px 0px;
-
-
+                padding: 20px 15px 20px 15px;
+                font-size: 30px;
+                overflow: scroll;
             }
+
             img {
                 width: 50%;
                 background-color: black;
+                min-width: 400px;
+
             }
         }
 
@@ -74,20 +72,22 @@
             margin-top: 50px;
             width: 100%;
             height: 400px;
-            background-color: rgba(92, 160, 79, 0.3);
+            background-color: rgba(69, 117, 59, 0.8);
             box-shadow: 5px 5px 8px black;
-
             display: flex;
+            
             p {
                 width: 50%;
                 text-align: center;
-                padding: 20px 0px 20px 0px;
-
-
+                padding: 20px 15px 20px 15px;
+                font-size: 30px;
+                overflow: scroll;
             }
+
             img {
                 width: 50%;
                 background-color: black;
+                min-width: 400px;
             }
         }
 
@@ -96,19 +96,23 @@
             margin-bottom: 200px;
             width: 100%;
             height: 400px;
-            background-color: rgba(92, 160, 79, 0.3);
+            background-color: rgba(69, 117, 59, 0.8);
             box-shadow: 5px 5px 8px black;
-
             display: flex;
+
             .splash-dice-manager-paragraph {
                 width: 50%;
                 text-align: center;
-                padding: 20px 0px 20px 0px;
-
+                padding: 20px 15px 20px 15px;
+                font-size: 30px;
+                overflow: scroll;
             }
+
             .splash-dice-manager-img {
                 width: 50%;
                 background-color: black;
+                min-width: 400px;
+
             }
         }
     }

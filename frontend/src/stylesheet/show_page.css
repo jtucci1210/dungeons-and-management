@@ -15,7 +15,7 @@
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 5px 5px 10px black;
-    max-width: 1400px;
+    max-width: 1350px;
     background-color: rgb(14, 24, 37);
 
 }
@@ -96,8 +96,14 @@
     box-shadow: 5px 5px 10px black;
 }
 
+.show-character-general-level-info {
+    padding-left: 4px;
+    display: block;
+    width: 92px;
+}
 
 .show-character-general-info {
+    padding-top: 9px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -236,6 +242,7 @@
     .show-character-ability-pair{
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 
     .show-character-ability-value,

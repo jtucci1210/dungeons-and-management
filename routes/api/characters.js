@@ -9,20 +9,20 @@ const Character = require("../../models/Character")
 const validCreateCharInput = require('../../validation/create-character')
 
 //Return list of all characters for a user
-router.get("/user/:user_id", (req, res) => {
-        Character.find({ userId: req.params.user_id })
-            .then(characters => res.json(characters))
-}) 
+    router.get("/user/:user_id", (req, res) => {
+    Character.find({ userId: req.params.user_id })
+        .then(characters => res.json(characters))
+})
 
 //Return list of all characters given an array of their ids
 router.post("/campaign", (req, res) => {
-    let charArr = req.body.map(charIds =>
-		mongoose.Types.ObjectId(charIds)
-	);
-
-	Character.find({ _id: { $in: charArr } })
-		.then(characters => res.json(characters));
-}); 
+    Campaign.findById(req.body.campId)
+        .then(campaign => {
+            Character.find({ _id: { $in: campaign.characters } }).then(characters =>
+                res.json(characters)
+            );
+        })
+});
 
 //Create New Character
 router.post("/create", (req, res) => {
@@ -32,25 +32,25 @@ router.post("/create", (req, res) => {
         return res.status(400).json(errors);
     }
 
-        const newChar = new Character({
-            userId: req.body.user.id,
-            name: req.body.name,
-            race: req.body.race,
-            charClass: req.body.charClass,
-            armorType: req.body.armorType,
-            
-            level: req.body.level,
-            maxHp: req.body.maxHp,
-            currentHp: req.body.currentHp,
-            
-            abilities: req.body.abilities,
-            skills: req.body.skills
-        })
-        newChar.save();
-        
-        res.json({
-            char: newChar
-        })
+    const newChar = new Character({
+        userId: req.body.user.id,
+        name: req.body.name,
+        race: req.body.race,
+        charClass: req.body.charClass,
+        armorType: req.body.armorType,
+
+        level: req.body.level,
+        maxHp: req.body.maxHp,
+        currentHp: req.body.currentHp,
+
+        abilities: req.body.abilities,
+        skills: req.body.skills
+    })
+    newChar.save();
+
+    res.json({
+        char: newChar
+    })
 });
 
 //Get a single character
@@ -62,6 +62,7 @@ router.get('/:char_id', (req, res) => {
 //Edit a character
 router.patch('/:char_id/edit', (req, res) => {
     Character.findById(req.params.char_id).then(char => {
+
         const { errors, isValid } = validCreateCharInput(req.body);
 
         if (!isValid) {
@@ -76,8 +77,8 @@ router.patch('/:char_id/edit', (req, res) => {
         char.maxHp = req.body.maxHp
         char.currentHp = req.body.currentHp
 
-        char.abilities = JSON.parse(req.body.abilities) //Possbily get rid of JSON for actual app
-        char.skills = JSON.parse(req.body.skills) //Possbily get rid of JSON for actual app
+        char.abilities = req.body.abilities
+        char.skills = req.body.skills
 
 
         char.save();
@@ -88,8 +89,8 @@ router.patch('/:char_id/edit', (req, res) => {
 //Delete a character
 router.delete('/:char_id', (req, res) => {
     Character.findById(req.params.char_id).then(char => {
-       char.delete();
-       res.json("Success")
+        char.delete();
+        res.json("Success")
     })
 });
 

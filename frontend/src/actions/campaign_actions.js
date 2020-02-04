@@ -4,12 +4,20 @@ export const RECEIVE_CAMPAIGN = "RECEIVE_CAMPAIGN";
 const receiveCampaign = payload => {
   return {
     type: RECEIVE_CAMPAIGN,
-    campaign: payload.data
+    campaign: payload.data.campaign,
+    characters: payload.data.characters,
+    churrentCharId: payload.data.churrentCharId
   };
 };
 
-export const joinCampaign = (id, charId) => dispatch => {
-  return CampaignUtil.join(id, charId).then(campaign =>
+//Response is not needed so we don't need a thunk action
+export const leaveCampaign = (id, charId) => {
+  CampaignUtil.leave(id, charId)
+}
+
+
+export const getCampaign = (id) => dispatch => {
+  return CampaignUtil.getCampaign(id).then(campaign =>
     dispatch(receiveCampaign(campaign))
   );
 };
@@ -20,8 +28,9 @@ export const createCampaign = () => dispatch => {
   );
 };
 
-export const fetchCampaignByKey = (campRoom) => dispatch => {
-  return CampaignUtil.fetchCampaignByKey(campRoom).then(campaign =>
+//Fetches campaign and add charId to that campaign
+export const fetchCampaignByKey = (campRoom, charId) => dispatch => {
+  return CampaignUtil.fetchCampaignByKey(campRoom, charId).then(campaign =>
     dispatch(receiveCampaign(campaign))
   );
 }

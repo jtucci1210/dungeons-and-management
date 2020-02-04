@@ -1,209 +1,201 @@
-
-
 .home-page-main-box {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    overflow: scroll;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
 }
 
-    .main-page-background-img {
-        top: 100px;
-    }
+.main-page-background-img {
+	top: 100px;
+}
 
-    .home-page-create-character-text{
-        font-size: 60px;
-    }
-
+.home-page-create-character-text {
+	font-size: 60px;
+}
 
 .home-page-characters {
-    position: absolute;
-    padding: 20px;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 12px;
-    width: 60%;
-    height: auto;
-    justify-content: center;
-    /* background-color: rgba(92, 160, 79, 0.3); */
-    top:150px;
-    overflow: visible;
-    margin-left: 5%;
-    margin-bottom: 130px;
+	position: absolute;
+	padding: 20px;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12px;
+	width: 60%;
+	height: auto;
+	justify-content: center;
+	/* background-color: rgba(92, 160, 79, 0.3); */
+	top: 150px;
+	overflow: visible;
+	margin-left: 5%;
+	margin-bottom: 130px;
 }
 
 .home-page-create-character {
-    text-decoration: none;
-    font-size: 40px;
-    color: #A6C8BC;
-    display: flex;
-    justify-content: center;
-    display: flex;
-    align-items: center;
+	text-decoration: none;
+	font-size: 40px;
+	color: #a6c8bc;
+	display: flex;
+	justify-content: center;
+	display: flex;
+	align-items: center;
 }
 
 .character-box,
 .home-page-create-character {
-    text-transform: capitalize;
-    border: solid black 1px;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px;
-    background-color: rgb(14, 24, 37);
-    width: 225px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 5px 5px 10px black;
+	text-transform: capitalize;
+	border: solid black 1px;
+	padding: 10px;
+	border-radius: 5px;
+	margin: 10px;
+	background-color: rgb(14, 24, 37);
+	width: 225px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 5px 5px 10px black;
 }
-
 
 .index-characters {
-    display: flex;
-    flex-wrap: wrap;
-    
+	display: flex;
+	flex-wrap: wrap;
 }
 
-.character-name-index{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    font-size: 16px;
-    font-family: Special Elite;
+.character-name-index {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	font-size: 16px;
+	font-family: Special Elite;
 }
 
 .character-box:hover {
-    background-color: #3a6839;
+	background-color: #3a6839;
 }
 
 .home-page-create-character:hover {
-    background-color: #3a6839;
+	background-color: #3a6839;
 }
 .home-characters-link {
-    text-decoration: none;
-    color: #A6C8BC;
+	text-decoration: none;
+	color: #a6c8bc;
 }
 
 .index-character-stats {
-    padding: 10px;
+	padding: 10px;
 }
 
 .index-character-stats div {
-    display: flex;
-    padding-top: 10px;
+	display: flex;
+	padding-top: 10px;
 }
 
 .safe-health {
-    color: green;
+	color: green;
 }
 .warning-health {
-    color: red;
+	color: red;
 }
 
 .character-image-div {
-    height: 200px;
-    width: 200px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid black;
+	height: 200px;
+	width: 200px;
+	overflow: hidden;
+	position: relative;
+	border: 1px solid black;
 }
 .character-image {
-    position: absolute;
-    max-width:100%;
-    height:auto;
+	position: absolute;
+	max-width: 100%;
+	height: auto;
 }
 
 .deceased-character-image {
-    position: absolute;
-    max-width:100%;
-    height:auto;
+	position: absolute;
+	max-width: 100%;
+	height: auto;
 }
 
 .imma-blank-space {
-    width: 5px;
+	width: 5px;
 }
 .field-title {
-    font-family: Special Elite;
-    font-size: 14px;
+	font-family: Special Elite;
+	font-size: 14px;
 }
 
 .home-page-campaign-box {
-    background-color: #173514;
-    background-image: url("https://www.transparenttextures.com/patterns/shley-tree-1.png");
-    width: 25%;
-    justify-content: center;
-    position: fixed;
-    right: 0px;
-    top: 130px;
-    margin: 20px;
-    min-width: 250px;
-    border: solid 10px #A6C8BC;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 150px;
-    height: auto;
+	background-color: #173514;
+	background-image: url("https://www.transparenttextures.com/patterns/shley-tree-1.png");
+	width: 25%;
+	justify-content: center;
+	position: fixed;
+	right: 0px;
+	top: 130px;
+	margin: 20px;
+	min-width: 250px;
+	border: solid 10px #a6c8bc;
+	border-radius: 5px;
+	box-shadow: 5px 5px 10px black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 150px;
+	height: auto;
 }
 
-    .home-page-campaign-links {
-            
-    }
+.home-page-campaign-links {
+}
 
-.home-page-campaign-title{
-    color: #A6C8BC;
-    padding: 10px;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-    font-size: 30px;
-    font-family: Birmingham;
+.home-page-campaign-title {
+	color: #a6c8bc;
+	padding: 10px;
+	justify-content: center;
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	font-family: Birmingham;
 }
 
 .home-page-campaign-box {
-    
 }
 .home-page-campaign-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .join-campaign {
-    width: 100px;
-    height: 30px;
-    padding: 5px;
-    margin: 10px;
-    border-radius: 5px;
-    background-color:  #A6C8BC;
-    font-family: Special Elite;
+	width: 100px;
+	height: 30px;
+	padding: 5px;
+	margin: 10px;
+	border-radius: 5px;
+	background-color: #a6c8bc;
+	font-family: Special Elite;
 }
 .start-campaign {
-    width: 150px;
-    height: 30px;
-    padding: 5px;
-    margin: 10px;
-    border-radius: 5px;
-    background-color:  #A6C8BC;
-    font-family: Special Elite;
+	width: 150px;
+	height: 30px;
+	padding: 5px;
+	margin: 10px;
+	border-radius: 5px;
+	background-color: #a6c8bc;
+	font-family: Special Elite;
 }
 
 .lobby-number {
-    height: 20px;
-    width: 100%;
+	height: 20px;
+	width: 100%;
 }
 
 .home-page-lobby-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .home-page-lobby-join {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .or-separator {
-    color: white;
+	color: white;
 }
-

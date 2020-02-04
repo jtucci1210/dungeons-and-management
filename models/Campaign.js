@@ -7,8 +7,8 @@ const CampaignSchema = new Schema({
                 required: true,
                 unique: true
         },
-        characters: [{ 
-                type: Schema.Types.ObjectId, ref: 'Character' 
+        characters: [{
+                type: Schema.Types.ObjectId, ref: 'Character'
         }]
 })
 
