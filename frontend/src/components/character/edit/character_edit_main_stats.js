@@ -7,6 +7,8 @@ import * as math from '../../../util/game_math_util'
 import * as race from '../../../util/race_util'
 import * as armor from '../../../util/armor_util'
 import * as classUtil from '../../../util/class_util'
+import { Link } from 'react-router-dom';
+
 
 
 class EditMainStats extends React.Component {
@@ -307,6 +309,14 @@ class EditMainStats extends React.Component {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div className="save-character-edits">
+                        <Link
+                            to={`/characters/${character._id}`}
+                            className="edit-character-link"
+                        >
+                            Save Changes
+                        </Link>
                     </div>
                 </div>
             )

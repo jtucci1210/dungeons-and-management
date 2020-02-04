@@ -74,10 +74,12 @@ class EditGeneralStats extends React.Component {
         }
     }
 
-    myFunction() {
-        const armor_list = document.getElementsByClassName("change-armor")[0]
-        armor_list.classList.toggle("armor-list")
-    }
+    // myFunction() {
+    //     const armor_list = document.getElementsByClassName("change-armor")[0]
+        // armor_list.classList.toggle("armor-list")
+        // debugger;
+        // armor_list.innerText = "Close";
+    // }
 
     changeArmor(e) {
         let newArmor
@@ -210,44 +212,51 @@ class EditGeneralStats extends React.Component {
                     <img className="show-character-image" src={cardImg}></img>
                 </div>
                 <div className="show-character-general-info">
-                    <div className='show-character-general-race'>
-                        <p className='show-character-general-race'>
-                            Race:
-                        </p>
-                    <div className='show-character-general-race-info'>
-                        {character.race}
-                    </div>
-                    </div>
-                    <div className='show-character-general-lvl'>
-                        <p className='show-character-general-level'>
-                            Level:
-                        </p>
-                        <div className='show-character-general-level-info'>
-                            <div>
-                                {character.level}
-                            </div>
-                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='increase'> Increase Level</button>
-                                <button onClick={(e) => this.addOrRemoveLevel(e)} name='decrease'> Decrease Level</button>
+                    <div className="show-character-general">
+                        <div className="show-character-general-race">Race:</div>
+                        <div className="imma-blank-space"> </div>
+                        <div className="show-character-general-race-info">
+                            {character.race}
                         </div>
                     </div>
-                </div>
-                <div className='show-character-general-class'>
-                    <p className='show-character-general-race'>
-                        Class:
-                    </p>
-                    <div className='show-character-general-class-info'>
-                        {character.charClass}
+                    <div className="show-character-general">
+                        <div className="show-character-general-class">Class:</div>
+                        <div className="imma-blank-space"> </div>
+                        <div className="show-character-general-class-info">
+                            {character.charClass}
+                        </div>
                     </div>
-                </div>
-                <div className="show-character-general-hp">
-                    <div className="show-character-general-hp">
-                        Max Life: {this.healthManagement(hitDice)}
+                    <div className="show-character-general">
+                        <div className="show-character-general-maxhp">Max Health:</div>
+                        <div className="imma-blank-space"> </div>
+                        <div className="show-character-general-maxhp-info">
+                            {this.healthManagement(hitDice)}
+                        </div>
                     </div>
-                    <div className="show-character-general-hp">
-                        Current Life: {character.currentHp}
+                    <div className="show-character-general">
+                        <div className="show-character-general-currhp">Current Health:</div>
+                        <div className="imma-blank-space"> </div>
+                        <div className="show-character-general-currhp-info">
+                            {character.currentHp}
+                        </div>
                     </div>
-                    <div className="show-character-general-hp">
-                        {character.level}d{hitDice}
+                    <div className="show-character-general">
+                        <div className="show-character-general-hd">Hit Dice:</div>
+                        <div className="imma-blank-space"> </div>
+                        <div className="show-character-general-hd-info">
+                            {character.level}d{hitDice}
+                        </div>
+                    </div>
+                    <div className="show-character-general">
+                        <div className="show-character-general-level">Level:</div>
+                        <div className="imma-blank-space"> </div>
+                        <div className="show-character-general-level-info">
+                            {character.level}
+                        </div>
+                    </div>
+                    <div className="level-up-down-btns-div">
+                        <button className="level-up-dwn-btn" onClick={(e) => this.addOrRemoveLevel(e)} name='increase'> Increase Level</button>
+                        <button className="level-up-dwn-btn" onClick={(e) => this.addOrRemoveLevel(e)} name='decrease'> Decrease Level</button>
                     </div>
                     <div className="show-character-general">
                         <div className="show-character-general-level">Armor:</div>
@@ -258,9 +267,9 @@ class EditGeneralStats extends React.Component {
                     </div>
                 </div>
                 <div className="armor">
-                    <button 
+                    {/* <button 
                         className="armor_list" 
-                        onClick={() => this.myFunction()}>Change Armor</button>
+                        onClick={() => this.myFunction()}>Change Armor</button> */}
                     <div className="change-armor">
                         <select
                             className="armor-list-selector"
@@ -274,15 +283,9 @@ class EditGeneralStats extends React.Component {
                                 <option key={i} value={armor.fullArmor[i]}>{armorItem}</option>
                             ))}
                         </select>
-                        <button onClick={() =>this.changeArmor()}>Change Armor</button>
+                        <button className="update-armor-btn" onClick={() =>this.changeArmor()}>Update Armor</button>
                     </div>
                 </div>
-                <Link
-                    to={`/characters/${character._id}`}
-                    className="edit-character-link"
-                >
-                    Save Changes
-                </Link>
             </div>
         )
     }

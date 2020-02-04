@@ -1,0 +1,72 @@
+.level-up-down-btns-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}
+
+.level-up-dwn-btn {
+    width: 100px;
+    height: 33px;
+    box-shadow: 3px 3px 5px black;
+    margin: 1px;
+    background-color: #173514;
+    color: white;
+    border-radius: 3px;
+}
+
+.level-up-dwn-btn:hover {
+    cursor: pointer;
+}
+
+.show-character-self-stat button {
+    background-color: #173514;
+    color: white;
+    border-radius: 3px;
+}
+
+.show-character-self-stat button:hover {
+    cursor: pointer;
+
+}
+
+.change-armor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.armor-list-selector {
+    margin-top: 10px;
+}
+
+.update-armor-btn {
+    width: 100px;
+    height: 33px;
+    background-color: #173514;
+    color: white;
+    box-shadow: 3px 3px 5px black;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+.save-character-edits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.edit-character-link {
+    padding-top: 10px;
+    text-decoration: none;
+    text-align: center;
+    justify-self: center;
+    width: 100px;
+    height: 23px;
+    background-color: #173514;
+    color: white;
+    box-shadow: 3px 3px 5px black;
+    border-radius: 3px;
+    font: 400 11px system-ui;
+    border: 1px solid white;
+}
