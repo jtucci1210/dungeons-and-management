@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { withRouter } from 'react-router-dom'
 import '../../../stylesheet/show_page.css'
-import '../../../stylesheet/test.css'
+import '../../../stylesheet/loading_page.css'
 import GeneralStats from './character_general_stats';
 import MainStats from './character_main_stats';
 import * as classUtil from '../../../util/class_util'
 import splashImg from '../../splash/splash_image.jpg'
+import '../../../stylesheet/stat_roller.css';
 
 
 
@@ -22,7 +23,8 @@ class CharacterShowPage extends React.Component {
     componentDidMount() {
        const characterInfo = this.props.getCharacter(this.props.match.params.characterId)
         // this.props.getCharacter(this.props.match.params.characterId)
-        Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
+        Promise.all([characterInfo]).then(() => this.setState({ loaded: false }))
+        // change promise loaded back to true
     }
 
     deleteChar() {
@@ -67,7 +69,13 @@ class CharacterShowPage extends React.Component {
             </div>
             );
         } else {
-            return (<div className='test'>Loading</div>)
+          return (<div className="loading-page">
+                    <div className="loading">Loading</div>
+                    <img src={splashImg} alt="background" className="splash-image" />
+                    <i id="loading-die" className="fas fa-dice-six fa-spin"></i>
+                    <div className="loading-message">If waiting for longer than 1 min, please refresh the page.</div>
+                  </div>)
+          // return (<div><img src={splashImg} alt="background" className="splash-image" /><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>)
         }
     }
 
