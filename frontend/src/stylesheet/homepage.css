@@ -200,3 +200,7 @@
 .or-separator {
 	color: white;
 }
+
+.join-campaign:hover, .start-campaign:hover {
+	cursor: pointer;
+}
