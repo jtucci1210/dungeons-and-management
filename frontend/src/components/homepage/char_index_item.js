@@ -11,9 +11,9 @@ import TieflingImg from "./races/tiefling.jpg";
 import DeceasedImg from "./deceased.png";
 
 class CharIndexItem extends React.Component {
-	constructor(props) {
-		super(props);
-	}
+	// constructor(props) {
+	// 	super(props);
+	// }
 	charImage() {
 		const { character } = this.props;
 		const race = character.race;
@@ -84,7 +84,7 @@ class CharIndexItem extends React.Component {
 					<h3>{character.name}</h3>
 				</div>
 				<div className="character-image-div">
-					<img className="character-image" src={cardImg}></img>
+					<img alt="character" className="character-image" src={cardImg}></img>
 					<img
 						className="deceased-character-image"
 						src={deceased}

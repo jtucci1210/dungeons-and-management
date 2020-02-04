@@ -84,8 +84,6 @@ class CharacterEditPage extends React.Component {
         if (this.state.loaded) {
             const editCharacter = this.props.editCharacter
             const character = this.props.character
-            const fullClass = classUtil.fullClass
-            const hitDice = fullClass[character.charClass].hitDice
             return (
             <div className="main-page-background-img">
                 <img src={splashImg} alt="background" className="splash-image" />

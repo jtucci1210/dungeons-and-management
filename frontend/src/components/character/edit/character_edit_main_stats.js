@@ -2,7 +2,6 @@ import React from 'react';
 import '../../../stylesheet/show_page.css'
 import '../../../stylesheet/drop_down.css'
 import '../../../stylesheet/character_edit_form.css'
-import * as skills from '../../../util/skill_util'
 import * as math from '../../../util/game_math_util'
 import * as race from '../../../util/race_util'
 import * as armor from '../../../util/armor_util'
@@ -114,9 +113,6 @@ class EditMainStats extends React.Component {
     }
     showSkillMod(skill, stat, prof) {
         const characterSkills = this.props.character.skills
-        const characterClass = this.props.character.charClass
-        const fullClass = classUtil.fullClass
-        const classInfo = fullClass[characterClass].savingThrows
         if (characterSkills.includes(skill.toLowerCase())) {
             return math.mod(stat, prof)
         } else {

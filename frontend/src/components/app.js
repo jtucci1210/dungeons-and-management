@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
 import SplashPage from './splash/splash_page';
 import CharacterCreateFormContainer from './character/create/character_create_form_container';
