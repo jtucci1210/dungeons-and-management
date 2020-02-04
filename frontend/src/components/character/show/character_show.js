@@ -5,7 +5,6 @@ import '../../../stylesheet/show_page.css'
 import '../../../stylesheet/loading_page.css'
 import GeneralStats from './character_general_stats';
 import MainStats from './character_main_stats';
-import * as classUtil from '../../../util/class_util'
 import splashImg from '../../splash/splash_image.jpg'
 import '../../../stylesheet/stat_roller.css';
 

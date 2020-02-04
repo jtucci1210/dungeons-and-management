@@ -27,9 +27,6 @@ class MainStats extends React.Component {
     }
     showSkillMod(skill, stat, prof) {
         const characterSkills = this.props.character.skills
-        const characterClass = this.props.character.charClass
-        const fullClass = classUtil.fullClass
-        const classInfo = fullClass[characterClass].savingThrows
         if (characterSkills.includes(skill.toLowerCase())) {
             return math.mod(stat, prof)
         } else {

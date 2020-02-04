@@ -37,9 +37,6 @@ class GeneralStats extends React.Component {
 
     showSkillMod(skill, stat, prof) {
         const characterSkills = this.props.character.skills
-        const characterClass = this.props.character.charClass
-        const fullClass = classUtil.fullClass
-        const classInfo = fullClass[characterClass].savingThrows
 
         if (characterSkills.includes(skill.toLowerCase())) {
             return math.mod(stat, prof)
@@ -98,7 +95,7 @@ class GeneralStats extends React.Component {
     return (
       <div className="show-character-general-stats">
         <div className="show-character-image-div">
-          <img className="show-character-image" src={cardImg}></img>
+          <img alt="character" className="show-character-image" src={cardImg}></img>
           <img className="deceased-character-image" src={deceased}></img>
         </div>
         <div className="show-character-general-info">
