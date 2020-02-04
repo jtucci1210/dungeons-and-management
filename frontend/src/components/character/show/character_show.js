@@ -23,7 +23,7 @@ class CharacterShowPage extends React.Component {
     componentDidMount() {
        const characterInfo = this.props.getCharacter(this.props.match.params.characterId)
         // this.props.getCharacter(this.props.match.params.characterId)
-        Promise.all([characterInfo]).then(() => this.setState({ loaded: false }))
+        Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
 
     }
 
