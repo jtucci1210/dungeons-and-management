@@ -37,6 +37,9 @@
 }
 .armor-list-selector {
     margin-top: 10px;
+    height: 30px;
+    font-weight: bolder;
+    background-color: rgba(14, 71, 4, 0.5);
 }
 
 .update-armor-btn {
@@ -56,7 +59,7 @@
     margin-top: 30px;
 }
 
-.edit-character-link {
+.show-character-link {
     padding-top: 10px;
     text-decoration: none;
     text-align: center;
@@ -69,4 +72,8 @@
     border-radius: 3px;
     font: 400 11px system-ui;
     border: 1px solid white;
+}
+
+.increase-decrease {
+    height: 30px;
 }

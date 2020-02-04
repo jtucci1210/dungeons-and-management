@@ -242,6 +242,7 @@
     .show-character-ability-pair{
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 
     .show-character-ability-value,
