@@ -27,6 +27,7 @@
     width: 800px;
     height: auto;
     margin: 20px;
+    border: solid 3px whitesmoke;
 }
 
 .narrow {

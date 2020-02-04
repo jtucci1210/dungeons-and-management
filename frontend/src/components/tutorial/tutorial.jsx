@@ -20,8 +20,6 @@ import characterIndex from './17-character-index.png';
 
 class Tutorial extends React.Component {
 
-   
-
     render() {
         return (
             <div className="tutorial-container">
