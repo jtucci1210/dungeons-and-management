@@ -20,7 +20,8 @@ class CampaignRoom extends React.Component {
 			currentChar: {},
 			reload: false
 		} 
-		this.saveHp = this.saveHp.bind(this)
+		this.saveHp = this.saveHp.bind(this);
+		this.charHealthColor = this.charHealthColor.bind(this);
 	}
 
 	//Lifecycle Methods ----------------
@@ -43,10 +44,29 @@ class CampaignRoom extends React.Component {
 
 	initializeHpSocketListener() {
 		this.socket.on("sendHptoFront", function(newCharData) {
-			let charHp = document.getElementById(`charidhp-${newCharData._id}`);
-			charHp.innerText = `${newCharData.maxHp} (${newCharData.currentHp})`
+			let charHp = document.getElementById(`charidhp-${newCharData._id}`).children[0];
+			charHp.innerText = `${newCharData.currentHp}`
+			let healthPct = newCharData.currentHp / newCharData.maxHp;
+
+			if (healthPct < 0.3) {
+				charHp.style.color = "red";
+			} else {
+				charHp.style.color = "green"
+			}
+
 			//Set class to safe or not safe hp
 		});
+	}
+
+	charHealthColor(character) {
+		let healthPct = character.currentHp / character.maxHp;
+		if (healthPct < 0.3) {
+			return (
+				<span className="warning-health">{character.currentHp}</span>
+			);
+		} else {
+			return <span className="safe-health">{character.currentHp}</span>;
+		}
 	}
 
 	handleHpClick(type) {
