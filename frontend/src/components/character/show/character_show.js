@@ -55,8 +55,8 @@ class CharacterShowPage extends React.Component {
                     >
                         <button className="edit-delete-char-btn">Edit Character</button>
                     </Link>
-                        <Link to={`/home`} className="edit-delete-char-btn"
-                          onClick={() => this.deleteChar()}>Delete Character</Link>
+                        <Link to={`/home`}>
+                          <button className="edit-delete-char-btn" onClick={() => this.deleteChar()}>Delete Character</button> </Link>
                     </div>
                   </div>
                   <div className="all-stats">
