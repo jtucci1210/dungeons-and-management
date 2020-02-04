@@ -18,7 +18,8 @@ class CampaignRoom extends React.Component {
 
 		this.state = {
 			currentChar: {},
-			reload: false
+			reload: false,
+			loaded: false,
 		} 
 		this.saveHp = this.saveHp.bind(this);
 		this.charHealthColor = this.charHealthColor.bind(this);
@@ -26,9 +27,10 @@ class CampaignRoom extends React.Component {
 
 	//Lifecycle Methods ----------------
 	componentDidMount() {
-		this.props.getCampaign(this.campId)
+		const campaign = this.props.getCampaign(this.campId)
 			.then(() => this.getCurrentChar());
-		this.initializeSocketListeners();
+		const socketList = this.initializeSocketListeners();
+		Promise.all([campaign, socketList]).then(() => this.setState({ loaded: true }))
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -224,30 +226,42 @@ class CampaignRoom extends React.Component {
 	//Component Render ----------------
 	
 	render() {
-		return (
-			<div id="campaignContainer">
-				<div className="main-page-background-img">
-					<img src={splashImg} alt="background" className="splash-image" />
+		if (this.state.loaded) {
+			return (
+				<div id="campaignContainer">
+					<div className="main-page-background-img">
+						<img src={splashImg} alt="background" className="splash-image" />
+					</div>
+					<div id="campaign-info-container">
+						<h3>{`Room#: ${this.props.campaign.campKey}`}</h3>
+						{this.renderCurrentCharForm()}
+						<button onClick={() => this.handleLeaveClick() }>Leave Campaign</button>
+					</div>
+					<ul id="char-boxes">{this.renderChars()}</ul>
+					<div id='dice-hp-container'>
+						{this.currentCharExists() ? this.renderHpButtons() : null}
+						<Dice 
+							socket={this.socket}
+							currentChar={this.state.currentChar}
+							characters={this.props.characters}
+						/>
+					</div>
+					{this.currentCharExists() ? this.renderCharShow() : null}
+					
+					
 				</div>
-				<div id="campaign-info-container">
-					<h3>{`Room#: ${this.props.campaign.campKey}`}</h3>
-					{this.renderCurrentCharForm()}
-					<button onClick={() => this.handleLeaveClick() }>Leave Campaign</button>
+			);
+		} else {
+			return (<div className="loading-page">
+				<img src={splashImg} alt="background" className="splash-image" />
+				<div className="loading-sections">
+					<div>
+						<i id="loading-die" className="fas fa-dice-six fa-spin"></i>
+					</div>
+					<div className="loading-message">Loading - If longer than 1 min, please refresh the page.</div>
 				</div>
-				<ul id="char-boxes">{this.renderChars()}</ul>
-				<div id='dice-hp-container'>
-					{this.currentCharExists() ? this.renderHpButtons() : null}
-					<Dice 
-						socket={this.socket}
-						currentChar={this.state.currentChar}
-						characters={this.props.characters}
-					/>
-				</div>
-				{this.currentCharExists() ? this.renderCharShow() : null}
-				
-				
-			</div>
-		);
+			</div>)
+		}
 	}
 }
 
