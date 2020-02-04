@@ -5,9 +5,8 @@ import '../../../stylesheet/loading_page.css'
 import EditGeneralStats from './character_edit_general_stats';
 import EditMainStats from './character_edit_main_stats';
 import * as math from '../../../util/game_math_util'
-import * as race from '../../../util/race_util'
-import * as armor from '../../../util/armor_util'
 import * as classUtil from '../../../util/class_util'
+import splashImg from '../../splash/splash_image.jpg'
 
 
 
@@ -133,7 +132,17 @@ class CharacterEditPage extends React.Component {
                 </div>
             )
         } else {
-            return (<div className='test'>Loading</div>)
+            return (<div className="loading-page">
+                <img src={splashImg} alt="background" className="splash-image" />
+                <div className="loading-sections">
+                    {/* <div className="loading">Loading</div> */}
+                    {/* <div id="height"> */}
+                    <i id="loading-die" className="fas fa-dice-six fa-spin"></i>
+
+                    {/* </div> */}
+                    <div className="loading-message">Loading - If longer than 1 min, please refresh the page.</div>
+                </div>
+            </div>)
         }
     }
 
