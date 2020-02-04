@@ -52,6 +52,7 @@ class HomePage extends React.Component {
 	}
 
 	renderChooseCharacterForm() {
+		// debugger;
 		const { characters } = this.props;
 		return (
 			<form
@@ -62,14 +63,10 @@ class HomePage extends React.Component {
 				<br />
 				<select
 					className="campaign-char-selector"
+					value={!!this.state.campaignChar ? this.state.campaignChar : "Choose a Character"}
 					onChange={e => this.setState({campaignChar: e.target.value})}
 				>
-					<option
-						value="Choose a Character"
-						disabled={true}
-						selected={true} //This is a bad way to have default in React.
-
-					>Choose a Character</option>
+					<option disabled={true}>Choose a Character</option>
 					{characters.map((char, i) => (
 						<option key={i}>{char.name}</option>
 					))}
