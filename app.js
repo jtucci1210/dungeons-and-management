@@ -39,7 +39,7 @@ app.use("/api/characters", characters);
 app.use("/api/campaigns", campaigns);
 
 //Websockets Set-Up
-const socketPort = 8080;
+const socketPort = process.env.PORT || 8080;
 const server = app.listen(socketPort, function () {
         console.log("Listening at http://localhost: " + socketPort);
 });
