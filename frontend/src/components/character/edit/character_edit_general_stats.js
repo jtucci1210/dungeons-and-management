@@ -13,7 +13,6 @@ import TieflingImg from "./races/tiefling.jpg";
 import * as math from '../../../util/game_math_util'
 import * as armor from '../../../util/armor_util'
 import * as classUtil from '../../../util/class_util'
-import { Link } from 'react-router-dom';
 
 
 class EditGeneralStats extends React.Component {

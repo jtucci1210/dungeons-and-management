@@ -652,7 +652,7 @@ class CharacterCreateForm extends React.Component {
                         </div>
                       </div>
                       {this.state.halfelfSkills.length === 2 &&
-                      this.state.halfelfAbilities.length == 2 ? (
+                      this.state.halfelfAbilities.length === 2 ? (
                         <button
                           className="create-char-btn"
                            onClick={this.handleSubmit}
