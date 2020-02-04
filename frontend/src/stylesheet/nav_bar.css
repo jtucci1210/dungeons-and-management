@@ -46,6 +46,11 @@
     text-decoration: none;
 }
 
+.nav-bar-signup:hover,
+.nav-bar-login:hover {
+    cursor: pointer;
+}
+
 .nav-bar-title{
     text-decoration: none;
     color: #A6C8BC;
@@ -96,4 +101,5 @@
 .login-signup-button:hover, .nav-bar-logout-button:hover, .nav-bar-tutorial-button:hover {
     background-color: rgb(183, 245, 90);
     color:black;
+    cursor: pointer;
 }

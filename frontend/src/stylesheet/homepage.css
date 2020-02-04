@@ -36,6 +36,7 @@
 	justify-content: center;
 	display: flex;
 	align-items: center;
+	height: 320px;
 }
 
 .character-box,
@@ -198,4 +199,8 @@
 }
 .or-separator {
 	color: white;
+}
+
+.join-campaign:hover, .start-campaign:hover {
+	cursor: pointer;
 }
