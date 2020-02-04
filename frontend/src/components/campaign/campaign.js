@@ -5,6 +5,7 @@ import io from 'socket.io-client';
 import Dice from './dice';
 import CharIndexItem from '../homepage/char_index_item';
 import CharacterShowContainer from '../character/show/character_show_container'
+import splashImg from '../../components/homepage/splash_image.jpg';
 
 class CampaignRoom extends React.Component {
 	constructor(props) {
@@ -19,9 +20,11 @@ class CampaignRoom extends React.Component {
 			currentChar: {},
 			reload: false
 		} 
-		this.saveHp = this.saveHp.bind(this)
+		this.saveHp = this.saveHp.bind(this);
+		this.charHealthColor = this.charHealthColor.bind(this);
 	}
 
+	//Lifecycle Methods ----------------
 	componentDidMount() {
 		this.props.getCampaign(this.campId)
 			.then(() => this.getCurrentChar());
@@ -34,16 +37,36 @@ class CampaignRoom extends React.Component {
 		}
 	}
 
+	//Socket Functions---------
 	initializeSocketListeners() {
 		this.initializeHpSocketListener();
 	}
 
 	initializeHpSocketListener() {
 		this.socket.on("sendHptoFront", function(newCharData) {
-			let charHp = document.getElementById(`charidhp-${newCharData._id}`);
-			charHp.innerText = `${newCharData.maxHp} (${newCharData.currentHp})`
+			let charHp = document.getElementById(`charidhp-${newCharData._id}`).children[0];
+			charHp.innerText = `${newCharData.currentHp}`
+			let healthPct = newCharData.currentHp / newCharData.maxHp;
+
+			if (healthPct < 0.3) {
+				charHp.style.color = "red";
+			} else {
+				charHp.style.color = "green"
+			}
+
 			//Set class to safe or not safe hp
 		});
+	}
+
+	charHealthColor(character) {
+		let healthPct = character.currentHp / character.maxHp;
+		if (healthPct < 0.3) {
+			return (
+				<span className="warning-health">{character.currentHp}</span>
+			);
+		} else {
+			return <span className="safe-health">{character.currentHp}</span>;
+		}
 	}
 
 	handleHpClick(type) {
@@ -77,18 +100,7 @@ class CampaignRoom extends React.Component {
 		})
 	}
 
-	renderChars() {
-
-		//Conditional prevents error from render happening before getCampChars before component did mount
-		if (this.props.characters){
-			return this.props.characters.map(char => {
-				return (
-						<CharIndexItem key={char._id} character={char} inCampRoom={true} />
-				);
-			});
-		}
-	}
-
+	
 	getCurrentChar() {
 		return this.props.characters.forEach(char => {
 			if (this.props.currentUser.id === char.userId ) {
@@ -96,12 +108,34 @@ class CampaignRoom extends React.Component {
 			}
 		})
 	}
-
+	
 	handleLeaveClick() {
 		let campId = this.campId;
 		let charId = this.state.currentChar._id
 		this.props.leaveCampaign(campId, charId)
 		this.props.history.push(`/home`)
+	}
+	
+	//Render methods -------------------
+	renderChars() {
+		//Conditional prevents error from render happening before getCampChars before component did mount
+		if (this.props.characters){
+			return this.props.characters.map(char => {
+				let className = 'unhidden'
+				if (char.name === this.state.currentChar.name) {
+					className = 'hidden'
+				}
+				return (
+						<CharIndexItem 
+							hideStatus={className} 
+							key={char._id} 
+							character={char} 
+							inCampRoom={true} 
+						/>
+				);
+				
+			});
+		}
 	}
 
 	renderCurrentCharForm() {
@@ -113,16 +147,13 @@ class CampaignRoom extends React.Component {
 			})
 
 			return (
-				<form
-					className="home-page-lobby-form"
-				>
-	
+				<form className="home-page-lobby-form">
 					<br />
 					<select
 						className="campaign-char-selector"
 						onChange={e => this.changeCurrentChar(e)}
 					>
-					<option>Choose char</option>
+					<option>Change Character</option>
 					{userChars.map((char, i) => (
 						<option key={i}>{char.name}</option>
 					))}
@@ -134,60 +165,41 @@ class CampaignRoom extends React.Component {
 	}
 
 	renderHpButtons() {
-		const { currentChar } = this.state
-
 		return (
-			<div id="current-char-info">
-				<h3>{currentChar.name}</h3>
-				<h3 id="hp" className="ws-test">
-					{currentChar.currentHp}
-				</h3>
+			<div id="hp-buttons">
 				<button
-					className="ws-test"
+					className="hp"
 					onClick={() => this.handleHpClick("inc")}
 					id="incHpButton"
 				>{" "}Increase HP</button>
 				<button
-					className="ws-test"
+					className="hp"
 					onClick={() => this.handleHpClick("dec")}
 					id="decHpButton"
 				>{" "}Decrease HP</button>
 				<button onClick={() => this.saveHp()}>saveHp</button>
+				<div>{this.state.currentChar.name}</div>
+				<div>{this.state.currentChar.currentHp}</div>
 			</div>
 		)
 	}
-	
-	render() {
-		const { currentChar } = this.state
-		let currentCharExists = Object.keys(currentChar)
 
+	renderCharShow() {
+		const { currentChar } = this.state
 		return (
-			<div id="campaignContainer">
-				<div id="campaign-info-container">
-					<h3>{`Room#: ${this.props.campaign.campKey}`}</h3>
-					{this.renderCurrentCharForm()}
-					<button onClick={() => this.handleLeaveClick() }>Leave Campaign</button>
-				</div>
-				<ul id="char-boxes">{this.renderChars()}</ul>
-				<Dice 
-					socket={this.socket}
-					currentChar={this.state.currentChar}
-					characters={this.props.characters}
-				/>
-				{currentCharExists.length > 0 ? this.renderHpButtons() : null}
-				
-				{/* <CharacterShowContainer character={currentChar} /> */}
-				
+			<div id="camp-char-show-container">
+				<CharacterShowContainer currentChar={currentChar} />
 			</div>
-		);
+
+		)
 	}
 
-	//Helper Methods
+	//Helper Methods ------------
 	reload() {
-			let oldState = Object.assign({}, this.state);
-			oldState.reload = false;
-			this.setState(oldState);
-			this.props.getCampaign(this.campId);
+		let oldState = Object.assign({}, this.state);
+		oldState.reload = false;
+		this.setState(oldState);
+		this.props.getCampaign(this.campId);
 	}
 
 	changeCurrentChar(e) {
@@ -201,6 +213,41 @@ class CampaignRoom extends React.Component {
 		})
 
 		this.setState(oldState)
+	}
+
+	currentCharExists() {
+		const { currentChar } = this.state
+		let currentCharExists = Object.keys(currentChar)
+		return currentCharExists.length > 0
+	}
+
+	//Component Render ----------------
+	
+	render() {
+		return (
+			<div id="campaignContainer">
+				<div className="main-page-background-img">
+					<img src={splashImg} alt="background" className="splash-image" />
+				</div>
+				<div id="campaign-info-container">
+					<h3>{`Room#: ${this.props.campaign.campKey}`}</h3>
+					{this.renderCurrentCharForm()}
+					<button onClick={() => this.handleLeaveClick() }>Leave Campaign</button>
+				</div>
+				<ul id="char-boxes">{this.renderChars()}</ul>
+				<div id='dice-hp-container'>
+					{this.currentCharExists() ? this.renderHpButtons() : null}
+					<Dice 
+						socket={this.socket}
+						currentChar={this.state.currentChar}
+						characters={this.props.characters}
+					/>
+				</div>
+				{this.currentCharExists() ? this.renderCharShow() : null}
+				
+				
+			</div>
+		);
 	}
 }
 
