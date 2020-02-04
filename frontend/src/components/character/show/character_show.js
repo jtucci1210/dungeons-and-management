@@ -18,9 +18,8 @@ class CharacterShowPage extends React.Component {
     }
 
     componentDidMount() {
-       const characterInfo = this.props.getCharacter(this.props.match.params.characterId)
-        // this.props.getCharacter(this.props.match.params.characterId)
-        Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
+       const characterInfo = this.props.currentChar || this.props.getCharacter(this.props.match.params.characterId)
+      Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
     }
 
 
@@ -28,7 +27,7 @@ class CharacterShowPage extends React.Component {
 
     render() {
         if (this.state.loaded) {
-            const character = this.props.character
+            const character = this.props.currentChar || this.props.character
            
             return (
             <div className="main-page-background-img">

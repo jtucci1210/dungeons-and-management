@@ -82,9 +82,19 @@ class CampaignRoom extends React.Component {
 		//Conditional prevents error from render happening before getCampChars before component did mount
 		if (this.props.characters){
 			return this.props.characters.map(char => {
+				let className = 'unhidden'
+				if (char.name === this.state.currentChar.name) {
+					className = 'hidden'
+				}
 				return (
-						<CharIndexItem key={char._id} character={char} inCampRoom={true} />
+						<CharIndexItem 
+							hideStatus={className} 
+							key={char._id} 
+							character={char} 
+							inCampRoom={true} 
+						/>
 				);
+				
 			});
 		}
 	}
@@ -156,11 +166,19 @@ class CampaignRoom extends React.Component {
 			</div>
 		)
 	}
+
+	renderCharShow() {
+		const { currentChar } = this.state
+		return (
+			<div id="camp-char-show-container">
+				<CharacterShowContainer currentChar={currentChar} />
+			</div>
+
+		)
+	}
 	
 	render() {
 		const { currentChar } = this.state
-		let currentCharExists = Object.keys(currentChar)
-
 		return (
 			<div id="campaignContainer">
 				<div id="campaign-info-container">
@@ -174,9 +192,9 @@ class CampaignRoom extends React.Component {
 					currentChar={this.state.currentChar}
 					characters={this.props.characters}
 				/>
-				{currentCharExists.length > 0 ? this.renderHpButtons() : null}
+				{this.currentCharExists() ? this.renderHpButtons() : null}
+				{this.currentCharExists() ? this.renderCharShow() : null}
 				
-				{/* <CharacterShowContainer character={currentChar} /> */}
 				
 			</div>
 		);
@@ -201,6 +219,12 @@ class CampaignRoom extends React.Component {
 		})
 
 		this.setState(oldState)
+	}
+
+	currentCharExists() {
+		const { currentChar } = this.state
+		let currentCharExists = Object.keys(currentChar)
+		return currentCharExists.length > 0
 	}
 }
 
