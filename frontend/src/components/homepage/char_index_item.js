@@ -63,10 +63,11 @@ class CharIndexItem extends React.Component {
 	}
 
 	renderDiceTotal() {
+		/* Styling in dice.scss */ 
 		return(
-			<span>
+			<span className="dice-roll-container" >
 				<div>Dice Roll: </div>
-				<div id={`dt-${this.props.character._id}`}></div>
+				<div id={`dt-${this.props.character._id}`}></div> 
 			</span>
 		)
 	}
@@ -78,7 +79,7 @@ class CharIndexItem extends React.Component {
 		const deceased = character.currentHp === 0 ? DeceasedImg : "";
 
 		return (
-			<div className="character-box">
+			<div className={`character-box ${this.props.hideStatus}`}>
 				<div className="character-name-index">
 					<h3>{character.name}</h3>
 				</div>
