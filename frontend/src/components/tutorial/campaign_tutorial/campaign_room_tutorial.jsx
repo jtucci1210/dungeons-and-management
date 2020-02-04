@@ -12,7 +12,6 @@ import characterShowImg from './9-character-show.png';
 import '../../../stylesheet/tutorial.css';
 import { Link } from "react-router-dom";
 
-
 class CampaignTutorial extends React.Component {
 
     render() {
@@ -24,13 +23,10 @@ class CampaignTutorial extends React.Component {
                 <h1 className="tutorial-header">Campaign Room Tutorial</h1>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
-                        <strong>Create New Character</strong>
+                        <strong>Create a Campaign (For DMs)</strong>
                         <br />
                         <br />
-                        On the homepage, click on the plus box.
-                        <br />
-                        <br />
-                        It will turn dark green on hover.
+                        On the homepage, click on the 'Create Campaign' button.
                     </p>
                     <img
                         src={campaignMenuImg}
@@ -39,10 +35,10 @@ class CampaignTutorial extends React.Component {
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description" id="createCharacter">
-                        <strong>Generate Dice Rolls</strong>
+                        <strong>Campaign Room Number (For DMs)</strong>
                         <br />
                         <br />
-                        Click on the generate button to generate your dice rolls.
+                        Note the room number for your campaign and send it to your players so they can join.
                     </p>
                     <img
                         src={campaignRoomNumberImg}
@@ -51,13 +47,13 @@ class CampaignTutorial extends React.Component {
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
-                        <strong>Select Ability Scores</strong>
+                        <strong>Join a Campaign</strong>
                         <br />
                         <br />
-                        Next you will be able to select which ability score you want associated with each roll.
+                        On the homepage, in the campaign menu, enter the room number your DM provided.
                         <br />
                         <br />
-                        You can hover over the '?' icon for more information about each ability.
+                        Select the character you wish you join the campaing with, and click 'Join'.
                     </p>
                     <img
                         src={joinCampaignImg}
@@ -66,13 +62,10 @@ class CampaignTutorial extends React.Component {
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
-                        <strong>Ability Scores Cont'd</strong>
+                        <strong>Campaign Room</strong>
                         <br />
                         <br />
-                        Make sure you have associated each roll with an ability score.
-                        <br />
-                        <br />
-                        You cannot have duplicates.
+                        When you arrive in the campaign room, you will see all of the other players who have also joined.
                     </p>
                     <img
                         src={playerCampaignRoomImg}
@@ -81,10 +74,16 @@ class CampaignTutorial extends React.Component {
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
-                        <strong>Name Your Character</strong>
+                        <strong>Update Character Health</strong>
                         <br />
                         <br />
-                        Don't forget to choose a name for your character!
+                        During the campaign, you can increase your decrease your character's HP with the respective buttons.
+                        <br/>
+                        <br/>
+                        Don't forget to click save after adjusting their health!
+                        <br/>
+                        <br/>
+                        *Note: Once you click saveHP, your character's health will be udpated for the rest of the players in the campaign room to see.
                     </p>
                     <img
                         src={characterHealthImg}
@@ -93,16 +92,16 @@ class CampaignTutorial extends React.Component {
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
-                        <strong>Choose Your Character's Race</strong>
+                        <strong>Dice Roller</strong>
                         <br />
                         <br />
-                        Select a race from the dropdown.
+                        Enter in the amount of dice you wish to roll under the corresponding dice type.
                         <br />
                         <br />
-                        Once selected, you will be able to see a description of the race.
+                        You can roll multiple dice of various types at one time.
                         <br />
                         <br />
-                        You will also see any bonuses your race selection has in the white box below.
+                        Click 'Roll Dice' to roll and 'Clear Roll' to clear your last roll.
                     </p>
                     <img
                         src={diceRollerImg}
@@ -111,19 +110,10 @@ class CampaignTutorial extends React.Component {
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
-                        <strong>Choose Your Character's Subrace</strong>
+                        <strong>Percentile Die</strong>
                         <br />
                         <br />
-                        *Not every Race has an associated Subrace. If it does, a dropdown will appear for you to select a Subrace.
-                        <br />
-                        <br />
-                        Select a subrace from the dropdown.
-                        <br />
-                        <br />
-                        Once selected, you will be able to see a description of the subrace.
-                        <br />
-                        <br />
-                        You will also see any bonuses your subrace selection has in the white box below.
+                        If you need to roll a percentile die, click the 'Roll %' button.
                     </p>
                     <img
                         src={rollPercentileImg}
@@ -132,16 +122,16 @@ class CampaignTutorial extends React.Component {
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
-                        <strong>Choose Your Character's Class</strong>
+                        <strong>Real Time Player Stats</strong>
                         <br />
                         <br />
-                        Select a class from the dropdown.
+                        As other players roll dice, you will see the results listed on their character card in real time.
                         <br />
                         <br />
-                        Once selected, you will be able to see a description of the class.
-                        <br />
-                        <br />
-                        You will also see any bonuses your class selection has in the white box below.
+                        You can also see any updates to current health.
+                        <br/>
+                        <br/>
+                        *If the current health of a player is 30% or less than their max, their health will be red.
                     </p>
                     <img
                         src={otherPlayerDiceRollImg}
@@ -150,13 +140,10 @@ class CampaignTutorial extends React.Component {
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
-                        <strong>Finalize Race and Class Selection</strong>
+                        <strong>Character Info</strong>
                         <br />
                         <br />
-                        Tip: As you are trying to decide which Race and Class to choose, think about what kind of character you want to play - Tank, Healer, Magic User, etc.
-                        <br />
-                        <br />
-                        Choose the combination that best compliments this.
+                        If you scroll down in the Campaign room, you will see the full info for your Character.
                     </p>
                     <img
                         src={characterShowImg}
