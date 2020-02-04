@@ -74,6 +74,7 @@
 }
 
 .signup-errors, .login-errors {
+  margin-top: 5px;
   justify-content: center;
   justify-self: center;
   color: red;
