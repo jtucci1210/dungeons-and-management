@@ -23,7 +23,7 @@ class CharacterShowPage extends React.Component {
     componentDidMount() {
        const characterInfo = this.props.getCharacter(this.props.match.params.characterId)
         // this.props.getCharacter(this.props.match.params.characterId)
-        Promise.all([characterInfo]).then(() => this.setState({ loaded: true }))
+        Promise.all([characterInfo]).then(() => this.setState({ loaded: false }))
 
     }
 
@@ -72,12 +72,10 @@ class CharacterShowPage extends React.Component {
           return (<div className="loading-page">
                     <img src={splashImg} alt="background" className="splash-image" />
                     <div className="loading-sections">
-                      {/* <div className="loading">Loading</div> */}
-                      {/* <div id="height"> */}
-                        <i id="loading-die" className="fas fa-dice-six fa-spin"></i>
-
-                      {/* </div> */}
-                      <div className="loading-message">Loading - If longer than 1 min, please refresh the page.</div>
+                        <div>
+                          <i id="loading-die" className="fas fa-dice-six fa-spin"></i>
+                        </div>
+                        <div className="loading-message">Loading - If longer than 1 min, please refresh the page.</div>
                     </div>
                   </div>)
           // return (<div><img src={splashImg} alt="background" className="splash-image" /><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>)
