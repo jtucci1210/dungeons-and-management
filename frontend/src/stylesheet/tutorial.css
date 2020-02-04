@@ -1,11 +1,18 @@
 .tutorial-container {
-    padding: 150px 0;
-    background-color: black;
+    padding: 130px 0;
+    background-color: rgb(6, 11, 17);
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Special Elite;
+}
+
+.tutorial-header {
+    color: white;
+    font-family: Birmingham;
+    font-size: 50px;
+    border-bottom: 2px solid white;
 }
 
 .tutorial-step {
@@ -24,7 +31,6 @@
     border: solid 3px whitesmoke;
     font-size: 30px;
     color: white;
-
 }
 
 .tutorial-img {
@@ -37,4 +43,25 @@
 .narrow {
     height: 500px;
     width: auto;
+}
+
+.tutorial-link {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.tutorial-link:visited {
+    color: white;
+}
+
+.tutorial-link:hover {
+    color: chartreuse;
+}
+
+.tutorial-link-div {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    padding: 20px;
 }

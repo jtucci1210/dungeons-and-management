@@ -15,11 +15,17 @@ import createCharacter from './15-create-character.png';
 import characterShowPage from './16-character-show-page.png';
 import characterIndex from './17-character-index.png';
 
-class Tutorial extends React.Component {
+import { Link } from "react-router-dom";
+
+class CharacterCreateTutorial extends React.Component {
 
     render() {
         return (
             <div className="tutorial-container">
+                <div className="tutorial-link-div">
+                    <Link to="/tutorial/campaign" className="tutorial-link">Campaign Room Tutorial</Link>
+                </div>
+                <h1 className="tutorial-header">Create Character Tutorial</h1>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
                         <strong>Create New Character</strong>
@@ -36,7 +42,7 @@ class Tutorial extends React.Component {
                     className="tutorial-img"/>
                 </div>
                 <div className="tutorial-step">
-                    <p className="tutorial-step-description">
+                    <p className="tutorial-step-description" id="createCharacter">
                         <strong>Generate Dice Rolls</strong>
                         <br/>
                         <br/>
@@ -226,7 +232,10 @@ class Tutorial extends React.Component {
                         <strong>Homepage</strong>
                         <br/>
                         <br/>
-                        If you navigate back to the homepage, you will see your newly created character!
+                        You will now see your newly created character on your homepage.
+                        <br/>
+                        <br/>
+                        Go forth and make some characters!
                     </p>
                     <img 
                         src={characterIndex}
@@ -239,4 +248,4 @@ class Tutorial extends React.Component {
 
 };
 
-export default Tutorial;
+export default CharacterCreateTutorial;
