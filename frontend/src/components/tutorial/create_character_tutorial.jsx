@@ -111,7 +111,7 @@ class CharacterCreateTutorial extends React.Component {
                     <img 
                         src={selectRace}
                     alt=""
-                    className="tutorial-img narrow"/>
+                    className="tutorial-img"/>
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
@@ -132,7 +132,7 @@ class CharacterCreateTutorial extends React.Component {
                     <img 
                         src={selectSubrace}
                     alt=""
-                        className="tutorial-img narrow"/>
+                        className="tutorial-img"/>
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">

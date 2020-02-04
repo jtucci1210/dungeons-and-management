@@ -4,6 +4,7 @@ import { logout } from '../../actions/session_actions';
 // import { fetchCurrentUser } from '../../actions/session_actions.js';
 import NavBar from './navbar';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
     return ({
@@ -19,7 +20,9 @@ const mapDispatchToProps = dispatch => ({
     // fetchCurrentUser: () => dispatch(fetchCurrentUser())
 })
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(NavBar);
+export default withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(NavBar)
+);
