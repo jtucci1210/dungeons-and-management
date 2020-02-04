@@ -38,11 +38,20 @@ export const editCharacter = character => dispatch =>
 	CHARACTERAPIUTIL.editCharacter(character).then(character =>
 		dispatch(receiveCharacter(character.data))
 	);
+
 export const createCharacter = data => dispatch =>
 	CHARACTERAPIUTIL.createCharacter(data).then(character =>
 		dispatch(receiveCharacter(character.data))
 	);
 
 export const getCampaignCharacters = charIds => dispatch =>
-		CHARACTERAPIUTIL.getCampaignCharacters(charIds).then( characters =>
-			dispatch(receiveAllCharacters(characters.data)))
+	CHARACTERAPIUTIL.getCampaignCharacters(charIds).then( characters =>
+		dispatch(receiveAllCharacters(characters.data))
+	);
+
+export const deleteCharacter = characterId => dispatch =>
+	CHARACTERAPIUTIL.deleteCharacter(characterId).then(characters =>
+		dispatch(receiveAllCharacters(characters.data))
+	);
+
+
