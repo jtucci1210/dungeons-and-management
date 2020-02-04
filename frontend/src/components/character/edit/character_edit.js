@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import '../../../stylesheet/show_page.css'
 import '../../../stylesheet/loading_page.css'
 import EditGeneralStats from './character_edit_general_stats';

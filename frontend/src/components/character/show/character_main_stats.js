@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../stylesheet/show_page.css'
-import * as skills from '../../../util/skill_util'
+// import * as skills from '../../../util/skill_util'
 import * as math from '../../../util/game_math_util'
 import * as race from '../../../util/race_util'
 import * as armor from '../../../util/armor_util'
