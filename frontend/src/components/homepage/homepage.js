@@ -52,7 +52,6 @@ class HomePage extends React.Component {
 	}
 
 	renderChooseCharacterForm() {
-		// debugger;
 		const { characters } = this.props;
 		return (
 			<form
