@@ -78,70 +78,156 @@ class Tutorial extends React.Component {
                     className="tutorial-img"/>
                 </div>
                 <div className="tutorial-step">
-                    <p className="tutorial-step-description">I am description of step 7</p>
+                    <p className="tutorial-step-description">
+                        <strong>Name Your Character</strong>
+                        <br/>
+                        <br/>
+                        Don't forget to choose a name for your character!
+                    </p>
                     <img 
                         src={dontForgetCharName}
                     alt=""
                     className="tutorial-img"/>
                 </div>
                 <div className="tutorial-step">
-                    <p className="tutorial-step-description">I am description of step 9</p>
+                    <p className="tutorial-step-description">
+                        <strong>Choose Your Character's Race</strong>
+                        <br/>
+                        <br/>
+                        Select a race from the dropdown.
+                        <br/>
+                        <br/>
+                        Once selected, you will be able to see a description of the race.
+                        <br/>
+                        <br/>
+                        You will also see any bonuses your race selection has in the white box below.
+                    </p>
                     <img 
                         src={selectRace}
                     alt=""
                     className="tutorial-img narrow"/>
                 </div>
                 <div className="tutorial-step">
-                    <p className="tutorial-step-description">I am description of step 10</p>
+                    <p className="tutorial-step-description">
+                        <strong>Choose Your Character's Subrace</strong>
+                        <br/>
+                        <br/>
+                        *Not every Race has an associated Subrace. If it does, a dropdown will appear for you to select a Subrace.
+                        <br/>
+                        <br/>
+                        Select a subrace from the dropdown.
+                        <br/>
+                        <br/>
+                        Once selected, you will be able to see a description of the subrace.
+                        <br/>
+                        <br/>
+                        You will also see any bonuses your subrace selection has in the white box below.
+                    </p>
                     <img 
                         src={selectSubrace}
                     alt=""
                         className="tutorial-img narrow"/>
                 </div>
                 <div className="tutorial-step">
-                    <p className="tutorial-step-description">I am description of step 11</p>
+                    <p className="tutorial-step-description">
+                        <strong>Choose Your Character's Class</strong>
+                        <br />
+                        <br />
+                        Select a class from the dropdown.
+                        <br />
+                        <br />
+                        Once selected, you will be able to see a description of the class.
+                        <br />
+                        <br />
+                        You will also see any bonuses your class selection has in the white box below.
+                    </p>
                     <img 
                         src={selectClass}
                     alt=""
                         className="tutorial-img narrow"/>
                 </div>
                 <div className="tutorial-step">
-                    <p className="tutorial-step-description">I am description of step 12</p>
+                    <p className="tutorial-step-description">
+                        <strong>Finalize Race and Class Selection</strong>
+                        <br/>
+                        <br/>
+                        Tip: As you are trying to decide which Race and Class to choose, think about what kind of character you want to play - Tank, Healer, Magic User, etc.
+                        <br/>
+                        <br/>
+                        Choose the combination that best compliments this.
+                    </p>
                     <img 
                         src={doneWithRaceAndClassSelection}
                     alt=""
                     className="tutorial-img"/>
                 </div>
                 <div className="tutorial-step">
-                    <p className="tutorial-step-description">I am description of step 13</p>
+                    <p className="tutorial-step-description">
+                        <strong>Final Stats</strong>
+                        <br/>
+                        <br/>
+                        Look over your Final Stats and click Next.
+                    </p>
                     <img 
                         src={finalStatsAndNext}
                     alt=""
                     className="tutorial-img"/>
                 </div>
                 <div className="tutorial-step">
-                    <p className="tutorial-step-description">I am description of step 14</p>
+                    <p className="tutorial-step-description">
+                        <strong>Select Skills</strong>
+                        <br/>
+                        <br/>
+                        Check the box for the skills you wish to select.
+                        <br/>
+                        <br/>
+                        The list of skills, as well as how many you are allowed to select, is determined by your Class selection from the previous step.
+                    </p>
                     <img 
                         src={selectSkills}
                     alt=""
                     className="tutorial-img"/>
                 </div>
                 <div className="tutorial-step">
-                    <p className="tutorial-step-description">I am description of step 15</p>
+                    <p className="tutorial-step-description">
+                        <strong>Create Character</strong>
+                        <br/>
+                        <br/>
+                        Once you have chosen all your skills, the 'Create Character' button will appear.
+                        <br/>
+                        <br/>
+                        If you do not have the specified number of skills selected, the button will not show.
+                        <br/>
+                        <br/>
+                        Click the button to complete your character creation!
+                    </p>
                     <img 
                         src={createCharacter}
                     alt=""
                     className="tutorial-img"/>
                 </div>
                 <div className="tutorial-step">
-                    <p className="tutorial-step-description">I am description of step 16</p>
+                    <p className="tutorial-step-description">
+                        <strong>Character Show Page</strong>
+                        <br/>
+                        <br/>
+                        Once your character has been created, you will be navigated to its show page.
+                        <br/>
+                        <br/>
+                        From here you can make additional edits, or even delete the character if you so choose.
+                    </p>
                     <img 
                         src={characterShowPage}
                     alt=""
                     className="tutorial-img"/>
                 </div>
                 <div className="tutorial-step">
-                    <p className="tutorial-step-description">I am description of step 17</p>
+                    <p className="tutorial-step-description">
+                        <strong>Homepage</strong>
+                        <br/>
+                        <br/>
+                        If you navigate back to the homepage, you will see your newly created character!
+                    </p>
                     <img 
                         src={characterIndex}
                     alt=""
