@@ -9,8 +9,8 @@ import HomePage from './homepage/homepage_container';
 import CharacterShowContainer from './character/show/character_show_container';
 import CampaignContainer from './campaign/campaign_container';
 import Footer from './footer/footer';
-import CharacterCreateTutorial from './tutorial/create_character_tutorial';
-import CampaignTutorial from './tutorial/campaign_room_tutorial';
+import CharacterCreateTutorial from './tutorial/create_character_tutorial/create_character_tutorial';
+import CampaignTutorial from './tutorial/campaign_tutorial/campaign_room_tutorial';
 import EditShowPage from './character/edit/character_edit_container'
 
 const App = () => (

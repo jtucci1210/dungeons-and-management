@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../stylesheet/tutorial.css';
+import '../../../stylesheet/tutorial.css';
 import selectCharacterCreateImg from './2-select-character-create.png';
 import generateDiceRollsImg from './3-generate-dice-rolls.png';
 import abilityScoresTooltipImg from './5-ability-scores-tooltip.png';

@@ -1,5 +1,15 @@
 import React from 'react';
-import '../../stylesheet/tutorial.css';
+import campaignMenuImg from './1-campaign-menu.png';
+import campaignRoomNumberImg from './2-campaign-room-number.png';
+import joinCampaignImg from './3-join-campaign.png';
+import playerCampaignRoomImg from './4-player-campaign-room.png';
+import characterHealthImg from './5-character-health.png';
+import diceRollerImg from './6-dice-roller.png';
+import rollPercentileImg from './7-roll-percentile.png';
+import otherPlayerDiceRollImg from './8-other-player-dice-roll.png';
+import characterShowImg from './9-character-show.png';
+
+import '../../../stylesheet/tutorial.css';
 import { Link } from "react-router-dom";
 
 
@@ -23,7 +33,7 @@ class CampaignTutorial extends React.Component {
                         It will turn dark green on hover.
                     </p>
                     <img
-                        src=""
+                        src={campaignMenuImg}
                         alt=""
                         className="tutorial-img" />
                 </div>
@@ -35,7 +45,7 @@ class CampaignTutorial extends React.Component {
                         Click on the generate button to generate your dice rolls.
                     </p>
                     <img
-                        src=""
+                        src={campaignRoomNumberImg}
                         alt=""
                         className="tutorial-img" />
                 </div>
@@ -50,7 +60,7 @@ class CampaignTutorial extends React.Component {
                         You can hover over the '?' icon for more information about each ability.
                     </p>
                     <img
-                        src=""
+                        src={joinCampaignImg}
                         alt=""
                         className="tutorial-img" />
                 </div>
@@ -65,7 +75,7 @@ class CampaignTutorial extends React.Component {
                         You cannot have duplicates.
                     </p>
                     <img
-                        src=""
+                        src={playerCampaignRoomImg}
                         alt=""
                         className="tutorial-img" />
                 </div>
@@ -77,7 +87,7 @@ class CampaignTutorial extends React.Component {
                         Don't forget to choose a name for your character!
                     </p>
                     <img
-                        src=""
+                        src={characterHealthImg}
                         alt=""
                         className="tutorial-img" />
                 </div>
@@ -95,9 +105,9 @@ class CampaignTutorial extends React.Component {
                         You will also see any bonuses your race selection has in the white box below.
                     </p>
                     <img
-                        src=""
+                        src={diceRollerImg}
                         alt=""
-                        className="tutorial-img narrow" />
+                        className="tutorial-img" />
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
@@ -116,9 +126,9 @@ class CampaignTutorial extends React.Component {
                         You will also see any bonuses your subrace selection has in the white box below.
                     </p>
                     <img
-                        src=""
+                        src={rollPercentileImg}
                         alt=""
-                        className="tutorial-img narrow" />
+                        className="tutorial-img" />
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
@@ -134,9 +144,9 @@ class CampaignTutorial extends React.Component {
                         You will also see any bonuses your class selection has in the white box below.
                     </p>
                     <img
-                        src=""
+                        src={otherPlayerDiceRollImg}
                         alt=""
-                        className="tutorial-img narrow" />
+                        className="tutorial-img" />
                 </div>
                 <div className="tutorial-step">
                     <p className="tutorial-step-description">
@@ -149,82 +159,7 @@ class CampaignTutorial extends React.Component {
                         Choose the combination that best compliments this.
                     </p>
                     <img
-                        src=""
-                        alt=""
-                        className="tutorial-img" />
-                </div>
-                <div className="tutorial-step">
-                    <p className="tutorial-step-description">
-                        <strong>Final Stats</strong>
-                        <br />
-                        <br />
-                        Look over your Final Stats and click Next.
-                    </p>
-                    <img
-                        src=""
-                        alt=""
-                        className="tutorial-img" />
-                </div>
-                <div className="tutorial-step">
-                    <p className="tutorial-step-description">
-                        <strong>Select Skills</strong>
-                        <br />
-                        <br />
-                        Check the box for the skills you wish to select.
-                        <br />
-                        <br />
-                        The list of skills, as well as how many you are allowed to select, is determined by your Class selection from the previous step.
-                    </p>
-                    <img
-                        src=""
-                        alt=""
-                        className="tutorial-img" />
-                </div>
-                <div className="tutorial-step">
-                    <p className="tutorial-step-description">
-                        <strong>Create Character</strong>
-                        <br />
-                        <br />
-                        Once you have chosen all your skills, the 'Create Character' button will appear.
-                        <br />
-                        <br />
-                        If you do not have the specified number of skills selected, the button will not show.
-                        <br />
-                        <br />
-                        Click the button to complete your character creation!
-                    </p>
-                    <img
-                        src=""
-                        alt=""
-                        className="tutorial-img" />
-                </div>
-                <div className="tutorial-step">
-                    <p className="tutorial-step-description">
-                        <strong>Character Show Page</strong>
-                        <br />
-                        <br />
-                        Once your character has been created, you will be navigated to its show page.
-                        <br />
-                        <br />
-                        From here you can make additional edits, or even delete the character if you so choose.
-                    </p>
-                    <img
-                        src=""
-                        alt=""
-                        className="tutorial-img" />
-                </div>
-                <div className="tutorial-step">
-                    <p className="tutorial-step-description">
-                        <strong>Homepage</strong>
-                        <br />
-                        <br />
-                        You will now see your newly created character on your homepage.
-                        <br />
-                        <br />
-                        Go forth and make some characters!
-                    </p>
-                    <img
-                        src=""
+                        src={characterShowImg}
                         alt=""
                         className="tutorial-img" />
                 </div>
