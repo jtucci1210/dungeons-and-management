@@ -10,13 +10,11 @@ import CharacterShowContainer from './character/show/character_show_container';
 import CampaignContainer from './campaign/campaign_container';
 import Footer from './footer/footer';
 import EditShowPage from './character/edit/character_edit_container'
-import ErrorPage from './errors/error';
 
 const App = () => (
     <div>
         <Modal/>
         <NavBarContainer />
-        <Route exact path='/errors' component={ErrorPage}/>
         <Switch>
             <AuthRoute exact path="/" component={SplashPage} />
             <ProtectedRoute exact path='/home' component={HomePage} />
@@ -24,7 +22,7 @@ const App = () => (
             <ProtectedRoute exact path="/characters/:characterId" component={CharacterShowContainer} />
             <ProtectedRoute exact path="/characters/edit/:characterId" component={EditShowPage} />
             <ProtectedRoute exact path="/campaigns/:campId" component={CampaignContainer} />
-            <Redirect to="/errors"/>
+            <Redirect to="/home"/>
         </Switch>
         <Footer/>
         
