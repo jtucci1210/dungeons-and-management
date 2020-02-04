@@ -30,7 +30,7 @@
 	justify-content: space-evenly;
 	align-items: center;
 	width: 100%;
-	margin-top: 20px;
+	margin-top: 40px;
 	background-color: $dark-blue;
 
 	height: 56px;
@@ -82,10 +82,9 @@
 		}
 
 	}
-
-	.main-page-background-img{
-		display: none
-	}
+	.splash-image {
+        display: none
+    }
 }
 
 #dice-hp-container {
