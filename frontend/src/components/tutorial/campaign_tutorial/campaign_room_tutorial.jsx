@@ -53,7 +53,7 @@ class CampaignTutorial extends React.Component {
                         On the homepage, in the campaign menu, enter the room number your DM provided.
                         <br />
                         <br />
-                        Select the character you wish you join the campaing with, and click 'Join'.
+                        Select the character you wish you join the campaign with, and click 'Join'.
                     </p>
                     <img
                         src={joinCampaignImg}
@@ -65,7 +65,10 @@ class CampaignTutorial extends React.Component {
                         <strong>Campaign Room</strong>
                         <br />
                         <br />
-                        When you arrive in the campaign room, you will see all of the other players who have also joined.
+                        When you arrive in the campaign room, you will see all of the other players who have also joined. 
+                        <br/>
+                        <br/>
+                        Your character's info will be below.
                     </p>
                     <img
                         src={playerCampaignRoomImg}
@@ -77,7 +80,7 @@ class CampaignTutorial extends React.Component {
                         <strong>Update Character Health</strong>
                         <br />
                         <br />
-                        During the campaign, you can increase your decrease your character's HP with the respective buttons.
+                        During the campaign, you can increase or decrease your character's HP with the respective buttons.
                         <br/>
                         <br/>
                         Don't forget to click save after adjusting their health!
