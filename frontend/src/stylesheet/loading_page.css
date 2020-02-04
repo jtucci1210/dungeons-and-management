@@ -113,9 +113,12 @@
     z-index: 2000;
     color: rgb(28, 181, 5);
     font-size: 100px;
-    /* left: 45% */
-    /* padding-top: 400px; */
+    position: absolute;
+    top: 40%;
+    left: 47%;
 }
+
+
 
 .loading {
     position: absolute;
@@ -141,4 +144,13 @@
 .loading-page {
   display: flex;
   justify-content: center;
+}
+
+.loading-sections {
+  display: flex;
+  /* position: fixed; */
+}
+
+#height {
+  height: 500px;
 }

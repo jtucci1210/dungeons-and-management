@@ -70,10 +70,15 @@ class CharacterShowPage extends React.Component {
             );
         } else {
           return (<div className="loading-page">
-                    <div className="loading">Loading</div>
                     <img src={splashImg} alt="background" className="splash-image" />
-                    <i id="loading-die" className="fas fa-dice-six fa-spin"></i>
-                    <div className="loading-message">If waiting for longer than 1 min, please refresh the page.</div>
+                    <div className="loading-sections">
+                      {/* <div className="loading">Loading</div> */}
+                      {/* <div id="height"> */}
+                        <i id="loading-die" className="fas fa-dice-six fa-spin"></i>
+
+                      {/* </div> */}
+                      <div className="loading-message">Loading - If longer than 1 min, please refresh the page.</div>
+                    </div>
                   </div>)
           // return (<div><img src={splashImg} alt="background" className="splash-image" /><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>)
         }
