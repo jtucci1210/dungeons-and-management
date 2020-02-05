@@ -12,10 +12,12 @@ export const receiveCharacter = character => {
 	};
 };
 
-export const receiveCharacterErrors = errors => ({
-	type: RECEIVE_CHARACTER_ERRORS,
-	errors
-});
+export const receiveCharacterErrors = errors => {
+	return {
+		type: RECEIVE_CHARACTER_ERRORS,
+		errors
+	}
+};
 
 //Safar's user id: 5e2890208321d6fc98d5bc24
 export const receiveAllCharacters = characters => {
@@ -42,7 +44,10 @@ export const editCharacter = character => dispatch =>
 export const createCharacter = data => dispatch =>
 	CHARACTERAPIUTIL.createCharacter(data).then(character =>
 		dispatch(receiveCharacter(character.data))
-	);
+	)
+		.catch(err => (
+			dispatch(receiveCharacterErrors(err.response.data))
+	));
 
 export const getCampaignCharacters = charIds => dispatch =>
 	CHARACTERAPIUTIL.getCampaignCharacters(charIds).then( characters =>
