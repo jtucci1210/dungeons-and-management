@@ -18,7 +18,7 @@ import * as classUtil from '../../../util/class_util'
 class EditGeneralStats extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { ...this.props, loaded: false, newHealth: 0 }
+        this.state = { ...this.props, loaded: false, newHealth: "" }
         this.healthManagement = this.healthManagement.bind(this)
         this.showSkillMod = this.showSkillMod.bind(this)
         this.handleNext = this.handleNext.bind(this)
@@ -81,7 +81,7 @@ class EditGeneralStats extends React.Component {
             dateCreated: character.dateCreated
 
         };
-        if (health < character.maxHp && health >= 0 && character.currentHp !== characterObj.currentHp) {
+        if (health < character.maxHp && health >= 0 && character.currentHp !== characterObj.currentHp && characterObj.currentHp !== "") {
             this.props.editCharacter(characterObj)
         }
     }
