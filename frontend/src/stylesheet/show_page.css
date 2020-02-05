@@ -88,7 +88,20 @@
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    height: 500px;
+    height: 460px;
+    width: 225px;
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: #A6C8BC;
+    box-shadow: 5px 5px 10px black;
+}
+.show-character-general-and-health-stats {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    height: 680px;
     width: 225px;
     border: 1px black solid;
     border-radius: 5px;
