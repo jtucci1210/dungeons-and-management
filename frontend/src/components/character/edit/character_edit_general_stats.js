@@ -61,9 +61,11 @@ class EditGeneralStats extends React.Component {
         )
     }
 
-    currentHealth(e) {
+    currentHealth() {
         const health = this.state.newHealth
         const character = this.props.character
+        const fullClass = classUtil.fullClass
+        const hitDice = fullClass[character.charClass].hitDice
         let characterObj = {
             _id: character._id,
             userId: this.state.currentUserID,
@@ -72,16 +74,60 @@ class EditGeneralStats extends React.Component {
             charClass: character.charClass,
             armorType: character.armorType,
             level: character.level,
-            maxHp: character.maxHp,
+            maxHp: this.healthManagement(hitDice),
             currentHp: health,
             abilities: character.abilities,
             skills: character.skills,
             dateCreated: character.dateCreated
 
         };
-        debugger
         if (health < character.maxHp && health >= 0 && character.currentHp !== characterObj.currentHp) {
-            debugger
+            this.props.editCharacter(characterObj)
+        }
+    }
+    halfHealth() {
+        const character = this.props.character
+        const fullClass = classUtil.fullClass
+        const hitDice = fullClass[character.charClass].hitDice
+        let characterObj = {
+            _id: character._id,
+            userId: this.state.currentUserID,
+            name: character.name,
+            race: character.race,
+            charClass: character.charClass,
+            armorType: character.armorType,
+            level: character.level,
+            maxHp: this.healthManagement(hitDice),
+            currentHp: this.healthManagement(hitDice) / 2,
+            abilities: character.abilities,
+            skills: character.skills,
+            dateCreated: character.dateCreated
+
+        };
+        if (characterObj.currentHp <= character.maxHp && characterObj.currentHp >= 0 && character.currentHp !== characterObj.currentHp) {
+            this.props.editCharacter(characterObj)
+        }
+    }
+    fullHealth() {
+        const character = this.props.character
+        const fullClass = classUtil.fullClass
+        const hitDice = fullClass[character.charClass].hitDice
+        let characterObj = {
+            _id: character._id,
+            userId: this.state.currentUserID,
+            name: character.name,
+            race: character.race,
+            charClass: character.charClass,
+            armorType: character.armorType,
+            level: character.level,
+            maxHp: this.healthManagement(hitDice),
+            currentHp: this.healthManagement(hitDice),
+            abilities: character.abilities,
+            skills: character.skills,
+            dateCreated: character.dateCreated
+
+        };
+        if (characterObj.currentHp <= character.maxHp && characterObj.currentHp >= 0 && character.currentHp !== characterObj.currentHp) {
             this.props.editCharacter(characterObj)
         }
     }
@@ -272,6 +318,8 @@ class EditGeneralStats extends React.Component {
                                 })}
                             />
                             <button className="update-armor-btn" onClick={() => this.currentHealth()}>Update Health</button>
+                            <button className="update-armor-btn" onClick={() => this.halfHealth()}>Half Health</button>
+                            <button className="update-armor-btn" onClick={() => this.fullHealth()}>Full Health</button>
                         </form>
                     </div>
                     <div className="show-character-general">

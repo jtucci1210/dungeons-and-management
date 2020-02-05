@@ -17,7 +17,6 @@ class EditMainStats extends React.Component {
         this.handleCheckbox = this.handleCheckbox.bind(this)
         this.showSkillMod = this.showSkillMod.bind(this)
         this.addOrRemoveLevel = this.addOrRemoveLevel.bind(this)
-        // this.changeArmor = this.changeArmor.bind(this)
     }
 
     addOrRemoveLevel(e) {
