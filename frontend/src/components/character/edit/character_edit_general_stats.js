@@ -18,12 +18,13 @@ import * as classUtil from '../../../util/class_util'
 class EditGeneralStats extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { ...this.props, loaded: false }
+        this.state = { ...this.props, loaded: false, newHealth: 0 }
         this.healthManagement = this.healthManagement.bind(this)
         this.showSkillMod = this.showSkillMod.bind(this)
         this.handleNext = this.handleNext.bind(this)
         this.addOrRemoveLevel = this.addOrRemoveLevel.bind(this)
         this.changeArmor = this.changeArmor.bind(this)
+        this.currentHealth = this.currentHealth.bind(this)
     }
 
 
@@ -58,6 +59,31 @@ class EditGeneralStats extends React.Component {
         return (
             levelingUp
         )
+    }
+
+    currentHealth(e) {
+        const health = this.state.newHealth
+        const character = this.props.character
+        let characterObj = {
+            _id: character._id,
+            userId: this.state.currentUserID,
+            name: character.name,
+            race: character.race,
+            charClass: character.charClass,
+            armorType: character.armorType,
+            level: character.level,
+            maxHp: character.maxHp,
+            currentHp: health,
+            abilities: character.abilities,
+            skills: character.skills,
+            dateCreated: character.dateCreated
+
+        };
+        debugger
+        if (health < character.maxHp && health >= 0 && character.currentHp !== characterObj.currentHp) {
+            debugger
+            this.props.editCharacter(characterObj)
+        }
     }
 
     showSkillMod(skill, stat, prof) {
@@ -162,6 +188,9 @@ class EditGeneralStats extends React.Component {
     addOrRemoveLevel(e) {
         const value = e.target.name
         let newLevel = this.props.character.level
+        const character = this.props.character
+        const fullClass = classUtil.fullClass
+        const hitDice = fullClass[character.charClass].hitDice
 
         if (value === 'decrease' && newLevel > 1) {
             newLevel = newLevel - 1
@@ -177,7 +206,7 @@ class EditGeneralStats extends React.Component {
             charClass: this.props.character.charClass,
             armorType: this.props.character.armorType,
             level: newLevel,
-            maxHp: this.props.character.maxHp,
+            maxHp: this.healthManagement(hitDice),
             currentHp: this.props.character.currentHp,
             abilities: this.props.character.abilities,
             skills: this.props.character.skills,
@@ -229,6 +258,21 @@ class EditGeneralStats extends React.Component {
                         <div className="show-character-general-currhp-info">
                             {character.currentHp}
                         </div>
+                        
+                    </div>
+                    <br></br>
+                    <div>
+                        <div className="show-character-general-currhp">Update Health:</div>
+                        <form onSubmit={this.handleChange} className="show-character-general-updatehp">
+                            <input type="integer"
+                                placeholder="Update Health"
+                                value={this.state.currentHp}
+                                onChange={health => this.setState({
+                                    newHealth: health.target.value
+                                })}
+                            />
+                            <button className="update-armor-btn" onClick={() => this.currentHealth()}>Update Health</button>
+                        </form>
                     </div>
                     <div className="show-character-general">
                         <div className="show-character-general-hd">Hit Dice:</div>
@@ -257,9 +301,6 @@ class EditGeneralStats extends React.Component {
                     </div>
                 </div>
                 <div className="armor">
-                    {/* <button 
-                        className="armor_list" 
-                        onClick={() => this.myFunction()}>Change Armor</button> */}
                     <div className="change-armor">
                         <select
                             className="armor-list-selector"
