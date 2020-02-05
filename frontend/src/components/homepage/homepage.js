@@ -9,16 +9,19 @@ class HomePage extends React.Component {
 		super(props);
 		this.state = {
 			campaignRoom: "",
-			campaignChar: "", //I think this should be "Choose a character"
+			campaignChar: "",
+			loaded: false,
 		};
 	}
 
 	componentDidMount() {
+		const allCharacters = this.props.getCharacters(this.props.currentUserID)
 		this.setState(() => {
 			return {
 				characters: this.props.getCharacters(this.props.currentUserID)
 			};
 		});
+		Promise.all([allCharacters]).then(() => this.setState({ loaded: true }))
 	}
 
 	update(field) {
@@ -76,52 +79,64 @@ class HomePage extends React.Component {
 	}
 
 	render() {
-		const { characters } = this.props;
-		return (
-			<div className="home-page-main-box">
-				<div className="home-page-characters">
-					<CharIndex characters={characters} />
-				</div>
-				<div className="home-page-campaign-box">
-					<div className="home-page-campaign-title">Campaign Menu</div>
-					<div className="home-page-campaign-links">
-						
-						<button
-							onClick={() => this.createCampaign()}
-							className="start-campaign"
-							>
-							Create Campaign
-						</button>
-						<div className="home-page-lobby-join">
-							<span className="or-separator">-OR-</span>
-							<br />
+		if (this.state.loaded ) {
+			const { characters } = this.props;
+			return (
+				<div className="home-page-main-box">
+					<div className="home-page-characters">
+						<CharIndex characters={characters} />
+					</div>
+					<div className="home-page-campaign-box">
+						<div className="home-page-campaign-title">Campaign Menu</div>
+						<div className="home-page-campaign-links">
+							
+							<button
+								onClick={() => this.createCampaign()}
+								className="start-campaign"
+								>
+								Create Campaign
+							</button>
+							<div className="home-page-lobby-join">
+								<span className="or-separator">-OR-</span>
+								<br />
+							</div>
+							<input
+								type="text"
+								value={this.state.campaignRoom}
+								onChange={this.update("campaignRoom")}
+								id="room-num"
+								className="lobby-number"
+								placeholder="Lobby Number"
+								/>
+							{this.renderChooseCharacterForm()}
+							<input
+								className="join-campaign"
+								type="submit"
+								value="Join"
+								onClick={(e) => this.campaignJoin(e)}
+							></input>
 						</div>
-						<input
-							type="text"
-							value={this.state.campaignRoom}
-							onChange={this.update("campaignRoom")}
-							id="room-num"
-							className="lobby-number"
-							placeholder="Lobby Number"
-							/>
-						{this.renderChooseCharacterForm()}
-						<input
-							className="join-campaign"
-							type="submit"
-							value="Join"
-							onClick={(e) => this.campaignJoin(e)}
-						></input>
+					</div>
+					<div className="main-page-background-img">
+						<img
+							src={splashImg}
+							alt="background"
+							className="splash-image"
+						/>
 					</div>
 				</div>
-				<div className="main-page-background-img">
-					<img
-						src={splashImg}
-						alt="background"
-						className="splash-image"
-					/>
+			);
+		} else {
+			return (<div className="loading-page">
+				<img src={splashImg} alt="background" className="splash-image" />
+				<div className="loading-sections">
+					<div>
+						<i id="loading-die" className="fas fa-dice-six fa-spin"></i>
+					</div>
+					<div className="loading-message">Loading - If longer than 1 min, please refresh the page.</div>
 				</div>
-			</div>
-		);
+			</div>)
+		}
 	}
 }
 

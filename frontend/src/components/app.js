@@ -9,6 +9,8 @@ import HomePage from './homepage/homepage_container';
 import CharacterShowContainer from './character/show/character_show_container';
 import CampaignContainer from './campaign/campaign_container';
 import Footer from './footer/footer';
+import CharacterCreateTutorial from './tutorial/create_character_tutorial/create_character_tutorial';
+import CampaignTutorial from './tutorial/campaign_tutorial/campaign_room_tutorial';
 import EditShowPage from './character/edit/character_edit_container'
 
 const App = () => (
@@ -22,6 +24,8 @@ const App = () => (
             <ProtectedRoute exact path="/characters/:characterId" component={CharacterShowContainer} />
             <ProtectedRoute exact path="/characters/edit/:characterId" component={EditShowPage} />
             <ProtectedRoute exact path="/campaigns/:campId" component={CampaignContainer} />
+            <ProtectedRoute exact path="/tutorial/createcharacter" component={CharacterCreateTutorial}/>
+            <ProtectedRoute exact path="/tutorial/campaign" component={CampaignTutorial}/>
             <Redirect to="/home"/>
         </Switch>
         <Footer/>

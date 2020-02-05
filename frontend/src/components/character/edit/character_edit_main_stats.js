@@ -17,18 +17,20 @@ class EditMainStats extends React.Component {
         this.handleCheckbox = this.handleCheckbox.bind(this)
         this.showSkillMod = this.showSkillMod.bind(this)
         this.addOrRemoveLevel = this.addOrRemoveLevel.bind(this)
-        // this.changeArmor = this.changeArmor.bind(this)
     }
 
     addOrRemoveLevel(e) {
         const value = e.target.name
-        let newLevel = this.props.character.level
-        let str = this.props.character.abilities.strength
-        let dex = this.props.character.abilities.dexterity
-        let constit = this.props.character.abilities.constitution
-        let intel = this.props.character.abilities.intelligence
-        let wisd = this.props.character.abilities.wisdom
-        let char = this.props.character.abilities.charisma
+        const character = this.props.character
+        const fullClass = classUtil.fullClass
+        const hitDice = fullClass[character.charClass].hitDice
+        let newLevel = character.level
+        let str = character.abilities.strength
+        let dex = character.abilities.dexterity
+        let constit = character.abilities.constitution
+        let intel = character.abilities.intelligence
+        let wisd = character.abilities.wisdom
+        let char = character.abilities.charisma
 
         if (value === 'decrease-str' && str > 1) {
             str = str - 1
@@ -61,7 +63,7 @@ class EditMainStats extends React.Component {
             char = char + 1
         }
 
-       
+       debugger
         let characterObj = {
             _id: this.props.character._id,
             user: this.state.currentUserID,
@@ -70,7 +72,7 @@ class EditMainStats extends React.Component {
             charClass: this.props.character.charClass,
             armorType: this.props.character.armorType,
             level: newLevel,
-            maxHp: this.props.character.maxHp,
+            maxHp: this.healthManagement(hitDice),
             currentHp: this.props.character.currentHp,
             abilities: {
                 strength: str,
@@ -83,7 +85,7 @@ class EditMainStats extends React.Component {
             },
             skills: this.props.character.skills,
             dateCreated: this.props.character.dateCreated
-
+            
         };
         if (str  !== this.props.character.abilities.strength
             || 
