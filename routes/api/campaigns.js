@@ -59,7 +59,7 @@ router.patch("/:id/leave", (req, res) => {
 		charIdx = camp.characters.indexOf(req.body.id);
 		camp.characters.splice(charIdx, 1);
 		camp.save();
-		res.json(camp);
+		res.json({campaign: camp});
 	});
 });
 

@@ -50,7 +50,7 @@ io.on("connection", function (socket, data) {
         socket.on("sendJoinRoomToBack", function(data) {
                 Campaign.findById(data.campId).then(camp => {
                         socket.join(camp.campKey); //Join a room
-                        io.to(camp.campKey).emit("renderChars", camp.campKey)
+                        io.to(camp.campKey).emit("renderChars")
                         console.log("Joined room: " + camp.campKey)
                 })
         })
@@ -62,9 +62,10 @@ io.on("connection", function (socket, data) {
         });
 
         socket.on("leaveRoom", function(data) {
-                Campaign.findById(data.campId).then(camp => {
-                        io.to(camp.campKey).emit("renderChars", camp.campKey)
-                })
+                // Campaign.findById(data.campId).then(camp => {
+                //         io.to(camp.campKey).emit("renderChars", camp.campKey)
+                // })
+                io.to(data.campKey).emit("renderChars")
         })
 
 
