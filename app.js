@@ -39,7 +39,9 @@ app.use("/api/users", users);
 app.use("/api/characters", characters);
 app.use("/api/campaigns", campaigns);
 
+
 //Websockets Setup
+
 const io = socketio(server);
 
 //Socket Listeners
