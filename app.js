@@ -61,6 +61,12 @@ io.on("connection", function (socket, data) {
                 io.to(roomName).emit("receive-room", "made it")
         });
 
+        socket.on("leaveRoom", function(data) {
+                Campaign.findById(data.campId).then(camp => {
+                        io.to(camp.campKey).emit("renderChars", camp.campKey)
+                })
+        })
+
 
         socket.on("sendHptoBack", function (data) {
                 Campaign.findById(data.campId).then(camp => {

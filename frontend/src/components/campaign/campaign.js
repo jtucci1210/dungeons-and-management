@@ -59,6 +59,7 @@ class CampaignRoom extends React.Component {
 		});
 
 		this.socket.on("renderChars", (data) => {
+			console.log(data)
 			let oldState = Object.assign({}, this.state.currentChar);
 
 			this.setState({
@@ -123,6 +124,7 @@ class CampaignRoom extends React.Component {
 		let campId = this.campId;
 		let charId = this.state.currentChar._id
 		this.props.leaveCampaign(campId, charId)
+		this.socket.emit('leaveRoom', {campId: this.campId})
 		this.props.history.push(`/home`)
 	}
 	
