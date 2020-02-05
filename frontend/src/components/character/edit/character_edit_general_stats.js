@@ -86,7 +86,6 @@ class EditGeneralStats extends React.Component {
             this.setState({
                 currentHp: ""
             })
-            debugger
             health = ""
         }
         
