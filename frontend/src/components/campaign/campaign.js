@@ -56,8 +56,16 @@ class CampaignRoom extends React.Component {
 				charHp.style.color = "green"
 			}
 
-			//Set class to safe or not safe hp
 		});
+
+		this.socket.on("renderChars", (data) => {
+			let oldState = Object.assign({}, this.state.currentChar);
+
+			this.setState({
+				currentChar: oldState,
+				reload: true
+			});
+		})
 	}
 
 	charHealthColor(character) {
@@ -247,8 +255,6 @@ class CampaignRoom extends React.Component {
 						/>
 					</div>
 					{this.currentCharExists() ? this.renderCharShow() : null}
-					
-					
 				</div>
 			);
 		} else {

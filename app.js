@@ -50,6 +50,7 @@ io.on("connection", function (socket, data) {
         socket.on("sendJoinRoomToBack", function(data) {
                 Campaign.findById(data.campId).then(camp => {
                         socket.join(camp.campKey); //Join a room
+                        io.to(camp.campKey).emit("renderChars", camp.campKey)
                         console.log("Joined room: " + camp.campKey)
                 })
         })

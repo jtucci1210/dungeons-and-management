@@ -138,7 +138,6 @@ class Dice extends React.Component {
 	showRoll(diceNum, roll) {
 		let diceRes = document.getElementById(`diceRes${diceNum}`);
 		diceRes.innerHTML = roll;
-
 	}
 }
 

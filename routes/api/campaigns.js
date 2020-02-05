@@ -31,7 +31,6 @@ router.post("/fetch", (req, res) => {
 			campaign.save();
 		}
 		
-
 		Character.find({ _id: { $in: campaign.characters } }).then(characters =>
 			res.json({
 				campaign: campaign,
