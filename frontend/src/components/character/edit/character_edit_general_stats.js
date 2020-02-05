@@ -24,7 +24,7 @@ class EditGeneralStats extends React.Component {
         this.handleNext = this.handleNext.bind(this)
         this.addOrRemoveLevel = this.addOrRemoveLevel.bind(this)
         this.changeArmor = this.changeArmor.bind(this)
-        this.currentHealth = this.currentHealth.bind(this)
+        this.updateHealth = this.updateHealth.bind(this)
     }
 
 
@@ -61,7 +61,7 @@ class EditGeneralStats extends React.Component {
         )
     }
 
-    currentHealth() {
+    updateHealth() {
         const health = this.state.newHealth
         const character = this.props.character
         const fullClass = classUtil.fullClass
@@ -83,8 +83,15 @@ class EditGeneralStats extends React.Component {
         };
         if (health < character.maxHp && health >= 0 && character.currentHp !== characterObj.currentHp && characterObj.currentHp !== "") {
             this.props.editCharacter(characterObj)
+            this.setState({
+                currentHp: ""
+            })
         }
+        
+        
+
     }
+
     fullHealth() {
         const character = this.props.character
         const fullClass = classUtil.fullClass
@@ -117,10 +124,9 @@ class EditGeneralStats extends React.Component {
         } else {
             return math.mod(stat)
         }
-    }
+    } 
 
-
-    changeArmor(e) {
+    changeArmor() {
         let newArmor
         if (this.state.armorType.includes("none")) {
             newArmor = "noArmor"
@@ -284,7 +290,7 @@ class EditGeneralStats extends React.Component {
                         
                     </div>
                     <div className="update-health">
-                        <form onSubmit={this.handleChange} className="show-character-general-updatehp">
+                        <form className="show-character-general-updatehp">
                             <input type="integer"
                                 className="update-health-bar"
                                 placeholder="Update Health"
@@ -293,7 +299,7 @@ class EditGeneralStats extends React.Component {
                                     newHealth: health.target.value
                                 })}
                             />
-                            <button className="update-armor-btn" onClick={() => this.currentHealth()}>Update Health</button>
+                            <button className="update-armor-btn" onClick={() => this.updateHealth()}>Update Health</button>
                             <button className="update-armor-btn" onClick={() => this.fullHealth()}>Full Health</button>
                         </form>
                     </div>
