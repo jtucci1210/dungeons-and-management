@@ -45,16 +45,6 @@ app.use("/api/characters", characters);
 app.use("/api/campaigns", campaigns);
 
 //Websockets Set-Up
-// const socketPort = process.env.PORT || 8080;
-// const server = app.listen(socketPort, function () {
-//         console.log("Listening at http://localhost: " + socketPort);
-// })
-
-//For Heroku
-// server.listen(port, function () {
-//         console.log("Listening at http://localhost: " + port);
-// })
-
 const io = socketio(server);
 
 

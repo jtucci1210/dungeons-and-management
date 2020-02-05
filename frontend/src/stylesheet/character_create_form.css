@@ -9,7 +9,6 @@
 
 }
 
-
 .splash-image {
     width: -webkit-fill-available;
     object-fit: cover;
@@ -40,6 +39,7 @@
     justify-content: center;
     width: 100%;
     font-family: Special Elite;
+    flex-direction: column;
 }
 
 .character-name input[type=text] {
@@ -75,9 +75,6 @@
     justify-content: center;
     flex-direction: column;
 }
-
-
-
 
 .final-stats-container {
     display: flex;
@@ -248,3 +245,8 @@
     font-family: Special Elite;
 }
 
+.character-errors {
+    color: red;
+    font-size: 20px;
+    line-height: 40px;
+}
