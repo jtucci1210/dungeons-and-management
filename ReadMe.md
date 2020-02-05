@@ -24,6 +24,7 @@ time consuming features based on the amount of logic required.
 The campaign room relied on many components already being used in other parts of the app. To create clean and readable code
 many helper functions were defined and called in the rendering of the campaign.
 
+```
 render() {
 		if (this.state.loaded) {
 			return (
@@ -48,6 +49,9 @@ render() {
 					{this.currentCharExists() ? this.renderCharShow() : null}
 				</div>
 			);
+		}
+}
+```
 
 ## Moving Forward
 
