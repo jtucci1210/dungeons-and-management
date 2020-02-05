@@ -50,10 +50,6 @@ app.use("/api/campaigns", campaigns);
 //         console.log("Listening at http://localhost: " + socketPort);
 // })
 
-//For Heroku
-server.listen(port, function () {
-        console.log("Listening at http://localhost: " + port);
-})
 
 const io = socketio(server);
 
