@@ -75,7 +75,7 @@ class EditGeneralStats extends React.Component {
             armorType: character.armorType,
             level: character.level,
             maxHp: this.healthManagement(hitDice),
-            currentHp: health,
+            currentHp: Math.round(health),
             abilities: character.abilities,
             skills: character.skills,
             dateCreated: character.dateCreated
@@ -249,7 +249,7 @@ class EditGeneralStats extends React.Component {
         const hitDice = fullClass[character.charClass].hitDice
 
         return (
-            <div className='show-character-general-stats'>
+            <div className='character-general-stats'>
                 <div className="show-character-image-div">
                     <img alt="character" className="show-character-image" src={cardImg}></img>
                 </div>
@@ -283,11 +283,10 @@ class EditGeneralStats extends React.Component {
                         </div>
                         
                     </div>
-                    <br></br>
-                    <div>
-                        <div className="show-character-general-currhp">Update Health:</div>
+                    <div className="update-health">
                         <form onSubmit={this.handleChange} className="show-character-general-updatehp">
                             <input type="integer"
+                                className="update-health-bar"
                                 placeholder="Update Health"
                                 value={this.state.currentHp}
                                 onChange={health => this.setState({
