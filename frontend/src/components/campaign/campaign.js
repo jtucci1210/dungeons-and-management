@@ -11,7 +11,7 @@ class CampaignRoom extends React.Component {
 	constructor(props) {
 		super(props);
 		this.campId = this.props.match.params.campId;
-		this.socket = io.connect("http://localhost:8080", {data: 'test'});
+		this.socket = process.env.NODE_ENV === 'production' ? io() : io('http://localhost:5000')
 		this.socket.emit("sendJoinRoomToBack", {
 			campId: this.campId
 		})
