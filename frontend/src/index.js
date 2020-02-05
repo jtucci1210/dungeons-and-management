@@ -7,7 +7,6 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import axios from 'axios';
-import { getCampaignCharacters } from "./util/character_util";
 
 
 
@@ -33,5 +32,4 @@ document.addEventListener('DOMContentLoaded', () => {
         //For Testing
         window.getState = store.getState();
         window.axios = axios
-        window.getCampaignCharacters = getCampaignCharacters
 });

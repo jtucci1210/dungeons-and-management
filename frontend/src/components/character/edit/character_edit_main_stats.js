@@ -63,7 +63,6 @@ class EditMainStats extends React.Component {
             char = char + 1
         }
 
-       debugger
         let characterObj = {
             _id: this.props.character._id,
             user: this.state.currentUserID,

@@ -31,7 +31,6 @@ router.post("/fetch", (req, res) => {
 			campaign.save();
 		}
 		
-
 		Character.find({ _id: { $in: campaign.characters } }).then(characters =>
 			res.json({
 				campaign: campaign,
@@ -60,7 +59,7 @@ router.patch("/:id/leave", (req, res) => {
 		charIdx = camp.characters.indexOf(req.body.id);
 		camp.characters.splice(charIdx, 1);
 		camp.save();
-		res.json(camp);
+		res.json({campaign: camp});
 	});
 });
 

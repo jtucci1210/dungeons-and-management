@@ -24,7 +24,7 @@ class EditGeneralStats extends React.Component {
         this.handleNext = this.handleNext.bind(this)
         this.addOrRemoveLevel = this.addOrRemoveLevel.bind(this)
         this.changeArmor = this.changeArmor.bind(this)
-        this.currentHealth = this.currentHealth.bind(this)
+        this.updateHealth = this.updateHealth.bind(this)
     }
 
 
@@ -61,8 +61,8 @@ class EditGeneralStats extends React.Component {
         )
     }
 
-    currentHealth() {
-        const health = this.state.newHealth
+    updateHealth() {
+        let health = this.state.newHealth
         const character = this.props.character
         const fullClass = classUtil.fullClass
         const hitDice = fullClass[character.charClass].hitDice
@@ -75,17 +75,26 @@ class EditGeneralStats extends React.Component {
             armorType: character.armorType,
             level: character.level,
             maxHp: this.healthManagement(hitDice),
-            currentHp: health,
+            currentHp: Math.round(health),
             abilities: character.abilities,
             skills: character.skills,
             dateCreated: character.dateCreated
 
         };
-        if (health < character.maxHp && health >= 0 && character.currentHp !== characterObj.currentHp && characterObj.currentHp !== "") {
+        if (health < character.maxHp && health > 0 && health !== characterObj.currentHp && characterObj.currentHp !== "") {
             this.props.editCharacter(characterObj)
+            this.setState({
+                currentHp: ""
+            })
+            health = ""
         }
+        
+        
+
     }
+
     fullHealth() {
+
         const character = this.props.character
         const fullClass = classUtil.fullClass
         const hitDice = fullClass[character.charClass].hitDice
@@ -104,8 +113,9 @@ class EditGeneralStats extends React.Component {
             dateCreated: character.dateCreated
 
         };
-        if (characterObj.currentHp <= character.maxHp && characterObj.currentHp >= 0 && character.currentHp !== characterObj.currentHp) {
+        if (characterObj.currentHp <= character.maxHp && characterObj.currentHp >= 0 && character.currentHp !== characterObj.currentHp && characterObj.currentHp !== "") {
             this.props.editCharacter(characterObj)
+            this.state.newHealth = ""
         }
     }
 
@@ -117,10 +127,9 @@ class EditGeneralStats extends React.Component {
         } else {
             return math.mod(stat)
         }
-    }
+    } 
 
-
-    changeArmor(e) {
+    changeArmor() {
         let newArmor
         if (this.state.armorType.includes("none")) {
             newArmor = "noArmor"
@@ -249,7 +258,7 @@ class EditGeneralStats extends React.Component {
         const hitDice = fullClass[character.charClass].hitDice
 
         return (
-            <div className='show-character-general-stats'>
+            <div className='character-general-stats'>
                 <div className="show-character-image-div">
                     <img alt="character" className="show-character-image" src={cardImg}></img>
                 </div>
@@ -283,18 +292,17 @@ class EditGeneralStats extends React.Component {
                         </div>
                         
                     </div>
-                    <br></br>
-                    <div>
-                        <div className="show-character-general-currhp">Update Health:</div>
-                        <form onSubmit={this.handleChange} className="show-character-general-updatehp">
+                    <div className="update-health">
+                        <form className="show-character-general-updatehp">
                             <input type="integer"
+                                className="update-health-bar"
                                 placeholder="Update Health"
                                 value={this.state.currentHp}
                                 onChange={health => this.setState({
                                     newHealth: health.target.value
                                 })}
                             />
-                            <button className="update-armor-btn" onClick={() => this.currentHealth()}>Update Health</button>
+                            <button className="update-armor-btn" onClick={() => this.updateHealth()}>Update Health</button>
                             <button className="update-armor-btn" onClick={() => this.fullHealth()}>Full Health</button>
                         </form>
                     </div>

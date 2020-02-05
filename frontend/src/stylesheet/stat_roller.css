@@ -156,19 +156,19 @@
     margin: 5px;
 }
 
-.dd-list-item-Ability.false {
+.dd-list-item-Ability {
     text-transform: capitalize;
     margin: 5px;
     cursor: pointer;
 }
 
-.dd-list-item-Ability.true {
+/* .dd-list-item-Ability.true {
     text-transform: capitalize;
     margin: 5px;
     text-decoration: line-through;
     cursor: pointer;
     color: grey;
-}
+} */
 
 .dd-list-item-Ability:Hover {
     background-color: #A6C8BC;
