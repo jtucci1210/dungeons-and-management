@@ -106,6 +106,7 @@ class CharacterCreateForm extends React.Component {
 
         this.props.createCharacter(characterObj)
             .then(result => this.props.history.push(`/characters/${result.character.char._id}`))
+            .catch(err => "")
 
     }
 
@@ -194,9 +195,20 @@ class CharacterCreateForm extends React.Component {
         )
     }
 
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
     render() {
-
+  
         return (
           <div className="main-page-background-img">
             <img src={splashImg} alt="background" className="splash-image" />
@@ -208,6 +220,7 @@ class CharacterCreateForm extends React.Component {
                     placeholder="character name"
                     onChange={this.handleChange("characterName")}
                   />
+                  <div className="character-errors">{this.renderErrors()}</div>
                 </div>
                 {!this.state.nextClicked ? (
                   <div className="stat-roller-component">

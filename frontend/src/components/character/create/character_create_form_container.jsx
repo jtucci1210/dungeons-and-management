@@ -61,7 +61,8 @@ const mapStateToProps = state => ({
     numSkills: "",
     currentUser: state.session.user,
     halfelfSkills: [],
-    halfelfAbilities: []
+    halfelfAbilities: [],
+    errors: state.errors.character
 });
 
 const mapDispatchToProps = dispatch => ({
