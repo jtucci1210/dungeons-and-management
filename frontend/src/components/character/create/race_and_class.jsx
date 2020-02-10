@@ -26,6 +26,8 @@ class RaceAndClass extends React.Component {
     }
 
     handleRaceClick(id) {
+
+        this.props.updateFinalStats(null)
        
         let chosenRace = this.state.races[id].title
 
@@ -60,6 +62,9 @@ class RaceAndClass extends React.Component {
     }
 
     handleSubRaceClick(id) {
+
+      this.props.updateFinalStats(null)
+
         let chosenRace = `${this.state.subraces[this.state.race][id].title}${this.state.race[0].toUpperCase()}${this.state.race.substring(1)}`
 
         this.setState(
