@@ -49,7 +49,13 @@ class Dice extends React.Component {
 		return this.diceArr.map(die => (
 			<span key={die}>
 				<h3>D{die}</h3>
-				<input type="text" id={`num${die}`} className="numDice" autoComplete="off"></input>
+				<input 
+					type="text" 
+					id={`num${die}`} 
+					className="numDice" 
+					autoComplete="off"
+					placeholder="#"
+				></input>
 				<div id={`diceRes${die}`}>-</div>
 			</span>
 		));
@@ -132,7 +138,6 @@ class Dice extends React.Component {
 	showRoll(diceNum, roll) {
 		let diceRes = document.getElementById(`diceRes${diceNum}`);
 		diceRes.innerHTML = roll;
-
 	}
 }
 

@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
 	getCampaignCharacters: charIds => dispatch(getCampaignCharacters(charIds)),
 	getCampaign: campId => dispatch(getCampaign(campId)),
 	editCharacter: (character) => dispatch(editCharacter(character)),
-	leaveCampaign: (id, charId) => leaveCampaign(id, charId)
+	leaveCampaign: (id, charId) => dispatch(leaveCampaign(id, charId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CampaignRoom);

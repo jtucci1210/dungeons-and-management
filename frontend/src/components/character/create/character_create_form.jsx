@@ -28,17 +28,34 @@ class CharacterCreateForm extends React.Component {
     }
 
     updateFinalStats(finalRace) {
+
+      //Get original roll values
+      let rolls = this.state.rolls
+      let order = this.state.order
+      let ogAbilities = Object.assign({}, this.state.abilities)
+      Object.values(ogAbilities).forEach( ability => {
+        let idx = order.indexOf(ability.title)
+        let ogValue = rolls[idx]
+        ability.value = ogValue
+      })
+
+      if (!finalRace) {
+        this.setState({
+          abilities: ogAbilities
+        })
+        return
+      }
+
         let allBonusAbilities = Object.keys(fullRace[finalRace].abilityScores)
-        let temp = this.state.abilities
-        Object.values(this.state.abilities).forEach( ability =>
+        let temp = Object.assign({},ogAbilities)
+        Object.values(temp).forEach( ability =>
            {
                if (allBonusAbilities.includes(ability.title)) {
+                 //Add's racial ability score bonus to current ability score value
                     ability.value = parseInt(ability.value) + parseInt(this.props.fullRace[finalRace].abilityScores[ability.title])
                 
             }
-        }
-
-        )
+        })
 
         this.setState({
             abilities: temp
