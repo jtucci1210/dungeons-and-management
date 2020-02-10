@@ -21,8 +21,11 @@ time consuming features based on the amount of logic required.
 
 ![character_build](frontend/src/components/tutorial/create_character_tutorial/12-done-with-race-and-class-selection.png)
 
+
 The campaign room relied on many components already being used in other parts of the app. To create clean and readable code
 many helper functions were defined and called in the rendering of the campaign.
+
+![campaign_room](frontend/public/Campaign_Ex.png)
 
 ```
 render() {
