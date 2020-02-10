@@ -1,4 +1,4 @@
-import { RECEIVE_CAMPAIGN_ERRORS, RECEIVE_CAMPAIGN } from '../actions/character_actions';
+import { RECEIVE_CAMPAIGN_ERRORS, RECEIVE_CAMPAIGN } from '../actions/campaign_actions';
 
 const _nullErrors = [];
 
