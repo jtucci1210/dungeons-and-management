@@ -33,7 +33,7 @@ class StatRoller extends React.Component {
     }
 
     handleClick(id, ability) {
-        let temp = this.state.abilities
+        let temp = Object.assign({},this.state.abilities)
         temp[id].selected = !temp[id].selected
         temp[id].value = this.state.rolls[ability]
         let temp2 = this.state.order
@@ -47,6 +47,7 @@ class StatRoller extends React.Component {
             abilities: temp,
             roll: temp2
         })
+
         this.props.updateState(
             {
                 abilities: temp,
