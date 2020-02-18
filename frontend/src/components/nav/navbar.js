@@ -45,7 +45,11 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className="nav-bar">
-                <div className="imma-spacer"></div>
+                {/* <div className="imma-spacer"></div> */}
+                <div 
+                    className="git-icon"
+                    onClick={() => window.open('https://github.com/jtucci1210/dungeons-and-management')}
+                ><i class="fab fa-github"></i></div>
                 <Link className="nav-bar-title" to='/'>
                     <h1 className='nav-bar-page-title'>Dungeons <i className="fab fa-d-and-d"></i> Management</h1>
                 </Link>

@@ -41,7 +41,7 @@
                     cursor: pointer;
                 }
 
-                .fa-linkedin {
+                .fa-linkedin, .fa-book-open {
                     padding: 10px;
                     font-size: 40px;
                     color: #4c613b;
@@ -49,4 +49,8 @@
             }
         }
     }
+}
+
+.photo {
+    width: 5rem;
 }

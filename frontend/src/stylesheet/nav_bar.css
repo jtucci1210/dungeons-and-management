@@ -103,3 +103,12 @@
     color:black;
     cursor: pointer;
 }
+
+.git-icon {
+    font-size: 3rem;
+    margin-left: 2rem;
+}
+.git-icon:hover {
+    cursor: pointer;
+    color: rgb(183, 245, 90);
+}

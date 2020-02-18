@@ -24,7 +24,7 @@ const App = () => (
             <ProtectedRoute exact path="/characters/:characterId" component={CharacterShowContainer} />
             <ProtectedRoute exact path="/characters/edit/:characterId" component={EditShowPage} />
             <ProtectedRoute exact path="/campaigns/:campId" component={CampaignContainer} />
-            <ProtectedRoute exact path="/tutorial/createcharacter" component={CharacterCreateTutorial}/>
+            <ProtectedRoute exact path="/tutorial/createCharacter" component={CharacterCreateTutorial}/>
             <ProtectedRoute exact path="/tutorial/campaign" component={CampaignTutorial}/>
             <Redirect to="/home"/>
         </Switch>
