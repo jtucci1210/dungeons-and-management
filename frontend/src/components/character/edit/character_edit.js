@@ -14,9 +14,6 @@ import splashImg from '../../splash/splash_image.jpg';
 class CharacterEditPage extends React.Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     loaded: false,
-        // }
         this.state = { ...this.props, loaded: false }
         this.updateState = this.updateState.bind(this)
         this.handleChange = this.handleChange.bind(this)

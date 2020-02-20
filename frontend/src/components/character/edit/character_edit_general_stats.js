@@ -83,11 +83,11 @@ class EditGeneralStats extends React.Component {
         };
         if (health < character.maxHp && health > 0 && health !== characterObj.currentHp && characterObj.currentHp !== "") {
             this.props.editCharacter(characterObj)
-            this.setState({
-                currentHp: ""
-            })
             health = ""
+            this.setState({ newHealth: '' })
+            window.location.reload()
         }
+
         
         
 
@@ -116,6 +116,7 @@ class EditGeneralStats extends React.Component {
         if (characterObj.currentHp <= character.maxHp && characterObj.currentHp >= 0 && character.currentHp !== characterObj.currentHp && characterObj.currentHp !== "") {
             this.props.editCharacter(characterObj)
             this.state.newHealth = ""
+            window.location.reload()
         }
     }
 
