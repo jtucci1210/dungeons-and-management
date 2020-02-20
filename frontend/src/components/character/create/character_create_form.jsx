@@ -86,7 +86,6 @@ class CharacterCreateForm extends React.Component {
         let maxHealth = this.state.finalRace === "hillDwarf" ? healthLevelOne(hd, conMod) + 1 : healthLevelOne(hd, conMod)
 
         let abilityObj = {}
-        debugger
         this.state.abilities.forEach(ability =>
             abilityObj[ability.title] = ability.value
             )
