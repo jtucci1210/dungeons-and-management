@@ -79,8 +79,8 @@ class EditGeneralStats extends React.Component {
             abilities: character.abilities,
             skills: character.skills,
             dateCreated: character.dateCreated
-
         };
+
         if (health < character.maxHp && health > 0 && health !== characterObj.currentHp && characterObj.currentHp !== "") {
             this.props.editCharacter(characterObj)
             health = ""
@@ -113,6 +113,7 @@ class EditGeneralStats extends React.Component {
             dateCreated: character.dateCreated
 
         };
+        debugger
         if (characterObj.currentHp <= character.maxHp && characterObj.currentHp >= 0 && character.currentHp !== characterObj.currentHp && characterObj.currentHp !== "") {
             this.props.editCharacter(characterObj)
             this.state.newHealth = ""
@@ -224,7 +225,6 @@ class EditGeneralStats extends React.Component {
         const character = this.props.character
         const fullClass = classUtil.fullClass
         const hitDice = fullClass[character.charClass].hitDice
-
         if (value === 'decrease' && newLevel > 1) {
             newLevel = newLevel - 1
         } else if (value === 'increase' && newLevel < 20) {
