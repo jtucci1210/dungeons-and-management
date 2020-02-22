@@ -48,12 +48,13 @@ class EditGeneralStats extends React.Component {
         )
     }
 
-    healthManagement(hitDice) {
+    healthManagement(hitDice, changeLevel) {
         const character = this.props.character
         const constitutionMod = math.mod(character.abilities.constitution)
         const characterClass = this.props.character.charClass
         const fullClass = classUtil.fullClass
-        const level = character.level
+        let level
+        changeLevel ? level = changeLevel : level = character.level
         const avgHealth = fullClass[characterClass].avgHealth
         const levelingUp = math.healthLevelUp(hitDice, constitutionMod, level, avgHealth)
         return (
@@ -94,7 +95,6 @@ class EditGeneralStats extends React.Component {
     }
 
     fullHealth() {
-
         const character = this.props.character
         const fullClass = classUtil.fullClass
         const hitDice = fullClass[character.charClass].hitDice
@@ -229,7 +229,6 @@ class EditGeneralStats extends React.Component {
         } else if (value === 'increase' && newLevel < 20) {
             newLevel = newLevel + 1
         }
-
         let characterObj = {
             _id: this.props.character._id,
             user: this.state.currentUserID,
@@ -239,7 +238,7 @@ class EditGeneralStats extends React.Component {
             armorType: this.props.character.armorType,
             level: newLevel,
             maxHp: this.healthManagement(hitDice),
-            currentHp: this.props.character.currentHp,
+            currentHp: this.healthManagement(hitDice, newLevel),
             abilities: this.props.character.abilities,
             skills: this.props.character.skills,
             dateCreated: this.props.character.dateCreated

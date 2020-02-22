@@ -116,7 +116,6 @@ class GeneralStats extends React.Component {
             <div className="show-character-general-maxhp">Max Health:</div>
             <div className="imma-blank-space"> </div>
             <div className="show-character-general-maxhp-info">
-              {/* {character.maxHp} */}
               {this.healthManagement(hitDice)}
             </div>
           </div>
