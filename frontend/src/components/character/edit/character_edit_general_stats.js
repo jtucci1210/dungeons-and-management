@@ -132,29 +132,31 @@ class EditGeneralStats extends React.Component {
 
     changeArmor() {
         let newArmor
-        if (this.state.armorType.includes("none")) {
+        let armorCheck
+        (this.state.armorType) ? armorCheck = this.state.armorType : armorCheck = "none"
+        if (armorCheck === "none") {
             newArmor = "noArmor"
-        } else if (this.state.armorType === "padded (light)") {
+        } else if (armorCheck === "padded (light)") {
             newArmor = "padded"
-        } else if (this.state.armorType === "leather (light)") {
+        } else if (armorCheck === "leather (light)") {
             newArmor = "leather"
-        } else if (this.state.armorType === "studded leather (light)") {
+        } else if (armorCheck === "studded leather (light)") {
             newArmor = "studdedLeather"
-        } else if (this.state.armorType === "hide (medium)") {
+        } else if (armorCheck === "hide (medium)") {
             newArmor = "hide"
-        } else if (this.state.armorType === "chain shirt (medium)") {
+        } else if (armorCheck === "chain shirt (medium)") {
             newArmor = "chainShirt"
-        } else if (this.state.armorType === "scale mail (medium)") {
+        } else if (armorCheck === "scale mail (medium)") {
             newArmor = "scaleMail"
-        } else if (this.state.armorType === "breastplate (medium)") {
+        } else if (armorCheck === "breastplate (medium)") {
             newArmor = "breastplate"
-        } else if (this.state.armorType === "half plate (medium)") {
+        } else if (armorCheck === "half plate (medium)") {
             newArmor = "halfPlate"
-        } else if (this.state.armorType === "ring mail (heavy)") {
+        } else if (armorCheck === "ring mail (heavy)") {
             newArmor = "ringMail"
-        } else if (this.state.armorType === "chain mail (heavy)") {
+        } else if (armorCheck === "chain mail (heavy)") {
             newArmor = "chainMail"
-        } else if (this.state.armorType === "splint (heavy)") {
+        } else if (armorCheck === "splint (heavy)") {
             newArmor = "splint"
         } else {
             newArmor = "plate"
