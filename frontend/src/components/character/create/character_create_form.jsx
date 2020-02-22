@@ -80,7 +80,7 @@ class CharacterCreateForm extends React.Component {
     handleSubmit() {
 
         let conScore = this.state.abilities[2].value
-        let conMod = mod(conScore, 2)
+        let conMod = mod(conScore)
         let hd = fullClass[this.state.class].hitDice
 
         let maxHealth = this.state.finalRace === "hillDwarf" ? healthLevelOne(hd, conMod) + 1 : healthLevelOne(hd, conMod)

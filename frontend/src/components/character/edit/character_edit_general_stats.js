@@ -113,7 +113,6 @@ class EditGeneralStats extends React.Component {
             dateCreated: character.dateCreated
 
         };
-        debugger
         if (characterObj.currentHp <= character.maxHp && characterObj.currentHp >= 0 && character.currentHp !== characterObj.currentHp && characterObj.currentHp !== "") {
             this.props.editCharacter(characterObj)
             this.state.newHealth = ""
