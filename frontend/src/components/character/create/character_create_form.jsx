@@ -41,7 +41,7 @@ class CharacterCreateForm extends React.Component {
 
       if (!finalRace) {
         this.setState({
-          abilities: ogAbilities
+          abilities: Object.values(ogAbilities)
         })
         return
       }
@@ -58,7 +58,7 @@ class CharacterCreateForm extends React.Component {
         })
 
         this.setState({
-            abilities: temp
+            abilities: Object.values(temp)
         })
 
     }
