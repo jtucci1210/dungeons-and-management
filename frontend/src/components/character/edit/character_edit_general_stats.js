@@ -239,7 +239,7 @@ class EditGeneralStats extends React.Component {
             charClass: this.props.character.charClass,
             armorType: this.props.character.armorType,
             level: newLevel,
-            maxHp: this.healthManagement(hitDice),
+            maxHp: this.healthManagement(hitDice, newLevel),
             currentHp: this.healthManagement(hitDice, newLevel),
             abilities: this.props.character.abilities,
             skills: this.props.character.skills,
