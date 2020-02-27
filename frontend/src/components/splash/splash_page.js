@@ -20,8 +20,6 @@ class Splash extends React.Component {
                     <br/>
                     Dungeons and Management is a character building and game play aid for the popular role playing game, Dungeons and Dragons.
                     <br />
-                    <br />
-                    You will find images of what our website has to offer below:
                   </p>
                 </div>
                 <div className="splash-character-build">
