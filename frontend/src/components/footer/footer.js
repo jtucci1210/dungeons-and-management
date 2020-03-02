@@ -49,10 +49,9 @@ class Footer extends React.Component {
                   className="link-in-tag"
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="macallan.space"
+                  href="https://www.linkedin.com/in/macallan-savett/"
                 >
-                  <i className="fas fa-book-open"></i>
-                  <image src="./profile_photo.JPG"></image>
+                <i className="fab fa-linkedin"></i>
                 </a>
                 <span>Macallan Savett</span>
               </div>
