@@ -40,21 +40,6 @@ class SignupForm extends React.Component {
             }})
     }
 
-
-
-
-    // renderErrors() {
-    //     return (
-    //         <ul>
-    //            {this.props.errors.map((error,idx) => (
-    //                <li key={`error-${idx}`}>
-    //                    {error}
-    //                </li>
-    //            ))}
-    //         </ul>
-    //     );
-    // }
-
     render() {
         return (
           <div className="signup-form-container">
