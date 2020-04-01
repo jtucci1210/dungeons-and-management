@@ -17,7 +17,23 @@ class EditMainStats extends React.Component {
         this.handleCheckbox = this.handleCheckbox.bind(this)
         this.showSkillMod = this.showSkillMod.bind(this)
         this.addOrRemoveLevel = this.addOrRemoveLevel.bind(this)
+        this.healthManagement = this.healthManagement.bind(this)
     }
+    
+    healthManagement(hitDice, changeLevel) {
+        const character = this.props.character
+        const constitutionMod = math.mod(character.abilities.constitution)
+        const characterClass = this.props.character.charClass
+        const fullClass = classUtil.fullClass
+        let level
+        changeLevel ? level = changeLevel : level = character.level
+        const avgHealth = fullClass[characterClass].avgHealth
+        const levelingUp = math.healthLevelUp(hitDice, constitutionMod, level, avgHealth)
+        return (
+            levelingUp
+        )
+    }
+
 
     addOrRemoveLevel(e) {
         const value = e.target.name
